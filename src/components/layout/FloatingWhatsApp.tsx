@@ -20,10 +20,10 @@ export default function FloatingWhatsApp() {
         className="group hidden sm:flex fixed bottom-6 right-6 z-50 items-center bg-cobalt-950 hover:bg-crimson-600 text-white border border-white/20 shadow-studio transition-colors duration-300"
       >
         <div className="flex flex-col px-4 py-2.5 border-r border-white/15">
-          <span className="font-mono text-[9px] tracking-[0.18em] text-cobalt-200 group-hover:text-white/90">
+          <span className="font-mono text-[10px] tracking-[0.16em] text-cobalt-200 group-hover:text-white/90">
             WHATSAPP DANIŞMA HATTI
           </span>
-          <span className="text-xs font-bold tracking-tight">
+          <span className="text-[13px] font-extrabold tracking-tight">
             Ücretsiz 30 Dk Tanışma Planla
           </span>
         </div>
@@ -45,7 +45,7 @@ export default function FloatingWhatsApp() {
           {/* Phone Call (Col 1-5) */}
           <a
             href={siteConfig.contact.phoneHref}
-            className="col-span-5 bg-white/10 hover:bg-white/15 active:bg-white/20 border border-white/20 text-white h-11 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+            className="col-span-5 bg-white/10 hover:bg-white/15 active:bg-white/20 border border-white/20 text-white h-12 text-[13.5px] font-extrabold flex items-center justify-center gap-1.5 transition-colors"
           >
             <Phone className="h-4 w-4 text-crimson-500 shrink-0" />
             <span>Hemen Ara</span>
@@ -56,7 +56,7 @@ export default function FloatingWhatsApp() {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-7 bg-crimson-600 hover:bg-crimson-700 active:bg-crimson-800 text-white h-11 text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-crimson transition-colors"
+            className="col-span-7 bg-crimson-600 hover:bg-crimson-700 active:bg-crimson-800 text-white h-12 text-[13.5px] font-extrabold flex items-center justify-center gap-1.5 shadow-crimson transition-colors"
           >
             <svg
               viewBox="0 0 24 24"

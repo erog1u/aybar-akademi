@@ -40,7 +40,7 @@ export default function HakkimizdaPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tightest leading-[1.06]"
+                className="text-[2.15rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tightest leading-[1.06]"
                 lines={[
                   "Hakkımızda:",
                   "Çeyrek Asrı Aşan",
@@ -75,7 +75,7 @@ export default function HakkimizdaPage() {
                     <div className="font-serif font-bold text-lg sm:text-2xl text-cobalt-800">
                       {siteConfig.experienceYears} Yıl
                     </div>
-                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                    <div className="text-xs sm:text-[13px] text-ink-muted mt-1 font-semibold leading-tight">
                       Deneyim
                     </div>
                   </div>
@@ -83,7 +83,7 @@ export default function HakkimizdaPage() {
                     <div className="font-serif font-bold text-lg sm:text-2xl text-crimson-600">
                       %100
                     </div>
-                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                    <div className="text-xs sm:text-[13px] text-ink-muted mt-1 font-semibold leading-tight">
                       Maarif Uyum
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export default function HakkimizdaPage() {
                     <div className="font-serif font-bold text-lg sm:text-2xl text-cobalt-900">
                       39 + 81
                     </div>
-                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                    <div className="text-xs sm:text-[13px] text-ink-muted mt-1 font-semibold leading-tight">
                       İlçe + 81 İl
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function HakkimizdaPage() {
                     <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink leading-snug">
                       {sol.title}
                     </h3>
-                    <p className="mt-4 text-sm sm:text-base text-ink-muted leading-relaxed">
+                    <p className="mt-4 text-[15px] sm:text-base text-ink-muted leading-relaxed">
                       {sol.description}
                     </p>
                   </div>
@@ -146,27 +146,27 @@ export default function HakkimizdaPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-cobalt-900 text-white p-7 sm:p-10 border border-cobalt-900 shadow-studio">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-5 shadow-crimson">
-                <MapPin className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs sm:text-[13px] font-extrabold mb-5 shadow-crimson">
+                <MapPin className="h-4 w-4" />
                 <span>Yüz Yüze Özel Ders</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
                 {aboutContent.reachItems[0].title}
               </h3>
-              <p className="mt-3 text-base text-cobalt-100 leading-relaxed">
+              <p className="mt-3.5 text-[15px] sm:text-base text-cobalt-100/95 leading-relaxed">
                 {aboutContent.reachItems[0].description}
               </p>
             </div>
 
             <div className="bg-white text-ink p-7 sm:p-10 border border-cobalt-900/15 shadow-card">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-5 shadow-sm">
-                <Globe2 className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-cobalt-700 text-white text-xs sm:text-[13px] font-extrabold mb-5 shadow-sm">
+                <Globe2 className="h-4 w-4" />
                 <span>Canlı Online Eğitim</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest text-ink">
                 {aboutContent.reachItems[1].title}
               </h3>
-              <p className="mt-3 text-base text-ink-muted leading-relaxed">
+              <p className="mt-3.5 text-[15px] sm:text-base text-ink-muted leading-relaxed">
                 {aboutContent.reachItems[1].description}
               </p>
             </div>

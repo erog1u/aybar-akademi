@@ -54,7 +54,7 @@ export default function IletisimPage() {
           <MaskedLines
             as="h1"
             immediate
-            className="text-3xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tightest leading-[1.06] max-w-3xl"
+            className="text-[2.15rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tightest leading-[1.06] max-w-3xl"
             lines={[
               "30 Dakikalık Ücretsiz Tanışma",
               <span key="hl" className="font-serif italic font-medium text-cobalt-200">
@@ -84,7 +84,7 @@ export default function IletisimPage() {
                 <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink">
                   Özel Ders & Tanışma Seansı Planlayıcı
                 </h2>
-                <p className="mt-1 text-sm text-ink-muted">
+                <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
                   Seçimlerinizi yapıp tek tıkla doğrudan WhatsApp danışma
                   hattımıza iletebilirsiniz.
                 </p>
@@ -92,9 +92,14 @@ export default function IletisimPage() {
 
               {/* Step 1: Program Category */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-cobalt-800 mb-3">
-                  1. Eğitim Alanı Seçin
-                </label>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="h-6 w-6 rounded-full bg-cobalt-700 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    1
+                  </span>
+                  <label className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
+                    Eğitim Alanı Seçin
+                  </label>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {programCategories.map((cat) => {
                     const active = selectedProgram === cat.title;
@@ -103,10 +108,10 @@ export default function IletisimPage() {
                         key={cat.id}
                         type="button"
                         onClick={() => setSelectedProgram(cat.title)}
-                        className={`text-left min-h-[42px] px-4 py-3 text-xs sm:text-sm font-bold border transition-colors ${
+                        className={`text-left min-h-[46px] px-4 py-3.5 text-sm sm:text-[15px] font-bold border transition-colors ${
                           active
                             ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
-                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700"
+                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700 hover:bg-cobalt-50/50"
                         }`}
                       >
                         {cat.title}
@@ -118,9 +123,14 @@ export default function IletisimPage() {
 
               {/* Step 2: Format */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-cobalt-800 mb-3">
-                  2. Ders Formatı Tercihi
-                </label>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="h-6 w-6 rounded-full bg-crimson-600 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    2
+                  </span>
+                  <label className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
+                    Ders Formatı Tercihi
+                  </label>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {[
                     "İstanbul Yüz Yüze Özel Ders",
@@ -132,10 +142,10 @@ export default function IletisimPage() {
                         key={item}
                         type="button"
                         onClick={() => setFormat(item)}
-                        className={`text-left min-h-[42px] px-4 py-3 text-xs sm:text-sm font-bold border transition-colors ${
+                        className={`text-left min-h-[46px] px-4 py-3.5 text-sm sm:text-[15px] font-bold border transition-colors ${
                           active
                             ? "bg-crimson-600 text-white border-crimson-600 shadow-crimson"
-                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700"
+                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700 hover:bg-cobalt-50/50"
                         }`}
                       >
                         {item}
@@ -145,46 +155,57 @@ export default function IletisimPage() {
                 </div>
               </div>
 
-              {/* Step 3: Details — text-base sm:text-sm prevents iOS Safari auto-zoom */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-ink mb-1.5">
-                    Öğrenci veya Veli Adı Soyadı
-                  </label>
-                  <input
-                    type="text"
-                    value={studentName}
-                    onChange={(e) => setStudentName(e.target.value)}
-                    placeholder="Örn: Ayşe Yılmaz"
-                    className="w-full min-h-[44px] px-4 py-3 text-base sm:text-sm bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
-                  />
+              {/* Step 3: Details — text-base sm:text-[15px] prevents iOS Safari auto-zoom */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2.5 mb-1">
+                  <span className="h-6 w-6 rounded-full bg-cobalt-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    3
+                  </span>
+                  <span className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
+                    Öğrenci & İletişim Bilgileri
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-bold text-ink mb-1.5">
+                      Öğrenci veya Veli Adı Soyadı
+                    </label>
+                    <input
+                      type="text"
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      placeholder="Örn: Ayşe Yılmaz"
+                      className="w-full min-h-[48px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-ink mb-1.5">
+                      Sınıf veya Hedef Sınav / Ders
+                    </label>
+                    <input
+                      type="text"
+                      value={gradeOrGoal}
+                      onChange={(e) => setGradeOrGoal(e.target.value)}
+                      placeholder="Örn: 12. Sınıf YKS Matematik / IELTS"
+                      className="w-full min-h-[48px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-ink mb-1.5">
-                    Sınıf veya Hedef Sınav / Ders
+                  <label className="block text-sm font-bold text-ink mb-1.5">
+                    İlçe veya Eklemek İstediğiniz Not (İsteğe Bağlı)
                   </label>
-                  <input
-                    type="text"
-                    value={gradeOrGoal}
-                    onChange={(e) => setGradeOrGoal(e.target.value)}
-                    placeholder="Örn: 12. Sınıf YKS Matematik / IELTS"
-                    className="w-full min-h-[44px] px-4 py-3 text-base sm:text-sm bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+                  <textarea
+                    rows={3}
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    placeholder="Örn: Kadıköy yüz yüze ders talep ediyoruz..."
+                    className="w-full min-h-[92px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-ink mb-1.5">
-                  İlçe veya Eklemek İstediğiniz Not (İsteğe Bağlı)
-                </label>
-                <textarea
-                  rows={3}
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
-                  placeholder="Örn: Kadıköy yüz yüze ders talep ediyoruz..."
-                  className="w-full min-h-[88px] px-4 py-3 text-base sm:text-sm bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
-                />
               </div>
 
               {/* Live WhatsApp Message Preview */}
@@ -192,25 +213,25 @@ export default function IletisimPage() {
                 <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-cobalt-900/10">
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-cobalt-900">
+                    <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-wider text-cobalt-900">
                       Canlı WhatsApp Mesaj Önizlemesi
                     </span>
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-mono text-ink-muted">
+                  <span className="text-xs font-mono text-ink-muted">
                     Otomatik Hazırlanır
                   </span>
                 </div>
-                <div className="p-3.5 bg-white border border-cobalt-900/10 text-xs sm:text-sm font-mono text-ink leading-relaxed whitespace-pre-wrap select-all">
+                <div className="p-4 bg-white border border-cobalt-900/10 text-sm sm:text-[15px] font-mono text-ink leading-relaxed whitespace-pre-wrap select-all">
                   {composedMessage}
                 </div>
-                <div className="mt-2 text-[11px] text-ink-muted">
+                <div className="mt-2 text-xs sm:text-[13px] text-ink-muted">
                   Gönder butonuna bastığınızda bu metin hazır olarak WhatsApp sohbetinize aktarılır.
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 bg-crimson-600 hover:bg-cobalt-900 text-white py-4 px-6 text-sm font-extrabold transition-colors shadow-crimson"
+                className="w-full min-h-[50px] inline-flex items-center justify-center gap-2.5 bg-crimson-600 hover:bg-cobalt-900 text-white py-4 px-6 text-[15px] sm:text-base font-extrabold transition-colors shadow-crimson"
               >
                 <span>WhatsApp Üzerinden Hemen Gönder</span>
                 <ArrowUpRight className="h-4 w-4" />
@@ -220,7 +241,7 @@ export default function IletisimPage() {
             {/* Right 5 Columns: Direct Contact Info */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-cobalt-950 text-white p-7 sm:p-8 border border-cobalt-900 shadow-studio space-y-6">
-                <h3 className="text-xl font-extrabold tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight">
                   Doğrudan İletişim Kanallarımız
                 </h3>
 
@@ -231,7 +252,7 @@ export default function IletisimPage() {
                     </div>
                     <a
                       href={siteConfig.contact.phoneHref}
-                      className="inline-flex items-center gap-2.5 text-xl font-extrabold text-white hover:text-crimson-500 transition-colors"
+                      className="inline-flex items-center gap-2.5 text-xl sm:text-2xl font-extrabold text-white hover:text-crimson-500 transition-colors"
                     >
                       <Phone className="h-5 w-5 text-crimson-500" />
                       <span>{siteConfig.contact.phoneDisplay}</span>
@@ -242,7 +263,7 @@ export default function IletisimPage() {
                     <div className="text-xs text-cobalt-300 mb-1">E-Posta</div>
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-cobalt-100 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-semibold text-cobalt-100 hover:text-white transition-colors"
                     >
                       <Mail className="h-4 w-4 text-crimson-500" />
                       <span>{siteConfig.contact.email}</span>
@@ -254,7 +275,7 @@ export default function IletisimPage() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white py-3.5 px-5 text-sm font-bold transition-colors"
+                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white py-4 px-5 text-[15px] font-extrabold transition-colors"
                 >
                   <span>WhatsApp ile Anında Yazın</span>
                   <ArrowUpRight className="h-4 w-4" />
@@ -265,10 +286,10 @@ export default function IletisimPage() {
                 <div className="flex items-start gap-3.5">
                   <MapPin className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-extrabold text-base text-ink">
+                    <h4 className="font-extrabold text-base sm:text-lg text-ink">
                       {siteConfig.contact.locations.faceToFaceTitle}
                     </h4>
-                    <p className="mt-1 text-sm text-ink-muted leading-relaxed">
+                    <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
                       {siteConfig.contact.locations.faceToFaceDetail}
                     </p>
                   </div>
@@ -277,10 +298,10 @@ export default function IletisimPage() {
                 <div className="pt-5 border-t border-cobalt-900/10 flex items-start gap-3.5">
                   <Globe2 className="h-5 w-5 text-cobalt-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-extrabold text-base text-ink">
+                    <h4 className="font-extrabold text-base sm:text-lg text-ink">
                       {siteConfig.contact.locations.onlineTitle}
                     </h4>
-                    <p className="mt-1 text-sm text-ink-muted leading-relaxed">
+                    <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
                       {siteConfig.contact.locations.onlineDetail}
                     </p>
                   </div>

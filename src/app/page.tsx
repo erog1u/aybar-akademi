@@ -179,12 +179,12 @@ function StickyPrincipleCard({
                   <div className="flex items-start gap-3">
                     <span className="mt-1.5 h-2 w-2 bg-crimson-600 shrink-0" />
                     <div>
-                      <h4 className="font-bold text-sm sm:text-base tracking-tight">
+                      <h4 className="font-extrabold text-base sm:text-lg tracking-tight">
                         {item.title}
                       </h4>
                       <p
-                        className={`mt-1.5 text-xs sm:text-sm leading-relaxed ${
-                          isDark ? "text-cobalt-100/90" : "text-ink-muted"
+                        className={`mt-2 text-[15px] sm:text-base leading-relaxed ${
+                          isDark ? "text-cobalt-100/95" : "text-ink-muted"
                         }`}
                       >
                         {item.detail}
@@ -257,7 +257,7 @@ export default function HomePage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-4xl sm:text-6xl xl:text-[4.3rem] font-extrabold tracking-tightest leading-[1.04]"
+                className="text-[2.35rem] sm:text-6xl xl:text-[4.3rem] font-extrabold tracking-tightest leading-[1.04]"
                 lines={[
                   "Her Öğrenciye",
                   "Aynı Eğitim Değil,",
@@ -392,50 +392,50 @@ export default function HomePage() {
       {/* =================================================================== */}
       {/* 2. PROMINENT SUBPAGE GATEWAY ("Tüm Bölümleri Hızlıca Keşfedin")      */}
       {/* =================================================================== */}
-      <section className="bg-cobalt-950 text-white border-b border-white/15 py-10 sm:py-12">
+      <section className="bg-cobalt-950 text-white border-b border-white/15 py-10 sm:py-14">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
             <div className="flex items-center gap-2.5">
-              <span className="h-2 w-2 bg-crimson-500 inline-block" />
-              <h2 className="text-sm sm:text-base font-extrabold tracking-tight text-white">
+              <span className="h-2.5 w-2.5 bg-crimson-500 inline-block" />
+              <h2 className="text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-white">
                 Sitemizin Tüm Bölümlerini Keşfedin
               </h2>
             </div>
-            <span className="text-xs text-cobalt-200">
+            <span className="text-xs sm:text-[13.5px] text-cobalt-200 font-medium">
               Detaylı incelemek istediğiniz bölüme tıklayın
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
             {SUBPAGE_GATEWAY.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group relative bg-cobalt-900/90 hover:bg-cobalt-800 border border-white/15 hover:border-white/40 p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                  className="group relative bg-cobalt-900/90 hover:bg-cobalt-800 border border-white/15 hover:border-white/40 p-5 flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="inline-flex items-center gap-2">
                         <span className="font-mono text-xs font-bold text-cobalt-300">
                           0{idx + 1}
                         </span>
-                        <span className="px-2 py-0.5 bg-crimson-600 text-white text-[10px] font-bold tracking-wider">
+                        <span className="px-2.5 py-0.5 bg-crimson-600 text-white text-[11px] font-extrabold tracking-wider">
                           {item.accent}
                         </span>
                       </span>
                       <Icon className="h-4 w-4 text-cobalt-200 group-hover:text-white transition-colors shrink-0" />
                     </div>
-                    <h3 className="text-base font-extrabold tracking-tight text-white leading-snug">
+                    <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-white leading-snug">
                       {item.title}
                     </h3>
-                    <p className="mt-1.5 text-xs sm:text-[13px] text-cobalt-100/90 leading-relaxed">
+                    <p className="mt-2 text-sm sm:text-[15px] text-cobalt-100/90 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="mt-3.5 pt-2.5 border-t border-white/12 flex items-center justify-between text-xs font-bold text-white">
+                  <div className="mt-4 pt-3.5 border-t border-white/12 flex items-center justify-between text-[13.5px] font-extrabold text-white">
                     <span className="text-cobalt-100 group-hover:text-white transition-colors">
                       Sayfayı Aç
                     </span>
@@ -573,7 +573,7 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <p className="text-sm text-cobalt-100 leading-relaxed mb-6">
+                  <p className="text-[15px] sm:text-base text-cobalt-100 leading-relaxed mb-6">
                     Dersler aynı, öğrenme şekli değişti. Aybar Akademi’de yeni
                     nesil Maarif Modeline uyumlu birebir ders, sınav analizi ve
                     koçlukla adım adım hazırlanırsın.
@@ -607,10 +607,10 @@ export default function HomePage() {
                       {sol.index}
                     </span>
                     <div>
-                      <h3 className="text-lg font-extrabold tracking-tight text-ink">
+                      <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-ink">
                         {sol.title}
                       </h3>
-                      <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">
+                      <p className="mt-2 text-[15px] sm:text-base text-ink-muted leading-relaxed">
                         {sol.description}
                       </p>
                     </div>
@@ -624,10 +624,10 @@ export default function HomePage() {
                     <MapPin className="h-4 w-4" />
                     <span>Yüz Yüze Özel Ders</span>
                   </div>
-                  <div className="font-bold text-base">
+                  <div className="font-extrabold text-base sm:text-lg">
                     İstanbul’un Tüm İlçelerinde
                   </div>
-                  <p className="mt-1 text-xs text-cobalt-100/90 leading-relaxed">
+                  <p className="mt-2 text-[14.5px] sm:text-[15px] text-cobalt-100/90 leading-relaxed">
                     Evinizin konforunda, güvenli ve verimli ortamda birebir yüz
                     yüze özel ders.
                   </p>
@@ -638,12 +638,26 @@ export default function HomePage() {
                     <Globe2 className="h-4 w-4 text-crimson-600" />
                     <span>Canlı Online Eğitim</span>
                   </div>
-                  <div className="font-bold text-base">Tüm Türkiye’de</div>
-                  <p className="mt-1 text-xs text-ink-muted leading-relaxed">
+                  <div className="font-extrabold text-base sm:text-lg">Tüm Türkiye’de</div>
+                  <p className="mt-2 text-[14.5px] sm:text-[15px] text-ink-muted leading-relaxed">
                     Coğrafi sınırları kaldıran yüksek verimli, interaktif online
                     eğitim modelleri.
                   </p>
                 </div>
+              </div>
+
+              {/* Guided directional link */}
+              <div className="mt-8 pt-6 border-t border-cobalt-900/12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <Link
+                  href="/hakkimizda"
+                  className="group inline-flex items-center gap-2 text-[15px] sm:text-base font-extrabold text-cobalt-700 hover:text-crimson-600 transition-colors"
+                >
+                  <span>Kurumsal Hikâyemizi ve Hizmet Ağımızı İnceleyin</span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <span className="text-xs sm:text-sm text-ink-muted font-medium">
+                  33 Yıllık Tecrübe · İstanbul 39 İlçe · Tüm Türkiye
+                </span>
               </div>
             </div>
           </div>
@@ -701,7 +715,7 @@ export default function HomePage() {
                       {isSelected && (
                         <span className="absolute left-0 right-0 bottom-0 h-1 lg:right-auto lg:top-0 lg:h-auto lg:w-1.5 bg-crimson-600" />
                       )}
-                      <span className="font-extrabold text-sm sm:text-base tracking-tight whitespace-nowrap lg:whitespace-normal">
+                      <span className="font-extrabold text-[15px] sm:text-base tracking-tight whitespace-nowrap lg:whitespace-normal">
                         {cat.title}
                       </span>
                       <span
@@ -729,13 +743,13 @@ export default function HomePage() {
                   transition={{ duration: 0.3, ease: LUXURY_EASE }}
                 >
                   <div className="pb-6 mb-6 border-b border-cobalt-900/10">
-                    <div className="text-xs font-bold text-crimson-600 mb-1.5">
+                    <div className="text-xs sm:text-[13px] font-extrabold text-crimson-600 mb-1.5">
                       {activeCategory.tagline}
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest text-ink">
                       {activeCategory.title}
                     </h3>
-                    <p className="mt-2 text-sm sm:text-base text-ink-muted leading-relaxed">
+                    <p className="mt-2 text-[15px] sm:text-base text-ink-muted leading-relaxed">
                       {activeCategory.summary}
                     </p>
                   </div>
@@ -751,12 +765,12 @@ export default function HomePage() {
                         }`}
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                          <h4 className="font-extrabold text-base text-ink tracking-tight">
+                          <h4 className="font-extrabold text-lg sm:text-xl text-ink tracking-tight">
                             {item.title}
                           </h4>
                           {item.badge && (
                             <span
-                              className={`text-[11px] px-2.5 py-0.5 font-bold ${
+                              className={`text-xs px-2.5 py-0.5 font-bold ${
                                 item.featured
                                   ? "bg-crimson-600 text-white"
                                   : "bg-cobalt-100 text-cobalt-900"
@@ -768,7 +782,7 @@ export default function HomePage() {
                         </div>
 
                         {item.leaderNote && (
-                          <p className="text-xs font-semibold text-cobalt-800 mb-2">
+                          <p className="text-sm font-semibold text-cobalt-800 mb-2">
                             {item.leaderNote}
                           </p>
                         )}
@@ -777,10 +791,10 @@ export default function HomePage() {
                           {item.subjects.map((sub, sIdx) => (
                             <span
                               key={sIdx}
-                              className={`text-xs px-2.5 py-1 border ${
+                              className={`text-[13px] sm:text-sm px-3 py-1.5 border ${
                                 sub.includes("KOÇLUK")
                                   ? "bg-crimson-600 text-white border-crimson-600 font-bold"
-                                  : "bg-white text-ink-muted border-cobalt-900/10"
+                                  : "bg-white text-ink font-medium border-cobalt-900/10"
                               }`}
                             >
                               {sub}
@@ -796,10 +810,10 @@ export default function HomePage() {
               <div className="mt-8 pt-6 border-t border-cobalt-900/10 flex flex-wrap items-center justify-between gap-4">
                 <Link
                   href={`/egitim-programlarimiz#${activeCategory.id}`}
-                  className="group inline-flex items-center gap-2 text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors"
+                  className="group inline-flex items-center gap-2 text-[15px] sm:text-base font-extrabold text-cobalt-700 hover:text-crimson-600 transition-colors"
                 >
                   <span>Tüm {activeCategory.title} Detaylarını Gör</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
 
                 <a
@@ -808,7 +822,7 @@ export default function HomePage() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white px-5 py-2.5 text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white px-5 py-3 text-[13.5px] sm:text-sm font-extrabold transition-colors shadow-crimson"
                 >
                   <span>WhatsApp ile Bilgi Al</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -829,13 +843,13 @@ export default function HomePage() {
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
                 KPSS Eğitim Bilimleri Birebir Özel Dersleri
               </h3>
-              <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
+              <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/90 leading-relaxed">
                 Tüm Eğitim Bilimleri dersleri bizzat kurumumuzun kurucusu Bahadır
                 Aybar tarafından yüksek akademik standartlarda verilmektedir.
               </p>
               <Link
                 href="/egitim-programlarimiz#sinav-hazirlik"
-                className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-crimson-600 border border-white/20 text-xs font-bold text-white transition-colors"
+                className="mt-6 inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-crimson-600 border border-white/20 text-sm font-extrabold text-white transition-colors"
               >
                 <span>Programı İncele</span>
                 <ArrowUpRight className="h-4 w-4" />
@@ -852,14 +866,14 @@ export default function HomePage() {
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
                 Üniversite Düzeyi: Felsefe, Sosyoloji ve Psikoloji
               </h3>
-              <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
+              <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/90 leading-relaxed">
                 Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören
                 üniversite öğrencilerine yönelik tüm akademik dersler bizzat
                 kurumumuzun kurucusu tarafından verilmektedir.
               </p>
               <Link
                 href="/egitim-programlarimiz#universite-akademik"
-                className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-cobalt-700 border border-white/20 text-xs font-bold text-white transition-colors"
+                className="mt-6 inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-cobalt-700 border border-white/20 text-sm font-extrabold text-white transition-colors"
               >
                 <span>Detayları Gör</span>
                 <ArrowUpRight className="h-4 w-4" />
@@ -931,7 +945,7 @@ export default function HomePage() {
                       <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-white leading-snug">
                         {sec.title}
                       </h3>
-                      <p className="mt-2.5 text-xs sm:text-sm text-cobalt-200/90 leading-relaxed">
+                      <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/90 leading-relaxed">
                         {sec.intro}
                       </p>
                     </div>
@@ -982,10 +996,10 @@ export default function HomePage() {
               <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4">
                 Tam Öğrenme Modeli
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tightest">
                 {whyDifferentContent.pedagogicalOutcome.title}
               </h3>
-              <p className="mt-3 text-sm sm:text-base text-cobalt-50/95 leading-relaxed">
+              <p className="mt-3 text-[15px] sm:text-base text-cobalt-50/95 leading-relaxed">
                 {whyDifferentContent.pedagogicalOutcome.body}
               </p>
             </div>

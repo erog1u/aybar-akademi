@@ -19,15 +19,15 @@ import { siteConfig } from "@/config/site";
 import { AybarCrestEmblem } from "@/components/brand/AybarCrest";
 
 type ViewportMode = "mobile" | "dual" | "tablet" | "desktop";
+type ZoomMode = "actual" | "fit";
 
 /**
  * iPhone 15 Pro Gerçek Donanım Çerçevesi
  * -------------------------------------------------------------
- * Sabit donanım ölçüleri: 414 × 868 px dış titanyum şasi,
- * 12px bezel, 390 × 844 px iç retina ekran (9:19.5 en/boy oranı).
+ * Sabit donanım ölçüleri: 410 × 804 px dış titanyum şasi,
+ * 390 × 780 px iç retina ekran (iOS Safari gerçek web alanı).
  * Dynamic Island, iOS durum çubuğu ve Home Indicator içerir.
- * Dışarıdan aktarılan CSS donanım ölçeği (scale) ile herhangi bir
- * pencere yüksekliğinde dikey basıklık OLMADAN kusursuz ölçeklenir.
+ * scale === 1 durumunda CSS transform uygulanmaz, 1:1 netlikte çizilir.
  */
 function IPhone15ProFrame({
   route,
@@ -38,8 +38,8 @@ function IPhone15ProFrame({
   reloadKey: number;
   scale?: number;
 }) {
-  const scaledWidth = Math.round(414 * scale);
-  const scaledHeight = Math.round(868 * scale);
+  const scaledWidth = Math.round(410 * scale);
+  const scaledHeight = Math.round(804 * scale);
 
   return (
     <div
@@ -51,15 +51,15 @@ function IPhone15ProFrame({
     >
       <div
         style={{
-          width: 414,
-          height: 868,
-          transform: `scale(${scale})`,
+          width: 410,
+          height: 804,
+          transform: scale !== 1 ? `scale(${scale})` : undefined,
           transformOrigin: "top left",
         }}
         className="absolute top-0 left-0"
       >
         {/* Dış Titanyum Şasi & Donanım Butonları */}
-        <div className="w-[414px] h-[868px] p-[12px] rounded-[54px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#090F1C] shadow-[0_30px_90px_rgba(0,0,0,0.7)] ring-2 ring-white/20 relative select-none">
+        <div className="w-[410px] h-[804px] px-[10px] py-[12px] rounded-[50px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#090F1C] shadow-[0_30px_90px_rgba(0,0,0,0.7)] ring-2 ring-white/20 relative select-none">
           {/* Anten Çizgileri */}
           <div className="absolute left-[36px] -top-[1px] w-[3px] h-[2px] bg-[#475569] rounded-full" />
           <div className="absolute right-[36px] -top-[1px] w-[3px] h-[2px] bg-[#475569] rounded-full" />
@@ -67,24 +67,24 @@ function IPhone15ProFrame({
           <div className="absolute right-[36px] -bottom-[1px] w-[3px] h-[2px] bg-[#475569] rounded-full" />
 
           {/* Sol Yan Donanım Butonları (Aksiyon + Ses Artır/Azalt) */}
-          <div className="absolute -left-[3px] top-[115px] w-[3px] h-[26px] bg-[#475569] rounded-l-sm shadow-sm" />
-          <div className="absolute -left-[3px] top-[158px] w-[3px] h-[52px] bg-[#475569] rounded-l-sm shadow-sm" />
-          <div className="absolute -left-[3px] top-[222px] w-[3px] h-[52px] bg-[#475569] rounded-l-sm shadow-sm" />
+          <div className="absolute -left-[3px] top-[108px] w-[3px] h-[24px] bg-[#475569] rounded-l-sm shadow-sm" />
+          <div className="absolute -left-[3px] top-[148px] w-[3px] h-[48px] bg-[#475569] rounded-l-sm shadow-sm" />
+          <div className="absolute -left-[3px] top-[208px] w-[3px] h-[48px] bg-[#475569] rounded-l-sm shadow-sm" />
 
           {/* Sağ Yan Güç/Kilit Butonu */}
-          <div className="absolute -right-[3px] top-[178px] w-[3px] h-[78px] bg-[#475569] rounded-r-sm shadow-sm" />
+          <div className="absolute -right-[3px] top-[168px] w-[3px] h-[72px] bg-[#475569] rounded-r-sm shadow-sm" />
 
           {/* Titanyum İç Yansıma Halkası */}
-          <div className="absolute inset-0 rounded-[54px] ring-1 ring-inset ring-white/10 pointer-events-none" />
+          <div className="absolute inset-0 rounded-[50px] ring-1 ring-inset ring-white/10 pointer-events-none" />
 
-          {/* İç Ekran: 390 × 844 px */}
-          <div className="w-[390px] h-[844px] flex flex-col bg-white overflow-hidden rounded-[42px] ring-1 ring-black/60 shadow-inner">
+          {/* İç Ekran: 390 × 780 px (Safari Web Görünümü) */}
+          <div className="w-[390px] h-[780px] flex flex-col bg-white overflow-hidden rounded-[38px] ring-1 ring-black/60 shadow-inner">
             {/* iOS 17 Durum Çubuğu + Dinamik Ada */}
-            <div className="h-11 bg-cobalt-950 text-white px-7 flex items-center justify-between text-[12px] font-semibold shrink-0 select-none relative z-10">
+            <div className="h-10 bg-cobalt-950 text-white px-6 flex items-center justify-between text-[12px] font-semibold shrink-0 select-none relative z-10">
               <span className="font-sans font-bold tracking-tight">09:41</span>
 
               {/* Dinamik Ada (Dynamic Island) */}
-              <div className="h-[22px] w-[104px] rounded-full bg-black ring-1 ring-white/10 flex items-center justify-end pr-2.5 shadow-md">
+              <div className="h-[22px] w-[100px] rounded-full bg-black ring-1 ring-white/10 flex items-center justify-end pr-2.5 shadow-md">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#0a0f1d] ring-1 ring-white/20 flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-[#1e3a8a]/70" />
                 </div>
@@ -108,7 +108,7 @@ function IPhone15ProFrame({
             />
 
             {/* iOS Home Indicator Çubuğu */}
-            <div className="h-5 bg-white flex items-center justify-center shrink-0 border-t border-slate-100/60 select-none">
+            <div className="h-4 bg-white flex items-center justify-center shrink-0 border-t border-slate-100/60 select-none">
               <div className="w-32 h-1 bg-black/25 rounded-full" />
             </div>
           </div>
@@ -121,8 +121,9 @@ function IPhone15ProFrame({
 /**
  * iPad Air Donanım Çerçevesi
  * -------------------------------------------------------------
- * Sabit donanım ölçüleri: 852 × 1112 px şasi, 16px bezel,
- * 820 × 1080 px iç retina ekran.
+ * Sabit donanım ölçüleri: 792 × 1008 px dış şasi,
+ * 768 × 980 px iç retina ekran (iPadOS Safari web alanı).
+ * scale === 1 durumunda CSS transform uygulanmaz, 1:1 netlikte çizilir.
  */
 function IPadAirFrame({
   route,
@@ -133,8 +134,8 @@ function IPadAirFrame({
   reloadKey: number;
   scale?: number;
 }) {
-  const scaledWidth = Math.round(852 * scale);
-  const scaledHeight = Math.round(1112 * scale);
+  const scaledWidth = Math.round(792 * scale);
+  const scaledHeight = Math.round(948 * scale);
 
   return (
     <div
@@ -143,28 +144,31 @@ function IPadAirFrame({
     >
       <div
         style={{
-          width: 852,
-          height: 1112,
-          transform: `scale(${scale})`,
+          width: 792,
+          height: 948,
+          transform: scale !== 1 ? `scale(${scale})` : undefined,
           transformOrigin: "top left",
         }}
         className="absolute top-0 left-0"
       >
-        <div className="w-[852px] h-[1112px] p-[16px] rounded-[38px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#090F1C] shadow-[0_30px_90px_rgba(0,0,0,0.7)] ring-2 ring-white/20 relative select-none">
+        <div className="w-[792px] h-[948px] px-[12px] py-[14px] rounded-[34px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#090F1C] shadow-[0_30px_90px_rgba(0,0,0,0.7)] ring-2 ring-white/20 relative select-none">
           {/* iPad Ön Kamera Deliği */}
-          <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#0a0f1d] ring-1 ring-white/20" />
+          <div className="absolute top-[5px] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#0a0f1d] ring-1 ring-white/20" />
 
           {/* iPad Üst Butonlar */}
-          <div className="absolute -top-[3px] right-[70px] w-[36px] h-[3px] bg-[#475569] rounded-t-sm shadow-sm" />
-          <div className="absolute -top-[3px] right-[115px] w-[36px] h-[3px] bg-[#475569] rounded-t-sm shadow-sm" />
+          <div className="absolute -top-[3px] right-[65px] w-[32px] h-[3px] bg-[#475569] rounded-t-sm shadow-sm" />
+          <div className="absolute -top-[3px] right-[105px] w-[32px] h-[3px] bg-[#475569] rounded-t-sm shadow-sm" />
 
-          {/* İç Ekran: 820 × 1080 px */}
-          <div className="w-[820px] h-[1080px] flex flex-col bg-white overflow-hidden rounded-[24px] ring-1 ring-black/60 shadow-inner">
+          {/* Titanyum İç Yansıma Halkası */}
+          <div className="absolute inset-0 rounded-[34px] ring-1 ring-inset ring-white/10 pointer-events-none" />
+
+          {/* İç Ekran: 768 × 920 px */}
+          <div className="w-[768px] h-[920px] flex flex-col bg-white overflow-hidden rounded-[22px] ring-1 ring-black/60 shadow-inner">
             {/* iPadOS Durum Çubuğu */}
-            <div className="h-8 bg-cobalt-950 text-white px-6 flex items-center justify-between text-[11px] font-semibold shrink-0 select-none">
+            <div className="h-7 bg-cobalt-950 text-white px-6 flex items-center justify-between text-[11px] font-semibold shrink-0 select-none">
               <span className="font-sans font-bold tracking-tight">09:41</span>
               <span className="text-[10px] text-cobalt-300 font-mono">
-                iPad Air · 820 × 1080
+                iPad Air · 768 × 920
               </span>
               <div className="flex items-center gap-2 text-white/90">
                 <span className="text-[10px] font-mono">%100</span>
@@ -179,12 +183,12 @@ function IPadAirFrame({
               title="AYBAR AKADEMİ Tablet Önizleme"
               src={route}
               key={`tablet-${route}-${reloadKey}`}
-              className="w-[820px] flex-1 border-0 bg-white"
+              className="w-[768px] flex-1 border-0 bg-white"
             />
 
             {/* iPadOS Home Indicator */}
-            <div className="h-4 bg-white flex items-center justify-center shrink-0 border-t border-slate-100">
-              <div className="w-36 h-1 bg-black/25 rounded-full" />
+            <div className="h-3.5 bg-white flex items-center justify-center shrink-0 border-t border-slate-100 select-none">
+              <div className="w-32 h-1 bg-black/25 rounded-full" />
             </div>
           </div>
         </div>
@@ -197,6 +201,7 @@ function IPadAirFrame({
  * Masaüstü Stüdyo Tarayıcı Penceresi
  * -------------------------------------------------------------
  * macOS tarzı pencereli, canlı SSL URL göstergeli profesyonel görünüm.
+ * 1320px sanal genişlik ile yan yana modunda da yüksek okunabilirlik sağlar.
  */
 function StudioDesktopWindow({
   route,
@@ -209,7 +214,7 @@ function StudioDesktopWindow({
 }) {
   const viewportBoxRef = useRef<HTMLDivElement>(null);
   const [boxSize, setBoxSize] = useState<{ w: number; h: number }>({
-    w: 1400,
+    w: 1320,
     h: 820,
   });
 
@@ -228,10 +233,10 @@ function StudioDesktopWindow({
     return () => obs.disconnect();
   }, []);
 
-  // Eğer masaüstü penceresi 1380px'ten darsa (örn: Yan Yana modunda),
-  // gerçek 1400px geniş ekran masaüstü düzenini matematiksel olarak orantılı ölçekle!
-  const virtualDesktopWidth = Math.max(1400, boxSize.w);
-  const scale = boxSize.w < 1400 ? boxSize.w / 1400 : 1;
+  // Eğer masaüstü penceresi 1320px'ten darsa (örn: Yan Yana modunda),
+  // gerçek 1320px geniş ekran masaüstü düzenini matematiksel olarak orantılı ölçekle!
+  const virtualDesktopWidth = Math.max(1320, boxSize.w);
+  const scale = boxSize.w < 1320 ? boxSize.w / 1320 : 1;
   const virtualDesktopHeight = Math.round(boxSize.h / scale);
 
   return (
@@ -258,7 +263,7 @@ function StudioDesktopWindow({
         {/* Sağ Kontroller */}
         <div className="flex items-center gap-2">
           <span className="hidden sm:inline-block text-[11px] font-mono text-cobalt-300 bg-white/5 px-2 py-0.5 rounded border border-white/10">
-            Masaüstü · 1400px
+            Masaüstü · 1320px
           </span>
           <button
             type="button"
@@ -292,6 +297,7 @@ function StudioDesktopWindow({
 
 export default function ClientPreviewStudioPage() {
   const [mode, setMode] = useState<ViewportMode>("mobile");
+  const [zoomMode, setZoomMode] = useState<ZoomMode>("actual");
   const [route, setRoute] = useState<string>("/");
   const [reloadKey, setReloadKey] = useState<number>(0);
   const [isReloading, setIsReloading] = useState<boolean>(false);
@@ -303,17 +309,21 @@ export default function ClientPreviewStudioPage() {
     height: 800,
   });
 
-  // URL query senkronizasyonu (mode ve route okuma)
+  // URL query senkronizasyonu (mode, route ve zoom okuma)
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const m = params.get("mode");
     const r = params.get("route");
+    const z = params.get("zoom");
     if (m === "dual" || m === "mobile" || m === "tablet" || m === "desktop") {
       setMode(m);
     }
     if (r && siteConfig.navigation.some((nav) => nav.href === r)) {
       setRoute(r);
+    }
+    if (z === "actual" || z === "fit") {
+      setZoomMode(z);
     }
   }, []);
 
@@ -335,26 +345,37 @@ export default function ClientPreviewStudioPage() {
     return () => observer.disconnect();
   }, []);
 
+  // URL query parametrelerini senkronize etme yardımcısı
+  const updateUrlParams = (
+    newMode: ViewportMode,
+    newRoute: string,
+    newZoom: ZoomMode
+  ) => {
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("mode", newMode);
+      url.searchParams.set("route", newRoute);
+      url.searchParams.set("zoom", newZoom);
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
+
   // Sayfa rotası değiştiğinde URL parametrelerini güncelleme
   const handleRouteChange = (newRoute: string) => {
     setRoute(newRoute);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      url.searchParams.set("mode", mode);
-      url.searchParams.set("route", newRoute);
-      window.history.replaceState({}, "", url.toString());
-    }
+    updateUrlParams(mode, newRoute, zoomMode);
   };
 
   // Cihaz modu değiştiğinde URL parametrelerini güncelleme
   const handleModeChange = (newMode: ViewportMode) => {
     setMode(newMode);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      url.searchParams.set("mode", newMode);
-      url.searchParams.set("route", route);
-      window.history.replaceState({}, "", url.toString());
-    }
+    updateUrlParams(newMode, route, zoomMode);
+  };
+
+  // Ölçek modu değiştiğinde URL parametrelerini güncelleme
+  const handleZoomChange = (newZoom: ZoomMode) => {
+    setZoomMode(newZoom);
+    updateUrlParams(mode, route, newZoom);
   };
 
   // Yenileme aksiyonu
@@ -373,46 +394,64 @@ export default function ClientPreviewStudioPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Donanım ölçek hesaplamaları (Pencere yüksekliğine ve genişliğine göre orantılı küçültme)
+  // Donanım ölçek hesaplamaları
   const availableH = Math.max(320, stageSize.height - 32);
   const isXl = stageSize.width >= 1280;
   const sideCardsWidth = isXl && mode === "mobile" ? 540 : 0;
   const mobileAvailableW = Math.max(280, stageSize.width - sideCardsWidth - 32);
 
-  // Telefon Modu: 414 × 868 px şasi tam orantılı ölçekleme
-  const mobileScale = Math.min(
+  // Telefon Modu (410 × 804 px şasi):
+  // 1. "fit" modu: Kasayı dikey ve yatay sınırlara sığdırma
+  const mobileFitScale = Math.min(
     1,
-    Math.max(0.4, Math.min(availableH / 868, mobileAvailableW / 414))
+    Math.max(0.4, Math.min(availableH / 804, mobileAvailableW / 410))
   );
+  // 2. "actual" modu: stageWidth >= 430 ise kesinlikle 1.0 (tam 1:1 piksel!)
+  // Ekran 430px'ten darsa ekrana sığdırmak için orantılı ölçekler
+  const mobileActualScale =
+    stageSize.width >= 430
+      ? 1
+      : Math.min(1, Math.max(0.4, (stageSize.width - 24) / 410));
 
-  // Yan Yana Modu: Sağdaki telefonun yüksekliğe tam oturması için ölçekleme
-  const dualPhoneScale = Math.min(
-    0.92,
-    Math.max(0.45, availableH / 868)
-  );
+  const mobileScale = zoomMode === "actual" ? mobileActualScale : mobileFitScale;
 
-  // Tablet Modu: 852 × 1112 px şasi tam orantılı ölçekleme
+  // Yan Yana Modu:
+  // Sağ iPhone (390 × 780 viewport, 410 × 804 şasi) dikey yüksekliğe göre büyük ölçeklenir (~%82–100)
+  const dualPhoneScale = Math.min(1, Math.max(0.82, availableH / 804));
+
+  // Tablet Modu (792 × 948 px şasi, 768 × 920 viewport):
+  // 1. "fit" modu
   const tabletAvailableW = Math.max(280, stageSize.width - 32);
-  const tabletScale = Math.min(
+  const tabletFitScale = Math.min(
     1,
-    Math.max(0.35, Math.min(availableH / 1112, tabletAvailableW / 852))
+    Math.max(0.35, Math.min(availableH / 948, tabletAvailableW / 792))
   );
+  // 2. "actual" modu: stageWidth >= 820 ise 1.0 (tam 1:1 piksel!)
+  const tabletActualScale =
+    stageSize.width >= 820
+      ? 1
+      : Math.min(1, Math.max(0.35, (stageSize.width - 24) / 792));
+
+  const tabletScale = zoomMode === "actual" ? tabletActualScale : tabletFitScale;
+
+  const isScrollableActual =
+    (mode === "mobile" || mode === "tablet") && zoomMode === "actual";
 
   return (
     <div
       data-lenis-prevent
       className="preview-studio fixed inset-0 z-[120] bg-cobalt-950 text-white flex flex-col overflow-hidden select-none"
     >
-      {/* Üst Lüks Kontrol Çubuğu */}
-      <header className="h-14 px-3 sm:px-6 bg-cobalt-950 border-b border-white/15 flex items-center justify-between gap-2 sm:gap-4 shrink-0 z-20">
+      {/* Üst Lüks Kontrol Çubuğu (Kompakt 52px / h-[52px]) */}
+      <header className="h-[52px] px-3 sm:px-5 bg-cobalt-950 border-b border-white/15 flex items-center justify-between gap-2 sm:gap-3 shrink-0 z-20">
         {/* Sol: Logo ve Stüdyo Başlığı */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <AybarCrestEmblem variant="dark" className="h-8 w-8 sm:h-9 sm:w-9" />
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <AybarCrestEmblem variant="dark" className="h-7 w-7 sm:h-8 sm:w-8" />
           <div>
             <div className="font-serif font-bold text-xs sm:text-sm tracking-wide text-white leading-none">
               {siteConfig.name}
             </div>
-            <div className="text-[10px] text-cobalt-300 font-sans mt-0.5 leading-none hidden sm:block">
+            <div className="text-[9px] text-cobalt-300 font-sans mt-0.5 leading-none hidden lg:block">
               Canlı Sunum Stüdyosu
             </div>
           </div>
@@ -421,7 +460,7 @@ export default function ClientPreviewStudioPage() {
         {/* Orta: Hızlı Sayfa Seçici Haplar */}
         <nav
           aria-label="Sayfa Seçici"
-          className="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 px-1 bg-cobalt-900/90 rounded-lg border border-white/15 max-w-[240px] sm:max-w-xs md:max-w-md lg:max-w-none"
+          className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5 px-1 bg-cobalt-900/90 rounded-lg border border-white/15 max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-none"
         >
           {siteConfig.navigation.map((nav) => {
             const isActive = route === nav.href;
@@ -430,7 +469,7 @@ export default function ClientPreviewStudioPage() {
                 key={nav.href}
                 type="button"
                 onClick={() => handleRouteChange(nav.href)}
-                className={`px-2.5 py-1 text-xs font-semibold rounded-md whitespace-nowrap transition-all duration-150 min-h-[32px] sm:min-h-[36px] flex items-center justify-center ${
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md whitespace-nowrap transition-all duration-150 min-h-[30px] flex items-center justify-center ${
                   isActive
                     ? "bg-crimson-600 text-white shadow-sm font-bold"
                     : "text-cobalt-200 hover:text-white hover:bg-white/10"
@@ -442,8 +481,41 @@ export default function ClientPreviewStudioPage() {
           })}
         </nav>
 
-        {/* Sağ: Cihaz Seçici + Yenile + Tam Ekran */}
+        {/* Sağ: Ölçek Seçici + Cihaz Seçici + Yenile + Tam Ekran */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Telefon veya Tablet Modunda Ölçek Değiştirici (%100 Gerçek Boyut vs Tam Kasayı Sığdır) */}
+          {(mode === "mobile" || mode === "tablet") && (
+            <div className="flex items-center bg-cobalt-900/90 rounded-lg border border-white/15 p-0.5 text-xs">
+              <button
+                type="button"
+                onClick={() => handleZoomChange("actual")}
+                title="%100 Gerçek Okuma Boyutu (1:1 Birebir Piksel, Metinler Küçülmez)"
+                className={`inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-1 font-semibold rounded-md transition-all duration-150 min-h-[30px] ${
+                  zoomMode === "actual"
+                    ? "bg-cobalt-800 text-white font-bold shadow-sm border border-white/20"
+                    : "text-cobalt-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                <span className="hidden xl:inline">%100 Gerçek Boyut</span>
+                <span className="xl:hidden">%100 Boyut</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleZoomChange("fit")}
+                title="Tüm Kasayı Dikey Ekrana Sığdır"
+                className={`inline-flex items-center gap-1 px-2 sm:px-2.5 py-1 font-semibold rounded-md transition-all duration-150 min-h-[30px] ${
+                  zoomMode === "fit"
+                    ? "bg-cobalt-800 text-white font-bold shadow-sm border border-white/20"
+                    : "text-cobalt-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                <span className="hidden xl:inline">Tam Kasayı Sığdır</span>
+                <span className="xl:hidden">Sığdır</span>
+              </button>
+            </div>
+          )}
+
           {/* Cihaz Modu Bölümlenmiş Kontrol */}
           <div className="flex items-center bg-cobalt-900/90 rounded-lg border border-white/15 p-0.5">
             {[
@@ -459,7 +531,7 @@ export default function ClientPreviewStudioPage() {
                   key={v.id}
                   type="button"
                   onClick={() => handleModeChange(v.id as ViewportMode)}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-md transition-all duration-150 min-h-[32px] sm:min-h-[36px] ${
+                  className={`inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-semibold rounded-md transition-all duration-150 min-h-[30px] ${
                     active
                       ? "bg-crimson-600 text-white shadow-sm font-bold"
                       : "text-cobalt-300 hover:text-white hover:bg-white/5"
@@ -478,7 +550,7 @@ export default function ClientPreviewStudioPage() {
             onClick={handleReload}
             title="Tüm Görünümleri Yenile"
             aria-label="Yenile"
-            className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-cobalt-900/90 border border-white/15 text-cobalt-200 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all duration-150"
+            className="h-[32px] w-[32px] sm:h-[34px] sm:w-[34px] rounded-lg bg-cobalt-900/90 border border-white/15 text-cobalt-200 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all duration-150"
           >
             <RotateCw
               className={`h-3.5 w-3.5 ${isReloading ? "animate-spin" : ""}`}
@@ -490,7 +562,7 @@ export default function ClientPreviewStudioPage() {
             href={route}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-8 sm:h-9 px-3 rounded-lg bg-white hover:bg-crimson-600 text-cobalt-950 hover:text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors duration-150 shadow-sm shrink-0"
+            className="h-[32px] sm:h-[34px] px-2.5 sm:px-3 rounded-lg bg-white hover:bg-crimson-600 text-cobalt-950 hover:text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors duration-150 shadow-sm shrink-0"
           >
             <span className="hidden sm:inline">Tam Ekran Aç</span>
             <span className="sm:hidden">Aç</span>
@@ -502,11 +574,19 @@ export default function ClientPreviewStudioPage() {
       {/* Sunum Sahnesi (ResizeObserver ile izlenir) */}
       <main
         ref={stageRef}
-        className="flex-1 studio-hero relative overflow-hidden flex items-center justify-center p-3 sm:p-5 lg:p-6"
+        className={`flex-1 studio-hero relative p-3 sm:p-5 lg:p-6 ${
+          isScrollableActual
+            ? "overflow-y-auto overflow-x-auto flex flex-col"
+            : "overflow-hidden flex items-center justify-center"
+        }`}
       >
         {/* 1. TELEFON MODU */}
         {mode === "mobile" && (
-          <div className="w-full h-full flex items-center justify-center gap-8">
+          <div
+            className={`w-full flex items-center justify-center gap-8 ${
+              isScrollableActual ? "my-auto py-2 shrink-0" : "h-full"
+            }`}
+          >
             {/* Sol Bilgi Kartı (XL ekranlarda görünür) */}
             <div className="hidden xl:flex flex-col gap-3.5 p-5 rounded-2xl bg-cobalt-950/85 border border-white/15 backdrop-blur-md text-white text-xs w-[240px] shrink-0 shadow-2xl">
               <div className="flex items-center gap-2 pb-2 border-b border-white/10">
@@ -518,9 +598,23 @@ export default function ClientPreviewStudioPage() {
 
               <div className="space-y-2 text-[11px]">
                 <div className="flex justify-between items-center text-cobalt-300">
-                  <span>Çözünürlük</span>
+                  <span>Web Görünümü</span>
                   <span className="font-mono text-white font-medium">
-                    390 × 844 pt
+                    390 × 780 pt
+                  </span>
+                </div>
+                <div className="flex justify-between items-center text-cobalt-300">
+                  <span>Okuma Ölçeği</span>
+                  <span
+                    className={`font-mono font-bold ${
+                      zoomMode === "actual"
+                        ? "text-emerald-400"
+                        : "text-white"
+                    }`}
+                  >
+                    {zoomMode === "actual"
+                      ? "%100 Gerçek Boyut"
+                      : `%${Math.round(mobileScale * 100)} Sığdırılmış`}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-cobalt-300">
@@ -530,9 +624,9 @@ export default function ClientPreviewStudioPage() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-cobalt-300">
-                  <span>En/Boy Oranı</span>
+                  <span>Kasa Boyutu</span>
                   <span className="font-mono text-white font-medium">
-                    9 : 19.5 (Tam Oran)
+                    410 × 804 px
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-cobalt-300">
@@ -554,13 +648,14 @@ export default function ClientPreviewStudioPage() {
               </div>
 
               <div className="pt-2 border-t border-white/10 text-[10px] text-cobalt-300 leading-relaxed">
-                Pencere boyutundan bağımsız olarak her ekranda matematiksel olarak
-                tam 9:19.5 oranında dikey basıklık olmadan ölçeklenir.
+                {zoomMode === "actual"
+                  ? "Gerçek 1:1 fiziksel CSS pikseliyle görüntülenir. Yazı tipleri ve dokunma hedefleri gerçek iPhone 15 Pro ile birebir aynı boyuttadır."
+                  : "Tüm kasa çerçevesini tek bakışta görmek için sahneye orantılı olarak sığdırıldı."}
               </div>
             </div>
 
             {/* Ortalanmış iPhone 15 Pro Donanım Çerçevesi */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center shrink-0">
               <IPhone15ProFrame
                 route={route}
                 reloadKey={reloadKey}
@@ -636,7 +731,7 @@ export default function ClientPreviewStudioPage() {
         {/* 2. YAN YANA (DUAL) MODU */}
         {mode === "dual" && (
           <div className="w-full h-full flex items-center justify-center gap-5">
-            {/* Sol: Masaüstü Görünümü Monitörü */}
+            {/* Sol: Masaüstü Görünümü Monitörü (1320px Sanal Genişlik) */}
             <div className="flex-1 h-full min-w-0 flex flex-col">
               <StudioDesktopWindow
                 route={route}
@@ -645,7 +740,7 @@ export default function ClientPreviewStudioPage() {
               />
             </div>
 
-            {/* Sağ: Orantılı iPhone 15 Pro (Dikey basıklık OLMADAN stageHeight'a göre ölçeklenir) */}
+            {/* Sağ: Orantılı iPhone 15 Pro (Dikey basıklık OLMADAN stageHeight'a göre yüksek oranda ölçeklenir) */}
             <div className="hidden lg:flex items-center justify-center shrink-0">
               <IPhone15ProFrame
                 route={route}
@@ -658,12 +753,22 @@ export default function ClientPreviewStudioPage() {
 
         {/* 3. TABLET (IPAD AIR) MODU */}
         {mode === "tablet" && (
-          <div className="w-full h-full flex items-center justify-center">
+          <div
+            className={`w-full flex flex-col items-center ${
+              isScrollableActual ? "my-auto py-2 shrink-0" : "h-full justify-center"
+            }`}
+          >
             <IPadAirFrame
               route={route}
               reloadKey={reloadKey}
               scale={tabletScale}
             />
+            {zoomMode === "actual" && (
+              <div className="mt-4 px-4 py-1.5 rounded-full bg-cobalt-900/85 border border-white/10 text-[11px] text-cobalt-200 font-mono flex items-center gap-2 shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span>iPad Air · 768 × 920 pt · %100 Gerçek Okuma Boyutu</span>
+              </div>
+            )}
           </div>
         )}
 

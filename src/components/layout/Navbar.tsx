@@ -173,7 +173,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Menüyü Aç"
-              className="lg:hidden inline-flex items-center gap-2 px-3 sm:px-3.5 h-10 sm:h-11 bg-cobalt-900 text-white text-xs font-bold hover:bg-cobalt-800 transition-colors"
+              className="lg:hidden inline-flex items-center gap-2 px-3.5 h-11 bg-cobalt-900 text-white text-[13px] font-extrabold hover:bg-cobalt-800 transition-colors"
             >
               <Menu className="h-4 w-4" />
               <span>MENÜ</span>
@@ -181,10 +181,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile/Tablet Quick-Access Menu Strip (< 1024px, exact h-11 / 44px) */}
+        {/* Mobile/Tablet Quick-Access Menu Strip (< 1024px, exact h-12 / 48px -> Total Header: 114px) */}
         <div
           ref={stripRef}
-          className="lg:hidden h-11 border-t border-cobalt-900/10 bg-paper-warm no-scrollbar overflow-x-auto flex items-center"
+          className="lg:hidden h-12 border-t border-cobalt-900/10 bg-paper-warm no-scrollbar overflow-x-auto flex items-center"
         >
           <div className="px-3 sm:px-4 flex items-center gap-1.5 min-w-max">
             {siteConfig.navigation.map((item) => {
@@ -198,7 +198,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   ref={isActive ? activePillRef : null}
-                  className={`px-3 py-1.5 text-xs font-bold whitespace-nowrap transition-colors border ${
+                  className={`px-3.5 py-1.5 text-[13.5px] sm:text-sm font-extrabold whitespace-nowrap transition-colors border ${
                     isActive
                       ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
                       : "bg-white text-cobalt-950 border-cobalt-900/12 hover:border-cobalt-700 hover:text-cobalt-700"
@@ -281,7 +281,7 @@ export default function Navbar() {
               </div>
 
               <div className="p-6 space-y-3 bg-cobalt-900/60 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-                <p className="text-xs sm:text-sm text-cobalt-100 leading-relaxed">
+                <p className="text-[14px] sm:text-[15px] text-cobalt-100 leading-relaxed">
                   İlk derse başlamadan önce 30 dakikalık ücretsiz tanışma seansı
                   için hemen ulaşın.
                 </p>
@@ -289,14 +289,14 @@ export default function Navbar() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 active:bg-crimson-800 text-white py-3.5 px-5 text-sm font-extrabold shadow-crimson transition-colors"
+                  className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 active:bg-crimson-800 text-white py-4 px-5 text-[15px] font-extrabold shadow-crimson transition-colors"
                 >
                   <span>WhatsApp ile Bilgi Alın</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
                 <a
                   href={siteConfig.contact.phoneHref}
-                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 active:bg-white/15 text-white py-3 px-5 text-xs font-bold transition-colors"
+                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 active:bg-white/15 text-white py-3.5 px-5 text-sm font-bold transition-colors"
                 >
                   <Phone className="h-4 w-4 text-crimson-500" />
                   <span>{siteConfig.contact.phoneDisplay}</span>

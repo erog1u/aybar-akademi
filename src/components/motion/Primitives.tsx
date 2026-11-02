@@ -118,7 +118,7 @@ export function SectionHeader({
           <div className="inline-flex items-center gap-2.5 mb-3">
             <span className="h-2 w-2 bg-crimson-600 inline-block" />
             <span
-              className={`text-xs font-bold tracking-[0.14em] uppercase ${
+              className={`text-xs sm:text-[13px] font-extrabold tracking-[0.12em] uppercase ${
                 dark ? "text-cobalt-200" : "text-cobalt-700"
               }`}
             >
@@ -127,7 +127,7 @@ export function SectionHeader({
           </div>
 
           <h2
-            className={`text-3xl sm:text-4xl lg:text-[2.7rem] font-extrabold tracking-tightest leading-[1.1] ${
+            className={`text-[1.8rem] sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tightest leading-[1.1] ${
               dark ? "text-white" : "text-ink"
             }`}
           >
@@ -227,7 +227,7 @@ export function MagneticLink({
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: springX, y: springY }}
-      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-3 px-6 py-3.5 text-sm font-bold tracking-tight transition-colors duration-300 ${styles} ${className}`}
+      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-3 px-6 py-4 text-[15px] sm:text-base font-bold tracking-tight transition-colors duration-300 ${styles} ${className}`}
     >
       <span>{children}</span>
       <span className="relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
@@ -444,7 +444,7 @@ export function SuccessDiagnosticWidget() {
               key={s.code}
               type="button"
               onClick={() => setActive(idx)}
-              className={`py-2 text-xs font-bold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
+              className={`py-2.5 text-[13px] sm:text-sm font-extrabold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
                 isActive
                   ? "bg-crimson-600 text-white"
                   : "text-ink-muted hover:bg-cobalt-50 hover:text-cobalt-800"
@@ -457,7 +457,7 @@ export function SuccessDiagnosticWidget() {
         })}
       </div>
 
-      <div className="p-5 min-h-[132px] flex flex-col justify-center bg-white">
+      <div className="p-5 sm:p-6 min-h-[140px] flex flex-col justify-center bg-white">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.code}
@@ -466,14 +466,14 @@ export function SuccessDiagnosticWidget() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.28, ease: LUXURY_EASE }}
           >
-            <div className="flex items-center gap-2 text-xs font-bold text-crimson-600 mb-1">
-              <Check className="h-3.5 w-3.5" />
+            <div className="flex items-center gap-2 text-xs font-bold text-crimson-600 mb-1.5">
+              <Check className="h-4 w-4" />
               <span>Aybar Akademi Süreç Standardı</span>
             </div>
-            <h4 className="text-base font-extrabold tracking-tight text-ink leading-snug">
+            <h4 className="text-lg sm:text-xl font-extrabold tracking-tight text-ink leading-snug">
               {current.title}
             </h4>
-            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed mt-1">
+            <p className="text-sm sm:text-[15px] text-ink-muted leading-relaxed mt-1.5">
               {current.output}
             </p>
           </motion.div>
@@ -585,13 +585,13 @@ export function NextChapterBanner({
     <section className="bg-cobalt-900 halftone-cobalt text-white border-t border-white/15">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-[11px] font-bold tracking-[0.14em] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs sm:text-[13px] font-extrabold tracking-[0.12em] mb-3">
             {kicker}
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tightest">
             {title}
           </h3>
-          <p className="mt-2 text-sm sm:text-base text-cobalt-100/90 leading-relaxed">
+          <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/95 leading-relaxed">
             {description}
           </p>
         </div>
