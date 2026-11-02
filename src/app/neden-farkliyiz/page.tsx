@@ -22,43 +22,38 @@ export default function NedenFarkliyizPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <Reveal immediate y={10}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
-                  <span className="h-2 w-2 rounded-full bg-crimson-500" />
-                  <span>{whyDifferentContent.eyebrow}</span>
-                </div>
-              </Reveal>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
+                <span className="h-2 w-2 rounded-full bg-crimson-500" />
+                <span>{whyDifferentContent.eyebrow}</span>
+              </div>
 
               <MaskedLines
                 as="h1"
-                immediate
                 className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[whyDifferentContent.headline]}
               />
 
-              <Reveal immediate delay={0.12} y={12}>
-                <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
-                  {whyDifferentContent.lead}
-                </p>
+              <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
+                {whyDifferentContent.lead}
+              </p>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
-                  <a
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
-                  >
-                    <span>30 Dk Ücretsiz Tanışma Planlayın</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="#ilkeler"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3.5 text-sm sm:text-base font-bold transition-all"
-                  >
-                    <span>5 Standart İlkeyi İncele</span>
-                  </a>
-                </div>
-              </Reveal>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
+                >
+                  <span>30 Dk Ücretsiz Tanışma Planlayın</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="#ilkeler"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3.5 text-sm sm:text-base font-bold transition-all"
+                >
+                  <span>5 Standart İlkeyi İncele</span>
+                </a>
+              </div>
             </div>
 
             <div className="lg:col-span-5 w-full">
@@ -121,22 +116,19 @@ export default function NedenFarkliyizPage() {
                     </h3>
                   </div>
 
-                  {/* Sağ Maddeler — 2 Kolonlu Ferah Düzen */}
-                  <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Sağ Maddeler — Kutu İçinde Kutu Değil, Ferah 2 Kolonlu Liste */}
+                  <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                     {p.items.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="rounded-xl bg-paper/70 hover:bg-paper border border-cobalt-900/5 p-4 sm:p-5 transition-colors"
-                      >
-                        <div className="flex items-start gap-2.5 mb-2">
-                          <CheckCircle2 className="h-4 w-4 text-crimson-600 shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
+                        <div>
                           <h4 className="text-[15px] sm:text-base font-bold text-cobalt-950 leading-snug">
                             {item.title}
                           </h4>
+                          <p className="text-[14px] sm:text-[15px] text-ink-muted leading-relaxed mt-1.5">
+                            {item.detail}
+                          </p>
                         </div>
-                        <p className="text-[14px] sm:text-[15px] text-ink-muted leading-relaxed pl-6">
-                          {item.detail}
-                        </p>
                       </div>
                     ))}
                   </div>

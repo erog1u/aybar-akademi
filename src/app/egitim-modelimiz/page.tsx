@@ -22,43 +22,38 @@ export default function EgitimModelimizPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <Reveal immediate y={10}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
-                  <span className="h-2 w-2 rounded-full bg-crimson-500" />
-                  <span>{educationModelContent.eyebrow}</span>
-                </div>
-              </Reveal>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
+                <span className="h-2 w-2 rounded-full bg-crimson-500" />
+                <span>{educationModelContent.eyebrow}</span>
+              </div>
 
               <MaskedLines
                 as="h1"
-                immediate
                 className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[educationModelContent.headline]}
               />
 
-              <Reveal immediate delay={0.12} y={12}>
-                <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
-                  {educationModelContent.lead}
-                </p>
+              <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
+                {educationModelContent.lead}
+              </p>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
-                  <a
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
-                  >
-                    <span>Ücretsiz Tanışma Seansı Planla</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="#model-asamalari"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3.5 text-sm sm:text-base font-bold transition-all"
-                  >
-                    <span>4 Aşamalı Modeli İncele</span>
-                  </a>
-                </div>
-              </Reveal>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
+                >
+                  <span>Ücretsiz Tanışma Seansı Planla</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="#model-asamalari"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3.5 text-sm sm:text-base font-bold transition-all"
+                >
+                  <span>4 Aşamalı Modeli İncele</span>
+                </a>
+              </div>
             </div>
 
             <div className="lg:col-span-5 w-full">
@@ -132,7 +127,7 @@ export default function EgitimModelimizPage() {
             </div>
 
             {/* Sağ Sütun — 4 Aşamanın Akıcı ve Prestijli Okuma Alanı */}
-            <div className="lg:col-span-8 space-y-10 sm:space-y-14">
+            <div className="lg:col-span-8 space-y-8 sm:space-y-12">
               {sections.map((sec, idx) => (
                 <article
                   key={sec.code}
@@ -165,16 +160,16 @@ export default function EgitimModelimizPage() {
                     </div>
                   ) : null}
 
-                  {/* Maddeler — Temiz, Rahat Okunabilir Liste (Kutu İçinde Kutu Değil!) */}
-                  <div className="mt-6 space-y-4">
+                  {/* Maddeler — Ferah, Şık ve Kutusuz Liste */}
+                  <div className="mt-6 space-y-5">
                     {sec.points.map((pt, pIdx) => (
                       <div
                         key={pIdx}
-                        className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-paper/60 hover:bg-paper transition-colors"
+                        className="flex items-start gap-3.5 pb-4 border-b border-cobalt-900/5 last:border-none last:pb-0"
                       >
                         {pt.label ? (
                           <>
-                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobalt-700 text-white text-xs font-bold">
+                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-cobalt-100 text-cobalt-800 text-xs font-extrabold">
                               {pIdx + 1}
                             </span>
                             <div className="min-w-0">
@@ -188,10 +183,10 @@ export default function EgitimModelimizPage() {
                           </>
                         ) : (
                           <>
-                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-white">
-                              <Check className="h-3.5 w-3.5" />
+                            <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-white">
+                              <Check className="h-3 w-3 stroke-[3]" />
                             </span>
-                            <p className="text-base sm:text-[16.5px] font-medium text-ink leading-relaxed">
+                            <p className="text-base sm:text-[16.5px] font-semibold text-ink leading-relaxed">
                               {pt.text}
                             </p>
                           </>
@@ -201,32 +196,6 @@ export default function EgitimModelimizPage() {
                   </div>
                 </article>
               ))}
-
-              {/* Bölüm Sonu Vurgusu */}
-              <div className="rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white p-7 sm:p-9 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold mb-2">
-                    <Sparkles className="h-3 w-3" />
-                    <span>Sonuç Odaklı Sistem</span>
-                  </div>
-                  <h4 className="text-xl sm:text-2xl font-extrabold text-white">
-                    Öğrencinizin Potansiyelini Keşfedin
-                  </h4>
-                  <p className="mt-1 text-sm text-cobalt-200">
-                    İlk 30 dakikalık tanışma seansımızla öğrenme stilini birlikte belirleyelim.
-                  </p>
-                </div>
-
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm font-bold shadow-sm whitespace-nowrap transition-colors"
-                >
-                  <span>Tanışma Seansı Başlat</span>
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
             </div>
           </div>
         </div>

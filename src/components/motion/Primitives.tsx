@@ -2,19 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export const LUXURY_EASE = [0.22, 1, 0.36, 1] as const;
 
 /* -------------------------------------------------------------------------- */
-/* 1. Masked Line-by-Line Headline with Elegant GPU-Accelerated Slide Reveal   */
+/* 1. Masked Headline — Anında Render, Sıfır Takılma, %100 Akıcı             */
 /* -------------------------------------------------------------------------- */
 export function MaskedLines({
   lines,
   className = "",
   as: Tag = "h2",
-  delay = 0,
 }: {
   lines: React.ReactNode[];
   className?: string;
@@ -25,20 +23,8 @@ export function MaskedLines({
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
-        <span key={idx} className="block overflow-hidden pt-0.5 pb-1">
-          <motion.span
-            initial={{ opacity: 0, y: "90%" }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.55,
-              delay: delay + idx * 0.08,
-              ease: LUXURY_EASE,
-            }}
-            className="block"
-          >
-            {line}
-          </motion.span>
+        <span key={idx} className="block">
+          {line}
         </span>
       ))}
     </Tag>
@@ -46,14 +32,11 @@ export function MaskedLines({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 2. Fluid Editorial Reveal (Animates once on viewport entry, zero lag)       */
+/* 2. Instant Editorial Reveal — Sıfır JS Gecikmesi, Anında Görünür          */
 /* -------------------------------------------------------------------------- */
 export function Reveal({
   children,
   className = "",
-  delay = 0,
-  y = 10,
-  immediate = false,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -61,34 +44,11 @@ export function Reveal({
   y?: number;
   immediate?: boolean;
 }) {
-  if (immediate) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay, ease: LUXURY_EASE }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px 40px 0px" }}
-      transition={{ duration: 0.45, delay, ease: LUXURY_EASE }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 /* -------------------------------------------------------------------------- */
-/* 3. Smooth Photo Frame with Hover Zoom & Async Decoding                     */
+/* 3. Smooth Photo Frame — Donanım Hızlandırmalı Hover Yakınlaştırma        */
 /* -------------------------------------------------------------------------- */
 export function PhotoFrame({
   src,
@@ -108,12 +68,8 @@ export function PhotoFrame({
   objectPosition?: string;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55, ease: LUXURY_EASE }}
-      className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3.5 border border-cobalt-900/10 shadow-studio ${className}`}
+    <div
+      className={`group overflow-hidden rounded-2xl bg-white p-2 sm:p-2.5 border border-cobalt-900/10 shadow-sm ${className}`}
     >
       <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>
         <img
@@ -121,16 +77,16 @@ export function PhotoFrame({
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-700 ease-out group-hover:scale-105`}
+          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-500 ease-out group-hover:scale-105`}
         />
       </div>
-      {caption && <div className="pt-3 pb-1 px-1.5">{caption}</div>}
-    </motion.div>
+      {caption && <div className="pt-2.5 pb-1 px-1">{caption}</div>}
+    </div>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/* 4. Clean Editorial Section Header                                          */
+/* 4. Clean Section Header                                                    */
 /* -------------------------------------------------------------------------- */
 export function SectionHeader({
   eyebrow,
@@ -146,17 +102,17 @@ export function SectionHeader({
   rightSlot?: React.ReactNode;
 }) {
   return (
-    <Reveal
-      className={`pb-6 sm:pb-8 mb-8 sm:mb-10 border-b ${
+    <div
+      className={`pb-5 sm:pb-6 mb-7 sm:mb-8 border-b ${
         dark ? "border-white/15" : "border-cobalt-900/10"
       }`}
     >
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 mb-3">
+          <div className="inline-flex items-center gap-2 mb-2">
             <span className="h-2 w-2 rounded-full bg-crimson-600 inline-block" />
             <span
-              className={`text-xs sm:text-[13px] font-extrabold tracking-[0.09em] uppercase ${
+              className={`text-xs font-bold tracking-wider uppercase ${
                 dark ? "text-cobalt-200" : "text-cobalt-700"
               }`}
             >
@@ -165,7 +121,7 @@ export function SectionHeader({
           </div>
 
           <h2
-            className={`text-[1.8rem] sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tightest leading-[1.12] ${
+            className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight ${
               dark ? "text-white" : "text-ink"
             }`}
           >
@@ -174,7 +130,7 @@ export function SectionHeader({
 
           {subtitle && (
             <p
-              className={`mt-3.5 text-base sm:text-lg leading-relaxed max-w-2xl ${
+              className={`mt-2 text-sm sm:text-base leading-relaxed max-w-2xl ${
                 dark ? "text-cobalt-100/90" : "text-ink-muted"
               }`}
             >
@@ -185,7 +141,7 @@ export function SectionHeader({
 
         {rightSlot && <div className="shrink-0">{rightSlot}</div>}
       </div>
-    </Reveal>
+    </div>
   );
 }
 
@@ -209,7 +165,7 @@ export function SwissSectionHeader(props: {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 5. Lightweight Tactile CTA Link (Zero JS Spring Overhead on Mobile!)       */
+/* 5. Lightweight Tactile CTA Link                                            */
 /* -------------------------------------------------------------------------- */
 export function MagneticLink({
   href,
@@ -228,83 +184,74 @@ export function MagneticLink({
     crimson:
       "bg-crimson-600 text-white hover:bg-crimson-700 shadow-crimson border border-crimson-600",
     cobalt:
-      "bg-cobalt-700 text-white hover:bg-cobalt-900 border border-cobalt-700",
+      "bg-cobalt-700 text-white hover:bg-cobalt-800 shadow-sm border border-cobalt-700",
     "outline-light":
-      "bg-white/12 text-white border border-white/30 hover:bg-white hover:text-cobalt-900",
+      "bg-white/10 text-white hover:bg-white/20 border border-white/25",
     "outline-dark":
-      "bg-white text-cobalt-900 border border-cobalt-900/20 hover:border-cobalt-700 hover:bg-cobalt-50",
+      "bg-transparent text-cobalt-950 hover:bg-cobalt-50 border border-cobalt-900/20",
   }[variant];
 
-  const inner = (
+  const content = (
     <span
-      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-2.5 px-6 py-3.5 text-[15px] sm:text-base font-bold rounded-xl tracking-tight transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] ${styles} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-[15px] font-bold transition-all duration-200 active:scale-[0.98] ${styles} ${className}`}
     >
       <span>{children}</span>
-      <span className="relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
-        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4" />
-        <ArrowUpRight className="absolute h-4 w-4 -translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0" />
-      </span>
+      {external && <ArrowUpRight className="h-4 w-4 shrink-0" />}
     </span>
   );
 
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex w-full sm:w-auto"
-      >
-        {inner}
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {content}
       </a>
     );
   }
 
   return (
-    <Link href={href} className="inline-flex w-full sm:w-auto">
-      {inner}
+    <Link href={href} prefetch={true}>
+      {content}
     </Link>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/* 6. Next Page Chapter Navigator                                             */
+/* 6. Next Chapter Banner (Subpage Footer Navigator)                          */
 /* -------------------------------------------------------------------------- */
 export function NextChapterBanner({
-  kicker = "Sıradaki Bölüm",
   title,
   description,
   href,
-  buttonLabel,
+  buttonLabel = "Devam Et",
 }: {
-  kicker?: string;
   title: string;
   description: string;
   href: string;
-  buttonLabel: string;
+  buttonLabel?: string;
 }) {
   return (
-    <section className="bg-cobalt-950 text-white border-t border-white/10">
-      <Reveal className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600/20 border border-crimson-500/40 text-xs sm:text-[13px] font-extrabold tracking-wider uppercase text-crimson-300 mb-3">
-            <span className="h-2 w-2 rounded-full bg-crimson-500 inline-block" />
-            <span>{kicker}</span>
+    <section className="bg-cobalt-950 text-white py-14 sm:py-16 border-t border-white/10">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold tracking-wider uppercase text-crimson-400 mb-1.5 block">
+              Sıradaki Bölüm
+            </span>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
+              {title}
+            </h3>
+            <p className="mt-2 text-sm sm:text-base text-cobalt-200 leading-relaxed">
+              {description}
+            </p>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-snug">
-            {title}
-          </h3>
-          <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/90 leading-relaxed">
-            {description}
-          </p>
-        </div>
 
-        <div className="shrink-0 w-full sm:w-auto">
-          <MagneticLink href={href} variant="crimson">
-            {buttonLabel}
-          </MagneticLink>
+          <div className="shrink-0">
+            <MagneticLink href={href} variant="crimson">
+              {buttonLabel}
+            </MagneticLink>
+          </div>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
