@@ -113,13 +113,13 @@ export function AybarInstitutionalSeal({
       </div>
 
       <div
-        className={`mt-2 px-4 py-1.5 rounded-full border font-serif italic text-xs sm:text-sm tracking-wide ${
+        className={`mt-2 px-4 py-1.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wide ${
           variant === "dark"
             ? "bg-cobalt-900/90 border-white/20 text-cobalt-100"
             : "bg-cobalt-900 border-cobalt-900 text-white"
         }`}
       >
-        “{siteConfig.motto}”
+        {siteConfig.motto}
       </div>
     </div>
   );

@@ -162,8 +162,8 @@ export default function HakkimizdaPage() {
 
           <Reveal delay={0.12} className="mt-8">
             <div className="rounded-2xl bg-gradient-to-r from-cobalt-900 to-cobalt-800 text-white p-6 sm:p-8 shadow-card border-l-4 border-crimson-500">
-              <p className="font-serif italic text-lg sm:text-xl text-white leading-relaxed">
-                “{aboutContent.closingParagraph}”
+              <p className="text-base sm:text-lg font-medium text-white leading-relaxed">
+                {aboutContent.closingParagraph}
               </p>
             </div>
           </Reveal>

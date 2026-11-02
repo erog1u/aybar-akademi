@@ -8,12 +8,13 @@ import { ArrowUpRight } from "lucide-react";
 export const LUXURY_EASE = [0.22, 1, 0.36, 1] as const;
 
 /* -------------------------------------------------------------------------- */
-/* 1. Masked Line-by-Line Headline (Sıfır JS yükü, anında 120 FPS render)     */
+/* 1. Masked Line-by-Line Headline with Elegant GPU-Accelerated Slide Reveal   */
 /* -------------------------------------------------------------------------- */
 export function MaskedLines({
   lines,
   className = "",
   as: Tag = "h2",
+  delay = 0,
 }: {
   lines: React.ReactNode[];
   className?: string;
@@ -24,8 +25,20 @@ export function MaskedLines({
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
-        <span key={idx} className="block pt-0.5 pb-0.5">
-          {line}
+        <span key={idx} className="block overflow-hidden pt-0.5 pb-1">
+          <motion.span
+            initial={{ opacity: 0, y: "90%" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.55,
+              delay: delay + idx * 0.08,
+              ease: LUXURY_EASE,
+            }}
+            className="block"
+          >
+            {line}
+          </motion.span>
         </span>
       ))}
     </Tag>
@@ -33,11 +46,14 @@ export function MaskedLines({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 2. Editorial Block Reveal (Sıfır scroll dinleyicisi, anında görünürlük)    */
+/* 2. Fluid Editorial Reveal (Animates once on viewport entry, zero lag)       */
 /* -------------------------------------------------------------------------- */
 export function Reveal({
   children,
   className = "",
+  delay = 0,
+  y = 16,
+  immediate = false,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -45,7 +61,30 @@ export function Reveal({
   y?: number;
   immediate?: boolean;
 }) {
-  return <div className={className}>{children}</div>;
+  if (immediate) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay, ease: LUXURY_EASE }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.5, delay, ease: LUXURY_EASE }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 /* -------------------------------------------------------------------------- */
@@ -69,7 +108,11 @@ export function PhotoFrame({
   objectPosition?: string;
 }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, ease: LUXURY_EASE }}
       className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3.5 border border-cobalt-900/10 shadow-studio ${className}`}
     >
       <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>
@@ -78,11 +121,11 @@ export function PhotoFrame({
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-500 ease-out group-hover:scale-105`}
+          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-700 ease-out group-hover:scale-105`}
         />
       </div>
       {caption && <div className="pt-3 pb-1 px-1.5">{caption}</div>}
-    </div>
+    </motion.div>
   );
 }
 

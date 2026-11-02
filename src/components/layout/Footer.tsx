@@ -17,8 +17,8 @@ export default function Footer() {
               <AybarBrandLockup variant="dark" />
             </Link>
 
-            <p className="font-serif italic text-base sm:text-lg text-cobalt-100 leading-relaxed max-w-sm">
-              “{siteConfig.motto}”
+            <p className="text-sm sm:text-base text-cobalt-200 font-medium leading-relaxed max-w-sm">
+              {siteConfig.motto}
             </p>
 
             <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-1">

@@ -66,7 +66,6 @@ const config: Config = {
           "-apple-system",
           "sans-serif",
         ],
-        serif: ['"Lora"', "Georgia", "serif"],
       },
       letterSpacing: {
         tightest: "-0.018em",

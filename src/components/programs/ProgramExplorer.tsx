@@ -147,7 +147,7 @@ export default function ProgramExplorer() {
               </h3>
 
               {activeCategory.tagline && (
-                <p className="font-serif italic text-base sm:text-lg font-medium text-cobalt-700 mt-2">
+                <p className="text-base sm:text-lg font-bold text-cobalt-700 mt-2">
                   {activeCategory.tagline}
                 </p>
               )}
@@ -328,7 +328,7 @@ export default function ProgramExplorer() {
 
       {/* Kapanış Alıntısı & Sonraki Bölüm Bannerı */}
       <div className="mt-12 rounded-2xl bg-paper p-6 sm:p-8 border border-cobalt-900/10 text-center max-w-3xl mx-auto">
-        <p className="font-serif italic text-base sm:text-lg text-ink leading-relaxed">
+        <p className="text-base sm:text-lg font-medium text-ink leading-relaxed">
           “{programsIntro.closing}”
         </p>
       </div>

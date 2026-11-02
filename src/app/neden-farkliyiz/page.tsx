@@ -154,8 +154,8 @@ export default function NedenFarkliyizPage() {
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
               {whyDifferentContent.pedagogicalOutcome.title}
             </h3>
-            <p className="font-serif italic text-base sm:text-lg text-cobalt-100/95 leading-relaxed mt-4 max-w-4xl">
-              “{whyDifferentContent.pedagogicalOutcome.body}”
+            <p className="text-base sm:text-lg text-cobalt-100 font-medium leading-relaxed mt-4 max-w-4xl">
+              {whyDifferentContent.pedagogicalOutcome.body}
             </p>
             <div className="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <span className="text-xs sm:text-sm text-cobalt-200">

@@ -159,8 +159,8 @@ export default function EgitimModelimizPage() {
                   {/* Vurgulu Giriş Cümlesi */}
                   {sec.intro ? (
                     <div className="mt-5 p-4 sm:p-5 rounded-xl bg-paper-warm border-l-4 border-cobalt-700">
-                      <p className="font-serif italic text-[15px] sm:text-base font-medium text-cobalt-950 leading-relaxed">
-                        “{sec.intro}”
+                      <p className="text-[15px] sm:text-base font-semibold text-cobalt-950 leading-relaxed">
+                        {sec.intro}
                       </p>
                     </div>
                   ) : null}
