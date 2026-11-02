@@ -55,11 +55,43 @@ export default function HakkimizdaPage() {
               />
             </div>
           </div>
+
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Köklü Deneyim</strong>
+                Çeyrek asrı aşan uzman kadro
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Maarif Modeli</strong>
+                Yeni nesil beceri temelli
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
+                Evinizin konforunda özel ders
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">81 İl</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
+                Tüm Türkiye’de kesintisiz erişim
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. Sunduğumuz Çözümler — Ferah, Şık ve Kutusuz Mizanpaj */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-cobalt-900/10">
+      {/* 2. Sunduğumuz Çözümler — Canlı ve Prestijli Çözüm Kartları */}
+      <section className="py-14 sm:py-20 bg-paper border-b border-cobalt-900/10">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center gap-2 mb-2.5">
@@ -76,11 +108,11 @@ export default function HakkimizdaPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {aboutContent.solutions.map((sol, idx) => (
               <div
                 key={sol.index}
-                className="flex flex-col justify-between pb-6 lg:pb-0 lg:pr-6 border-b lg:border-b-0 lg:border-r border-cobalt-900/10 last:border-none"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <span

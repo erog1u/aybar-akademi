@@ -74,6 +74,38 @@ export default function EgitimModelimizPage() {
               />
             </div>
           </div>
+
+          {/* Hero Tabanı: 4 Aşamalı Model Şeridi */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">VIP Süreç</strong>
+                Kişiye özel yol haritası
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Eğitim Koçluğu</strong>
+                Zaman ve sınav stratejisi
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Temel Taşlar</strong>
+                Birebir tam öğrenme modeli
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">04</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Güçlü Köprü</strong>
+                Aile, veli ve okul iş birliği
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -206,10 +206,10 @@ export default function ProgramExplorer() {
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-xl bg-white border border-cobalt-900/10 hover:border-cobalt-700/40 transition-colors flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
-                  <h4 className="text-lg font-bold text-ink">
+                  <h4 className="text-lg sm:text-xl font-bold text-ink">
                     {item.title}
                   </h4>
 
@@ -226,16 +226,20 @@ export default function ProgramExplorer() {
                   )}
 
                   {item.subjects.length > 0 && (
-                    <div className="mt-4 text-xs sm:text-[13px] text-ink-muted leading-relaxed">
+                    <div className="mt-4 pt-3 border-t border-cobalt-900/5 text-xs sm:text-[13px] text-ink-muted leading-relaxed">
                       <strong className="text-cobalt-950 font-bold mr-1">Dersler:</strong>
                       {item.subjects.map((sub, sIdx) => {
                         const isCoaching = sub.includes("KOÇLUK");
                         return (
                           <span key={sIdx}>
                             {sIdx > 0 && ", "}
-                            <span className={isCoaching ? "text-crimson-600 font-bold" : ""}>
-                              {sub}
-                            </span>
+                            {isCoaching ? (
+                              <span className="inline-block px-1.5 py-0.5 rounded bg-crimson-50 text-crimson-700 font-extrabold text-[11px] sm:text-xs">
+                                {sub}
+                              </span>
+                            ) : (
+                              <span className="text-ink-base font-medium">{sub}</span>
+                            )}
                           </span>
                         );
                       })}
@@ -243,15 +247,15 @@ export default function ProgramExplorer() {
                   )}
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-cobalt-900/10">
+                <div className="mt-5 pt-3.5 border-t border-cobalt-900/10">
                   <a
                     href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors"
+                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group"
                   >
                     <span>Bu Program İçin Danışma Planlayın</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 </div>
               </div>

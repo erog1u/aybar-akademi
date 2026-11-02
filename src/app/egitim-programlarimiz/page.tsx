@@ -36,7 +36,48 @@ export default function EgitimProgramlarimizPage() {
                 alt={programsIntro.headline}
                 aspectClass="aspect-[16/10]"
                 priority
+                caption={
+                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      6 Ana Akademik Alan
+                    </span>
+                    <span className="text-cobalt-700 font-extrabold">%100 Birebir VIP</span>
+                  </div>
+                }
               />
+            </div>
+          </div>
+
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">6 Alan</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Kapsamlı Müfredat</strong>
+                İlkokuldan üniversiteye
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">11 Dil</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Dünya Dilleri</strong>
+                YDS, YDT ve uluslararası
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Maarif Uyumu</strong>
+                Yeni nesil beceri temelli
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">VIP</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Eğitim Koçluğu</strong>
+                Bireysel takip ve analiz
+              </div>
             </div>
           </div>
         </div>

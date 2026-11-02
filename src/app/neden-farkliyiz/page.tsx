@@ -44,7 +44,7 @@ export default function NedenFarkliyizPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
                 >
-                  <span>30 Dk Ücretsiz Tanışma Planlayın</span>
+                  <span>Ücretsiz Tanışma Seansı Planla</span>
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
@@ -74,6 +74,38 @@ export default function NedenFarkliyizPage() {
               />
             </div>
           </div>
+
+          {/* Hero Tabanı: 5 Standart İlke Özeti */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">İlk Tanışma</strong>
+                Öğrenme stili ve önyargı analizi
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Yenilikçi Yöntem</strong>
+                Flipped classroom & active recall
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Hata Defteri</strong>
+                Eksikleri sıfırlama tekniği
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">04</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Veli İletişimi</strong>
+                Her ders sonu şeffaf rapor
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -97,7 +129,7 @@ export default function NedenFarkliyizPage() {
             {principles.map((p, pIdx) => (
               <div
                 key={p.step}
-                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all hover:border-cobalt-700/30"
+                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-0.5"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
                   {/* Sol Başlık Kolonu */}

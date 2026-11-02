@@ -72,6 +72,38 @@ export default function IletisimPage() {
               </div>
             </div>
           </div>
+
+          {/* Hero Tabanı: 4 İletişim & Erişim Sütunu */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
+                Evinizin konforunda özel ders
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Canlı Online</strong>
+                Tüm Türkiye’de interaktif
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">Birebir</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">VIP Danışmanlık</strong>
+                Kişiye özel süreç yönetimi
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">Direkt</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">WhatsApp Hattı</strong>
+                Hızlı randevu ve bilgilendirme
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

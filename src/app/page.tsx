@@ -75,7 +75,7 @@ export default function HomePage() {
 
               <MaskedLines
                 as="h1"
-                className="text-[2.15rem] sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.08]"
+                className="text-[2.15rem] sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.12]"
                 lines={[
                   "Her Öğrenciye",
                   <span key="ayni-egitim" className="text-cobalt-200">
@@ -83,18 +83,27 @@ export default function HomePage() {
                   </span>,
                   <span
                     key="dogru-egitim"
-                    className="inline-block bg-crimson-600 text-white px-4 py-1 rounded-xl mt-1.5 shadow-crimson animate-shimmer"
+                    className="inline-block bg-crimson-600 text-white px-4 py-1 rounded-xl shadow-crimson"
                   >
                     Doğru Eğitim.
                   </span>,
                 ]}
               />
 
-              <p className="mt-6 text-base sm:text-lg text-cobalt-100 leading-relaxed max-w-xl">
-                Öğrencinin anlama hızına ve hedeflerine özel kurgulanmış{" "}
-                <strong className="text-white font-extrabold">birebir VIP özel ders</strong> ve{" "}
-                <strong className="text-white font-extrabold">eğitim koçluğu</strong>; İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de canlı online.
+              <p className="mt-6 text-base sm:text-lg text-cobalt-100 leading-relaxed max-w-2xl">
+                33 yıllık köklü eğitim deneyimimiz ve yeni nesil Maarif Modeline hâkim uzman kadromuzla, kitlesel kalıpları bir kenara bırakıyoruz. İlkokuldan üniversiteye her öğrencimizin anlama hızına, eksiklerine ve hedeflerine özel kurgulanmış <strong className="text-white font-bold">birebir VIP özel ders</strong> ve <strong className="text-white font-bold">eğitim koçluğu</strong> sunuyoruz.
               </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-cobalt-200">
+                <span className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-crimson-500" />
+                  <strong className="text-white font-bold">İstanbul:</strong> 39 İlçede Evinizde Yüz Yüze
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  <strong className="text-white font-bold">Tüm Türkiye:</strong> 81 İlde Canlı Online
+                </span>
+              </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
                 <MagneticLink
@@ -122,11 +131,12 @@ export default function HomePage() {
                 priority
                 caption={
                   <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-[13px] font-bold">
-                    <span className="text-cobalt-950">
-                      İstanbul’un 39 İlçesinde Yüz Yüze
+                    <span className="text-cobalt-950 flex items-center gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      Birebir VIP Özel Ders
                     </span>
-                    <span className="px-2.5 py-1 rounded-md bg-crimson-50 text-crimson-700">
-                      Tüm Türkiye’de Canlı Online
+                    <span className="px-2.5 py-1 rounded-md bg-cobalt-50 text-cobalt-800">
+                      Kişiye Özel Yol Haritası
                     </span>
                   </div>
                 }
@@ -134,34 +144,34 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Zengin, Prestijli ve Güçlü) */}
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Sıfır Anlatım Bozukluğu, Net ve Güçlü) */}
           <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Köklü Deneyim</strong>
-                Çeyrek asrı aşan uzmanlık
+                Çeyrek asrı aşan uzman kadro
               </div>
             </div>
             <div className="flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Maarif Uyumu</strong>
+                <strong className="text-white block font-bold">Maarif Modeli</strong>
                 Yeni nesil beceri temelli
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Yüz Yüze & Online</strong>
-                İstanbul ve tüm Türkiye
+                <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
+                Evinizin konforunda özel ders
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">30 Dk</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">81 İl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Ücretsiz Keşif</strong>
-                Öğrenme stili analizi
+                <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
+                Tüm Türkiye’de kesintisiz erişim
               </div>
             </div>
           </div>
