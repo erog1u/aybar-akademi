@@ -1,10 +1,9 @@
+import path from "path";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    path.join(__dirname, "./src/**/*.{js,ts,jsx,tsx,mdx}"),
   ],
   theme: {
     extend: {
@@ -17,17 +16,17 @@ const config: Config = {
           400: "#5998FA",
           500: "#2B72F3",
           600: "#0F53D6",
-          700: "#0044B5", // Primary Studio Cobalt (Reference Theme)
+          700: "#0044B5",
           800: "#07348C",
-          900: "#08245E", // Aybar Crest Deep Navy
+          900: "#08245E",
           950: "#04153B",
         },
         crimson: {
           50: "#FFF1F2",
           100: "#FFE0E3",
           500: "#EF233C",
-          600: "#DC1B2E", // Primary Signal Red (Reference Theme)
-          700: "#B81424", // Aybar Crest Burgundy Red
+          600: "#DC1B2E",
+          700: "#B81424",
           800: "#961220",
         },
         ink: {

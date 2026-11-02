@@ -16,6 +16,9 @@ import {
   BookOpen,
   ShieldCheck,
   Compass,
+  Award,
+  Sparkles,
+  PhoneCall,
 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import {
@@ -28,7 +31,7 @@ import {
 import {
   MaskedLines,
   Reveal,
-  SwissSectionHeader,
+  SectionHeader,
   MagneticLink,
   KineticRibbon,
   ParallaxWatermark,
@@ -37,10 +40,49 @@ import {
   SpotlightCard,
   LUXURY_EASE,
 } from "@/components/motion/Primitives";
+import {
+  AybarCrestEmblem,
+  AybarInstitutionalSeal,
+} from "@/components/brand/AybarCrest";
 
-/* -------------------------------------------------------------------------- */
-/* Sticky Stacking Principle Card (GPU-Accelerated Scroll Depth)              */
-/* -------------------------------------------------------------------------- */
+const SUBPAGE_GATEWAY = [
+  {
+    title: "Hakkımızda",
+    desc: "33 yıllık köklü akademik deneyimimiz ve Türkiye genelindeki hizmet ağımız.",
+    href: "/hakkimizda",
+    accent: "Kurumsal Kimlik",
+    icon: Award,
+  },
+  {
+    title: "Eğitim Programlarımız",
+    desc: "YKS, LGS, KPSS, 11 Dünya Dili, Üniversite ve Sanat özel ders kataloğu.",
+    href: "/egitim-programlarimiz",
+    accent: "6 Ana Kategori",
+    icon: BookOpen,
+  },
+  {
+    title: "Eğitim Modelimiz",
+    desc: "VIP süreç yönetimi, eğitim koçluğu ve aile-okul-öğretmen köprüsü.",
+    href: "/egitim-modelimiz",
+    accent: "VIP Süreç",
+    icon: Compass,
+  },
+  {
+    title: "Neden Farklıyız?",
+    desc: "30 dk tanışma seansı, Ters Yüz Sınıf ve Dijital Hata Defteri sistemimiz.",
+    href: "/neden-farkliyiz",
+    accent: "5 Standart İlke",
+    icon: Sparkles,
+  },
+  {
+    title: "İletişim & Başvuru",
+    desc: "Ücretsiz 30 dakikalık tanışma seansı ve öğrenme stili analizi planlayın.",
+    href: "/iletisim",
+    accent: "Hızlı Planlama",
+    icon: PhoneCall,
+  },
+];
+
 function StickyPrincipleCard({
   principle,
   index,
@@ -56,86 +98,76 @@ function StickyPrincipleCard({
     offset: ["start start", "end start"],
   });
 
-  const targetScale = 1 - (total - 1 - index) * 0.025;
+  const targetScale = 1 - (total - 1 - index) * 0.02;
   const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
-
   const isDark = index % 2 === 1;
 
   return (
     <div
       ref={cardWrapRef}
       className="lg:sticky"
-      style={{ top: `calc(6.5rem + ${index * 18}px)` }}
+      style={{ top: `calc(6.5rem + ${index * 16}px)` }}
     >
       <motion.article
         style={{ scale, transformOrigin: "top center" }}
-        className={`border shadow-studio transition-colors mb-8 ${
+        className={`border shadow-studio mb-8 ${
           isDark
             ? "bg-cobalt-900 border-white/15 text-white"
             : "bg-white border-cobalt-900/15 text-ink"
         }`}
       >
         <div
-          className={`px-6 sm:px-10 py-4 border-b flex flex-wrap items-center justify-between gap-3 ${
+          className={`px-6 sm:px-10 py-4 border-b flex items-center justify-between gap-3 ${
             isDark
               ? "border-white/12 bg-cobalt-950/60"
               : "border-cobalt-900/10 bg-paper-warm"
           }`}
         >
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 bg-crimson-600 text-white font-mono text-xs font-bold">
-              İLKE {principle.step} / 0{total}
-            </span>
-            <span
-              className={`font-mono text-[11px] tracking-[0.16em] ${
-                isDark ? "text-cobalt-200" : "text-ink-muted"
-              }`}
-            >
-              {principle.phase}
-            </span>
-          </div>
+          <span className="inline-flex items-center px-3 py-1 bg-crimson-600 text-white text-xs font-bold">
+            {index + 1}. İlke
+          </span>
           <span
-            className={`font-mono text-[11px] tracking-[0.14em] ${
-              isDark ? "text-cobalt-300" : "text-cobalt-700"
+            className={`text-xs font-semibold ${
+              isDark ? "text-cobalt-200" : "text-cobalt-700"
             }`}
           >
-            TAM ÖĞRENME PROTOKOLÜ
+            Aybar Akademi Standart İlkesi
           </span>
         </div>
 
         <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <div
-              className={`font-serif italic text-5xl sm:text-6xl font-semibold leading-none mb-4 ${
+              className={`font-serif italic text-5xl font-bold leading-none mb-3 ${
                 isDark ? "text-cobalt-300/40" : "text-cobalt-700/20"
               }`}
             >
-              {principle.step}
+              0{index + 1}
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest leading-tight">
               {principle.title}
             </h3>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 gap-4">
+          <div className="lg:col-span-8 grid grid-cols-1 gap-4">
             {principle.items.map((item, idx) => (
               <div
                 key={idx}
                 className={`p-5 border ${
                   isDark
-                    ? "border-white/12 bg-white/[0.04]"
+                    ? "border-white/12 bg-white/[0.05]"
                     : "border-cobalt-900/10 bg-paper"
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 bg-crimson-600 shrink-0" />
+                  <span className="mt-2 h-2 w-2 bg-crimson-600 shrink-0" />
                   <div>
                     <h4 className="font-bold text-base tracking-tight">
                       {item.title}
                     </h4>
                     <p
                       className={`mt-1.5 text-sm leading-relaxed ${
-                        isDark ? "text-cobalt-100/85" : "text-ink-muted"
+                        isDark ? "text-cobalt-100/90" : "text-ink-muted"
                       }`}
                     >
                       {item.detail}
@@ -162,62 +194,56 @@ export default function HomePage() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const heroImageY = useTransform(heroScroll, [0, 1], ["0%", "10%"]);
+  const heroImageY = useTransform(heroScroll, [0, 1], ["0%", "8%"]);
 
   return (
     <div className="overflow-x-clip">
       {/* =================================================================== */}
-      {/* SPREAD 01 — ROYAL COBALT STUDIO HERO (Ref Images 1, 2, 3, 5)        */}
+      {/* 1. ROYAL COBALT STUDIO HERO                                         */}
       {/* =================================================================== */}
       <section
         ref={heroRef}
         className="relative bg-gradient-to-br from-[#0055E0] via-cobalt-700 to-[#062466] halftone-cobalt text-white border-b border-white/15 overflow-hidden"
       >
-        {/* Electric Studio Radial Spotlights */}
+        {/* Subtle Vector Crest Architectural Watermark */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-28 right-8 h-[640px] w-[640px] rounded-full bg-[#4796FF]/35 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 text-white/[0.06]"
+        >
+          <AybarCrestEmblem variant="watermark" className="h-[520px] w-[520px]" />
+        </div>
+
+        {/* Studio Radial Glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 right-12 h-[560px] w-[560px] rounded-full bg-[#4796FF]/30 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-12 -left-24 h-[420px] w-[420px] rounded-full bg-crimson-600/20 blur-3xl"
-        />
-        {/* Architectural Diagonal Crimson Accent Line (Ref Image 5) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-0 w-72 sm:w-96 h-2.5 bg-crimson-600"
+          className="pointer-events-none absolute bottom-0 left-0 w-72 sm:w-96 h-2 bg-crimson-600"
         />
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24 relative z-10">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 pb-16 lg:pt-18 lg:pb-22 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            {/* Left 7 Columns: Editorial Thesis & Maarif Stamp */}
+            {/* Left 7 Columns */}
             <div className="lg:col-span-7">
-              {/* Verified Maarif Modeli Studio Capsule (Ref Image 5) */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: LUXURY_EASE }}
-                className="inline-flex items-center gap-3 pl-2 pr-4 py-1.5 rounded-full border border-white/35 bg-cobalt-900/55 backdrop-blur-sm mb-8"
-              >
+              <div className="inline-flex items-center gap-3 pl-2 pr-4 py-1.5 rounded-full border border-white/35 bg-cobalt-900/60 backdrop-blur-sm mb-7">
                 <span className="h-6 w-6 rounded-full bg-crimson-600 flex items-center justify-center shrink-0">
                   <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                 </span>
-                <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.12em] text-white">
-                  TÜRKİYE YÜZYILI MAARİF MODELİ · %100 UYUMLU EĞİTİM
+                <span className="text-xs font-bold tracking-wide text-white">
+                  Türkiye Yüzyılı Maarif Modeli’ne %100 Uyumlu Eğitim
                 </span>
-              </motion.div>
+              </div>
 
-              {/* Monumental Display Typography (Ref Image 1 & 2) */}
               <MaskedLines
                 as="h1"
-                className="text-4xl sm:text-6xl xl:text-[4.35rem] font-extrabold tracking-tightest leading-[1.03]"
+                immediate
+                className="text-4xl sm:text-6xl xl:text-[4.3rem] font-extrabold tracking-tightest leading-[1.04]"
                 lines={[
                   "Her Öğrenciye",
                   "Aynı Eğitim Değil,",
-                  <span
-                    key="highlight"
-                    className="inline-flex flex-wrap items-baseline gap-x-4 pt-1"
-                  >
+                  <span key="hl" className="inline-block pt-1">
                     <span className="bg-crimson-600 text-white px-4 py-0.5 inline-block -rotate-1 shadow-crimson">
                       Doğru Eğitim.
                     </span>
@@ -225,32 +251,21 @@ export default function HomePage() {
                 ]}
               />
 
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: LUXURY_EASE, delay: 0.32 }}
-                className="mt-7 text-base sm:text-lg lg:text-[1.15rem] text-cobalt-50/90 leading-relaxed max-w-2xl"
-              >
+              <p className="mt-7 text-base sm:text-lg lg:text-[1.15rem] text-cobalt-50/95 leading-relaxed max-w-2xl">
                 <strong className="font-bold text-white">33 yıllık</strong>{" "}
                 köklü eğitim deneyimini, kişiye özel VIP süreç yönetimi ve uzman
-                öğretmen kadrosuyla birleştiriyoruz. İstanbul’un tüm ilçelerinde{" "}
-                <span className="underline decoration-crimson-500 decoration-2 underline-offset-4 text-white font-semibold">
-                  ev konforunda yüz yüze
-                </span>
+                öğretmen kadromuzla birleştiriyoruz. İstanbul’un tüm ilçelerinde{" "}
+                <strong className="text-white underline decoration-crimson-500 decoration-2 underline-offset-4">
+                  evinizin konforunda yüz yüze
+                </strong>
                 , tüm Türkiye’de{" "}
-                <span className="underline decoration-white/60 decoration-2 underline-offset-4 text-white font-semibold">
-                  canlı interaktif online
-                </span>{" "}
+                <strong className="text-white underline decoration-white/60 decoration-2 underline-offset-4">
+                  canlı ve interaktif online
+                </strong>{" "}
                 birebir özel ders.
-              </motion.p>
+              </p>
 
-              {/* CTA Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: LUXURY_EASE, delay: 0.42 }}
-                className="mt-9 flex flex-wrap items-center gap-4"
-              >
+              <div className="mt-9 flex flex-wrap items-center gap-4">
                 <MagneticLink
                   href={getWhatsAppUrl()}
                   external
@@ -265,60 +280,33 @@ export default function HomePage() {
                 >
                   Eğitim Programlarımızı İncele
                 </MagneticLink>
-              </motion.div>
-
-              {/* Sub-caption */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.55, duration: 0.6 }}
-                className="mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.14em] text-cobalt-100"
-              >
-                <span>İLKOKULDAN ÜNİVERSİTEYE</span>
-                <span className="text-crimson-500">·</span>
-                <span>YKS · LGS · KPSS · ALES</span>
-                <span className="text-crimson-500">·</span>
-                <span>11 DÜNYA DİLİ & SERTİFİKA</span>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Right 5 Columns: Studio Photography + "Başarı Yükleniyor" Console */}
+            {/* Right 5 Columns */}
             <div className="lg:col-span-5 relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.18 }}
-                className="relative"
-              >
-                {/* Studio Photo Frame */}
-                <div className="relative bg-white p-2.5 sm:p-3 border border-white/30 shadow-studio">
-                  {/* High-Impact Corner Sticker Badge */}
-                  <div className="absolute -top-3.5 -right-2 sm:-right-3 z-20 bg-crimson-600 text-white px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.14em] rotate-2 shadow-crimson border border-white/25">
-                    İLK DERS ÖNCESİ 30 DK ÜCRETSİZ KEŞİF
-                  </div>
-                  <div className="relative aspect-[4/3] overflow-hidden bg-cobalt-900">
-                    <motion.img
-                      style={{ y: heroImageY }}
-                      src="/images/hero-one-on-one.jpg"
-                      alt="Aybar Akademi Birebir Özel Ders ve VIP Koçluk"
-                      className="w-full h-[112%] -mt-[6%] object-cover"
-                    />
-                    <div className="absolute bottom-3 left-3 bg-cobalt-950/90 text-white px-3 py-1 font-mono text-[10px] tracking-[0.16em] border border-white/15">
-                      [VIP · 1’E 1 ÖZEL DERS MODELİ]
-                    </div>
-                  </div>
+              <div className="relative bg-white p-2.5 sm:p-3 border border-white/30 shadow-studio">
+                <div className="absolute -top-3.5 right-3 z-20 bg-crimson-600 text-white px-3.5 py-1 text-xs font-bold rotate-1 shadow-crimson">
+                  İlk Ders Öncesi 30 Dk Ücretsiz Tanışma
                 </div>
+                <div className="relative aspect-[4/3] overflow-hidden bg-cobalt-900">
+                  <motion.img
+                    style={{ y: heroImageY }}
+                    src="/images/hero-one-on-one.jpg"
+                    alt="Aybar Akademi Birebir Özel Ders"
+                    className="w-full h-[112%] -mt-[6%] object-cover"
+                  />
+                </div>
+              </div>
 
-                {/* Interactive "Başarı Yükleniyor..." Console (Ref Image 3) */}
-                <div className="mt-4 sm:-mt-10 sm:ml-6 relative z-20">
-                  <SuccessDiagnosticWidget />
-                </div>
-              </motion.div>
+              <div className="mt-4 sm:-mt-10 sm:ml-6 relative z-20">
+                <SuccessDiagnosticWidget />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom 4-Cell Institutional Ledger Strip with Live Counters */}
+        {/* Bottom 4 Metrics Strip */}
         <div className="border-t border-white/15 bg-cobalt-950/85 backdrop-blur-md">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/12">
             {[
@@ -326,54 +314,100 @@ export default function HomePage() {
                 target: 33,
                 prefix: "",
                 suffix: " Yıl",
-                label: "KÖKLÜ AKADEMİK DENEYİM",
-                sub: "Çeyrek asrı aşan kurumsal güven",
+                label: "Köklü Eğitim Deneyimi",
               },
               {
                 target: 100,
                 prefix: "%",
                 suffix: "",
-                label: "MAARİF MODELİNE UYUM",
-                sub: "Yeni nesil müfredata hâkim kadro",
+                label: "Maarif Modeline Uyum",
               },
               {
                 target: 39,
                 prefix: "",
                 suffix: " İlçe",
-                label: "İSTANBUL YÜZ YÜZE DERS",
-                sub: "Evinizin konforunda birebir eğitim",
+                label: "İstanbul Yüz Yüze Özel Ders",
               },
               {
                 target: 81,
                 prefix: "",
                 suffix: " İl",
-                label: "TÜRKİYE ONLINE EĞİTİM",
-                sub: "Coğrafi sınırları kaldıran teknoloji",
+                label: "Tüm Türkiye Canlı Online",
               },
             ].map((stat, i) => (
               <div
                 key={i}
-                className="py-6 px-4 sm:px-6 lg:first:pl-0 lg:last:pr-0 flex flex-col justify-between"
+                className="py-5 px-4 sm:px-6 lg:first:pl-0 lg:last:pr-0"
               >
-                <div className="font-mono text-[10px] tracking-[0.16em] text-cobalt-200 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 bg-crimson-500 inline-block shrink-0" />
-                  <span className="truncate">{stat.label}</span>
-                </div>
-                <div className="mt-2 font-serif font-bold text-2xl sm:text-4xl text-white tracking-tight">
+                <div className="font-serif font-bold text-2xl sm:text-4xl text-white tracking-tight">
                   <AnimatedCounter
                     target={stat.target}
                     prefix={stat.prefix}
                     suffix={stat.suffix}
                   />
                 </div>
-                <div className="mt-1 text-xs text-cobalt-200/80">{stat.sub}</div>
+                <div className="mt-1 text-xs sm:text-sm text-cobalt-200 font-medium">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Scroll-Velocity Reactive Typographic Ribbon */}
+      {/* =================================================================== */}
+      {/* 2. PROMINENT SUBPAGE GATEWAY ("Tüm Bölümleri Hızlıca Keşfedin")      */}
+      {/* =================================================================== */}
+      <section className="bg-cobalt-950 text-white border-b border-white/15 py-10 sm:py-12">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div className="flex items-center gap-2.5">
+              <span className="h-2 w-2 bg-crimson-500 inline-block" />
+              <h2 className="text-sm sm:text-base font-extrabold tracking-tight text-white">
+                Sitemizin Tüm Bölümlerini Keşfedin
+              </h2>
+            </div>
+            <span className="text-xs text-cobalt-200">
+              Detaylı incelemek istediğiniz bölüme tıklayın
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {SUBPAGE_GATEWAY.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group relative bg-cobalt-900/80 hover:bg-cobalt-700 border border-white/15 hover:border-white/40 p-5 flex flex-col justify-between transition-all duration-300"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="px-2 py-0.5 bg-crimson-600 text-white text-[10px] font-bold tracking-wider">
+                        {item.accent}
+                      </span>
+                      <Icon className="h-4 w-4 text-cobalt-200 group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs text-cobalt-100/85 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-white/10 inline-flex items-center gap-1.5 text-xs font-bold text-white">
+                    <span>Sayfayı Aç</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Kinetic Ribbon */}
       <KineticRibbon
         variant="light"
         items={[
@@ -382,17 +416,15 @@ export default function HomePage() {
           "30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI",
           "DİJİTAL HATA DEFTERİ",
           "TERS YÜZ SINIF & ACTIVE RECALL",
-          "BAHADIR AYBAR LİDERLİĞİNDE AKADEMİK MENTORLUK",
         ]}
       />
 
       {/* =================================================================== */}
-      {/* SPREAD 02 — KURUCUMUZUN MESAJI ("The Digital Broadsheet")           */}
+      {/* 3. KURUCUMUZUN MESAJI (Integrated Vector Crest + Verbatim Letter)   */}
       {/* =================================================================== */}
-      <section className="py-20 lg:py-28 bg-paper relative">
+      <section className="py-20 lg:py-26 bg-paper relative">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <SwissSectionHeader
-            index="BÖLÜM 01"
+          <SectionHeader
             eyebrow={founderMessage.eyebrow}
             title={
               <>
@@ -405,109 +437,62 @@ export default function HomePage() {
             }
           />
 
-          {/* Broadsheet Outer Ledger Frame */}
-          <div className="border border-cobalt-900/15 bg-white shadow-card relative">
-            {/* Top Archival Communiqué Bar */}
-            <div className="px-6 sm:px-10 py-4 bg-paper-warm border-b border-cobalt-900/12 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] tracking-[0.15em] text-ink-muted">
-              <span>KURUMSAL BİLDİRİ // AYBAR AKADEMİ KURUCU MESAJI</span>
-              <span className="text-cobalt-800 font-semibold">
-                BAHADIR AYBAR · KURUCU
-              </span>
-            </div>
-
+          <div className="border border-cobalt-900/15 bg-white shadow-card">
             <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-cobalt-900/12">
-              {/* Left 4 Columns: Crest Plate, Pull Quote & Credentials */}
-              <div className="lg:col-span-4 p-6 sm:p-10 bg-paper/60 flex flex-col justify-between">
-                <div className="lg:sticky lg:top-28 space-y-8">
-                  <div className="bg-white border border-cobalt-900/12 p-6 flex flex-col items-center text-center">
-                    <img
-                      src={siteConfig.logos.full}
-                      alt={`${siteConfig.name} Kurumsal Arma`}
-                      className="h-44 w-auto object-contain"
-                    />
-                    <div className="mt-4 pt-4 border-t border-cobalt-900/10 w-full">
+              {/* Left 4 Columns: Integrated Vector Seal & Pull Quote */}
+              <div className="lg:col-span-4 p-6 sm:p-10 bg-paper-warm/70">
+                <div className="lg:sticky lg:top-28 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+                  <div className="w-full py-6 px-4 bg-white border border-cobalt-900/10 flex flex-col items-center text-center">
+                    <AybarInstitutionalSeal variant="light" />
+                    <div className="mt-5 pt-4 border-t border-cobalt-900/10 w-full">
                       <div className="font-serif font-bold text-lg text-cobalt-900">
                         {founderMessage.author}
                       </div>
-                      <div className="font-mono text-[11px] tracking-[0.15em] text-crimson-600 mt-1">
+                      <div className="text-xs font-bold text-crimson-600 mt-0.5">
                         {founderMessage.role}
                       </div>
                     </div>
                   </div>
 
-                  {/* Editorial Pull-Quote */}
-                  <blockquote className="border-l-2 border-crimson-600 pl-5 py-1">
-                    <p className="font-serif italic text-base sm:text-[1.05rem] text-cobalt-950 leading-relaxed">
+                  <blockquote className="border-l-4 border-crimson-600 pl-4 py-1 text-left">
+                    <p className="font-serif italic text-base text-cobalt-950 leading-relaxed">
                       “{founderMessage.pullQuote}”
                     </p>
                   </blockquote>
-
-                  {/* Key Institutional Pillars */}
-                  <div className="border-t border-cobalt-900/10 pt-6 space-y-3 font-mono text-[11px] tracking-[0.12em] text-ink-muted">
-                    <div className="flex items-center justify-between">
-                      <span>EĞİTİM STANDARDI</span>
-                      <span className="text-cobalt-800 font-semibold">
-                        VIP BİREBİR ÖZEL DERS
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>AKADEMİK KAPSAM</span>
-                      <span className="text-cobalt-800 font-semibold">
-                        İLKOKUL — ÜNİVERSİTE
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>İŞLEYİŞ MODELİ</span>
-                      <span className="text-cobalt-800 font-semibold">
-                        YÜZ YÜZE & CANLI ONLINE
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Right 8 Columns: Full Verbatim Founder's Letter */}
+              {/* Right 8 Columns: Verbatim Founder's Letter */}
               <div className="lg:col-span-8 p-6 sm:p-10 lg:p-14">
-                <Reveal>
-                  <p className="font-serif font-semibold text-lg sm:text-xl text-cobalt-900 leading-snug mb-8 pb-6 border-b border-cobalt-900/10">
-                    {founderMessage.salutation}
-                  </p>
-                </Reveal>
+                <p className="font-serif font-semibold text-lg sm:text-xl text-cobalt-900 leading-snug mb-8 pb-6 border-b border-cobalt-900/10">
+                  {founderMessage.salutation}
+                </p>
 
-                <div className="space-y-6 text-[15.5px] sm:text-[16.5px] text-ink/90 leading-[1.85]">
+                <div className="space-y-5 text-[15.5px] sm:text-[16.5px] text-ink/90 leading-[1.85]">
                   {founderMessage.paragraphs.map((paragraph, idx) => (
-                    <Reveal key={idx} delay={idx * 0.06}>
-                      <p className={idx === 0 ? "editorial-dropcap" : ""}>
-                        {paragraph}
-                      </p>
-                    </Reveal>
+                    <p key={idx} className={idx === 0 ? "editorial-dropcap" : ""}>
+                      {paragraph}
+                    </p>
                   ))}
                 </div>
 
-                {/* Formal Closing & Signature Block */}
-                <Reveal delay={0.25}>
-                  <div className="mt-12 pt-8 border-t border-cobalt-900/12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-                    <div>
-                      <p className="font-serif italic text-base text-ink-muted mb-4">
-                        {founderMessage.closing}
-                      </p>
-                      <div className="font-serif font-bold text-2xl text-cobalt-900 tracking-tight">
-                        {founderMessage.author}
-                      </div>
-                      <div className="font-mono text-xs tracking-[0.16em] text-crimson-600 mt-1">
-                        {founderMessage.role}
-                      </div>
+                <div className="mt-10 pt-8 border-t border-cobalt-900/12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                  <div>
+                    <p className="font-serif italic text-base text-ink-muted mb-3">
+                      {founderMessage.closing}
+                    </p>
+                    <div className="font-serif font-bold text-2xl text-cobalt-900 tracking-tight">
+                      {founderMessage.author}
                     </div>
-
-                    <Link
-                      href="/hakkimizda"
-                      className="group inline-flex items-center gap-2 font-mono text-xs font-semibold tracking-[0.12em] text-cobalt-700 hover:text-crimson-600 transition-colors"
-                    >
-                      <span>HAKKIMIZDA & 33 YILLIK DENEYİM</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </Link>
+                    <div className="text-xs font-bold tracking-wider text-crimson-600 mt-1 uppercase">
+                      {founderMessage.role}
+                    </div>
                   </div>
-                </Reveal>
+
+                  <MagneticLink href="/hakkimizda" variant="cobalt">
+                    Hakkımızda Sayfasına Git
+                  </MagneticLink>
+                </div>
               </div>
             </div>
           </div>
@@ -515,23 +500,20 @@ export default function HomePage() {
       </section>
 
       {/* =================================================================== */}
-      {/* SPREAD 03 — MAARİF MODELİ & STUDIO FEATURE (Ref Images 2 & 4)       */}
+      {/* 4. YENİ SİSTEMDE YALNIZ DEĞİLSİN (Maarif Modeli & Hakkımızda Özeti) */}
       {/* =================================================================== */}
-      <section className="relative py-20 lg:py-28 bg-paper-tint border-y border-cobalt-900/12 overflow-hidden">
-        {/* Giant Parallax Ghost Watermark (Ref Image 4) */}
+      <section className="relative py-20 lg:py-26 bg-paper-tint border-y border-cobalt-900/12 overflow-hidden">
         <ParallaxWatermark
           text="AYBAR AKADEMİ · YENİ NESİL MAARİF MODELİ · "
-          className="absolute top-8 left-0 right-0 text-cobalt-700/[0.055]"
+          className="absolute top-8 left-0 right-0 text-cobalt-700/[0.05]"
         />
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left 5 Columns: Stacked Pill Graphic Motif + Portrait (Ref Image 2 & 4) */}
             <div className="lg:col-span-5">
               <Reveal>
-                <div className="relative bg-cobalt-700 halftone-cobalt p-6 sm:p-8 border border-cobalt-900/20 shadow-studio text-white overflow-hidden">
-                  {/* Stacked Sticker Capsules — Direct Nod to Reference Image 2 */}
-                  <div className="mb-6 flex flex-col items-start gap-1.5">
+                <div className="bg-cobalt-700 halftone-cobalt p-6 sm:p-8 border border-cobalt-900/20 shadow-studio text-white">
+                  <div className="mb-5 flex flex-col items-start gap-1.5">
                     <span className="inline-block bg-crimson-600 text-white px-4 py-1 text-2xl sm:text-3xl font-extrabold tracking-tightest -rotate-1">
                       Yeni sistemde
                     </span>
@@ -545,11 +527,11 @@ export default function HomePage() {
 
                   <p className="text-sm text-cobalt-100 leading-relaxed mb-6">
                     Dersler aynı, öğrenme şekli değişti. Aybar Akademi’de yeni
-                    nesil Maarif Modeline %100 uyumlu birebir ders, sınav analizi
-                    ve koçlukla adım adım zirveye hazırlanırsın.
+                    nesil Maarif Modeline uyumlu birebir ders, sınav analizi ve
+                    koçlukla adım adım hazırlanırsın.
                   </p>
 
-                  <div className="relative aspect-[4/4.3] overflow-hidden border border-white/25 bg-cobalt-900">
+                  <div className="relative aspect-[4/4.2] overflow-hidden border border-white/25 bg-cobalt-900">
                     <img
                       src="/images/maarif-student.jpg"
                       alt="Yeni Nesil Maarif Modeline Uyumlu Eğitim"
@@ -560,33 +542,20 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* Right 7 Columns: About Solutions & Dual Türkiye/İstanbul Reach */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-cobalt-900/15 font-mono text-[11px] font-semibold tracking-[0.15em] text-cobalt-800 mb-5">
-                [BÖLÜM 02] · ÇAĞDAŞ AKADEMİK ÇÖZÜMLER
-              </div>
-
-              <MaskedLines
-                as="h2"
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tightest text-ink leading-[1.08]"
-                lines={[
-                  "Başarı Bir Tesadüf Değil,",
-                  "Kalıcı Bir Alışkanlıktır.",
-                ]}
+              <SectionHeader
+                eyebrow="HAKKIMIZDA ÖZETİ"
+                title="Başarı Bir Tesadüf Değil, Kalıcı Bir Alışkanlıktır."
+                subtitle={aboutContent.introParagraphs[0]}
               />
 
-              <p className="mt-5 text-base sm:text-lg text-ink-muted leading-relaxed">
-                {aboutContent.introParagraphs[0]}
-              </p>
-
-              {/* 3 Core Solutions */}
-              <div className="mt-8 border border-cobalt-900/12 bg-white divide-y divide-cobalt-900/10">
+              <div className="border border-cobalt-900/12 bg-white divide-y divide-cobalt-900/10">
                 {aboutContent.solutions.map((sol) => (
                   <div
                     key={sol.index}
-                    className="p-5 sm:p-6 flex items-start gap-5 hover:bg-paper-warm/70 transition-colors"
+                    className="p-5 sm:p-6 flex items-start gap-4 hover:bg-paper-warm/70 transition-colors"
                   >
-                    <span className="font-mono text-xs font-bold text-white bg-cobalt-700 px-2.5 py-1 shrink-0 mt-0.5">
+                    <span className="text-xs font-bold text-white bg-cobalt-700 px-2.5 py-1 shrink-0 mt-0.5">
                       {sol.index}
                     </span>
                     <div>
@@ -601,31 +570,30 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* Eğitimde Sınır Tanımıyoruz Dual Grid */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 bg-cobalt-900 text-white border border-cobalt-900">
-                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] text-crimson-500 mb-2">
-                    <MapPin className="h-3.5 w-3.5" />
-                    <span>39 İLÇEDE BİREBİR YÜZ YÜZE</span>
+                <div className="p-5 bg-cobalt-900 text-white">
+                  <div className="flex items-center gap-2 text-xs font-bold text-crimson-500 mb-1.5">
+                    <MapPin className="h-4 w-4" />
+                    <span>Yüz Yüze Özel Ders</span>
                   </div>
                   <div className="font-bold text-base">
                     İstanbul’un Tüm İlçelerinde
                   </div>
-                  <p className="mt-1 text-xs text-cobalt-100/85 leading-relaxed">
-                    Evinizin konforunda, güvenli ve verimli ortamda yüz yüze özel
-                    ders.
+                  <p className="mt-1 text-xs text-cobalt-100/90 leading-relaxed">
+                    Evinizin konforunda, güvenli ve verimli ortamda birebir yüz
+                    yüze özel ders.
                   </p>
                 </div>
 
                 <div className="p-5 bg-white text-ink border border-cobalt-900/15">
-                  <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] text-cobalt-700 mb-2">
-                    <Globe2 className="h-3.5 w-3.5 text-crimson-600" />
-                    <span>81 İLDE CANLI İNTERAKTİF</span>
+                  <div className="flex items-center gap-2 text-xs font-bold text-cobalt-700 mb-1.5">
+                    <Globe2 className="h-4 w-4 text-crimson-600" />
+                    <span>Canlı Online Eğitim</span>
                   </div>
-                  <div className="font-bold text-base">Tüm Türkiye’de Online</div>
+                  <div className="font-bold text-base">Tüm Türkiye’de</div>
                   <p className="mt-1 text-xs text-ink-muted leading-relaxed">
-                    Coğrafi sınırları kaldıran yüksek verimli canlı online özel
-                    ders modelleri.
+                    Coğrafi sınırları kaldıran yüksek verimli, interaktif online
+                    eğitim modelleri.
                   </p>
                 </div>
               </div>
@@ -635,31 +603,29 @@ export default function HomePage() {
       </section>
 
       {/* =================================================================== */}
-      {/* SPREAD 04 — INTERACTIVE CURRICULUM MATRIX PREVIEW                   */}
+      {/* 5. EĞİTİM PROGRAMLARIMIZ VİTRİNİ                                    */}
       {/* =================================================================== */}
-      <section className="py-20 lg:py-28 bg-paper">
+      <section className="py-20 lg:py-26 bg-paper">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <SwissSectionHeader
-            index="BÖLÜM 03"
-            eyebrow="AYBAR AKADEMİ'DE ÖZEL DERS · EĞİTİM PROGRAMLARIMIZ"
+          <SectionHeader
+            eyebrow="EĞİTİM PROGRAMLARIMIZ"
             title={
               <>
                 İlkokuldan Üniversiteye, Ulusal Sınavlardan{" "}
                 <span className="font-serif italic font-medium text-cobalt-700">
-                  Küresel Sertifikalara
+                  Dünya Dillerine
                 </span>
               </>
             }
-            subtitle="Alanında profesyonel kadromuzla her yaş grubuna ve her seviyeye uygun, tamamen birebir özel ders programlarımızı inceleyin."
+            subtitle="Her yaş grubuna ve her seviyeye uygun, tamamen birebir özel ders programlarımız."
             rightSlot={
               <MagneticLink href="/egitim-programlarimiz" variant="cobalt">
-                Tüm Program Kataloğunu Aç
+                Tüm Programları Gör
               </MagneticLink>
             }
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 border border-cobalt-900/15 bg-white shadow-card">
-            {/* Left 4-Col Category Selector Rail (Horizontal Scroll on Mobile, Vertical Ledger on Desktop) */}
             <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-cobalt-900/12 bg-paper-warm flex lg:block overflow-x-auto divide-x lg:divide-x-0 lg:divide-y divide-cobalt-900/10">
               {programCategories.map((cat) => {
                 const isSelected = cat.id === activeCategory.id;
@@ -677,20 +643,11 @@ export default function HomePage() {
                     {isSelected && (
                       <span className="absolute left-0 right-0 bottom-0 h-1 lg:right-auto lg:top-0 lg:h-auto lg:w-1.5 bg-crimson-600" />
                     )}
-                    <div>
-                      <div
-                        className={`font-mono text-[10px] sm:text-[11px] tracking-[0.16em] ${
-                          isSelected ? "text-cobalt-200" : "text-crimson-600"
-                        }`}
-                      >
-                        PROGRAM {cat.code}
-                      </div>
-                      <div className="font-extrabold text-sm sm:text-base lg:text-lg tracking-tight mt-0.5 whitespace-nowrap lg:whitespace-normal">
-                        {cat.shortTitle}
-                      </div>
-                    </div>
+                    <span className="font-extrabold text-sm sm:text-base tracking-tight whitespace-nowrap lg:whitespace-normal">
+                      {cat.title}
+                    </span>
                     <span
-                      className={`hidden sm:inline-block font-mono text-xs px-2 py-0.5 border shrink-0 ${
+                      className={`hidden sm:inline-block text-xs font-bold px-2 py-0.5 border shrink-0 ${
                         isSelected
                           ? "border-white/25 bg-white/10 text-white"
                           : "border-cobalt-900/15 text-ink-muted"
@@ -703,19 +660,18 @@ export default function HomePage() {
               })}
             </div>
 
-            {/* Right 8-Col Active Category Dossier */}
             <div className="lg:col-span-8 p-6 sm:p-10 flex flex-col justify-between">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory.id}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: LUXURY_EASE }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: LUXURY_EASE }}
                 >
                   <div className="pb-6 mb-6 border-b border-cobalt-900/10">
-                    <div className="font-mono text-xs font-semibold tracking-[0.16em] text-crimson-600 mb-2">
-                      [{activeCategory.code}] · {activeCategory.tagline}
+                    <div className="text-xs font-bold text-crimson-600 mb-1.5">
+                      {activeCategory.tagline}
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest text-ink">
                       {activeCategory.title}
@@ -725,15 +681,14 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  {/* Items List */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {activeCategory.items.slice(0, 6).map((item, idx) => (
                       <div
                         key={idx}
-                        className={`p-5 border transition-colors ${
+                        className={`p-5 border ${
                           item.featured
-                            ? "md:col-span-2 border-cobalt-700 bg-cobalt-50/50"
-                            : "border-cobalt-900/12 bg-paper hover:border-cobalt-700/40"
+                            ? "md:col-span-2 border-cobalt-700 bg-cobalt-50/60"
+                            : "border-cobalt-900/12 bg-paper"
                         }`}
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -742,7 +697,7 @@ export default function HomePage() {
                           </h4>
                           {item.badge && (
                             <span
-                              className={`font-mono text-[10px] px-2 py-0.5 font-semibold tracking-[0.1em] ${
+                              className={`text-[11px] px-2.5 py-0.5 font-bold ${
                                 item.featured
                                   ? "bg-crimson-600 text-white"
                                   : "bg-cobalt-100 text-cobalt-900"
@@ -776,13 +731,6 @@ export default function HomePage() {
                       </div>
                     ))}
                   </div>
-
-                  {activeCategory.items.length > 6 && (
-                    <div className="mt-4 font-mono text-xs text-cobalt-700">
-                      + {activeCategory.items.length - 6} dil ve sertifika
-                      programı daha katalog sayfasında yer almaktadır.
-                    </div>
-                  )}
                 </motion.div>
               </AnimatePresence>
 
@@ -791,10 +739,8 @@ export default function HomePage() {
                   href={`/egitim-programlarimiz#${activeCategory.id}`}
                   className="group inline-flex items-center gap-2 text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors"
                 >
-                  <span>
-                    {activeCategory.title} Detaylarını Katalogda Gör
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <span>Tüm {activeCategory.title} Detaylarını Gör</span>
+                  <ArrowUpRight className="h-4 w-4" />
                 </Link>
 
                 <a
@@ -803,82 +749,74 @@ export default function HomePage() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white px-5 py-2.5 text-xs font-bold tracking-tight transition-colors"
+                  className="inline-flex items-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white px-5 py-2.5 text-xs font-bold transition-colors"
                 >
-                  <span>Bu Program İçin Bilgi Al</span>
+                  <span>WhatsApp ile Bilgi Al</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Founder-Led Flagship Programs Dual Spotlight */}
-          <Reveal delay={0.1}>
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 border border-cobalt-900/20 shadow-studio overflow-hidden">
-              <SpotlightCard
-                glowColor="rgba(220, 27, 46, 0.22)"
-                className="bg-cobalt-900 text-white p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/15"
+          {/* Founder-Led Flagship Programs */}
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 border border-cobalt-900/20 shadow-studio overflow-hidden">
+            <SpotlightCard
+              glowColor="rgba(220, 27, 46, 0.22)"
+              className="bg-cobalt-900 text-white p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/15"
+            >
+              <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4">
+                Kurucumuz Bahadır Aybar Liderliğinde
+              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                KPSS Eğitim Bilimleri Birebir Özel Dersleri
+              </h3>
+              <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
+                Tüm Eğitim Bilimleri dersleri bizzat kurumumuzun kurucusu Bahadır
+                Aybar tarafından yüksek akademik standartlarda verilmektedir.
+              </p>
+              <Link
+                href="/egitim-programlarimiz#sinav-hazirlik"
+                className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-crimson-500 hover:text-white transition-colors"
               >
-                <div className="inline-block px-2.5 py-1 bg-crimson-600 text-white font-mono text-[10px] font-bold tracking-[0.15em] mb-4">
-                  BAHADIR AYBAR LİDERLİĞİNDE ÖZEL DERS · 01
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
-                  KPSS Eğitim Bilimleri (Öğretmen Adayları İçin)
-                </h3>
-                <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
-                  Eğitim Psikolojisi, Öğretim Yöntem ve Teknikleri, Ölçme ve
-                  Değerlendirme, Program Geliştirme, Rehberlik ve Sınıf Yönetimi
-                  derslerinin tamamı bizzat Kurucumuz{" "}
-                  <strong className="text-white">Bahadır Aybar</strong> tarafından
-                  yüksek akademik standartlarda birebir verilmektedir.
-                </p>
-                <Link
-                  href="/egitim-programlarimiz#sinav-hazirlik"
-                  className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-bold tracking-[0.12em] text-crimson-500 hover:text-white transition-colors"
-                >
-                  <span>PROGRAM DETAYINI GÖR</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </SpotlightCard>
+                <span>Programı İncele</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </SpotlightCard>
 
-              <SpotlightCard
-                glowColor="rgba(56, 139, 255, 0.25)"
-                className="bg-cobalt-950 text-white p-6 sm:p-8"
+            <SpotlightCard
+              glowColor="rgba(56, 139, 255, 0.25)"
+              className="bg-cobalt-950 text-white p-6 sm:p-8"
+            >
+              <div className="inline-block px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-4">
+                Kurucumuz Bahadır Aybar Liderliğinde
+              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                Üniversite Düzeyi: Felsefe, Sosyoloji ve Psikoloji
+              </h3>
+              <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
+                Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören
+                üniversite öğrencilerine yönelik tüm akademik dersler bizzat
+                kurumumuzun kurucusu tarafından verilmektedir.
+              </p>
+              <Link
+                href="/egitim-programlarimiz#universite-akademik"
+                className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-cobalt-300 hover:text-white transition-colors"
               >
-                <div className="inline-block px-2.5 py-1 bg-cobalt-700 text-white font-mono text-[10px] font-bold tracking-[0.15em] mb-4 border border-white/20">
-                  BAHADIR AYBAR LİDERLİĞİNDE MENTORLUK · 02
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
-                  Üniversite Düzeyi: Felsefe, Sosyoloji ve Psikoloji
-                </h3>
-                <p className="mt-2.5 text-sm text-cobalt-100/90 leading-relaxed">
-                  Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören
-                  üniversite öğrencilerine yönelik tüm akademik dersler ve ileri
-                  düzey mentorluk bizzat Kurucumuz{" "}
-                  <strong className="text-white">Bahadır Aybar</strong>{" "}
-                  liderliğinde yürütülmektedir.
-                </p>
-                <Link
-                  href="/egitim-programlarimiz#universite-akademik"
-                  className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-bold tracking-[0.12em] text-cobalt-300 hover:text-white transition-colors"
-                >
-                  <span>AKADEMİK MENTORLUK DETAYI</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </SpotlightCard>
-            </div>
-          </Reveal>
+                <span>Detayları Gör</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </SpotlightCard>
+          </div>
         </div>
       </section>
 
       {/* =================================================================== */}
-      {/* SPREAD 05 — EĞİTİM MODELİMİZ ARCHITECTURAL SUMMARY                  */}
+      {/* 6. EĞİTİM MODELİMİZ ÖZETİ                                           */}
       {/* =================================================================== */}
-      <section className="py-20 lg:py-28 bg-cobalt-950 text-white border-y border-white/15 relative overflow-hidden">
+      <section className="py-20 lg:py-26 bg-cobalt-950 text-white border-y border-white/15">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <SwissSectionHeader
+          <SectionHeader
             dark
-            index="BÖLÜM 04"
             eyebrow={educationModelContent.eyebrow}
             title={
               <>
@@ -897,65 +835,48 @@ export default function HomePage() {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* Left Image Feature */}
             <div className="lg:col-span-5 flex flex-col justify-between border border-white/15 bg-cobalt-900/50 p-4">
               <div className="relative aspect-[4/3] overflow-hidden border border-white/15">
                 <img
                   src="/images/vip-mentorship.jpg"
-                  alt="Aybar Akademi VIP Eğitim Koçluğu ve Mentorluk"
+                  alt="Aybar Akademi VIP Eğitim Koçluğu"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 bg-crimson-600 text-white px-3 py-1 font-mono text-[10px] font-semibold tracking-[0.15em]">
-                  ÖĞRENCİ · ÖĞRETMEN · AİLE KÖPRÜSÜ
-                </div>
               </div>
               <div className="pt-5 pb-2 px-2">
-                <div className="font-serif italic text-xl text-cobalt-100 leading-snug">
+                <p className="font-serif italic text-lg sm:text-xl text-cobalt-100 leading-snug">
                   “Eğitim koçluğu; dışarıdan bir baskı aracı değil, öğrencinin
                   kendi içindeki gücü keşfetmesini sağlayan profesyonel bir yol
                   arkadaşlığıdır.”
-                </div>
+                </p>
               </div>
             </div>
 
-            {/* Right 4 Pillars Grid */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 border border-white/15 divide-y sm:divide-y-0 sm:divide-x divide-white/12">
               {educationModelContent.sections.map((sec, idx) => {
                 const icons = [ShieldCheck, Compass, BookOpen, Globe2];
                 const Icon = icons[idx % icons.length];
                 return (
                   <SpotlightCard
-                    key={sec.code}
+                    key={idx}
                     className={`p-6 sm:p-8 flex flex-col justify-between bg-cobalt-900/30 hover:bg-cobalt-900/70 transition-colors ${
                       idx >= 2 ? "sm:border-t sm:border-white/12" : ""
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-[11px] tracking-[0.16em] text-crimson-500">
-                          [{sec.code}]
+                        <span className="text-xs font-bold text-crimson-500">
+                          0{idx + 1}
                         </span>
                         <Icon className="h-4 w-4 text-cobalt-300" />
                       </div>
                       <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-white leading-snug">
                         {sec.title}
                       </h3>
-                      <p className="mt-2.5 text-xs sm:text-sm text-cobalt-200/85 leading-relaxed">
+                      <p className="mt-2.5 text-xs sm:text-sm text-cobalt-200/90 leading-relaxed">
                         {sec.intro}
                       </p>
                     </div>
-
-                    <ul className="mt-5 pt-4 border-t border-white/10 space-y-1.5">
-                      {sec.points.map((pt, pIdx) => (
-                        <li
-                          key={pIdx}
-                          className="text-xs text-cobalt-100 flex items-center gap-2"
-                        >
-                          <span className="h-1 w-1 bg-crimson-500 shrink-0" />
-                          <span className="truncate">{pt.label}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </SpotlightCard>
                 );
               })}
@@ -965,12 +886,11 @@ export default function HomePage() {
       </section>
 
       {/* =================================================================== */}
-      {/* SPREAD 06 — STICKY STACKING CARDS: 5 STANDART İLKE                  */}
+      {/* 7. NEDEN FARKLIYIZ — 5 STANDART İLKE                                */}
       {/* =================================================================== */}
-      <section className="py-20 lg:py-28 bg-paper">
+      <section className="py-20 lg:py-26 bg-paper">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <SwissSectionHeader
-            index="BÖLÜM 05"
+          <SectionHeader
             eyebrow={whyDifferentContent.eyebrow}
             title={
               <>
@@ -983,12 +903,11 @@ export default function HomePage() {
             subtitle={whyDifferentContent.lead}
             rightSlot={
               <MagneticLink href="/neden-farkliyiz" variant="outline-dark">
-                Tüm İlkeleri Detaylı İncele
+                Neden Farklıyız Sayfasına Git
               </MagneticLink>
             }
           />
 
-          {/* Sticky Card Stack */}
           <div className="relative pt-2">
             {whyDifferentContent.principles.map((p, idx) => (
               <StickyPrincipleCard
@@ -1000,32 +919,25 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Pedagogical Outcome Callout */}
-          <Reveal>
-            <div className="mt-12 bg-cobalt-700 halftone-cobalt text-white p-8 sm:p-12 border border-cobalt-900 shadow-studio flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              <div className="max-w-3xl">
-                <div className="inline-block px-3 py-1 bg-crimson-600 text-white font-mono text-[11px] font-semibold tracking-[0.16em] mb-4">
-                  PEDAGOJİK SONUÇ · TAM ÖĞRENME
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
-                  {whyDifferentContent.pedagogicalOutcome.title}
-                </h3>
-                <p className="mt-3 text-sm sm:text-base text-cobalt-50/90 leading-relaxed">
-                  {whyDifferentContent.pedagogicalOutcome.body}
-                </p>
+          <div className="mt-10 bg-cobalt-700 halftone-cobalt text-white p-8 sm:p-12 border border-cobalt-900 shadow-studio flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-3xl">
+              <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4">
+                Tam Öğrenme Modeli
               </div>
-
-              <div className="shrink-0">
-                <MagneticLink
-                  href={getWhatsAppUrl()}
-                  external
-                  variant="crimson"
-                >
-                  Ücretsiz Keşif Seansı Alın
-                </MagneticLink>
-              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
+                {whyDifferentContent.pedagogicalOutcome.title}
+              </h3>
+              <p className="mt-3 text-sm sm:text-base text-cobalt-50/95 leading-relaxed">
+                {whyDifferentContent.pedagogicalOutcome.body}
+              </p>
             </div>
-          </Reveal>
+
+            <div className="shrink-0">
+              <MagneticLink href={getWhatsAppUrl()} external variant="crimson">
+                Ücretsiz Tanışma Seansı Alın
+              </MagneticLink>
+            </div>
+          </div>
         </div>
       </section>
     </div>

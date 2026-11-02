@@ -28,38 +28,35 @@
   }
 }
 
-/* Swiss Editorial Grid & Halftone Studio Surfaces */
+/* Re-enable pointer events inside preview studio iframes */
+.preview-studio iframe {
+  pointer-events: auto !important;
+}
+
+/* Studio Halftone & Subtle Architectural Grid Surfaces */
 .halftone-cobalt {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1.35px, transparent 1.35px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.35px, transparent 1.35px);
   background-size: 18px 18px;
 }
 
 .halftone-light {
-  background-image: radial-gradient(rgba(0, 68, 181, 0.11) 1.25px, transparent 1.25px);
+  background-image: radial-gradient(rgba(0, 68, 181, 0.1) 1.25px, transparent 1.25px);
   background-size: 20px 20px;
 }
 
-.swiss-grid-lines {
-  background-size: 64px 64px;
-  background-image:
-    linear-gradient(to right, rgba(0, 68, 181, 0.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 68, 181, 0.055) 1px, transparent 1px);
-}
-
-/* Editorial Drop Cap for Founder's Broadsheet */
+/* Editorial Drop Cap for Founder's Message */
 .editorial-dropcap::first-letter {
   float: left;
   font-family: "Lora", Georgia, serif;
-  font-size: 4.1rem;
-  line-height: 0.82;
+  font-size: 3.9rem;
+  line-height: 0.84;
   padding-top: 0.18rem;
-  padding-right: 0.75rem;
+  padding-right: 0.7rem;
   padding-bottom: 0.1rem;
   font-weight: 600;
   color: #0044b5;
 }
 
-/* Refined custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

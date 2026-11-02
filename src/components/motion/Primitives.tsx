@@ -25,26 +25,32 @@ export function MaskedLines({
   lines,
   className = "",
   as: Tag = "h2",
-  delay = 0.05,
+  delay = 0.04,
+  immediate = false,
 }: {
   lines: React.ReactNode[];
   className?: string;
   as?: "h1" | "h2" | "h3" | "div";
   delay?: number;
+  immediate?: boolean;
 }) {
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
-        <span key={idx} className="block overflow-hidden pb-1 -mb-1">
+        <span key={idx} className="block overflow-hidden pb-1.5 -mb-1.5">
           <motion.span
             className="block"
-            initial={{ y: "108%", opacity: 0 }}
-            whileInView={{ y: "0%", opacity: 1 }}
-            viewport={{ once: true, margin: "-8% 0px" }}
+            initial={{ y: "100%", opacity: 0 }}
+            {...(immediate
+              ? { animate: { y: "0%", opacity: 1 } }
+              : {
+                  whileInView: { y: "0%", opacity: 1 },
+                  viewport: { once: true, amount: 0.05 },
+                })}
             transition={{
-              duration: 0.85,
+              duration: 0.78,
               ease: LUXURY_EASE,
-              delay: delay + idx * 0.1,
+              delay: delay + idx * 0.09,
             }}
           >
             {line}
@@ -62,7 +68,7 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
-  y = 22,
+  y = 18,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -74,8 +80,8 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8% 0px" }}
-      transition={{ duration: 0.75, ease: LUXURY_EASE, delay }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.65, ease: LUXURY_EASE, delay }}
     >
       {children}
     </motion.div>
@@ -83,17 +89,15 @@ export function Reveal({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 3. Swiss Section Folio Header with + Register Crosshairs                   */
+/* 3. Clean Editorial Section Header (Zero Robotic Jargon)                    */
 /* -------------------------------------------------------------------------- */
-export function SwissSectionHeader({
-  index,
+export function SectionHeader({
   eyebrow,
   title,
   subtitle,
   dark = false,
   rightSlot,
 }: {
-  index: string;
   eyebrow: string;
   title: React.ReactNode;
   subtitle?: string;
@@ -102,40 +106,17 @@ export function SwissSectionHeader({
 }) {
   return (
     <div
-      className={`relative pb-10 mb-12 border-b ${
+      className={`pb-8 mb-12 border-b ${
         dark ? "border-white/15" : "border-cobalt-900/12"
       }`}
     >
-      {/* Swiss + Register Marks */}
-      <span
-        aria-hidden="true"
-        className="absolute -bottom-[9px] left-0 font-mono text-xs leading-none text-crimson-600 select-none"
-      >
-        +
-      </span>
-      <span
-        aria-hidden="true"
-        className="absolute -bottom-[9px] right-0 font-mono text-xs leading-none text-crimson-600 select-none"
-      >
-        +
-      </span>
-
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="inline-flex items-center gap-2.5 mb-3">
+            <span className="h-2 w-2 bg-crimson-600 inline-block" />
             <span
-              className={`inline-flex items-center px-2.5 py-1 font-mono text-[11px] tracking-[0.16em] border ${
-                dark
-                  ? "border-white/20 bg-white/5 text-white"
-                  : "border-cobalt-700/20 bg-cobalt-50 text-cobalt-700"
-              }`}
-            >
-              [{index}]
-            </span>
-            <span className="h-[1px] w-6 bg-crimson-600" />
-            <span
-              className={`font-mono text-[11px] tracking-[0.18em] ${
-                dark ? "text-cobalt-200" : "text-ink-muted"
+              className={`text-xs font-bold tracking-[0.14em] uppercase ${
+                dark ? "text-cobalt-200" : "text-cobalt-700"
               }`}
             >
               {eyebrow}
@@ -143,7 +124,7 @@ export function SwissSectionHeader({
           </div>
 
           <h2
-            className={`text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tightest leading-[1.08] ${
+            className={`text-3xl sm:text-4xl lg:text-[2.7rem] font-extrabold tracking-tightest leading-[1.1] ${
               dark ? "text-white" : "text-ink"
             }`}
           >
@@ -153,7 +134,7 @@ export function SwissSectionHeader({
           {subtitle && (
             <p
               className={`mt-4 text-base sm:text-lg leading-relaxed max-w-2xl ${
-                dark ? "text-cobalt-100/85" : "text-ink-muted"
+                dark ? "text-cobalt-100/90" : "text-ink-muted"
               }`}
             >
               {subtitle}
@@ -167,8 +148,28 @@ export function SwissSectionHeader({
   );
 }
 
+/* Backward-compatible alias */
+export function SwissSectionHeader(props: {
+  index?: string;
+  eyebrow: string;
+  title: React.ReactNode;
+  subtitle?: string;
+  dark?: boolean;
+  rightSlot?: React.ReactNode;
+}) {
+  return (
+    <SectionHeader
+      eyebrow={props.eyebrow}
+      title={props.title}
+      subtitle={props.subtitle}
+      dark={props.dark}
+      rightSlot={props.rightSlot}
+    />
+  );
+}
+
 /* -------------------------------------------------------------------------- */
-/* 4. Magnetic CTA Link (Internal & External)                                 */
+/* 4. Magnetic CTA Link                                                       */
 /* -------------------------------------------------------------------------- */
 export function MagneticLink({
   href,
@@ -194,8 +195,8 @@ export function MagneticLink({
     if (!rect) return;
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * 0.22);
-    y.set((e.clientY - cy) * 0.22);
+    x.set((e.clientX - cx) * 0.2);
+    y.set((e.clientY - cy) * 0.2);
   };
 
   const handleLeave = () => {
@@ -209,9 +210,9 @@ export function MagneticLink({
     cobalt:
       "bg-cobalt-700 text-white hover:bg-cobalt-900 border border-cobalt-700",
     "outline-light":
-      "bg-white/10 text-white border border-white/30 hover:bg-white hover:text-cobalt-900 backdrop-blur-sm",
+      "bg-white/10 text-white border border-white/35 hover:bg-white hover:text-cobalt-900 backdrop-blur-sm",
     "outline-dark":
-      "bg-transparent text-ink border border-cobalt-900/20 hover:border-cobalt-700 hover:bg-cobalt-50/70",
+      "bg-white text-cobalt-900 border border-cobalt-900/20 hover:border-cobalt-700 hover:bg-cobalt-50",
   }[variant];
 
   const content = (
@@ -255,7 +256,7 @@ const wrap = (min: number, max: number, v: number) => {
 
 export function KineticRibbon({
   items,
-  baseVelocity = -1.35,
+  baseVelocity = -1.25,
   variant = "cobalt",
 }: {
   items: string[];
@@ -269,7 +270,7 @@ export function KineticRibbon({
     damping: 50,
     stiffness: 380,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 4], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 3.5], {
     clamp: false,
   });
   const directionFactor = useRef(1);
@@ -288,10 +289,10 @@ export function KineticRibbon({
 
   return (
     <div
-      className={`overflow-hidden border-y select-none py-4 ${
+      className={`overflow-hidden border-y select-none py-3.5 ${
         variant === "cobalt"
           ? "bg-cobalt-900 border-white/15 text-white"
-          : "bg-paper-warm border-cobalt-900/10 text-cobalt-900"
+          : "bg-white border-cobalt-900/10 text-cobalt-900"
       }`}
     >
       <motion.div className="flex whitespace-nowrap items-center" style={{ x }}>
@@ -299,7 +300,7 @@ export function KineticRibbon({
           <div key={rep} className="flex items-center shrink-0">
             {items.map((item, i) => (
               <span key={i} className="inline-flex items-center">
-                <span className="font-mono text-xs sm:text-[13px] font-medium tracking-[0.18em] px-6">
+                <span className="text-xs font-bold tracking-[0.14em] px-6">
                   {item}
                 </span>
                 <span className="h-1.5 w-1.5 bg-crimson-600 rotate-45 inline-block" />
@@ -313,7 +314,7 @@ export function KineticRibbon({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 6. Parallax Watermark Wordmark (Reference Image 4 Motif)                   */
+/* 6. Parallax Watermark Wordmark                                             */
 /* -------------------------------------------------------------------------- */
 export function ParallaxWatermark({
   text,
@@ -327,7 +328,7 @@ export function ParallaxWatermark({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["4%", "-10%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["2%", "-8%"]);
 
   return (
     <div
@@ -337,7 +338,7 @@ export function ParallaxWatermark({
     >
       <motion.div
         style={{ x }}
-        className="whitespace-nowrap font-sans font-extrabold text-[6.5rem] sm:text-[10rem] lg:text-[13.5rem] leading-none tracking-tightest"
+        className="whitespace-nowrap font-sans font-extrabold text-[5.5rem] sm:text-[9rem] lg:text-[12rem] leading-none tracking-tightest"
       >
         {text}
       </motion.div>
@@ -346,43 +347,38 @@ export function ParallaxWatermark({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 7. Interactive "Başarı Yükleniyor..." Diagnostic Terminal (Ref Image 3)    */
+/* 7. Interactive "Başarı Yükleniyor..." Widget (Reference Image 3 Motif)     */
 /* -------------------------------------------------------------------------- */
 const DIAGNOSTIC_STEPS = [
   {
-    code: "01",
-    progress: 22,
-    tag: "ÜCRETSİZ KEŞİF",
-    title: "30 Dakikalık Tanışma & Öğrenme Stili Analizi",
-    output: "Görsel / İşitsel / Kinestetik profil ve akademik önyargı haritası çıkarıldı.",
+    code: "1",
+    progress: 20,
+    title: "30 Dakikalık Ücretsiz Tanışma Seansı",
+    output: "Öğrenme stili analizi ve akademik altyapı tespiti yapılır.",
   },
   {
-    code: "02",
-    progress: 46,
-    tag: "YOL HARİTASI",
-    title: "Kişiye Özel VIP Program & İş Birliği Taahhüdü",
-    output: "Konu bitiş takvimi ve sürdürülebilir haftalık çalışma planı oluşturuldu.",
+    code: "2",
+    progress: 45,
+    title: "Kişiye Özel Yol Haritası",
+    output: "Hedefe ve öğrenme hızına uygun VIP çalışma programı hazırlanır.",
   },
   {
-    code: "03",
-    progress: 72,
-    tag: "AKTİF ÖĞRENME",
-    title: "Flipped Classroom & Active Recall Kartları",
-    output: "Ders öncesi 5-10 dk ön hazırlık + ders sonu bilgi kartı pekiştirmesi aktif.",
+    code: "3",
+    progress: 70,
+    title: "Ters Yüz Sınıf & Bilgi Kartları",
+    output: "Ders öncesi ön hazırlık ve ders sonu Active Recall pekiştirmesi uygulanır.",
   },
   {
-    code: "04",
-    progress: 92,
-    tag: "SIFIR HATA",
-    title: "Dijital Hata Defteri & Sıfırlama Tekniği",
-    output: "Deneme ve yazılılardaki hatalı soru tipleri eritildi; net artışı katlandı.",
+    code: "4",
+    progress: 90,
+    title: "Dijital Hata Defteri",
+    output: "Çözülemeyen soru tipleri sıfırlanarak sınav netleri katlanır.",
   },
   {
-    code: "05",
+    code: "5",
     progress: 100,
-    tag: "HEDEF ZİRVE",
-    title: "Tam Öğrenme & Veli Raporlama Sistemi",
-    output: "Her ders sonu WhatsApp raporu + aylık performans analizi ile %100 şeffaf takip.",
+    title: "Tam Öğrenme & Veli Bilgilendirme",
+    output: "Her ders sonu WhatsApp raporu ve aylık gelişim analizi paylaşılır.",
   },
 ];
 
@@ -394,7 +390,7 @@ export function SuccessDiagnosticWidget() {
     if (paused) return;
     const timer = setInterval(() => {
       setActive((prev) => (prev + 1) % DIAGNOSTIC_STEPS.length);
-    }, 3600);
+    }, 3400);
     return () => clearInterval(timer);
   }, [paused]);
 
@@ -406,32 +402,29 @@ export function SuccessDiagnosticWidget() {
       onMouseLeave={() => setPaused(false)}
       className="bg-white text-ink border border-cobalt-900/15 shadow-studio overflow-hidden"
     >
-      {/* Top Crimson Status Header — Inspired by Reference Image 3 */}
-      <div className="bg-cobalt-950 text-white px-5 py-4 border-b border-white/10">
-        <div className="flex items-center justify-between gap-4 mb-2.5">
+      <div className="bg-cobalt-950 text-white px-5 py-3.5 border-b border-white/10">
+        <div className="flex items-center justify-between gap-4 mb-2">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-crimson-500 animate-pulse" />
-            <span className="font-mono text-[11px] tracking-[0.16em] text-cobalt-100">
-              BAŞARI YÜKLENİYOR...
+            <span className="text-xs font-bold tracking-[0.1em] text-white">
+              Başarı Yükleniyor...
             </span>
           </div>
-          <span className="font-mono text-xs font-semibold text-white">
+          <span className="font-mono text-xs font-semibold text-cobalt-200">
             %{current.progress}
           </span>
         </div>
 
-        {/* Smooth Progress Track */}
-        <div className="h-2 w-full bg-white/12 overflow-hidden p-[1px] border border-white/20">
+        <div className="h-2 w-full bg-white/15 overflow-hidden">
           <motion.div
             className="h-full bg-crimson-600"
             initial={false}
             animate={{ width: `${current.progress}%` }}
-            transition={{ duration: 0.65, ease: LUXURY_EASE }}
+            transition={{ duration: 0.6, ease: LUXURY_EASE }}
           />
         </div>
       </div>
 
-      {/* Step Selector Pills */}
       <div className="grid grid-cols-5 border-b border-cobalt-900/10 bg-paper-warm">
         {DIAGNOSTIC_STEPS.map((s, idx) => {
           const isActive = idx === active;
@@ -440,42 +433,35 @@ export function SuccessDiagnosticWidget() {
               key={s.code}
               type="button"
               onClick={() => setActive(idx)}
-              className={`py-2.5 font-mono text-xs font-semibold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
+              className={`py-2 text-xs font-bold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
                 isActive
                   ? "bg-crimson-600 text-white"
                   : "text-ink-muted hover:bg-cobalt-50 hover:text-cobalt-800"
               }`}
             >
-              {s.code}
+              {s.code}. Adım
             </button>
           );
         })}
       </div>
 
-      {/* Printed Receipt / Action Dossier Card */}
-      <div className="p-5 sm:p-6 min-h-[168px] flex flex-col justify-between bg-white">
+      <div className="p-5 min-h-[124px] flex flex-col justify-center bg-white">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.code}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.32, ease: LUXURY_EASE }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: LUXURY_EASE }}
           >
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="inline-block px-2 py-0.5 bg-crimson-600 text-white font-mono text-[10px] font-semibold tracking-[0.14em]">
-                ADIM {current.code} · {current.tag}
-              </span>
-              <span className="inline-flex items-center gap-1 font-mono text-[11px] text-cobalt-700 font-medium">
-                <Check className="h-3.5 w-3.5 text-crimson-600" />
-                AKTİF STANDART
-              </span>
+            <div className="flex items-center gap-2 text-xs font-bold text-crimson-600 mb-1">
+              <Check className="h-3.5 w-3.5" />
+              <span>Aybar Akademi Süreç Standardı</span>
             </div>
-
-            <h4 className="text-base sm:text-lg font-extrabold tracking-tight text-ink leading-snug mt-2">
+            <h4 className="text-base font-extrabold tracking-tight text-ink leading-snug">
               {current.title}
             </h4>
-            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed mt-2">
+            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed mt-1">
               {current.output}
             </p>
           </motion.div>
@@ -486,13 +472,13 @@ export function SuccessDiagnosticWidget() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 8. Animated Live Counter (Spring-Driven Metric Roll)                       */
+/* 8. Animated Live Counter                                                   */
 /* -------------------------------------------------------------------------- */
 export function AnimatedCounter({
   target,
   prefix = "",
   suffix = "",
-  duration = 1.6,
+  duration = 1.5,
 }: {
   target: number;
   prefix?: string;
@@ -500,8 +486,8 @@ export function AnimatedCounter({
   duration?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const [display, setDisplay] = useState(0);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const [display, setDisplay] = useState(target);
 
   useEffect(() => {
     if (!inView) return;
@@ -528,7 +514,7 @@ export function AnimatedCounter({
 export function SpotlightCard({
   children,
   className = "",
-  glowColor = "rgba(56, 139, 255, 0.22)",
+  glowColor = "rgba(56, 139, 255, 0.2)",
 }: {
   children: React.ReactNode;
   className?: string;
@@ -567,3 +553,43 @@ export function SpotlightCard({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* 10. Next Page Chapter Navigator (Prominent Subpage Discovery)              */
+/* -------------------------------------------------------------------------- */
+export function NextChapterBanner({
+  kicker = "SIRADAKİ BÖLÜMÜ KEŞFEDİN",
+  title,
+  description,
+  href,
+  buttonLabel,
+}: {
+  kicker?: string;
+  title: string;
+  description: string;
+  href: string;
+  buttonLabel: string;
+}) {
+  return (
+    <section className="bg-cobalt-900 halftone-cobalt text-white border-t border-white/15">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-[11px] font-bold tracking-[0.14em] mb-3">
+            {kicker}
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-cobalt-100/90 leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        <div className="shrink-0">
+          <MagneticLink href={href} variant="crimson">
+            {buttonLabel}
+          </MagneticLink>
+        </div>
+      </div>
+    </section>
+  );
+}
