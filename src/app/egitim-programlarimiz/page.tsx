@@ -14,7 +14,7 @@ export default function EgitimProgramlarimizPage() {
 
       {/* Canlı Cobalt Başlık Alanı */}
       <section className="studio-hero text-white py-12 sm:py-16 lg:py-20 border-b border-white/15 overflow-hidden relative">
-        <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-0 sm:left-10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -63,30 +63,30 @@ export default function EgitimProgramlarimizPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Ferah Cam Panel Kartları) */}
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
           <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">6 Alan</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Kapsamlı Müfredat</strong>
                 İlkokuldan üniversiteye
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">11 Dil</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Dünya Dilleri</strong>
                 YDS, YDT ve uluslararası
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Maarif Uyumu</strong>
                 Yeni nesil beceri temelli
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">VIP</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Eğitim Koçluğu</strong>

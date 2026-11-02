@@ -22,7 +22,7 @@ export default function NedenFarkliyizPage() {
 
       {/* 1. Canlı ve Ferah Cobalt Hero */}
       <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20 relative">
-        <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-0 sm:left-10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -89,30 +89,30 @@ export default function NedenFarkliyizPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 5 Standart İlke Özeti (Ferah Cam Panel Kartları) */}
+          {/* Hero Tabanı: 5 Standart İlke Özeti (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
           <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">İlk Tanışma</strong>
                 Öğrenme stili ve önyargı analizi
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Yenilikçi Yöntem</strong>
                 Flipped classroom & active recall
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Hata Defteri</strong>
                 Eksikleri sıfırlama tekniği
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">04</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Veli İletişimi</strong>

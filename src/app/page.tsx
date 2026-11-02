@@ -66,8 +66,8 @@ export default function HomePage() {
       {/* 1. Ferah ve Güçlü Cobalt Hero */}
       <section className="studio-hero text-white py-12 sm:py-16 lg:py-20 border-b border-white/15 overflow-hidden relative">
         {/* Zarif Arka Plan Parıltıları */}
-        <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-0 sm:left-10 w-80 sm:w-96 h-80 sm:h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-0 sm:right-10 w-80 sm:w-96 h-80 sm:h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -161,30 +161,30 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Ferah ve Canlı Cam Panel Kartları) */}
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
           <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Köklü Deneyim</strong>
                 Çeyrek asrı aşan uzman kadro
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Maarif Modeli</strong>
                 Yeni nesil beceri temelli
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
                 Evinizin konforunda özel ders
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
