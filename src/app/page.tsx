@@ -77,10 +77,15 @@ export default function HomePage() {
                 className="text-[2.05rem] sm:text-5xl lg:text-[3.65rem] font-extrabold tracking-tight leading-[1.08]"
                 lines={[
                   "Her Öğrenciye",
-                  "Aynı Eğitim Değil,",
+                  <span
+                    key="ayni-egitim"
+                    className="font-serif italic font-normal text-cobalt-200"
+                  >
+                    Aynı Eğitim Değil,
+                  </span>,
                   <span
                     key="dogru-egitim"
-                    className="inline-block bg-crimson-600 text-white px-4 py-1 rounded-xl mt-1.5 shadow-crimson"
+                    className="inline-block bg-crimson-600 text-white px-4 py-1 rounded-xl mt-1.5 shadow-crimson animate-shimmer"
                   >
                     Doğru Eğitim.
                   </span>,
@@ -89,7 +94,18 @@ export default function HomePage() {
 
               <Reveal immediate delay={0.14} y={12}>
                 <p className="mt-6 text-base sm:text-lg text-cobalt-50 leading-relaxed">
-                  {aboutContent.introParagraphs[0]}
+                  <strong className="text-white font-extrabold border-b-2 border-crimson-500 pb-0.5">
+                    33 yıllık köklü eğitim deneyimi
+                  </strong>
+                  , yeni nesil{" "}
+                  <span className="font-serif italic text-cobalt-200">
+                    Maarif Modeline hâkim
+                  </span>{" "}
+                  uzman kadromuzla, öğrencinin ihtiyacına özel{" "}
+                  <span className="text-white font-extrabold">
+                    birebir özel ders ve VIP süreç yönetimi
+                  </span>{" "}
+                  sunuyoruz.
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
@@ -190,31 +206,41 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-paper border-b border-cobalt-900/10">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            {/* Sol Sütun — Zengin Çift Görsel Kompozisyonu */}
+            {/* Sol Sütun — Zengin Portre Görsel & Hizmet Ağı */}
             <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
               <PhotoFrame
                 src={assetPath("/images/maarif-student.jpg")}
                 alt={aboutContent.headline}
-                aspectClass="aspect-[4/3]"
+                aspectClass="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]"
+                objectPosition="object-top"
+                caption={
+                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
+                      Türkiye Yüzyılı Maarif Modeli
+                    </span>
+                    <span className="text-crimson-600 font-extrabold">%100 Uyum</span>
+                  </div>
+                }
               />
 
               <Reveal delay={0.08}>
-                <div className="rounded-2xl bg-cobalt-900 text-white p-6 shadow-studio border border-cobalt-800">
+                <div className="rounded-2xl bg-cobalt-900 text-white p-5 sm:p-6 shadow-studio border border-cobalt-800">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold tracking-wide mb-4">
                     {aboutContent.reachHeadline}
                   </div>
                   <div className="space-y-3 text-sm sm:text-[15px] leading-relaxed text-cobalt-100">
                     <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/10">
-                      <strong className="text-white block font-bold mb-1">
+                      <strong className="text-white block font-bold mb-1 text-[15px]">
                         {aboutContent.reachItems[0].title}
                       </strong>
-                      <span>{aboutContent.reachItems[0].description}</span>
+                      <span className="text-cobalt-200">{aboutContent.reachItems[0].description}</span>
                     </div>
                     <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/10">
-                      <strong className="text-white block font-bold mb-1">
+                      <strong className="text-white block font-bold mb-1 text-[15px]">
                         {aboutContent.reachItems[1].title}
                       </strong>
-                      <span>{aboutContent.reachItems[1].description}</span>
+                      <span className="text-cobalt-200">{aboutContent.reachItems[1].description}</span>
                     </div>
                   </div>
                 </div>
@@ -235,11 +261,15 @@ export default function HomePage() {
                   {aboutContent.headline}
                 </h2>
 
-                {/* Vurucu Cümle Bloğu (Birebir Müşteri Metni) */}
-                <div className="mt-6 rounded-2xl bg-gradient-to-br from-cobalt-700 to-cobalt-950 text-white p-6 sm:p-7 shadow-card border-l-4 border-crimson-500">
-                  <p className="text-base sm:text-[17.5px] font-semibold leading-relaxed text-white">
-                    {aboutContent.introParagraphs[1]}
-                  </p>
+                {/* Vurucu Cümle Bloğu (Birebir Müşteri Metni + Tipografik Vurgu) */}
+                <div className="mt-6 rounded-2xl bg-gradient-to-br from-cobalt-800 to-cobalt-950 text-white p-6 sm:p-7 shadow-card border-l-4 border-crimson-500">
+                  <blockquote className="font-serif italic text-base sm:text-[17.5px] font-medium leading-relaxed text-white">
+                    “Eğitim yalnızca ders anlatmaktan ibaret değildir;{" "}
+                    <span className="font-sans not-italic font-bold text-crimson-300">
+                      doğru rehberlik, sürekli takip ve disiplinli bir çalışma ortamı
+                    </span>{" "}
+                    başarının vazgeçilmez unsurlarıdır.”
+                  </blockquote>
                 </div>
 
                 <p className="mt-6 text-[15.5px] sm:text-base font-bold text-cobalt-900 leading-relaxed">
@@ -318,19 +348,44 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <p className="text-lg sm:text-2xl font-extrabold text-cobalt-950 leading-snug">
+                <p className="font-serif italic text-xl sm:text-2xl font-semibold text-cobalt-950 leading-snug">
                   {founderMessage.salutation}
                 </p>
 
-                <div className="mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-ink-muted space-y-4">
-                  {founderMessage.paragraphs.slice(0, 4).map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
-                  ))}
+                <div className="mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-ink space-y-4">
+                  <p>
+                    Eğitim, bir öğrencinin yalnızca akademik başarısını değil;{" "}
+                    <span className="font-serif italic text-cobalt-800">
+                      hayata bakışını, karakterini ve geleceğini inşa eden
+                    </span>{" "}
+                    en kıymetli süreçtir.
+                  </p>
+                  <p>
+                    33 yıllık eğitim yolculuğumda edindiğim en önemli tecrübe şudur:{" "}
+                    <strong className="text-cobalt-950 font-extrabold border-b-2 border-crimson-500 pb-0.5">
+                      Her öğrencinin öğrenme hızı, ilgi alanı ve potansiyeli farklıdır.
+                    </strong>{" "}
+                    Bu nedenle tek tip bir eğitim yaklaşımıyla her öğrencide aynı başarıyı yakalamak mümkün değildir.
+                  </p>
+                  <p>
+                    Aybar Akademi olarak yola çıkarken temel amacımız;{" "}
+                    <span className="font-serif italic text-cobalt-800">
+                      öğrencinin seviyesini doğru tespit eden, eksiklerini nokta atışı belirleyen
+                    </span>{" "}
+                    ve ona en uygun yöntemle rehberlik eden güvenilir bir eğitim modeli sunmaktı.
+                  </p>
+                  <p>
+                    Yeni nesil Maarif Modelinin gerektirdiği beceri temelli yaklaşıma hâkim uzman kadromuzla, öğrencilerimizi sadece sınavlara değil;{" "}
+                    <strong className="text-crimson-600 font-extrabold">
+                      analitik düşünebilen, problem çözebilen ve özgüveni yüksek bireyler
+                    </strong>{" "}
+                    olarak geleceğe hazırlıyoruz.
+                  </p>
                 </div>
 
                 {/* Vurucu Son Paragraf Vurgusu (Birebir Müşteri Cümlesi) */}
-                <div className="mt-6 rounded-2xl bg-crimson-50 border-l-4 border-crimson-600 p-5 sm:p-6">
-                  <p className="font-serif italic text-base sm:text-lg font-medium text-cobalt-950 leading-relaxed">
+                <div className="mt-6 rounded-2xl bg-gradient-to-br from-cobalt-950 to-cobalt-900 text-white p-6 sm:p-7 shadow-studio border-l-4 border-crimson-500">
+                  <p className="font-serif italic text-base sm:text-lg font-medium text-cobalt-50 leading-relaxed">
                     “{founderMessage.paragraphs[4]}”
                   </p>
                 </div>

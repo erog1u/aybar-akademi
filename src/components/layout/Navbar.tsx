@@ -39,7 +39,7 @@ export default function Navbar() {
     <>
       {/* Mobilde saf bg-white (backdrop-blur yok -> %100 akıcı 120fps kaydırma!) */}
       <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white lg:bg-white/95 lg:backdrop-blur-md border-b border-cobalt-900/10 relative">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-3">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-2 xl:gap-4">
           {/* Left: Brand Lockup */}
           <Link href="/" className="group min-w-0 shrink-0">
             <AybarBrandLockup variant="light" />
@@ -56,11 +56,19 @@ export default function Navbar() {
                   ? pathname === "/"
                   : pathname.startsWith(item.href);
 
+              // 1024px-1280px arasında sığması için kısaltılmış etiketler
+              const compactLabels: Record<string, string> = {
+                "/egitim-programlarimiz": "Programlar",
+                "/egitim-modelimiz": "Modelimiz",
+                "/neden-farkliyiz": "Farkımız",
+              };
+              const shortLabel = compactLabels[item.href];
+
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-2.5 xl:px-3.5 py-2 rounded-lg text-[13.5px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
+                  className={`relative px-2 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
                     isActive
                       ? "text-white"
                       : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
@@ -73,7 +81,16 @@ export default function Navbar() {
                       className="absolute inset-0 rounded-lg bg-cobalt-700 shadow-sm -z-10"
                     />
                   )}
-                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10">
+                    {shortLabel ? (
+                      <>
+                        <span className="hidden xl:inline">{item.label}</span>
+                        <span className="inline xl:hidden">{shortLabel}</span>
+                      </>
+                    ) : (
+                      item.label
+                    )}
+                  </span>
                 </Link>
               );
             })}
@@ -85,9 +102,10 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-all whitespace-nowrap shadow-sm"
+              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm"
             >
-              Ücretsiz Tanışma Seansı
+              <span className="hidden xl:inline">Ücretsiz Tanışma Seansı</span>
+              <span className="inline xl:hidden">Ücretsiz Tanışma</span>
             </a>
 
             <button

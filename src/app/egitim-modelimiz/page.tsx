@@ -1,36 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Check, ArrowLeft, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Compass } from "lucide-react";
 import { educationModelContent, whyDifferentContent } from "@/data/content";
-import { assetPath } from "@/config/site";
+import { assetPath, getWhatsAppUrl } from "@/config/site";
 import {
   MaskedLines,
   Reveal,
   PhotoFrame,
   NextChapterBanner,
-  LUXURY_EASE,
 } from "@/components/motion/Primitives";
-import { scrollToSection } from "@/lib/scroll";
 
 export default function EgitimModelimizPage() {
-  const [activeStage, setActiveStage] = useState<number>(0);
-
   const sections = educationModelContent.sections;
-  const currentSec = sections[activeStage];
-  const nextSec =
-    activeStage < sections.length - 1 ? sections[activeStage + 1] : null;
-
-  const goToStage = (idx: number, scrollTarget = "model-icerik") => {
-    setActiveStage(idx);
-    scrollToSection(scrollTarget, 14);
-  };
 
   return (
     <div className="bg-paper text-ink">
-      {/* 1. Canlı Cobalt Başlık Alanı */}
+      {/* 1. Canlı ve Ferah Cobalt Hero */}
       <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -50,9 +37,27 @@ export default function EgitimModelimizPage() {
               />
 
               <Reveal immediate delay={0.12} y={12}>
-                <p className="mt-5 text-base sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
+                <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
                   {educationModelContent.lead}
                 </p>
+
+                <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
+                  >
+                    <span>Ücretsiz Tanışma Seansı Planla</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="#model-asamalari"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3.5 text-sm sm:text-base font-bold transition-all"
+                  >
+                    <span>4 Aşamalı Modeli İncele</span>
+                  </a>
+                </div>
               </Reveal>
             </div>
 
@@ -60,183 +65,169 @@ export default function EgitimModelimizPage() {
               <PhotoFrame
                 src={assetPath("/images/vip-mentorship.jpg")}
                 alt={educationModelContent.headline}
-                aspectClass="aspect-[4/3]"
+                aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
+                caption={
+                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                    <span className="flex items-center gap-1.5">
+                      <Compass className="h-4 w-4 text-crimson-600" />
+                      VIP Süreç Yönetimi
+                    </span>
+                    <span className="text-cobalt-700 font-extrabold">Birebir Koçluk</span>
+                  </div>
+                }
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Adım Adım Yönlendirmeli 4 Model Başlığı */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      {/* 2. Dört Temel Aşama — Mimari ve Ferah Düzen (Kutucuk Yığını Yok!) */}
+      <section id="model-asamalari" className="py-12 sm:py-16 lg:py-24 scroll-mt-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          {/* Üst 4 Adım Seçici + Canlı İlerleme Çubuğu */}
-          <div id="model-secici" className="scroll-mt-24 mb-7">
-            <div className="flex items-center justify-between gap-4 mb-3">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-cobalt-700">
-                Adım {activeStage + 1} / {sections.length}
-              </span>
-              <div className="flex-1 max-w-xs h-2 rounded-full bg-cobalt-100 overflow-hidden">
-                <motion.div
-                  className="h-full bg-crimson-600 rounded-full"
-                  initial={false}
-                  animate={{
-                    width: `${((activeStage + 1) / sections.length) * 100}%`,
-                  }}
-                  transition={{ duration: 0.35, ease: LUXURY_EASE }}
-                />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            {/* Sol Sütun — Masaüstünde Sabit Model Rehberi */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28">
+              <div className="rounded-2xl bg-white p-6 sm:p-7 border border-cobalt-900/10 shadow-sm">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-crimson-600">
+                  Bütüncül Sistem
+                </span>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-ink tracking-tight mt-1">
+                  Modelin 4 Temel Ayağı
+                </h2>
+                <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                  Ezberci kalıpları yıkan, kişiye özel kurgulanmış adımlarla başarıyı tesadüfe bırakmıyoruz.
+                </p>
+
+                {/* Hızlı Atlama Menüsü */}
+                <nav className="mt-6 space-y-2 border-t border-cobalt-900/10 pt-5">
+                  {sections.map((sec, idx) => (
+                    <a
+                      key={sec.code}
+                      href={`#asama-${sec.code}`}
+                      className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-cobalt-50 transition-colors text-xs sm:text-sm font-bold text-ink"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <span className="h-6 w-6 rounded-md bg-cobalt-100 group-hover:bg-cobalt-700 group-hover:text-white text-cobalt-800 flex items-center justify-center text-xs font-extrabold transition-colors">
+                          0{idx + 1}
+                        </span>
+                        <span>{sec.shortTitle}</span>
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 text-cobalt-400 group-hover:translate-x-1 group-hover:text-cobalt-700 transition-all" />
+                    </a>
+                  ))}
+                </nav>
+
+                <div className="mt-6 pt-5 border-t border-cobalt-900/10">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 text-white py-3 px-4 text-xs sm:text-sm font-bold transition-colors"
+                  >
+                    <span>30 Dk Ücretsiz Tanışma Planla</span>
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {sections.map((sec, idx) => {
-                const isActive = activeStage === idx;
-                return (
-                  <button
-                    key={sec.code}
-                    type="button"
-                    onClick={() => goToStage(idx, "model-icerik")}
-                    className={`rounded-2xl p-4 border text-left transition-all duration-200 min-h-[64px] cursor-pointer active:scale-[0.98] ${
-                      isActive
-                        ? "bg-cobalt-700 text-white border-cobalt-700 shadow-studio"
-                        : "bg-white text-ink border-cobalt-900/12 hover:border-cobalt-700 hover:-translate-y-0.5 hover:shadow-card"
-                    }`}
-                  >
-                    <span
-                      className={`inline-block text-xs font-extrabold px-2 py-0.5 rounded-md mb-1.5 ${
-                        isActive
-                          ? "bg-crimson-600 text-white"
-                          : "bg-cobalt-50 text-cobalt-700"
-                      }`}
-                    >
+            {/* Sağ Sütun — 4 Aşamanın Akıcı ve Prestijli Okuma Alanı */}
+            <div className="lg:col-span-8 space-y-10 sm:space-y-14">
+              {sections.map((sec, idx) => (
+                <article
+                  key={sec.code}
+                  id={`asama-${sec.code}`}
+                  className="rounded-2xl bg-white p-6 sm:p-9 lg:p-10 border border-cobalt-900/10 shadow-sm scroll-mt-24"
+                >
+                  {/* Aşama Başlık Alanı */}
+                  <div className="flex items-start justify-between gap-4 pb-6 border-b border-cobalt-900/10">
+                    <div>
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-extrabold mb-3">
+                        <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                        <span>Aşama 0{idx + 1}</span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-ink tracking-tight leading-snug">
+                        {sec.title}
+                      </h3>
+                    </div>
+
+                    <span className="hidden sm:block font-brand text-4xl lg:text-5xl font-extrabold text-cobalt-900/15 select-none shrink-0">
                       0{idx + 1}
                     </span>
-                    <span className="block text-sm sm:text-[15px] font-extrabold leading-snug">
-                      {sec.shortTitle}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Seçili Başlık Kartı (Tıklanınca Buraya Yukarı Kaydırır!) */}
-          <div id="model-icerik" className="scroll-mt-24">
-            <motion.div
-              key={activeStage}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.32, ease: LUXURY_EASE }}
-              className="bg-white rounded-2xl border border-cobalt-900/12 shadow-studio p-5 sm:p-8 lg:p-10 will-change-transform"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-                {/* Sol Sütun: Başlık & Giriş */}
-                <div className="lg:col-span-5">
-                  <div className="p-6 rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white shadow-card border border-cobalt-800 mb-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
-                      <span>0{activeStage + 1}. Aşama</span>
-                    </div>
-                    <div className="font-brand text-3xl font-extrabold tracking-wide text-white">
-                      0{activeStage + 1}
-                    </div>
-                    <div className="mt-1 text-sm font-semibold text-cobalt-200">
-                      {currentSec.shortTitle}
-                    </div>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink leading-snug">
-                    {currentSec.title}
-                  </h2>
-
-                  {currentSec.intro ? (
-                    <p className="mt-3.5 text-[15.5px] sm:text-base text-ink-muted leading-relaxed">
-                      {currentSec.intro}
-                    </p>
+                  {/* Vurgulu Giriş Cümlesi */}
+                  {sec.intro ? (
+                    <div className="mt-5 p-4 sm:p-5 rounded-xl bg-paper-warm border-l-4 border-cobalt-700">
+                      <p className="font-serif italic text-[15px] sm:text-base font-medium text-cobalt-950 leading-relaxed">
+                        “{sec.intro}”
+                      </p>
+                    </div>
                   ) : null}
-                </div>
 
-                {/* Sağ Sütun: Birebir Maddeler */}
-                <div className="lg:col-span-7 space-y-4">
-                  {currentSec.points.map((pt, pIdx) => (
-                    <motion.div
-                      key={pIdx}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        delay: pIdx * 0.05,
-                        ease: LUXURY_EASE,
-                      }}
-                      className="rounded-2xl bg-paper hover:bg-white border border-cobalt-900/12 hover:border-cobalt-700/50 p-5 sm:p-6 transition-all"
-                    >
-                      {pt.label ? (
-                        <div className="flex items-start gap-3.5">
-                          <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cobalt-700 text-white text-xs font-extrabold">
-                            0{pIdx + 1}
-                          </span>
-                          <div>
-                            <h3 className="text-lg sm:text-xl font-extrabold text-cobalt-950 leading-snug">
-                              {pt.label}
-                            </h3>
-                            <p className="text-[15.5px] sm:text-base text-ink-muted mt-1.5 leading-relaxed">
+                  {/* Maddeler — Temiz, Rahat Okunabilir Liste (Kutu İçinde Kutu Değil!) */}
+                  <div className="mt-6 space-y-4">
+                    {sec.points.map((pt, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-paper/60 hover:bg-paper transition-colors"
+                      >
+                        {pt.label ? (
+                          <>
+                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobalt-700 text-white text-xs font-bold">
+                              {pIdx + 1}
+                            </span>
+                            <div className="min-w-0">
+                              <h4 className="text-base sm:text-lg font-bold text-ink leading-snug">
+                                {pt.label}
+                              </h4>
+                              <p className="text-[14.5px] sm:text-[15.5px] text-ink-muted mt-1 leading-relaxed">
+                                {pt.text}
+                              </p>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-white">
+                              <Check className="h-3.5 w-3.5" />
+                            </span>
+                            <p className="text-base sm:text-[16.5px] font-medium text-ink leading-relaxed">
                               {pt.text}
                             </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="flex items-start gap-3.5">
-                          <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-white">
-                            <Check className="h-4 w-4" />
-                          </span>
-                          <p className="text-base sm:text-[17px] font-medium text-ink leading-relaxed">
-                            {pt.text}
-                          </p>
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+
+              {/* Bölüm Sonu Vurgusu */}
+              <div className="rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white p-7 sm:p-9 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold mb-2">
+                    <Sparkles className="h-3 w-3" />
+                    <span>Sonuç Odaklı Sistem</span>
+                  </div>
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-white">
+                    Öğrencinizin Potansiyelini Keşfedin
+                  </h4>
+                  <p className="mt-1 text-sm text-cobalt-200">
+                    İlk 30 dakikalık tanışma seansımızla öğrenme stilini birlikte belirleyelim.
+                  </p>
                 </div>
-              </div>
 
-              {/* Alt Geçiş Barı — Tıklanınca Yeni Başlığın Üstüne Yukarı Çıkarır */}
-              <div className="mt-8 pt-6 border-t border-cobalt-900/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                <button
-                  type="button"
-                  disabled={activeStage === 0}
-                  onClick={() => {
-                    if (activeStage > 0) goToStage(activeStage - 1, "model-secici");
-                  }}
-                  className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-[15px] font-bold border transition-colors min-h-[46px] ${
-                    activeStage === 0
-                      ? "border-cobalt-900/10 text-ink-muted/40 bg-paper cursor-not-allowed"
-                      : "border-cobalt-900/15 text-cobalt-900 bg-white hover:bg-cobalt-50 cursor-pointer"
-                  }`}
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm font-bold shadow-sm whitespace-nowrap transition-colors"
                 >
-                  <ArrowLeft className="h-4 w-4" />
-                  <span>Önceki Başlık</span>
-                </button>
-
-                {nextSec ? (
-                  <button
-                    type="button"
-                    onClick={() => goToStage(activeStage + 1, "model-secici")}
-                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-6 py-3 text-sm sm:text-[15px] font-extrabold transition-all shadow-crimson min-h-[48px] cursor-pointer"
-                  >
-                    <span>Sonraki Başlık: {nextSec.shortTitle}</span>
-                    <ArrowRight className="h-4 w-4 shrink-0" />
-                  </button>
-                ) : (
-                  <Link
-                    href="/neden-farkliyiz"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3 text-sm sm:text-[15px] font-extrabold transition-colors shadow-crimson min-h-[48px]"
-                  >
-                    <span>Neden Farklıyız? (5 Standart İlke)</span>
-                    <ArrowRight className="h-4 w-4 shrink-0" />
-                  </Link>
-                )}
+                  <span>Tanışma Seansı Başlat</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

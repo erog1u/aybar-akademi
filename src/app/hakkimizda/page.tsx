@@ -44,19 +44,22 @@ export default function HakkimizdaPage() {
               </Reveal>
             </div>
 
-            <div className="lg:col-span-5 w-full space-y-5">
+            <div className="lg:col-span-5 w-full">
               <PhotoFrame
                 src={assetPath("/images/istanbul-home-tutoring.jpg")}
                 alt={aboutContent.headline}
-                aspectClass="aspect-[16/10]"
+                aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
+                caption={
+                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="h-4 w-4 text-crimson-600" />
+                      İstanbul’un Tüm İlçelerinde
+                    </span>
+                    <span className="text-cobalt-700 font-extrabold">Evinizin Konforunda Birebir</span>
+                  </div>
+                }
               />
-
-              <Reveal delay={0.12}>
-                <div className="bg-white rounded-2xl p-6 border border-white/25 shadow-studio flex items-center justify-center">
-                  <AybarInstitutionalSeal variant="light" />
-                </div>
-              </Reveal>
             </div>
           </div>
         </div>

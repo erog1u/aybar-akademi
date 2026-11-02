@@ -7,28 +7,13 @@ import { ArrowUpRight } from "lucide-react";
 
 export const LUXURY_EASE = [0.22, 1, 0.36, 1] as const;
 
-function useIsTouch() {
-  const [isTouch, setIsTouch] = React.useState(false);
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsTouch(
-        window.matchMedia("(max-width: 768px)").matches ||
-        window.matchMedia("(pointer: coarse)").matches
-      );
-    }
-  }, []);
-  return isTouch;
-}
-
 /* -------------------------------------------------------------------------- */
-/* 1. Masked Line-by-Line Headline Reveal (GPU-pure transform + opacity)      */
+/* 1. Masked Line-by-Line Headline (Sıfır JS yükü, anında 120 FPS render)     */
 /* -------------------------------------------------------------------------- */
 export function MaskedLines({
   lines,
   className = "",
   as: Tag = "h2",
-  delay = 0.02,
-  immediate = false,
 }: {
   lines: React.ReactNode[];
   className?: string;
@@ -36,44 +21,11 @@ export function MaskedLines({
   delay?: number;
   immediate?: boolean;
 }) {
-  const isTouch = useIsTouch();
-
-  if (isTouch) {
-    return (
-      <Tag className={className}>
-        {lines.map((line, idx) => (
-          <span key={idx} className="block pt-1 pb-1">
-            {line}
-          </span>
-        ))}
-      </Tag>
-    );
-  }
-
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
-        <span
-          key={idx}
-          className="block overflow-hidden pt-2 -mt-2 pb-2 -mb-2 px-0.5"
-        >
-          <motion.span
-            className="block will-change-transform"
-            initial={{ y: "85%", opacity: 0 }}
-            {...(immediate
-              ? { animate: { y: "0%", opacity: 1 } }
-              : {
-                  whileInView: { y: "0%", opacity: 1 },
-                  viewport: { once: true, margin: "80px" },
-                })}
-            transition={{
-              duration: 0.55,
-              ease: LUXURY_EASE,
-              delay: delay + idx * 0.07,
-            }}
-          >
-            {line}
-          </motion.span>
+        <span key={idx} className="block pt-0.5 pb-0.5">
+          {line}
         </span>
       ))}
     </Tag>
@@ -81,14 +33,11 @@ export function MaskedLines({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 2. Editorial Block Reveal (Zero-jank single-fire GPU transform)            */
+/* 2. Editorial Block Reveal (Sıfır scroll dinleyicisi, anında görünürlük)    */
 /* -------------------------------------------------------------------------- */
 export function Reveal({
   children,
   className = "",
-  delay = 0,
-  y = 16,
-  immediate = false,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -96,27 +45,7 @@ export function Reveal({
   y?: number;
   immediate?: boolean;
 }) {
-  const isTouch = useIsTouch();
-
-  if (isTouch) {
-    return <div className={`motion-reveal ${className}`}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      className={`motion-reveal ${className}`}
-      initial={{ opacity: 0, y }}
-      {...(immediate
-        ? { animate: { opacity: 1, y: 0 } }
-        : {
-            whileInView: { opacity: 1, y: 0 },
-            viewport: { once: true, margin: "80px" },
-          })}
-      transition={{ duration: 0.45, ease: LUXURY_EASE, delay }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -129,6 +58,7 @@ export function PhotoFrame({
   className = "",
   priority = false,
   caption,
+  objectPosition = "object-center",
 }: {
   src: string;
   alt: string;
@@ -136,39 +66,11 @@ export function PhotoFrame({
   className?: string;
   priority?: boolean;
   caption?: React.ReactNode;
+  objectPosition?: string;
 }) {
-  const isTouch = useIsTouch();
-
-  if (isTouch) {
-    return (
-      <div
-        className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 border border-cobalt-900/12 shadow-studio ${className}`}
-      >
-        <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>
-          <img
-            src={src}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            decoding="async"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        {caption && <div className="pt-3 pb-1 px-1.5">{caption}</div>}
-      </div>
-    );
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97, y: 12 }}
-      {...(priority
-        ? { animate: { opacity: 1, scale: 1, y: 0 } }
-        : {
-            whileInView: { opacity: 1, scale: 1, y: 0 },
-            viewport: { once: true, margin: "80px" },
-          })}
-      transition={{ duration: 0.48, ease: LUXURY_EASE }}
-      className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 border border-cobalt-900/12 shadow-studio ${className}`}
+    <div
+      className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3.5 border border-cobalt-900/10 shadow-studio ${className}`}
     >
       <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>
         <img
@@ -176,11 +78,11 @@ export function PhotoFrame({
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-500 ease-out group-hover:scale-105`}
         />
       </div>
       {caption && <div className="pt-3 pb-1 px-1.5">{caption}</div>}
-    </motion.div>
+    </div>
   );
 }
 

@@ -63,7 +63,7 @@ export function AybarBrandLockup({
           </span>
         </div>
         <div
-          className={`text-[10px] sm:text-[11px] font-semibold tracking-[0.08em] uppercase mt-1.5 truncate max-w-[195px] sm:max-w-none flex items-center gap-1.5 ${
+          className={`text-[8.5px] sm:text-[11px] font-semibold tracking-wide uppercase mt-1 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap ${
             variant === "dark" ? "text-cobalt-200/90" : "text-ink-muted"
           }`}
         >

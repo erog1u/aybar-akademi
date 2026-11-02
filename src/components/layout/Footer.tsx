@@ -111,20 +111,20 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar + Eroğlu Solutions Signature */}
-        <div className="py-7 pb-24 sm:pb-20 lg:pb-8 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
-          <div>
+        {/* Bottom Bar + Eroğlu Solutions Signature — WhatsApp butonunun altında kalmaması için güvenli pb-20 ve lg:mr-52 */}
+        <div className="py-8 pb-28 sm:pb-24 lg:pb-20 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
+          <div className="text-cobalt-200">
             © {new Date().getFullYear()} {siteConfig.name} ·{" "}
             {siteConfig.founder.name} ({siteConfig.founder.role})
           </div>
 
-          {/* Eroğlu Solutions İmzası — Masaüstünde WhatsApp butonunun solunda kalacak güvenli boşluk (lg:pr-60) */}
-          <div className="lg:pr-60 xl:pr-64 shrink-0">
+          {/* Eroğlu Solutions İmzası — Masaüstünde WhatsApp butonunun tamamen solunda ve üstünde kalan korumalı alan */}
+          <div className="lg:pr-56 xl:pr-64 shrink-0">
             <a
               href={siteConfig.agency.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.07] hover:bg-white/[0.14] border border-white/20 text-cobalt-100 hover:text-white transition-all shadow-sm hover:shadow-glow"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.16] border border-white/20 text-cobalt-100 hover:text-white transition-all shadow-sm hover:shadow-glow"
               title="Eroğlu Solutions Web Tasarım & Yazılım"
             >
               <span className="h-2 w-2 rounded-full bg-crimson-500 shrink-0 animate-pulse" />

@@ -107,3 +107,64 @@
     animation: none !important;
   }
 }
+
+/* Profesyonel Tipografi & Canlı Vurgu Efektleri */
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(220, 27, 46, 1) 0%,
+    rgba(244, 63, 94, 1) 50%,
+    rgba(220, 27, 46, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 4s ease-in-out infinite;
+}
+
+.animate-shimmer-cobalt {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 68, 181, 1) 0%,
+    rgba(43, 114, 243, 1) 50%,
+    rgba(0, 68, 181, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 5s ease-in-out infinite;
+}
+
+.marker-highlight {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(
+    120deg,
+    rgba(220, 27, 46, 0.12) 0%,
+    rgba(220, 27, 46, 0.12) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 38%;
+  background-position: 0 88%;
+  padding: 0 4px;
+}
+
+.marker-highlight-cobalt {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(
+    120deg,
+    rgba(0, 68, 181, 0.12) 0%,
+    rgba(0, 68, 181, 0.12) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 38%;
+  background-position: 0 88%;
+  padding: 0 4px;
+}
+
