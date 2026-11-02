@@ -133,11 +133,43 @@ export default function HomePage() {
               />
             </div>
           </div>
+
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Zengin, Prestijli ve Güçlü) */}
+          <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Köklü Deneyim</strong>
+                Çeyrek asrı aşan uzmanlık
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Maarif Uyumu</strong>
+                Yeni nesil beceri temelli
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Yüz Yüze & Online</strong>
+                İstanbul ve tüm Türkiye
+              </div>
+            </div>
+            <div className="flex items-center gap-3.5">
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">30 Dk</span>
+              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+                <strong className="text-white block font-bold">Ücretsiz Keşif</strong>
+                Öğrenme stili analizi
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. Temiz ve Ferah 4 Bölüm Yönlendirmesi (Kutu Yığını Değil!) */}
-      <section className="py-12 sm:py-16 bg-white border-b border-cobalt-900/10">
+      {/* 2. Canlı, Şık ve Prestijli 4 Bölüm Yönlendirmesi */}
+      <section className="py-14 sm:py-20 bg-paper border-b border-cobalt-900/10">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <SectionHeader
             eyebrow="BÖLÜMLERİMİZ"
@@ -152,30 +184,30 @@ export default function HomePage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex flex-col justify-between p-5 rounded-xl hover:bg-paper transition-all duration-200 border-b-2 sm:border-b-0 sm:border-r border-cobalt-900/10 last:border-none"
+                  className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/50 hover:shadow-card hover:-translate-y-1 transition-all duration-300"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="h-10 w-10 rounded-lg bg-cobalt-50 text-cobalt-700 group-hover:bg-cobalt-700 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
-                        <Icon className="h-5 w-5" />
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="h-12 w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-cobalt-700 group-hover:text-white flex items-center justify-center shrink-0 transition-colors shadow-sm">
+                        <Icon className="h-6 w-6" />
                       </span>
-                      <span className="text-xs font-extrabold text-cobalt-400">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-paper-warm text-[11px] font-extrabold tracking-wider text-cobalt-800">
                         {item.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-ink group-hover:text-cobalt-700 transition-colors">
+                    <h3 className="text-xl font-extrabold text-ink group-hover:text-cobalt-700 transition-colors tracking-tight">
                       {item.title}
                     </h3>
 
-                    <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                    <p className="mt-2.5 text-sm sm:text-[14.5px] text-ink-muted leading-relaxed">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-3 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
-                    <span>İncele</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  <div className="pt-5 mt-4 border-t border-cobalt-900/5 flex items-center justify-between text-xs sm:text-sm font-bold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
+                    <span>Bölümü İncele</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </Link>
               );
@@ -184,33 +216,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. 33 Yıllık Deneyim & Çözümlerimiz (Kutucuk Karmaşası Olmadan Ferah Düzen) */}
-      <section className="py-14 sm:py-20 bg-paper border-b border-cobalt-900/10">
+      {/* 3. 33 Yıllık Deneyim & Çözümlerimiz (Kız Fotoğrafı Yerine Tam Alakalı Mentorluk Fotoğrafı) */}
+      <section className="py-14 sm:py-20 bg-white border-b border-cobalt-900/10">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Sol Sütun — Doğru Oranlanmış Portre Görsel (Kız Öğrenci) */}
+            {/* Sol Sütun — Deneyimli Öğretmen & Maarif Modeli Mentorluk Fotoğrafı */}
             <div className="lg:col-span-5 lg:sticky lg:top-24">
               <PhotoFrame
-                src={assetPath("/images/maarif-student.jpg")}
-                alt={aboutContent.headline}
-                aspectClass="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]"
-                objectPosition="object-top"
+                src={assetPath("/images/maarif-academic-mentorship.jpg")}
+                alt="AYBAR AKADEMİ 33 Yıllık Köklü Eğitim Deneyimi ve Maarif Modeli Mentorluk"
+                aspectClass="aspect-[4/3]"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
                       Türkiye Yüzyılı Maarif Modeli
                     </span>
-                    <span className="text-crimson-600 font-extrabold">%100 Uyum</span>
+                    <span className="text-crimson-600 font-extrabold">Alanında Uzman Kadro</span>
                   </div>
                 }
               />
-              <div className="mt-4 p-4 rounded-xl bg-white border border-cobalt-900/10 text-xs sm:text-sm text-center text-cobalt-900 font-bold">
+              <div className="mt-4 p-4 rounded-xl bg-cobalt-950 text-white border border-cobalt-800 text-xs sm:text-sm text-center font-bold shadow-sm">
                 İstanbul’un 39 İlçesinde Evinizde Yüz Yüze · 81 İlde Canlı Online
               </div>
             </div>
 
-            {/* Sağ Sütun — Sade, Kutusuz ve Akıcı Çözüm Listesi */}
+            {/* Sağ Sütun — Zengin, Ferah ve Nitelikli Çözüm Listesi */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 mb-2.5">
                 <span className="h-2 w-2 rounded-full bg-crimson-600 inline-block" />
@@ -227,21 +258,27 @@ export default function HomePage() {
                 Eğitim yalnızca ders anlatmaktan ibaret değildir; doğru rehberlik, sürekli takip ve disiplinli bir çalışma ortamı başarının vazgeçilmez unsurlarıdır.
               </p>
 
-              {/* Çözümler: Kutu içinde kutu yerine şık numaralandırılmış liste */}
-              <div className="mt-8 space-y-6">
-                {aboutContent.solutions.map((solution) => (
+              {/* Çözümler: Zengin, Numaralandırılmış Şık Çözüm Kartları */}
+              <div className="mt-8 space-y-4">
+                {aboutContent.solutions.map((solution, sIdx) => (
                   <div
                     key={solution.index}
-                    className="flex items-start gap-4 pb-6 border-b border-cobalt-900/10 last:border-none last:pb-0"
+                    className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:bg-white transition-all flex items-start gap-4"
                   >
-                    <span className="font-brand text-2xl sm:text-3xl font-extrabold text-cobalt-700/40 shrink-0">
+                    <span
+                      className={`inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold shrink-0 mt-0.5 ${
+                        sIdx === 0
+                          ? "bg-crimson-600 text-white"
+                          : "bg-cobalt-700 text-white"
+                      }`}
+                    >
                       {solution.index}
                     </span>
                     <div>
-                      <h3 className="text-lg font-bold text-ink">
+                      <h3 className="text-lg sm:text-xl font-bold text-ink">
                         {solution.title}
                       </h3>
-                      <p className="mt-1 text-sm sm:text-base text-ink-muted leading-relaxed">
+                      <p className="mt-1.5 text-sm sm:text-base text-ink-muted leading-relaxed">
                         {solution.description}
                       </p>
                     </div>
