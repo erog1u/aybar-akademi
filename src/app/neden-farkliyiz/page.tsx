@@ -25,8 +25,8 @@ export default function NedenFarkliyizPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
-                <span className="h-2 w-2 rounded-full bg-crimson-500" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
                 <span>{whyDifferentContent.eyebrow}</span>
               </div>
 
@@ -45,10 +45,10 @@ export default function NedenFarkliyizPage() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-crimson transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-cobalt-50 text-cobalt-950 px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-md border border-white/80 transition-all active:scale-[0.98]"
                 >
                   <span>Ücretsiz Tanışma Seansı Planla</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 text-cobalt-700" />
                 </a>
                 <a
                   href="#ilkeler"
@@ -59,19 +59,21 @@ export default function NedenFarkliyizPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 w-full">
+            <div className="lg:col-span-5 w-full relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
               <PhotoFrame
                 src={assetPath("/images/exam-strategy-notebook.jpg")}
                 alt={whyDifferentContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
+                className="relative z-10"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
-                      <Sparkles className="h-4 w-4 text-crimson-600" />
+                      <Sparkles className="h-4 w-4 text-cobalt-700" />
                       Kişiselleştirilmiş Strateji
                     </span>
-                    <span className="text-crimson-600 font-extrabold">Özel Hata Defteri</span>
+                    <span className="text-cobalt-700 font-extrabold">Özel Hata Defteri</span>
                   </div>
                 }
               />
@@ -102,7 +104,7 @@ export default function NedenFarkliyizPage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">04</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">04</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Veli İletişimi</strong>
                 Her ders sonu şeffaf rapor

@@ -69,8 +69,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Sol Sütun */}
             <div className="lg:col-span-6 min-w-0">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full">
-                <span className="h-2 w-2 rounded-full bg-crimson-500 shrink-0" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
                 <span>33 Yıllık Köklü Eğitim Deneyimi · %100 Maarif Uyumu</span>
               </div>
 
@@ -84,7 +84,7 @@ export default function HomePage() {
                   </span>,
                   <span
                     key="dogru-egitim"
-                    className="inline-block bg-crimson-600 text-white px-4 py-1 rounded-xl shadow-crimson"
+                    className="inline-block bg-white text-cobalt-950 px-4 py-0.5 rounded-xl font-black shadow-lg border border-white/40"
                   >
                     Doğru Eğitim.
                   </span>,
@@ -97,7 +97,7 @@ export default function HomePage() {
 
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-cobalt-200">
                 <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-crimson-500" />
+                  <span className="h-2 w-2 rounded-full bg-cobalt-300" />
                   <strong className="text-white font-bold">İstanbul:</strong> 39 İlçede Evinizde Yüz Yüze
                 </span>
                 <span className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function HomePage() {
                 <MagneticLink
                   href={getWhatsAppUrl()}
                   external
-                  variant="crimson"
+                  variant="luminous"
                 >
                   Ücretsiz Tanışma Seansı
                 </MagneticLink>
@@ -123,17 +123,19 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Sağ Sütun — Doğru Oranlanmış Görsel Stüdyo Kartı */}
-            <div className="lg:col-span-6 min-w-0">
+            {/* Sağ Sütun — Doğru Oranlanmış Görsel Stüdyo Kartı + Işıltılı Arka Işık */}
+            <div className="lg:col-span-6 min-w-0 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
               <PhotoFrame
                 src={assetPath("/images/hero-one-on-one.jpg")}
                 alt="AYBAR AKADEMİ Birebir Özel Ders"
                 aspectClass="aspect-[4/3]"
                 priority
+                className="relative z-10"
                 caption={
                   <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-[13px] font-bold">
                     <span className="text-cobalt-950 flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       Birebir VIP Özel Ders
                     </span>
                     <span className="px-2.5 py-1 rounded-md bg-cobalt-50 text-cobalt-800">
@@ -145,7 +147,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Sıfır Anlatım Bozukluğu, Net ve Güçlü) */}
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Uyumlu ve Güçlü Tipografi) */}
           <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
@@ -169,7 +171,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">81 İl</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
                 Tüm Türkiye’de kesintisiz erişim

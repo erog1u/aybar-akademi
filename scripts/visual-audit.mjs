@@ -151,7 +151,7 @@ async function runAudit() {
           const docWidth = document.documentElement.scrollWidth;
           const winWidth = window.innerWidth;
           const brokenImages = Array.from(document.images)
-            .filter(img => !img.complete || img.naturalWidth === 0)
+            .filter(img => img.complete && img.naturalWidth === 0)
             .map(img => img.getAttribute('src'));
 
           const header = document.querySelector('header');

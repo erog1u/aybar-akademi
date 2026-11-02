@@ -51,8 +51,8 @@ export default function IletisimPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
-                <span className="h-2 w-2 rounded-full bg-crimson-500" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
                 <span>30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI</span>
               </div>
 
@@ -69,8 +69,9 @@ export default function IletisimPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <div className="p-6 rounded-2xl bg-white/10 border border-white/15 text-center">
+            <div className="lg:col-span-4 flex justify-center lg:justify-end relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="p-6 rounded-2xl bg-white/10 border border-white/15 text-center relative z-10 shadow-sm backdrop-blur-sm">
                 <AybarInstitutionalSeal variant="dark" />
               </div>
             </div>
@@ -100,7 +101,7 @@ export default function IletisimPage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">Direkt</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">Direkt</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">WhatsApp Hattı</strong>
                 Hızlı randevu ve bilgilendirme

@@ -17,8 +17,8 @@ export default function EgitimProgramlarimizPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-[13px] font-bold tracking-[0.06em] text-white mb-5">
-                <span className="h-2 w-2 rounded-full bg-crimson-500 shrink-0" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-[13px] font-bold tracking-[0.06em] text-white mb-5 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
                 <span>{programsIntro.eyebrow}</span>
               </div>
 
@@ -33,16 +33,18 @@ export default function EgitimProgramlarimizPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
               <PhotoFrame
                 src={assetPath("/images/programs-global-study.jpg")}
                 alt={programsIntro.headline}
                 aspectClass="aspect-[16/10]"
                 priority
+                className="relative z-10"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       6 Ana Akademik Alan
                     </span>
                     <span className="text-cobalt-700 font-extrabold">%100 Birebir VIP</span>
@@ -76,7 +78,7 @@ export default function EgitimProgramlarimizPage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">VIP</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">VIP</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Eğitim Koçluğu</strong>
                 Bireysel takip ve analiz

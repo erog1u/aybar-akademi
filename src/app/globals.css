@@ -14,6 +14,7 @@
   html {
     background-color: #fafbfd;
     color: #09152b;
+    scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -98,6 +99,22 @@
 }
 
 /* Akıcı donanım hızlandırmalı (GPU) animasyonlar — Sıfır JavaScript kilitlemesi */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
 @keyframes smooth-fade-up {
   0% {
     opacity: 0;
@@ -111,6 +128,61 @@
 
 .animate-fade-up {
   animation: smooth-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-delay-1 {
+  animation-delay: 80ms;
+}
+
+.animate-delay-2 {
+  animation-delay: 160ms;
+}
+
+.animate-delay-3 {
+  animation-delay: 240ms;
+}
+
+@keyframes gentle-glow {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 0.65;
+    transform: scale(1.04);
+  }
+}
+
+.animate-gentle-glow {
+  animation: gentle-glow 4s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes badge-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.animate-badge-breathe {
+  animation: badge-breathe 2.5s ease-in-out infinite;
+}
+
+.interactive-lift {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease;
+  will-change: transform, box-shadow;
+}
+
+.interactive-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -4px rgba(0, 68, 181, 0.12);
 }
 
 @keyframes shimmer-sweep {

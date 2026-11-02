@@ -177,7 +177,7 @@ export function MagneticLink({
 }: {
   href: string;
   children: React.ReactNode;
-  variant?: "crimson" | "cobalt" | "outline-light" | "outline-dark";
+  variant?: "crimson" | "cobalt" | "outline-light" | "outline-dark" | "luminous";
   external?: boolean;
   className?: string;
 }) {
@@ -186,6 +186,8 @@ export function MagneticLink({
       "bg-crimson-600 text-white hover:bg-crimson-700 shadow-crimson border border-crimson-600",
     cobalt:
       "bg-cobalt-700 text-white hover:bg-cobalt-800 shadow-sm border border-cobalt-700",
+    luminous:
+      "bg-white text-cobalt-950 hover:bg-cobalt-50 shadow-md border border-white/80 font-extrabold",
     "outline-light":
       "bg-white/10 text-white hover:bg-white/20 border border-white/25",
     "outline-dark":

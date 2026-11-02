@@ -1,9 +1,9 @@
 import React from "react";
 
 /**
- * Sıfır gecikme, saf donanım hızlandırmalı sayfa sarmalayıcısı.
- * JavaScript animasyon döngüsü çalıştırmaz; tıklamalar ve sayfa geçişleri anında gerçekleşir.
+ * İpeksi pürüzsüzlükte (silky smooth), GPU hızlandırmalı sayfa geçiş sarmalayıcısı.
+ * Her rota değişiminde 0.32s zarif donanım geçişi çalıştırır; tıklamaları bloke etmez.
  */
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <div className="page-transition w-full max-w-full">{children}</div>;
 }

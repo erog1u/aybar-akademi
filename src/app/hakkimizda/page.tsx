@@ -21,8 +21,8 @@ export default function HakkimizdaPage() {
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5">
-                <span className="h-2 w-2 rounded-full bg-crimson-500" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
                 <span>{aboutContent.eyebrow}</span>
               </div>
 
@@ -34,22 +34,24 @@ export default function HakkimizdaPage() {
 
               <div className="mt-6 space-y-4 text-base sm:text-lg text-cobalt-50/95 leading-relaxed">
                 <p>{aboutContent.introParagraphs[0]}</p>
-                <div className="rounded-xl bg-white/12 border-l-4 border-crimson-500 p-4 sm:p-5 text-white font-semibold">
+                <div className="rounded-xl bg-white/12 border-l-4 border-white/60 p-4 sm:p-5 text-white font-semibold shadow-sm">
                   {aboutContent.introParagraphs[1]}
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 w-full">
+            <div className="lg:col-span-5 w-full relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
               <PhotoFrame
                 src={assetPath("/images/istanbul-home-tutoring.jpg")}
                 alt={aboutContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
+                className="relative z-10"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="h-4 w-4 text-crimson-600" />
+                      <MapPin className="h-4 w-4 text-cobalt-700" />
                       İstanbul’un Tüm İlçelerinde
                     </span>
                     <span className="text-cobalt-700 font-extrabold">Evinizin Konforunda Birebir</span>
@@ -83,7 +85,7 @@ export default function HakkimizdaPage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-crimson-400">81 İl</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
                 Tüm Türkiye’de kesintisiz erişim
