@@ -322,7 +322,7 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* Sağ Özet Kurucu Vizyonu (Göz Yoran 5 Paragraf Yerine 3 Net Madde) */}
+            {/* Sağ Kurucu Mektubu — Sözleri Bölmeden, Vurucu Noktaları Vurgulayarak Sunan Prestijli Düzen */}
             <div className="lg:col-span-8">
               <Reveal>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 mb-3">
@@ -336,38 +336,54 @@ export default function HomePage() {
                   {founderMessage.salutation}
                 </h2>
 
-                {/* Vurgulu Öz Statement */}
-                <div className="mt-5 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-cobalt-950 to-cobalt-900 text-white shadow-sm border-l-4 border-crimson-500">
-                  <p className="text-base sm:text-lg font-medium leading-relaxed text-white">
-                    “33 yıllık eğitim yolculuğumda gördüm ki her öğrencinin potansiyeli biriciktir. Tek tip eğitimle başarı yakalanamaz; öğrencinin seviyesini doğru tespit eden, eksiklerini nokta atışı belirleyen güvenilir bir eğitim modeli sunuyoruz.”
+                <div className="mt-5 space-y-4 text-sm sm:text-base text-ink-muted leading-relaxed">
+                  <p>
+                    Eğitim, bir öğrencinin yalnızca akademik başarısını değil;{" "}
+                    <strong className="text-cobalt-950 font-bold">
+                      hayata bakışını, karakterini ve geleceğini inşa eden
+                    </strong>{" "}
+                    en kıymetli süreçtir.
+                  </p>
+
+                  <div className="p-4 sm:p-5 rounded-xl bg-cobalt-50 border-l-4 border-cobalt-700 text-cobalt-950">
+                    <p className="font-bold text-base sm:text-[17px] mb-1">
+                      “33 yıllık eğitim yolculuğumda edindiğim en önemli tecrübe şudur: Her öğrencinin öğrenme hızı, ilgi alanı ve potansiyeli farklıdır.”
+                    </p>
+                    <p className="text-sm sm:text-base text-cobalt-900 font-medium">
+                      Bu nedenle tek tip bir eğitim yaklaşımıyla her öğrencide aynı başarıyı yakalamak mümkün değildir.
+                    </p>
+                  </div>
+
+                  <p>
+                    Aybar Akademi olarak yola çıkarken temel amacımız;{" "}
+                    <strong className="text-cobalt-950 font-bold">
+                      öğrencinin seviyesini doğru tespit eden, eksiklerini nokta atışı belirleyen
+                    </strong>{" "}
+                    ve ona en uygun yöntemle rehberlik eden güvenilir bir eğitim modeli sunmaktı.
+                  </p>
+
+                  <p>
+                    Yeni nesil Maarif Modelinin gerektirdiği beceri temelli yaklaşıma hâkim uzman kadromuzla, öğrencilerimizi sadece sınavlara değil;{" "}
+                    <strong className="text-crimson-600 font-extrabold">
+                      analitik düşünebilen, problem çözebilen ve özgüveni yüksek bireyler
+                    </strong>{" "}
+                    olarak geleceğe hazırlıyoruz.
                   </p>
                 </div>
 
-                {/* 3 Net Çekirdek İlke */}
-                <div className="mt-6 space-y-3">
-                  <div className="flex items-start gap-3 p-3.5 rounded-xl bg-paper">
-                    <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-ink">
-                      <strong className="font-bold text-cobalt-950">Kişiye Özel Yaklaşım:</strong> Öğrencinin öğrenme stiline, anlama hızına ve hedefine göre şekillenen birebir VIP ders programı.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3 p-3.5 rounded-xl bg-paper">
-                    <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-ink">
-                      <strong className="font-bold text-cobalt-950">Yeni Nesil Maarif Uyumu:</strong> Ezberci kalıplardan uzak, analitik ve beceri temelli tam öğrenme metodolojisi.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3 p-3.5 rounded-xl bg-paper">
-                    <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
-                    <p className="text-sm sm:text-base text-ink">
-                      <strong className="font-bold text-cobalt-950">Şeffaf Süreç Yönetimi:</strong> Düzenli sınav analizleri, kişiye özel hata defteri ve veli bilgilendirmeleri.
-                    </p>
-                  </div>
+                {/* Vurucu Kapanış Alıntısı */}
+                <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-cobalt-950 to-cobalt-900 text-white shadow-sm border-l-4 border-crimson-500">
+                  <p className="text-base sm:text-lg font-medium leading-relaxed text-white">
+                    “{founderMessage.paragraphs[4]}”
+                  </p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-cobalt-900/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <div className="font-brand text-base font-extrabold text-cobalt-950">
+                    <p className="text-xs sm:text-sm text-ink-muted">
+                      {founderMessage.closing}
+                    </p>
+                    <div className="font-brand text-base sm:text-lg font-extrabold text-cobalt-950 mt-1">
                       {founderMessage.author}
                     </div>
                     <div className="text-xs font-semibold text-cobalt-700">

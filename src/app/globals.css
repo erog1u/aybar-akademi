@@ -97,7 +97,22 @@
   background: #dc1b2e;
 }
 
-/* Akıcı donanım hızlandırmalı animasyonlar */
+/* Akıcı donanım hızlandırmalı (GPU) animasyonlar — Sıfır JavaScript kilitlemesi */
+@keyframes smooth-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: smooth-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @keyframes shimmer-sweep {
   0% {
     background-position: -200% 0;

@@ -52,7 +52,7 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
-  y = 16,
+  y = 10,
   immediate = false,
 }: {
   children: React.ReactNode;
@@ -66,7 +66,7 @@ export function Reveal({
       <motion.div
         initial={{ opacity: 0, y }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay, ease: LUXURY_EASE }}
+        transition={{ duration: 0.45, delay, ease: LUXURY_EASE }}
         className={className}
       >
         {children}
@@ -78,8 +78,8 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, delay, ease: LUXURY_EASE }}
+      viewport={{ once: true, margin: "0px 0px 40px 0px" }}
+      transition={{ duration: 0.45, delay, ease: LUXURY_EASE }}
       className={className}
     >
       {children}

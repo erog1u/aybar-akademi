@@ -68,29 +68,21 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-2 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
+                  prefetch={true}
+                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-bold transition-all whitespace-nowrap ${
                     isActive
-                      ? "text-white"
+                      ? "bg-cobalt-700 text-white shadow-sm"
                       : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
                   }`}
                 >
-                  {isActive && (
-                    <motion.span
-                      layoutId="desktop-nav-active"
-                      transition={{ duration: 0.28, ease: LUXURY_EASE }}
-                      className="absolute inset-0 rounded-lg bg-cobalt-700 shadow-sm -z-10"
-                    />
+                  {shortLabel ? (
+                    <>
+                      <span className="hidden xl:inline">{item.label}</span>
+                      <span className="inline xl:hidden">{shortLabel}</span>
+                    </>
+                  ) : (
+                    item.label
                   )}
-                  <span className="relative z-10">
-                    {shortLabel ? (
-                      <>
-                        <span className="hidden xl:inline">{item.label}</span>
-                        <span className="inline xl:hidden">{shortLabel}</span>
-                      </>
-                    ) : (
-                      item.label
-                    )}
-                  </span>
                 </Link>
               );
             })}
@@ -170,6 +162,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
+                        prefetch={true}
                         className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-colors ${
                           isActive
                             ? "bg-cobalt-700 text-white shadow-sm"

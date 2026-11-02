@@ -62,8 +62,15 @@ export default function ProgramExplorer() {
         "",
         `${window.location.pathname}#${catId}`
       );
+      // Yalnızca mobilde ve öğe görünüm dışındaysa yukarı kaydır (masaüstünde kasmayı sıfırlar!)
+      const el = document.getElementById("secili-kategori");
+      if (el && window.innerWidth < 768) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < 60 || rect.top > window.innerHeight) {
+          scrollToSection("secili-kategori", 20);
+        }
+      }
     }
-    scrollToSection("secili-kategori", 20);
   };
 
   const resolvedIndex = programCategories.findIndex(
