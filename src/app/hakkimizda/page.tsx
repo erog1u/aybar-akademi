@@ -30,7 +30,7 @@ export default function HakkimizdaPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white"
+                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[aboutContent.headline]}
               />
 
@@ -46,7 +46,7 @@ export default function HakkimizdaPage() {
 
             <div className="lg:col-span-5 w-full space-y-5">
               <PhotoFrame
-                src={assetPath("/images/maarif-student.jpg")}
+                src={assetPath("/images/istanbul-home-tutoring.jpg")}
                 alt={aboutContent.headline}
                 aspectClass="aspect-[16/10]"
                 priority
@@ -116,32 +116,23 @@ export default function HakkimizdaPage() {
                 YÜZ YÜZE & ONLINE
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tightest text-ink mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-ink mb-8 sm:mb-10">
               {aboutContent.reachHeadline}
             </h2>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal delay={0.04} className="h-full">
-              <div className="group h-full rounded-2xl bg-cobalt-900 text-white overflow-hidden shadow-studio border border-cobalt-800 flex flex-col">
-                <div className="aspect-[16/9] overflow-hidden bg-cobalt-950">
-                  <img
-                    src={assetPath("/images/istanbul-home-tutoring.jpg")}
-                    alt={aboutContent.reachItems[0].title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6 sm:p-8 flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
+              <div className="group h-full rounded-2xl bg-cobalt-900 text-white shadow-studio border border-cobalt-800 flex flex-col justify-between p-7 sm:p-9 hover:border-cobalt-700 transition-all">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-5 shadow-sm">
                     <MapPin className="h-3.5 w-3.5" />
                     <span>Yüz Yüze Özel Ders</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                     {aboutContent.reachItems[0].title}
                   </h3>
-                  <p className="mt-3 text-base text-cobalt-100/95 leading-relaxed">
+                  <p className="mt-3.5 text-base sm:text-[17px] text-cobalt-100 leading-relaxed">
                     {aboutContent.reachItems[0].description}
                   </p>
                 </div>
@@ -149,25 +140,16 @@ export default function HakkimizdaPage() {
             </Reveal>
 
             <Reveal delay={0.1} className="h-full">
-              <div className="group h-full rounded-2xl bg-white text-ink overflow-hidden border border-cobalt-900/12 shadow-studio flex flex-col">
-                <div className="aspect-[16/9] overflow-hidden bg-cobalt-50">
-                  <img
-                    src={assetPath("/images/online-interactive-lesson.jpg")}
-                    alt={aboutContent.reachItems[1].title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6 sm:p-8 flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-700 text-white text-xs font-extrabold mb-3">
+              <div className="group h-full rounded-2xl bg-white text-ink border border-cobalt-900/12 shadow-studio flex flex-col justify-between p-7 sm:p-9 hover:border-cobalt-700 transition-all">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cobalt-700 text-white text-xs font-extrabold mb-5 shadow-sm">
                     <Globe2 className="h-3.5 w-3.5" />
                     <span>Canlı Online Eğitim</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-cobalt-950">
                     {aboutContent.reachItems[1].title}
                   </h3>
-                  <p className="mt-3 text-base text-ink-muted leading-relaxed">
+                  <p className="mt-3.5 text-base sm:text-[17px] text-ink-muted leading-relaxed">
                     {aboutContent.reachItems[1].description}
                   </p>
                 </div>

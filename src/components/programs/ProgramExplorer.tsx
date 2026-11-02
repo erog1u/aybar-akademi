@@ -35,15 +35,6 @@ const CATEGORY_ICONS: Record<
   "yasam-beceri-sanat": Palette,
 };
 
-const CATEGORY_PHOTOS: Record<string, string> = {
-  "sinav-hazirlik": "/images/exam-strategy-notebook.jpg",
-  "okula-takviye": "/images/maarif-student.jpg",
-  "universite-akademik": "/images/university-academic-seminar.jpg",
-  "dunya-dilleri": "/images/world-languages-study.jpg",
-  "ulusal-dil-sinavlari": "/images/programs-global-study.jpg",
-  "yasam-beceri-sanat": "/images/arts-music-studio.jpg",
-};
-
 export default function ProgramExplorer() {
   const [activeCatId, setActiveCatId] = useState<string>(
     programCategories[0].id
@@ -95,8 +86,7 @@ export default function ProgramExplorer() {
       ? programCategories[activeIndex + 1]
       : null;
 
-  const categoryPhoto =
-    CATEGORY_PHOTOS[activeCategory.id] || "/images/programs-global-study.jpg";
+  const ActiveIcon = CATEGORY_ICONS[activeCategory.id] || BookOpen;
 
   return (
     <>
@@ -165,9 +155,9 @@ export default function ProgramExplorer() {
             transition={{ duration: 0.32, ease: LUXURY_EASE }}
             className="bg-white rounded-2xl border border-cobalt-900/12 shadow-studio p-5 sm:p-8 lg:p-10 will-change-transform"
           >
-            {/* Görselli Kategori Başlık Kartı */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pb-7 border-b border-cobalt-900/10">
-              <div className="lg:col-span-7">
+            {/* Kategori Başlık Kartı */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-7 border-b border-cobalt-900/10">
+              <div className="max-w-3xl">
                 <div className="inline-flex items-center gap-2 rounded-full bg-crimson-50 border border-crimson-200 px-3.5 py-1 text-xs sm:text-[13px] font-extrabold text-crimson-700 mb-3">
                   <span className="h-2 w-2 rounded-full bg-crimson-600" />
                   <span>
@@ -175,7 +165,7 @@ export default function ProgramExplorer() {
                   </span>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-ink tracking-tight leading-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold text-ink tracking-tight leading-tight">
                   {activeCategory.title}
                 </h2>
 
@@ -186,22 +176,17 @@ export default function ProgramExplorer() {
                 )}
 
                 {activeCategory.summary && (
-                  <p className="text-[15.5px] sm:text-base text-ink-muted mt-2.5 leading-relaxed max-w-2xl">
+                  <p className="text-[15.5px] sm:text-base text-ink-muted mt-2.5 leading-relaxed">
                     {activeCategory.summary}
                   </p>
                 )}
               </div>
 
-              <div className="lg:col-span-5">
-                <div className="overflow-hidden rounded-xl border border-cobalt-900/10 bg-cobalt-50 aspect-[16/9]">
-                  <img
-                    src={assetPath(categoryPhoto)}
-                    alt={activeCategory.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="hidden sm:flex flex-col items-center justify-center h-24 w-24 rounded-2xl bg-cobalt-50 text-cobalt-700 border border-cobalt-900/10 shrink-0 shadow-sm">
+                <ActiveIcon className="h-9 w-9 text-cobalt-700" />
+                <span className="text-xs font-extrabold text-cobalt-900 mt-1">
+                  0{activeIndex + 1} / 0{programCategories.length}
+                </span>
               </div>
             </div>
 
@@ -225,10 +210,6 @@ export default function ProgramExplorer() {
                       }}
                       className="md:col-span-2 rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white p-6 sm:p-8 border border-cobalt-800 shadow-card"
                     >
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
-                        Bahadır Aybar Liderliğinde Özel Program
-                      </div>
-
                       <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-snug text-white">
                         {item.title}
                       </h3>

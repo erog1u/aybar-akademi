@@ -10,6 +10,9 @@
 # production
 /build
 
+# visual audit & qa
+qa-shots/
+
 # misc
 .DS_Store
 *.pem
@@ -20,9 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # env files
-.env*.local
-.env
+.env*
 
 # typescript
+tsconfig.tsbuildinfo
 *.tsbuildinfo
 next-env.d.ts

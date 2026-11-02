@@ -5,18 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:preview": "STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/aybar-akademi NEXT_PUBLIC_PREVIEW_MODE=true next build",
+    "build:production": "STATIC_EXPORT=true next build",
+    "deploy:preview": "zsh scripts/deploy-preview.sh",
+    "audit:visual": "node scripts/visual-audit.mjs",
+    "typecheck": "tsc --noEmit",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
-    "lenis": "^1.2.3",
     "lucide-react": "^0.475.0",
     "next": "^15.2.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.9",

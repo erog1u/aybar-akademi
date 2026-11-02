@@ -28,14 +28,6 @@ const PRINCIPLE_SHORT_LABELS = [
   "5. Mentorluk",
 ];
 
-const PRINCIPLE_PHOTOS = [
-  "/images/istanbul-home-tutoring.jpg",
-  "/images/hero-one-on-one.jpg",
-  "/images/exam-strategy-notebook.jpg",
-  "/images/model-coaching-bridge.jpg",
-  "/images/university-academic-seminar.jpg",
-];
-
 export default function NedenFarkliyizPage() {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [showAll, setShowAll] = useState<boolean>(false);
@@ -74,7 +66,7 @@ export default function NedenFarkliyizPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white"
+                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[whyDifferentContent.headline]}
               />
 
@@ -184,23 +176,21 @@ export default function NedenFarkliyizPage() {
                 className="bg-white rounded-2xl border border-cobalt-900/12 shadow-studio p-5 sm:p-8 lg:p-10 will-change-transform"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  {/* Sol Sütun: İlgili İlke Fotoğrafı + Başlık */}
+                  {/* Sol Sütun: İlke Başlığı & Vurgusu */}
                   <div className="lg:col-span-5">
-                    <div className="overflow-hidden rounded-2xl border border-cobalt-900/10 bg-cobalt-50 aspect-[4/3]">
-                      <img
-                        src={assetPath(PRINCIPLE_PHOTOS[activeIdx])}
-                        alt={currentPrinciple.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white shadow-card border border-cobalt-800 mb-6">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
+                        {activeIdx + 1}. Standart İlke
+                      </div>
+                      <div className="font-brand text-3xl font-extrabold tracking-wide text-white">
+                        0{activeIdx + 1}
+                      </div>
+                      <div className="mt-1 text-sm font-semibold text-cobalt-200">
+                        {PRINCIPLE_SHORT_LABELS[activeIdx]}
+                      </div>
                     </div>
 
-                    <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs sm:text-[13px] font-extrabold">
-                      {activeIdx + 1}. Standart İlke
-                    </div>
-
-                    <h3 className="mt-3 text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-ink leading-snug">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-ink leading-snug">
                       {currentPrinciple.title}
                     </h3>
                   </div>
@@ -280,15 +270,6 @@ export default function NedenFarkliyizPage() {
                   <article className="bg-white rounded-2xl border border-cobalt-900/12 shadow-card p-6 sm:p-8 lg:p-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
                       <div className="lg:col-span-4">
-                        <div className="overflow-hidden rounded-xl border border-cobalt-900/10 bg-cobalt-50 aspect-[16/10] mb-4">
-                          <img
-                            src={assetPath(PRINCIPLE_PHOTOS[pIdx])}
-                            alt={p.title}
-                            loading="lazy"
-                            decoding="async"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
                         <span className="px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold">
                           {pIdx + 1}. İlke
                         </span>
@@ -322,9 +303,6 @@ export default function NedenFarkliyizPage() {
           {/* Birebir Pedagojik Sonuç Vurgu Bloğu */}
           <Reveal className="mt-10">
             <div className="rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white p-7 sm:p-10 shadow-studio border-l-4 border-crimson-500">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
-                Tam Öğrenme Sistemi
-              </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                 {whyDifferentContent.pedagogicalOutcome.title}
               </h3>

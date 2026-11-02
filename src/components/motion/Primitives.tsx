@@ -28,7 +28,7 @@ export function MaskedLines({
       {lines.map((line, idx) => (
         <span
           key={idx}
-          className="block overflow-hidden pt-2 -mt-2 pb-2 -mb-2 px-1 -mx-1"
+          className="block overflow-hidden pt-2 -mt-2 pb-2 -mb-2 px-0.5"
         >
           <motion.span
             className="block will-change-transform"

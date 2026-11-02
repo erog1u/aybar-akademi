@@ -57,7 +57,7 @@ export default function IletisimPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white"
+                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={["İletişim & Ücretsiz Tanışma Seansı"]}
               />
 
@@ -71,12 +71,55 @@ export default function IletisimPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <PhotoFrame
-                src={assetPath("/images/model-coaching-bridge.jpg")}
-                alt="AYBAR AKADEMİ Tanışma Seansı"
-                aspectClass="aspect-[16/10]"
-                priority
-              />
+              <Reveal delay={0.12}>
+                <div className="rounded-2xl bg-white p-6 sm:p-7 shadow-studio border border-white/30 text-ink">
+                  <div className="text-xs font-extrabold uppercase tracking-wider text-crimson-600 mb-2">
+                    Hızlı İletişim Hattı
+                  </div>
+                  <h3 className="text-xl font-extrabold text-cobalt-950">
+                    Birebir Danışmanlık & Randevu
+                  </h3>
+                  <div className="mt-5 space-y-3">
+                    <a
+                      href={siteConfig.contact.phoneHref}
+                      className="flex items-center justify-between p-3.5 rounded-xl bg-cobalt-50 hover:bg-cobalt-100 transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="h-9 w-9 rounded-lg bg-cobalt-700 text-white flex items-center justify-center shrink-0">
+                          <Phone className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <div className="text-xs text-ink-muted font-medium">Telefon</div>
+                          <div className="text-sm font-extrabold text-cobalt-950">
+                            {siteConfig.contact.phoneDisplay}
+                          </div>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="h-4 w-4 text-cobalt-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="h-9 w-9 rounded-lg bg-[#25D366] text-white flex items-center justify-center shrink-0">
+                          <MessageCircle className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <div className="text-xs text-emerald-800 font-medium">WhatsApp Hattı</div>
+                          <div className="text-sm font-extrabold text-emerald-950">
+                            Hemen Mesaj Yazın
+                          </div>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="h-4 w-4 text-emerald-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>

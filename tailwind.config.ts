@@ -69,8 +69,9 @@ const config: Config = {
         serif: ['"Lora"', "Georgia", "serif"],
       },
       letterSpacing: {
-        tightest: "-0.035em",
-        tighter: "-0.025em",
+        tightest: "-0.018em",
+        tighter: "-0.012em",
+        tight: "-0.01em",
       },
       boxShadow: {
         studio: "0 20px 50px -14px rgba(4, 21, 59, 0.18)",

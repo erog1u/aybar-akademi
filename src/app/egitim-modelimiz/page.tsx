@@ -15,13 +15,6 @@ import {
 } from "@/components/motion/Primitives";
 import { scrollToSection } from "@/lib/scroll";
 
-const STAGE_IMAGES = [
-  "/images/hero-one-on-one.jpg",
-  "/images/vip-mentorship.jpg",
-  "/images/exam-strategy-notebook.jpg",
-  "/images/model-coaching-bridge.jpg",
-];
-
 export default function EgitimModelimizPage() {
   const [activeStage, setActiveStage] = useState<number>(0);
 
@@ -52,7 +45,7 @@ export default function EgitimModelimizPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white"
+                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[educationModelContent.headline]}
               />
 
@@ -138,23 +131,21 @@ export default function EgitimModelimizPage() {
               className="bg-white rounded-2xl border border-cobalt-900/12 shadow-studio p-5 sm:p-8 lg:p-10 will-change-transform"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-                {/* Sol Sütun: Fotoğraf + Başlık + Giriş */}
+                {/* Sol Sütun: Başlık & Giriş */}
                 <div className="lg:col-span-5">
-                  <div className="overflow-hidden rounded-2xl border border-cobalt-900/10 bg-cobalt-50 aspect-[4/3]">
-                    <img
-                      src={assetPath(STAGE_IMAGES[activeStage])}
-                      alt={currentSec.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="p-6 rounded-2xl bg-gradient-to-br from-cobalt-900 to-cobalt-950 text-white shadow-card border border-cobalt-800 mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold mb-3">
+                      <span>0{activeStage + 1}. Aşama</span>
+                    </div>
+                    <div className="font-brand text-3xl font-extrabold tracking-wide text-white">
+                      0{activeStage + 1}
+                    </div>
+                    <div className="mt-1 text-sm font-semibold text-cobalt-200">
+                      {currentSec.shortTitle}
+                    </div>
                   </div>
 
-                  <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-extrabold">
-                    <span>0{activeStage + 1}. Başlık</span>
-                  </div>
-
-                  <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-ink leading-snug">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink leading-snug">
                     {currentSec.title}
                   </h2>
 

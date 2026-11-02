@@ -26,7 +26,6 @@ const GUIDED_SECTIONS = [
     description:
       "İlkokuldan üniversiteye, ulusal sınavlardan dünya dillerine ve sanat eğitimlerine birebir özel derslerimiz.",
     href: "/egitim-programlarimiz",
-    image: "/images/programs-global-study.jpg",
     icon: BookOpen,
   },
   {
@@ -35,7 +34,6 @@ const GUIDED_SECTIONS = [
     description:
       "Kişiye özel kurgulanmış VIP Süreç Yönetimi, eğitim koçluğu ve aile-veli-okul köprüsü.",
     href: "/egitim-modelimiz",
-    image: "/images/vip-mentorship.jpg",
     icon: Compass,
   },
   {
@@ -44,7 +42,6 @@ const GUIDED_SECTIONS = [
     description:
       "30 dakikalık ücretsiz tanışma seansından kişiye özel hata defterine fark yaratan 5 standart ilkemiz.",
     href: "/neden-farkliyiz",
-    image: "/images/exam-strategy-notebook.jpg",
     icon: ShieldCheck,
   },
   {
@@ -53,7 +50,6 @@ const GUIDED_SECTIONS = [
     description:
       "33 yıllık köklü eğitim deneyimimiz, İstanbul’un tüm ilçelerinde yüz yüze ve tüm Türkiye’de online eğitim.",
     href: "/hakkimizda",
-    image: "/images/istanbul-home-tutoring.jpg",
     icon: MapPin,
   },
 ] as const;
@@ -68,16 +64,17 @@ export default function HomePage() {
             {/* Sol Sütun */}
             <div className="lg:col-span-6 min-w-0">
               <Reveal immediate y={10}>
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full">
                   <span className="h-2 w-2 rounded-full bg-crimson-500 shrink-0" />
-                  <span>33 Yıllık Köklü Eğitim Deneyimi · Maarif Modeline Hâkim Kadro</span>
+                  <span className="sm:hidden">33 Yıllık Köklü Eğitim Deneyimi</span>
+                  <span className="hidden sm:inline">33 Yıllık Köklü Eğitim Deneyimi · Maarif Modeline Hâkim Kadro</span>
                 </div>
               </Reveal>
 
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2.3rem] sm:text-5xl lg:text-[3.65rem] font-extrabold tracking-tightest leading-[1.08]"
+                className="text-[2.05rem] sm:text-5xl lg:text-[3.65rem] font-extrabold tracking-tight leading-[1.08]"
                 lines={[
                   "Her Öğrenciye",
                   "Aynı Eğitim Değil,",
@@ -156,39 +153,28 @@ export default function HomePage() {
                 <Reveal key={item.href} delay={idx * 0.05} className="h-full">
                   <Link
                     href={item.href}
-                    className="group h-full rounded-2xl border border-cobalt-900/12 bg-paper hover:bg-white hover:border-cobalt-700 hover:shadow-studio hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                    className="group h-full rounded-2xl border border-cobalt-900/12 bg-paper hover:bg-white hover:border-cobalt-700 hover:shadow-studio hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden p-6 sm:p-7"
                   >
                     <div>
-                      <div className="relative aspect-[16/10] overflow-hidden bg-cobalt-100">
-                        <img
-                          src={assetPath(item.image)}
-                          alt={item.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                        />
-                        <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-cobalt-950/85 text-white text-[11px] font-extrabold tracking-wider">
+                      <div className="flex items-center justify-between gap-3 mb-5">
+                        <span className="h-12 w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white flex items-center justify-center shrink-0 transition-colors shadow-sm">
+                          <Icon className="h-6 w-6" />
+                        </span>
+                        <span className="px-2.5 py-1 rounded-md bg-cobalt-50 text-cobalt-900 text-xs font-extrabold tracking-wider">
                           {item.badge}
                         </span>
                       </div>
 
-                      <div className="p-5 sm:p-6">
-                        <div className="flex items-center gap-2.5">
-                          <span className="h-9 w-9 rounded-lg bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
-                            <Icon className="h-[18px] w-[18px]" />
-                          </span>
-                          <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-ink group-hover:text-cobalt-800 transition-colors">
-                            {item.title}
-                          </h3>
-                        </div>
+                      <h3 className="text-xl font-extrabold tracking-tight text-ink group-hover:text-cobalt-800 transition-colors">
+                        {item.title}
+                      </h3>
 
-                        <p className="mt-3 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
+                      <p className="mt-2.5 text-[15px] text-ink-muted leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
 
-                    <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-cobalt-900/10 flex items-center justify-between text-sm font-extrabold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
+                    <div className="pt-5 mt-4 border-t border-cobalt-900/10 flex items-center justify-between text-sm font-extrabold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
                       <span>Sayfayı İncele</span>
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
@@ -214,31 +200,22 @@ export default function HomePage() {
 
               <Reveal delay={0.08}>
                 <div className="rounded-2xl bg-cobalt-900 text-white p-6 shadow-studio border border-cobalt-800">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold tracking-wide mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-extrabold tracking-wide mb-4">
                     {aboutContent.reachHeadline}
                   </div>
-                  <div className="overflow-hidden rounded-xl mb-4 aspect-[16/9]">
-                    <img
-                      src={assetPath("/images/online-interactive-lesson.jpg")}
-                      alt="Canlı İnteraktif Online Eğitim"
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="space-y-2.5 text-sm leading-relaxed text-cobalt-100">
-                    <p>
-                      <strong className="text-white">
-                        {aboutContent.reachItems[0].title}:
-                      </strong>{" "}
-                      {aboutContent.reachItems[0].description}
-                    </p>
-                    <p>
-                      <strong className="text-white">
-                        {aboutContent.reachItems[1].title}:
-                      </strong>{" "}
-                      {aboutContent.reachItems[1].description}
-                    </p>
+                  <div className="space-y-3 text-sm sm:text-[15px] leading-relaxed text-cobalt-100">
+                    <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/10">
+                      <strong className="text-white block font-bold mb-1">
+                        {aboutContent.reachItems[0].title}
+                      </strong>
+                      <span>{aboutContent.reachItems[0].description}</span>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/10">
+                      <strong className="text-white block font-bold mb-1">
+                        {aboutContent.reachItems[1].title}
+                      </strong>
+                      <span>{aboutContent.reachItems[1].description}</span>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -254,7 +231,7 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <h2 className="text-[1.85rem] sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-tightest leading-[1.12] text-ink">
+                <h2 className="text-[1.85rem] sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-tight leading-[1.12] text-ink">
                   {aboutContent.headline}
                 </h2>
 

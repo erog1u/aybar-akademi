@@ -24,7 +24,7 @@ export default function EgitimProgramlarimizPage() {
               <MaskedLines
                 as="h1"
                 immediate
-                className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white"
+                className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 lines={[programsIntro.headline]}
               />
 

@@ -290,7 +290,7 @@ function StudioDesktopWindow({
 
 export default function ClientPreviewStudioPage() {
   const [mode, setMode] = useState<ViewportMode>("mobile");
-  const [zoomMode, setZoomMode] = useState<ZoomMode>("actual");
+  const [zoomMode, setZoomMode] = useState<ZoomMode>("fit");
   const [route, setRoute] = useState<string>("/");
   const [reloadKey, setReloadKey] = useState<number>(0);
   const [isReloading, setIsReloading] = useState<boolean>(false);
@@ -559,7 +559,7 @@ export default function ClientPreviewStudioPage() {
         ref={stageRef}
         className={`flex-1 studio-hero relative p-3 sm:p-5 lg:p-6 ${
           isScrollableActual
-            ? "overflow-y-auto overflow-x-auto flex flex-col"
+            ? "overflow-y-auto overflow-x-hidden flex flex-col"
             : "overflow-hidden flex items-center justify-center"
         }`}
       >

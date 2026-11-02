@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-PROJECT_DIR="/Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi"
-cd "$PROJECT_DIR"
+cd "$(dirname "$0")/.."
+PROJECT_DIR="$(pwd)"
 
 echo "==> 1. Building protected static preview export for GitHub Pages CDN (/aybar-akademi)..."
 rm -rf .next out

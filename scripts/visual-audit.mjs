@@ -1,12 +1,16 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.resolve(__dirname, "..");
 
 const CHROME_PATH =
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 const OUT_DIR = path.resolve(
-  "/Users/tahaereneroglu/.gemini/antigravity/brain/9c83aac0-962c-4097-a6d3-67910d8946fc/scratch/qa-shots-v3"
+  process.env.OUT_DIR || path.join(REPO_ROOT, "qa-shots")
 );
 const PORT = 9339;
 
