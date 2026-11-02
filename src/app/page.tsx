@@ -23,6 +23,7 @@ import {
   NextChapterBanner,
 } from "@/components/motion/Primitives";
 import { AybarInstitutionalSeal } from "@/components/brand/AybarCrest";
+import FaqSection from "@/components/faq/FaqSection";
 
 const GUIDED_SECTIONS = [
   {
@@ -419,6 +420,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Sıkça Sorulan Sorular — Maarif Modeli ve VIP Birebir Süreç Standartları */}
+      <FaqSection />
 
       <NextChapterBanner
         title={programsIntro.headline}

@@ -11,12 +11,15 @@ import {
   PhotoFrame,
   NextChapterBanner,
 } from "@/components/motion/Primitives";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export default function EgitimModelimizPage() {
   const sections = educationModelContent.sections;
 
   return (
     <div className="bg-paper text-ink">
+      <Breadcrumbs items={[{ label: "Eğitim Modelimiz" }]} />
+
       {/* 1. Canlı ve Ferah Cobalt Hero */}
       <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">

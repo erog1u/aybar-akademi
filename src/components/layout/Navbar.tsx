@@ -35,11 +35,23 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Erişilebilirlik (a11y): Ekran okuyucu ve klavye gezintisi için doğrudan içeriğe atlama bağlantısı */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2.5 focus:bg-cobalt-700 focus:text-white focus:rounded-lg focus:font-bold focus:shadow-2xl focus:ring-2 focus:ring-white focus:outline-none transition-all"
+      >
+        Ana İçeriğe Atla
+      </a>
+
       {/* Saf bg-white (backdrop-blur yok -> %100 akıcı 120fps kaydırma ve anında tıklama!) */}
       <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white lg:bg-white/95 lg:backdrop-blur-md border-b border-cobalt-900/10 relative">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-2 xl:gap-4">
           {/* Sol: Logo ve Kurumsal İsim */}
-          <Link href="/" prefetch={true} className="group min-w-0 shrink-0">
+          <Link
+            href="/"
+            prefetch={true}
+            className="group min-w-0 shrink-0 focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded-lg"
+          >
             <AybarBrandLockup variant="light" />
           </Link>
 
@@ -66,7 +78,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   prefetch={true}
-                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-bold transition-colors whitespace-nowrap ${
+                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-bold transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none ${
                     isActive
                       ? "bg-cobalt-700 text-white shadow-sm"
                       : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
@@ -91,7 +103,7 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm"
+              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none"
             >
               <span className="hidden xl:inline">Ücretsiz Tanışma Seansı</span>
               <span className="inline xl:hidden">Ücretsiz Tanışma</span>
@@ -102,7 +114,8 @@ export default function Navbar() {
               onClick={() => setMobileOpen(true)}
               aria-label="Menüyü Aç"
               aria-expanded={mobileOpen}
-              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 active:scale-95 text-white text-sm font-bold inline-flex items-center gap-2 transition-transform cursor-pointer"
+              aria-controls="mobile-drawer"
+              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 active:scale-95 text-white text-sm font-bold inline-flex items-center gap-2 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none"
             >
               <Menu className="h-4 w-4" />
               <span>Menü</span>
@@ -121,6 +134,7 @@ export default function Navbar() {
       />
 
       <aside
+        id="mobile-drawer"
         className={`fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto transition-transform duration-250 ease-out will-change-transform ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}

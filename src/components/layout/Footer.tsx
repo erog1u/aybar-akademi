@@ -26,14 +26,14 @@ export default function Footer() {
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors focus-visible:ring-2 focus-visible:ring-crimson-500 focus-visible:outline-none"
               >
                 <span>Ücretsiz Tanışma Seansı</span>
                 <ArrowUpRight className="h-4 w-4 shrink-0" />
               </a>
               <Link
                 href="/iletisim"
-                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/15 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/15 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               >
                 <span>İletişim</span>
               </Link>

@@ -77,6 +77,7 @@ export function PhotoFrame({
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : undefined}
           className={`w-full h-full object-cover ${objectPosition} transition-transform duration-500 ease-out group-hover:scale-105`}
         />
       </div>

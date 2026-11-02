@@ -5,10 +5,13 @@ import { programsIntro } from "@/data/content";
 import { assetPath } from "@/config/site";
 import { MaskedLines, Reveal, PhotoFrame } from "@/components/motion/Primitives";
 import ProgramExplorer from "@/components/programs/ProgramExplorer";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export default function EgitimProgramlarimizPage() {
   return (
     <div className="bg-paper text-ink">
+      <Breadcrumbs items={[{ label: "Eğitim Programlarımız" }]} />
+
       {/* Canlı Cobalt Başlık Alanı */}
       <section className="studio-hero text-white py-12 sm:py-16 lg:py-20 border-b border-white/15 overflow-hidden">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">

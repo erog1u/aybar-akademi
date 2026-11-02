@@ -13,6 +13,7 @@ import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { programCategories } from "@/data/content";
 import { MaskedLines } from "@/components/motion/Primitives";
 import { AybarInstitutionalSeal } from "@/components/brand/AybarCrest";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 const LESSON_FORMATS = ["İstanbul’da Yüz Yüze", "Canlı Online"] as const;
 
@@ -43,6 +44,8 @@ export default function IletisimPage() {
 
   return (
     <div className="bg-paper text-ink">
+      <Breadcrumbs items={[{ label: "İletişim" }]} />
+
       {/* 1. Canlı ve Ferah Cobalt Başlık */}
       <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">

@@ -23,7 +23,9 @@ export default function SiteShell({
     <>
       <div className="min-h-screen flex flex-col w-full max-w-full">
         <Navbar />
-        <main className="flex-1 w-full max-w-full">{children}</main>
+        <main id="main-content" className="flex-1 w-full max-w-full">
+          {children}
+        </main>
         <Footer />
       </div>
       <FloatingWhatsApp />
