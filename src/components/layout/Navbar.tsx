@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { LUXURY_EASE } from "@/components/motion/Primitives";
@@ -12,46 +12,11 @@ import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  const stripRef = useRef<HTMLDivElement>(null);
-  const activePillRef = useRef<HTMLAnchorElement>(null);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 220,
-    damping: 32,
-    restDelta: 0.001,
-  });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
 
-  // Center active pill in mobile strip without hijacking page scroll
-  useEffect(() => {
-    if (stripRef.current && activePillRef.current) {
-      const container = stripRef.current;
-      const activeBtn = activePillRef.current;
-      const targetLeft =
-        activeBtn.offsetLeft -
-        container.clientWidth / 2 +
-        activeBtn.clientWidth / 2;
-      container.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: "smooth",
-      });
-    }
-  }, [pathname]);
-
-  // Escape key support & body scroll lock
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -72,51 +37,17 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar — Hidden on Mobile to avoid stacked bar overload */}
-      <div className="hidden md:block bg-cobalt-950 text-white border-b border-white/10 text-xs">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 h-9 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5 overflow-hidden">
-            <span className="px-2 py-0.5 bg-crimson-600 text-white text-[10px] font-bold tracking-wider shrink-0">
-              %100 UYUMLU
-            </span>
-            <span className="text-[11px] sm:text-xs font-medium text-cobalt-100 truncate">
-              Yeni Nesil Maarif Modeli · 33 Yıllık Eğitim Deneyimi
-            </span>
-          </div>
-
-          <div className="flex items-center gap-5 shrink-0 text-[11px] text-cobalt-200 font-medium">
-            <span>İstanbul 39 İlçe Yüz Yüze</span>
-            <span className="text-crimson-500">·</span>
-            <span>Tüm Türkiye Online</span>
-            <a
-              href={siteConfig.contact.phoneHref}
-              className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-crimson-500 transition-colors pl-4 border-l border-white/15"
-            >
-              <Phone className="h-3.5 w-3.5 text-crimson-500" />
-              <span>{siteConfig.contact.phoneDisplay}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Sticky Header */}
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 border-b ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-xl border-cobalt-900/15 shadow-sm"
-            : "bg-white border-cobalt-900/12"
-        }`}
-      >
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 h-16 lg:h-20 flex items-center justify-between gap-3 sm:gap-4">
-          {/* Brand Lockup */}
-          <Link href="/" className="group shrink-0">
+      <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-3">
+          {/* Left: Brand Lockup */}
+          <Link href="/" className="group min-w-0 shrink-0">
             <AybarBrandLockup variant="light" />
           </Link>
 
-          {/* Desktop Navigation Rail (>= 1024px) */}
+          {/* Center: Clean Desktop Navigation */}
           <nav
             aria-label="Ana Menü"
-            className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-cobalt-50/90 border border-cobalt-900/12 p-1 xl:p-1.5"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1"
           >
             {siteConfig.navigation.map((item) => {
               const isActive =
@@ -128,97 +59,44 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-bold tracking-tight transition-colors whitespace-nowrap ${
+                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13.5px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
                     isActive
-                      ? "text-white"
-                      : "text-cobalt-950 hover:text-cobalt-700 hover:bg-white/70"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="active-nav-indicator"
-                      className="absolute inset-0 bg-cobalt-700 shadow-sm"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 32,
-                      }}
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    {isActive && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-crimson-500" />
-                    )}
-                    {item.label}
-                  </span>
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right CTA + Mobile Menu Button */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white px-3.5 xl:px-5 py-2.5 xl:py-3 text-xs font-extrabold tracking-tight transition-colors duration-300 shadow-crimson whitespace-nowrap"
-            >
-              <span className="xl:hidden">Tanışma Dersi</span>
-              <span className="hidden xl:inline">Ücretsiz Tanışma Dersi</span>
-              <ArrowUpRight className="h-4 w-4 shrink-0" />
-            </a>
-
-            <button
-              type="button"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Menüyü Aç"
-              className="lg:hidden inline-flex items-center gap-2 px-3.5 h-11 bg-cobalt-900 text-white text-[13px] font-extrabold hover:bg-cobalt-800 transition-colors"
-            >
-              <Menu className="h-4 w-4" />
-              <span>MENÜ</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile/Tablet Quick-Access Menu Strip (< 1024px, exact h-12 / 48px -> Total Header: 114px) */}
-        <div
-          ref={stripRef}
-          className="lg:hidden h-12 border-t border-cobalt-900/10 bg-paper-warm no-scrollbar overflow-x-auto flex items-center"
-        >
-          <div className="px-3 sm:px-4 flex items-center gap-1.5 min-w-max">
-            {siteConfig.navigation.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  ref={isActive ? activePillRef : null}
-                  className={`px-3.5 py-1.5 text-[13.5px] sm:text-sm font-extrabold whitespace-nowrap transition-colors border ${
-                    isActive
-                      ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
-                      : "bg-white text-cobalt-950 border-cobalt-900/12 hover:border-cobalt-700 hover:text-cobalt-700"
+                      ? "bg-cobalt-700 text-white shadow-sm"
+                      : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
                   }`}
                 >
                   {item.label}
                 </Link>
               );
             })}
+          </nav>
+
+          {/* Right: Desktop CTA & Mobile Menu Trigger */}
+          <div className="flex items-center shrink-0">
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-colors whitespace-nowrap shadow-sm"
+            >
+              Ücretsiz Tanışma Seansı
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Menüyü Aç"
+              aria-expanded={mobileOpen}
+              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 hover:bg-cobalt-800 text-white text-sm font-bold inline-flex items-center gap-2 transition-colors"
+            >
+              <Menu className="h-4 w-4" />
+              <span>Menü</span>
+            </button>
           </div>
         </div>
-
-        {/* Scroll Progress Line */}
-        <motion.div
-          style={{ scaleX }}
-          className="origin-left h-[2px] bg-crimson-600 w-full"
-        />
       </header>
 
-      {/* Slide-over Mobile Drawer */}
+      {/* Clean Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -227,30 +105,35 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 z-[89] bg-cobalt-950/70 backdrop-blur-sm"
+              className="fixed inset-0 z-[89] bg-cobalt-950/50 backdrop-blur-sm"
             />
             <motion.aside
               data-lenis-prevent
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.35, ease: LUXURY_EASE }}
-              className="fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-cobalt-950 text-white border-l border-white/15 flex flex-col justify-between overflow-y-auto"
+              transition={{ duration: 0.32, ease: LUXURY_EASE }}
+              className="fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto"
             >
               <div>
-                <div className="p-4 sm:p-5 border-b border-white/12 flex items-center justify-between">
-                  <AybarBrandLockup variant="dark" />
+                <div className="h-16 px-4 sm:px-5 border-b border-cobalt-900/10 flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <AybarBrandLockup variant="light" />
+                  </div>
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
                     aria-label="Menüyü Kapat"
-                    className="h-11 w-11 border border-white/20 flex items-center justify-center text-white hover:bg-white/10 active:bg-white/20 transition-colors"
+                    className="h-11 w-11 rounded-lg bg-paper-warm hover:bg-cobalt-50 text-ink flex items-center justify-center shrink-0 transition-colors"
                   >
                     <X className="h-5 w-5" />
                   </button>
                 </div>
 
-                <nav className="divide-y divide-white/10 border-b border-white/10">
+                <nav
+                  aria-label="Mobil Menü"
+                  className="p-4 sm:p-5 space-y-1.5"
+                >
                   {siteConfig.navigation.map((item) => {
                     const isActive =
                       item.href === "/"
@@ -261,44 +144,39 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`flex items-center justify-between px-6 py-4 transition-colors ${
+                        className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-colors ${
                           isActive
-                            ? "bg-crimson-600 text-white font-extrabold"
-                            : "text-white hover:bg-white/5 font-bold"
+                            ? "bg-cobalt-700 text-white shadow-sm"
+                            : "text-ink hover:bg-cobalt-50 hover:text-cobalt-700"
                         }`}
                       >
-                        <span className="text-base tracking-tight flex items-center gap-2.5">
-                          {isActive && (
-                            <span className="h-2 w-2 rounded-full bg-white shrink-0" />
-                          )}
-                          <span>{item.label}</span>
-                        </span>
-                        <ArrowUpRight className="h-4 w-4 opacity-80" />
+                        <span>{item.label}</span>
+                        <ArrowUpRight
+                          className={`h-4 w-4 shrink-0 ${
+                            isActive ? "text-white/90" : "text-ink-subtle"
+                          }`}
+                        />
                       </Link>
                     );
                   })}
                 </nav>
               </div>
 
-              <div className="p-6 space-y-3 bg-cobalt-900/60 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-                <p className="text-[14px] sm:text-[15px] text-cobalt-100 leading-relaxed">
-                  İlk derse başlamadan önce 30 dakikalık ücretsiz tanışma seansı
-                  için hemen ulaşın.
-                </p>
+              <div className="p-5 border-t border-cobalt-900/10 bg-paper-warm space-y-2.5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 active:bg-crimson-800 text-white py-4 px-5 text-[15px] font-extrabold shadow-crimson transition-colors"
+                  className="w-full min-h-[48px] rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 shadow-sm transition-colors"
                 >
-                  <span>WhatsApp ile Bilgi Alın</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <span>WhatsApp ile İletişime Geç</span>
+                  <ArrowUpRight className="h-4 w-4 shrink-0" />
                 </a>
                 <a
                   href={siteConfig.contact.phoneHref}
-                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 active:bg-white/15 text-white py-3.5 px-5 text-sm font-bold transition-colors"
+                  className="w-full min-h-[48px] rounded-xl bg-white border border-cobalt-900/15 hover:border-cobalt-700 text-ink py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 transition-colors"
                 >
-                  <Phone className="h-4 w-4 text-crimson-500" />
+                  <Phone className="h-4 w-4 text-cobalt-700 shrink-0" />
                   <span>{siteConfig.contact.phoneDisplay}</span>
                 </a>
               </div>

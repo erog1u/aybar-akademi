@@ -92,7 +92,7 @@ export function Reveal({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 3. Clean Editorial Section Header (Zero Robotic Jargon)                    */
+/* 3. Clean Editorial Section Header                                          */
 /* -------------------------------------------------------------------------- */
 export function SectionHeader({
   eyebrow,
@@ -110,15 +110,15 @@ export function SectionHeader({
   return (
     <div
       className={`pb-6 sm:pb-8 mb-8 sm:mb-12 border-b ${
-        dark ? "border-white/15" : "border-cobalt-900/12"
+        dark ? "border-white/15" : "border-cobalt-900/10"
       }`}
     >
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2.5 mb-3">
-            <span className="h-2 w-2 bg-crimson-600 inline-block" />
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-2 w-2 rounded-full bg-crimson-600 inline-block" />
             <span
-              className={`text-xs sm:text-[13px] font-extrabold tracking-[0.12em] uppercase ${
+              className={`text-xs sm:text-[13px] font-bold tracking-[0.08em] uppercase ${
                 dark ? "text-cobalt-200" : "text-cobalt-700"
               }`}
             >
@@ -127,7 +127,7 @@ export function SectionHeader({
           </div>
 
           <h2
-            className={`text-[1.8rem] sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tightest leading-[1.1] ${
+            className={`text-[1.8rem] sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-tightest leading-[1.12] ${
               dark ? "text-white" : "text-ink"
             }`}
           >
@@ -194,15 +194,18 @@ export function MagneticLink({
   const springY = useSpring(y, { damping: 16, stiffness: 200, mass: 0.12 });
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (typeof window !== "undefined" && !window.matchMedia("(pointer: fine)").matches) {
+    if (
+      typeof window !== "undefined" &&
+      !window.matchMedia("(pointer: fine)").matches
+    ) {
       return;
     }
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * 0.2);
-    y.set((e.clientY - cy) * 0.2);
+    x.set((e.clientX - cx) * 0.18);
+    y.set((e.clientY - cy) * 0.18);
   };
 
   const handleLeave = () => {
@@ -216,7 +219,7 @@ export function MagneticLink({
     cobalt:
       "bg-cobalt-700 text-white hover:bg-cobalt-900 border border-cobalt-700",
     "outline-light":
-      "bg-white/10 text-white border border-white/35 hover:bg-white hover:text-cobalt-900 backdrop-blur-sm",
+      "bg-white/10 text-white border border-white/30 hover:bg-white hover:text-cobalt-900 backdrop-blur-sm",
     "outline-dark":
       "bg-white text-cobalt-900 border border-cobalt-900/20 hover:border-cobalt-700 hover:bg-cobalt-50",
   }[variant];
@@ -227,7 +230,7 @@ export function MagneticLink({
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: springX, y: springY }}
-      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-3 px-6 py-4 text-[15px] sm:text-base font-bold tracking-tight transition-colors duration-300 ${styles} ${className}`}
+      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-2.5 px-6 py-3.5 text-[15px] sm:text-base font-bold rounded-lg tracking-tight transition-colors duration-300 ${styles} ${className}`}
     >
       <span>{children}</span>
       <span className="relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
@@ -311,10 +314,10 @@ export function KineticRibbon({
           <div key={rep} className="flex items-center shrink-0">
             {items.map((item, i) => (
               <span key={i} className="inline-flex items-center">
-                <span className="text-xs font-bold tracking-[0.14em] px-6">
+                <span className="text-xs font-bold tracking-[0.12em] px-6">
                   {item}
                 </span>
-                <span className="h-1.5 w-1.5 bg-crimson-600 rotate-45 inline-block" />
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-600 inline-block" />
               </span>
             ))}
           </div>
@@ -358,38 +361,38 @@ export function ParallaxWatermark({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 7. Interactive "Başarı Yükleniyor..." Widget (Reference Image 3 Motif)     */
+/* 7. Interactive Process Steps Widget                                        */
 /* -------------------------------------------------------------------------- */
 const DIAGNOSTIC_STEPS = [
   {
     code: "1",
     progress: 20,
-    title: "30 Dakikalık Ücretsiz Tanışma Seansı",
+    title: "30 Dakikalık Tanışma Seansı",
     output: "Öğrenme stili analizi ve akademik altyapı tespiti yapılır.",
   },
   {
     code: "2",
     progress: 45,
-    title: "Kişiye Özel Yol Haritası",
-    output: "Hedefe ve öğrenme hızına uygun VIP çalışma programı hazırlanır.",
+    title: "Kişiselleştirilmiş Yol Haritası",
+    output: "Hedefe ve öğrenme hızına uygun bireysel çalışma programı hazırlanır.",
   },
   {
     code: "3",
     progress: 70,
     title: "Ters Yüz Sınıf & Bilgi Kartları",
-    output: "Ders öncesi ön hazırlık ve ders sonu Active Recall pekiştirmesi uygulanır.",
+    output: "Ders öncesi ön hazırlık ve ders sonu bilgi kartlarıyla pekiştirme uygulanır.",
   },
   {
     code: "4",
     progress: 90,
-    title: "Dijital Hata Defteri",
-    output: "Çözülemeyen soru tipleri sıfırlanarak sınav netleri katlanır.",
+    title: "Kişiye Özel Hata Defteri",
+    output: "Takılınan soru tipleri hata defterinde eritilerek eksikler giderilir.",
   },
   {
     code: "5",
     progress: 100,
     title: "Tam Öğrenme & Veli Bilgilendirme",
-    output: "Her ders sonu WhatsApp raporu ve aylık gelişim analizi paylaşılır.",
+    output: "Her ders sonu WhatsApp raporu ve aylık gelişim değerlendirmesi paylaşılır.",
   },
 ];
 
@@ -411,24 +414,24 @@ export function SuccessDiagnosticWidget() {
     <div
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="bg-white text-ink border border-cobalt-900/15 shadow-studio overflow-hidden"
+      className="bg-white text-ink rounded-2xl border border-cobalt-900/12 shadow-card overflow-hidden"
     >
       <div className="bg-cobalt-950 text-white px-5 py-3.5 border-b border-white/10">
         <div className="flex items-center justify-between gap-4 mb-2">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-crimson-500 animate-pulse" />
-            <span className="text-xs font-bold tracking-[0.1em] text-white">
-              Başarı Yükleniyor...
+            <span className="h-2 w-2 rounded-full bg-crimson-500" />
+            <span className="text-xs font-bold tracking-wide text-white">
+              Aybar Akademi Süreç Adımları
             </span>
           </div>
-          <span className="font-mono text-xs font-semibold text-cobalt-200">
-            %{current.progress}
+          <span className="text-xs font-semibold text-cobalt-200">
+            {current.code} / {DIAGNOSTIC_STEPS.length}
           </span>
         </div>
 
-        <div className="h-2 w-full bg-white/15 overflow-hidden">
+        <div className="h-1.5 w-full rounded-full bg-white/15 overflow-hidden">
           <motion.div
-            className="h-full bg-crimson-600"
+            className="h-full bg-crimson-600 rounded-full"
             initial={false}
             animate={{ width: `${current.progress}%` }}
             transition={{ duration: 0.6, ease: LUXURY_EASE }}
@@ -444,13 +447,13 @@ export function SuccessDiagnosticWidget() {
               key={s.code}
               type="button"
               onClick={() => setActive(idx)}
-              className={`py-2.5 text-[13px] sm:text-sm font-extrabold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
+              className={`min-h-[42px] py-2.5 text-[13px] sm:text-sm font-bold border-r last:border-r-0 border-cobalt-900/10 transition-colors ${
                 isActive
-                  ? "bg-crimson-600 text-white"
+                  ? "bg-cobalt-700 text-white"
                   : "text-ink-muted hover:bg-cobalt-50 hover:text-cobalt-800"
               }`}
             >
-              <span className="sm:hidden">0{s.code}</span>
+              <span className="sm:hidden">{s.code}</span>
               <span className="hidden sm:inline">{s.code}. Adım</span>
             </button>
           );
@@ -466,9 +469,9 @@ export function SuccessDiagnosticWidget() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.28, ease: LUXURY_EASE }}
           >
-            <div className="flex items-center gap-2 text-xs font-bold text-crimson-600 mb-1.5">
-              <Check className="h-4 w-4" />
-              <span>Aybar Akademi Süreç Standardı</span>
+            <div className="flex items-center gap-2 text-xs font-bold text-cobalt-700 mb-1.5">
+              <Check className="h-4 w-4 text-crimson-600" />
+              <span>Standart İlke</span>
             </div>
             <h4 className="text-lg sm:text-xl font-extrabold tracking-tight text-ink leading-snug">
               {current.title}
@@ -566,10 +569,10 @@ export function SpotlightCard({
 }
 
 /* -------------------------------------------------------------------------- */
-/* 10. Next Page Chapter Navigator (Prominent Subpage Discovery)              */
+/* 10. Next Page Chapter Navigator (Calm Subpage Discovery Banner)            */
 /* -------------------------------------------------------------------------- */
 export function NextChapterBanner({
-  kicker = "SIRADAKİ BÖLÜMÜ KEŞFEDİN",
+  kicker = "Sıradaki Sayfa",
   title,
   description,
   href,
@@ -582,16 +585,17 @@ export function NextChapterBanner({
   buttonLabel: string;
 }) {
   return (
-    <section className="bg-cobalt-900 halftone-cobalt text-white border-t border-white/15">
+    <section className="rounded-none bg-paper-warm border-t border-cobalt-900/10">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs sm:text-[13px] font-extrabold tracking-[0.12em] mb-3">
-            {kicker}
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-cobalt-700 mb-2.5">
+            <span className="h-2 w-2 rounded-full bg-crimson-600 inline-block" />
+            <span>{kicker}</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tightest">
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink">
             {title}
           </h3>
-          <p className="mt-2.5 text-[15px] sm:text-base text-cobalt-100/95 leading-relaxed">
+          <p className="mt-2.5 text-[15px] sm:text-base text-ink-muted leading-relaxed">
             {description}
           </p>
         </div>

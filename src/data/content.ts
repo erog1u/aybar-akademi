@@ -1,6 +1,5 @@
 export interface ProgramItem {
   title: string;
-  badge?: string;
   leaderNote?: string;
   description?: string;
   subjects: string[];
@@ -12,8 +11,8 @@ export interface ProgramCategory {
   code: string;
   shortTitle: string;
   title: string;
-  tagline: string;
-  summary: string;
+  tagline?: string;
+  summary?: string;
   items: ProgramItem[];
 }
 
@@ -21,8 +20,6 @@ export const founderMessage = {
   eyebrow: "KURUCUMUZUN MESAJI",
   salutation:
     "Değerli Öğrencilerimiz, Kıymetli Velilerimiz ve Hayat Boyu Öğrenmeyi İlke Edinen Eğitim Dostlarımız,",
-  pullQuote:
-    "Her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna inanıyor; kitlesel ve tek düze kalıpların ötesinde kişiye özel VIP bir öğrenme modeli inşa ediyoruz.",
   paragraphs: [
     "Eğitim, bireyin içindeki potansiyeli keşfetme, onu en doğru şekilde işleme ve geleceğe güvenle taşıma yolculuğudur. Bu yolculuğun her aşamasında, her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna inanıyoruz. İşte tam da bu yüzden, kitlesel ve tek düze eğitim kalıplarını bir kenara bırakarak, birebir eğitime dayalı, kişiye özel ve “VIP” standartlarında bir öğrenme modeli inşa ettik.",
     "Kurumumuz, ilkokul çağındaki bir çocuğun okul destek derslerinden, LGS, YKS, KPSS ve ALES gibi hayatın dönüm noktası sayılan akademik sınavlara kadar çok geniş bir yelpazede eğitim ve koçluk hizmeti sunmaktadır. Sadece akademik başarıyı değil; çocuklardan yetişkinlere kadar her yaş grubunun kişisel gelişimini de önemsiyoruz. Bu doğrultuda, dünya vatandaşı bireyler yetiştiren yabancı dil eğitimlerimizden, ruhu ve bedeni besleyen spor ve sanat programlarımıza kadar hayatın her alanına dokunan zengin bir içerik sağlıyoruz.",
@@ -36,9 +33,8 @@ export const founderMessage = {
 };
 
 export const aboutContent = {
-  eyebrow: "KURUMSAL KİMLİK · 33 YILLIK DENEYİM",
-  headline:
-    "Çeyrek Asrı Aşan Akademik Disiplin, Yeni Nesil Maarif Modeline Hâkim Uzman Kadro.",
+  eyebrow: "HAKKIMIZDA",
+  headline: "33 Yıllık Köklü Eğitim Deneyimi ve Yeni Nesil Maarif Modeline Hâkim Kadro",
   introParagraphs: [
     "AYBAR AKADEMİ, 33 yıllık köklü eğitim deneyimini, alanında uzman ve profesyonel, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birleştiren çağdaş bir eğitim kurumudur.",
     "Eğitimde çeyrek asrı aşan bu güçlü tecrübemizle, her öğrencimizi hayallerindeki geleceğe sevgi, ilgi ve akademik disiplinle hazırlıyoruz. Bizim için başarı bir tesadüf değil; doğru yönlendirme, kesintisiz takip ve doğru yöntemlerle kazanılan kalıcı bir alışkanlıktır.",
@@ -68,13 +64,11 @@ export const aboutContent = {
   reachHeadline: "Eğitimde Sınır Tanımıyoruz",
   reachItems: [
     {
-      code: "YÜZ YÜZE · İSTANBUL (39 İLÇE)",
       title: "İstanbul’un Tüm İlçelerinde",
       description:
         "Evinizin konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti sağlıyoruz.",
     },
     {
-      code: "CANLI ONLINE · TÜRKİYE (81 İL)",
       title: "Tüm Türkiye’de",
       description:
         "Teknolojinin tüm imkânlarını kullanarak, coğrafi sınırları ortadan kaldıran, interaktif ve yüksek verimli online eğitim modellerimizle yanınızdayız.",
@@ -86,7 +80,7 @@ export const aboutContent = {
 
 export const programsIntro = {
   eyebrow: "AYBAR AKADEMİ’DE ÖZEL DERS",
-  headline: "Bizzat Size Özel Tasarlanmış Başarı Odaklı Eğitim Programlarımız",
+  headline: "Sizin İçin Hazırladığımız, Başarı Odaklı Eğitim Programlarımız",
   lead: "AYBAR AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın. Alanında profesyonel, vizyoner kadromuzla ilkokuldan üniversiteye, ulusal sınavlardan uluslararası kariyer basamaklarına kadar her yaş grubuna ve her seviyeye uygun, tamamen birebir özel derslerimizle başarıyı bir hedef olmaktan çıkarıp sizi zirveye taşıyan bir standart haline getiriyoruz.",
   closing:
     "Hedefiniz ne olursa olsun, birebir öğrenme modeli ve uzman kadromuzla başarıya giden en kısa ve etkili yolu birlikte inşa ediyoruz.",
@@ -104,7 +98,6 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title: "YKS (TYT - AYT)",
-        badge: "Üniversiteye Hazırlık + Koçluk",
         subjects: [
           "Matematik",
           "Geometri",
@@ -123,7 +116,6 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "LGS",
-        badge: "Nitelikli Liselere Hazırlık + Koçluk",
         subjects: [
           "Matematik",
           "Fen Bilgisi",
@@ -135,12 +127,10 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "KPSS (Genel Yetenek - Genel Kültür)",
-        badge: "Kamu Kariyer Sınavları",
         subjects: ["Türkçe", "Matematik", "Tarih", "Coğrafya", "Vatandaşlık"],
       },
       {
         title: "KPSS Eğitim Bilimleri (Öğretmen Adayları İçin)",
-        badge: "Kurucu Liderliğinde Özel Program",
         featured: true,
         leaderNote:
           "AYBAR AKADEMİ Kurucusu Bahadır Aybar Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
@@ -157,7 +147,6 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "ALES",
-        badge: "Akademik Lisansüstü Geçiş",
         subjects: [
           "Türkçe",
           "Sözel Mantık",
@@ -179,7 +168,6 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title: "İlkokul Düzeyi (1 - 4. Sınıflar)",
-        badge: "Temel Akademik Disiplin",
         subjects: [
           "Türkçe",
           "Matematik",
@@ -190,7 +178,6 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "Ortaokul Düzeyi (5 - 8. Sınıflar)",
-        badge: "Maarif Modeline Uyumlu Takviye",
         subjects: [
           "Türkçe",
           "Matematik",
@@ -202,7 +189,6 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "Lise Düzeyi (9 - 12. Sınıflar)",
-        badge: "Yazılı Başarısı & Akademik Derinlik",
         subjects: [
           "Türk Dili ve Edebiyatı",
           "Matematik ve Geometri",
@@ -230,19 +216,13 @@ export const programCategories: ProgramCategory[] = [
       "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
     items: [
       {
-        title: "Felsefe, Sosyoloji ve Psikoloji Lisans & Akademik Destek",
-        badge: "Bahadır Aybar Liderliğinde Birebir Mentorluk",
+        title: "Felsefe, Sosyoloji ve Psikoloji Bölümleri Akademik Dersleri",
         featured: true,
         leaderNote:
           "AYBAR AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
-        subjects: [
-          "Felsefe Bölümü Akademik Dersleri",
-          "Sosyoloji Bölümü Akademik Dersleri",
-          "Psikoloji Bölümü Akademik Dersleri",
-          "Akademik Okuma, Metin Analizi ve Mentorluk",
-        ],
+        subjects: ["Felsefe", "Sosyoloji", "Psikoloji"],
       },
     ],
   },
@@ -257,7 +237,6 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title: "İngilizce",
-        badge: "Küresel Akademik & Profesyonel",
         subjects: [
           "IELTS",
           "TOEFL iBT",
@@ -266,12 +245,10 @@ export const programCategories: ProgramCategory[] = [
       },
       {
         title: "Almanca",
-        badge: "Avrupa Sertifikasyon",
         subjects: ["Goethe-Zertifikat", "TestDaF", "telc Deutsch"],
       },
       {
         title: "Fransızca",
-        badge: "Uluslararası Diplomalar",
         subjects: ["DELF", "DALF", "TCF / TEF"],
       },
       {
@@ -313,18 +290,13 @@ export const programCategories: ProgramCategory[] = [
     code: "05",
     shortTitle: "YDT & YDS",
     title: "Türkiye Özelindeki Ulusal Yabancı Dil Sınavları",
-    tagline: "Ulusal Dil Sınavlarında Yüksek Net ve Stratejik Uzmanlık.",
-    summary:
-      "ÖSYM tarafından uygulanan yabancı dil sınavlarına yönelik dil bilgisi, akademik kelime dağarcığı, çeviri ve okuduğunu anlama odaklı birebir hazırlık.",
     items: [
       {
-        title: "YDT (Yabancı Dil Testi — YKS Dil)",
-        badge: "5 Dilde Birebir Hazırlık",
+        title: "YDT",
         subjects: ["İngilizce", "Almanca", "Fransızca", "Rusça", "Arapça"],
       },
       {
-        title: "YDS (Yabancı Dil Bilgisi Seviye Tespit Sınavı)",
-        badge: "11 Dilde Akademik Sınav Hazırlığı",
+        title: "YDS",
         subjects: [
           "İngilizce",
           "Almanca",
@@ -344,7 +316,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "yasam-beceri-sanat",
     code: "06",
-    shortTitle: "Yaşam, Spor & Sanat",
+    shortTitle: "Yaşam, Beceri & Sanat",
     title: "Yaşam, Beceri ve Sanat Odaklı Eğitimler",
     tagline: "Zihinsel Gelişimi Bedensel ve Sanatsal Özgürlükle Taçlandırın.",
     summary:
@@ -352,19 +324,16 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title: "Spor Özel Dersleri",
-        badge: "Birebir Antrenör Eşliğinde",
         description: "Birebir eğitmen eşliğinde Yüzme dersleri",
-        subjects: ["Yüzme Özel Dersleri"],
+        subjects: ["Yüzme Dersleri"],
       },
       {
         title: "Sürücülük Eğitimi",
-        badge: "Pratik & Güvenli Trafik Deneyimi",
         description: "Güvenli ve profesyonel Direksiyon Dersleri",
-        subjects: ["Özel Direksiyon Dersleri"],
+        subjects: ["Direksiyon Dersleri"],
       },
       {
         title: "Sanat Akademisi",
-        badge: "Birebir Sanat Eğitimi",
         description: "Ruhunuzu besleyen Dans ve Müzik eğitimleri",
         subjects: ["Dans Eğitimleri", "Müzik Eğitimleri"],
       },
@@ -378,7 +347,8 @@ export const educationModelContent = {
   lead: "AYBAR AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
   sections: [
     {
-      code: "MODEL · 01",
+      code: "01",
+      shortTitle: "VIP Süreç Yönetimi",
       title: "VIP Süreç Yönetimi: Kişiye Özel Eğitim Felsefesi",
       intro:
         "Standart ve kalabalık sınıfların sunduğu tek tip eğitim anlayışını geride bırakıyoruz. Aybar Akademi'de eğitim; tamamen öğrencinin bireysel hızına, öğrenme stiline ve hedeflerine göre şekillenir:",
@@ -398,7 +368,8 @@ export const educationModelContent = {
       ],
     },
     {
-      code: "MODEL · 02",
+      code: "02",
+      shortTitle: "Eğitim Koçluğu",
       title: "Yol Arkadaşı Olarak Eğitim Koçluğu",
       intro:
         "Eğitim koçluğu; dışarıdan bir baskı aracı değil, öğrencinin kendi içindeki gücü keşfetmesini sağlayan profesyonel bir yol arkadaşlığıdır.",
@@ -422,10 +393,10 @@ export const educationModelContent = {
       ],
     },
     {
-      code: "MODEL · 03",
+      code: "03",
+      shortTitle: "Modelin Temel Taşları",
       title: "Aybar Akademi Eğitim Modelinin Temel Taşları",
-      intro:
-        "Ölçülebilir akademik ilerleme için her öğrencide tavizsiz uyguladığımız dört yapısal sütun:",
+      intro: "",
       points: [
         {
           label: "Hedef Belirleme ve Strateji Geliştirme",
@@ -446,17 +417,18 @@ export const educationModelContent = {
       ],
     },
     {
-      code: "MODEL · 04",
+      code: "04",
+      shortTitle: "Aile, Veli ve Okul Köprüsü",
       title: "Aile, Veli ve Okul Arasında Güçlü Bir Köprü",
       intro:
         "Başarı yalnızca öğrenciyle sınırlı değildir. Aybar Akademi'de her öğretmen; aile, veli ve okul üçgeninde sağlıklı bir köprü görevi üstlenir.",
       points: [
         {
-          label: "Şeffaf Akademik Bilgilendirme",
+          label: "",
           text: "Aileler, çocuklarının akademik gelişimi hakkında net ve şeffaf şekilde bilgilendirilir.",
         },
         {
-          label: "Pedagojik ve Objektif Aile Rehberliği",
+          label: "",
           text: "Öğrenciye evde veya okulda yıpratıcı bir baskı kurulmasının önüne geçilerek pedagojik ve objektif yönlendirmelerle aileye rehberlik edilir.",
         },
       ],
@@ -466,13 +438,12 @@ export const educationModelContent = {
 
 export const whyDifferentContent = {
   eyebrow: "AYBAR AKADEMİ NEDEN FARKLI?",
-  headline: "Özel Derste Kişiye Özel Mühendislik ve “Tam Öğrenme” Standardı",
+  headline: "AYBAR AKADEMİ'DE Fark Yaratan Standart İlkeler",
   lead: "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir. Eğitim camiasında fark yaratan bu yaklaşım, “Tam Öğrenme” modelini merkezine alarak öğrencileri sıfır hata ile zirveye taşır.",
   principlesHeading: "AYBAR AKADEMİ'DE Fark Yaratan Standart İlkeler",
   principles: [
     {
       step: "01",
-      phase: "BAŞLANGIÇ PROTOKOLÜ",
       title: "Ders Öncesi ve İlk Tanışma (Profesyonel Başlangıç)",
       items: [
         {
@@ -494,7 +465,6 @@ export const whyDifferentContent = {
     },
     {
       step: "02",
-      phase: "AKTİF DERS METODOLOJİSİ",
       title: "Derste Uygulanan Yenilikçi Yöntemler",
       items: [
         {
@@ -516,7 +486,6 @@ export const whyDifferentContent = {
     },
     {
       step: "03",
-      phase: "SIFIR HATA MÜHENDİSLİĞİ",
       title: "Teknoloji ve Materyal Kullanımı",
       items: [
         {
@@ -528,7 +497,6 @@ export const whyDifferentContent = {
     },
     {
       step: "04",
-      phase: "ŞEFFAF VELİ İLETİŞİMİ",
       title: "Veli İlişkileri ve İletişim",
       items: [
         {
@@ -545,7 +513,6 @@ export const whyDifferentContent = {
     },
     {
       step: "05",
-      phase: "SÜREKLİ REHBERLİK",
       title: "Mentorluk ve Psikolojik Destek",
       items: [
         {

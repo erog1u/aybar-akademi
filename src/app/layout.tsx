@@ -6,11 +6,11 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} | VIP Birebir Özel Ders & Eğitim Koçluğu`,
+    default: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu uzman öğretmen kadrosu, İstanbul'un tüm ilçelerinde yüz yüze ve tüm Türkiye'de canlı online VIP birebir özel ders kurumudur.",
+    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
 };
 
 export const viewport: Viewport = {

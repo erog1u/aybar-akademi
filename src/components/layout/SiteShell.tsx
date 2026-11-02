@@ -15,7 +15,7 @@ export default function SiteShell({
 
   // The simulator preview page mounts its own isolated viewport frames,
   // so we skip the outer site chrome to prevent duplicate navbar/footer and double scrollbars.
-  if (pathname === "/onizleme") {
+  if (pathname === "/onizleme" || pathname?.startsWith("/onizleme/")) {
     return <>{children}</>;
   }
 

@@ -7,6 +7,14 @@
  * otomatik olarak buradan beslenir.
  */
 
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export function assetPath(p: string): string {
+  if (!p.startsWith("/")) return p;
+  if (BASE_PATH && p.startsWith(`${BASE_PATH}/`)) return p;
+  return `${BASE_PATH}${p}`;
+}
+
 export const siteConfig = {
   name: "AYBAR AKADEMİ",
   legalSubtitle: "Eğitim · Yayıncılık · Danışmanlık",
@@ -17,12 +25,9 @@ export const siteConfig = {
     role: "AYBAR AKADEMİ Kurucusu",
   },
   logos: {
-    // Üst menü ve kompakt alanlar için dairesel arma (şeffaf arka planlı)
-    emblem: "/images/logo-emblem.png",
-    // Kurdeleli tam kurumsal logo (şeffaf arka planlı)
-    full: "/images/logo-full.png",
-    // Orijinal yüklenen dosya yedeği
-    original: "/images/logo-original.jpg",
+    emblem: assetPath("/images/logo-emblem.png"),
+    full: assetPath("/images/logo-full.png"),
+    original: assetPath("/images/logo-original.jpg"),
   },
   contact: {
     // Telefon numarası netleştiğinde buradan değiştirin:
@@ -31,15 +36,15 @@ export const siteConfig = {
     // WhatsApp numarasını başında + olmadan ülke koduyla yazın (örn: 905321234567)
     whatsappNumber: "905320000000",
     whatsappDefaultMessage:
-      "Merhaba, Aybar Akademi birebir özel ders programları ve 30 dakikalık ücretsiz tanışma seansı hakkında bilgi almak istiyorum.",
+      "Merhaba, AYBAR AKADEMİ birebir özel ders programları ve 30 dakikalık ücretsiz tanışma seansı hakkında bilgi almak istiyorum.",
     email: "iletisim@aybarakademi.com",
     locations: {
       faceToFaceTitle: "İstanbul’un Tüm İlçelerinde",
       faceToFaceDetail:
-        "39 ilçenin tamamında, evinizin konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti.",
-      onlineTitle: "Tüm Türkiye’de Online",
+        "Evinizin konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti sağlıyoruz.",
+      onlineTitle: "Tüm Türkiye’de",
       onlineDetail:
-        "81 ilde coğrafi sınırları ortadan kaldıran, interaktif ve yüksek verimli canlı online birebir eğitim modelleri.",
+        "Teknolojinin tüm imkânlarını kullanarak, coğrafi sınırları ortadan kaldıran, interaktif ve yüksek verimli online eğitim modellerimizle yanınızdayız.",
     },
   },
   navigation: [

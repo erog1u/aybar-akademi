@@ -3,94 +3,73 @@ import Link from "next/link";
 import { ArrowUpRight, Phone, Mail, MapPin, Globe2 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { programCategories } from "@/data/content";
-import { AybarInstitutionalSeal } from "@/components/brand/AybarCrest";
+import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 
 export default function Footer() {
   return (
-    <footer className="bg-cobalt-950 text-white border-t border-white/15 relative overflow-hidden">
-      {/* Top CTA Banner */}
-      <div className="border-b border-white/12 bg-cobalt-900/60">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 lg:py-16 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-          <div className="max-w-2xl">
-            <div className="inline-block px-3.5 py-1.5 bg-crimson-600 text-white text-xs sm:text-[13px] font-extrabold tracking-wider mb-4 shadow-crimson">
-              30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tightest leading-tight">
-              Geleceğinizi tesadüflere değil,{" "}
-              <span className="font-serif italic font-normal text-cobalt-200">
-                kişiye özel VIP eğitime
-              </span>{" "}
-              emanet edin.
-            </h2>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 shrink-0 w-full lg:w-auto">
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex w-full sm:w-auto justify-center items-center gap-3 bg-crimson-600 hover:bg-crimson-700 text-white px-7 py-4 text-[15px] sm:text-base font-bold tracking-tight transition-colors shadow-crimson text-center"
-            >
-              <span>WhatsApp ile Tanışma Planla</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <Link
-              href="/iletisim"
-              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 border border-white/25 hover:bg-white hover:text-cobalt-950 text-white px-6 py-4 text-[15px] sm:text-base font-bold tracking-tight transition-colors text-center"
-            >
-              <span>İletişim Sayfası</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main 4-Column Footer */}
+    <footer className="bg-cobalt-950 text-white border-t border-white/10">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 divide-y md:divide-y-0 lg:divide-x divide-white/10 border-b border-white/10">
-          {/* Column 1: Integrated Vector Institutional Crest */}
-          <div className="lg:col-span-4 py-12 lg:pr-10 flex flex-col items-start">
-            <AybarInstitutionalSeal variant="dark" className="items-start text-left" />
-            <p className="mt-5 text-[15px] sm:text-base text-cobalt-100/90 leading-relaxed max-w-sm">
-              {siteConfig.experienceYears} yıllık köklü eğitim deneyimini, yeni
-              nesil Maarif Modeline hâkim uzman kadro ve VIP birebir süreç
-              yönetimiyle birleştiren çağdaş eğitim kurumu.
+        {/* Main 4-Column Spacious Layout */}
+        <div className="py-14 sm:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          {/* Column 1: Brand Identity & CTA */}
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" className="inline-block group">
+              <AybarBrandLockup variant="dark" />
+            </Link>
+
+            <p className="font-serif italic text-base sm:text-lg text-cobalt-100 leading-relaxed max-w-sm">
+              “{siteConfig.motto}”
             </p>
+
+            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-1">
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors"
+              >
+                <span>Ücretsiz Tanışma Seansı</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0" />
+              </a>
+              <Link
+                href="/iletisim"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/15 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors"
+              >
+                <span>İletişim</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Column 2: Menü & Sayfalar */}
-          <div className="lg:col-span-3 py-12 lg:px-8">
-            <div className="text-xs sm:text-[13px] font-extrabold tracking-[0.14em] text-cobalt-200 uppercase mb-5">
-              Kurumsal Menü
-            </div>
-            <ul className="space-y-3.5">
+          {/* Column 2: Kurumsal Menü */}
+          <div className="lg:col-span-2">
+            <h2 className="text-sm font-bold text-white mb-4">Kurumsal</h2>
+            <ul className="space-y-2">
               {siteConfig.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="group inline-flex items-center gap-2.5 text-[14.5px] sm:text-[15px] font-medium text-cobalt-100 hover:text-white transition-colors"
+                    className="inline-flex items-center py-1 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
                   >
-                    <span className="h-1.5 w-1.5 bg-crimson-500 transition-transform group-hover:scale-125" />
-                    <span>{item.label}</span>
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Eğitim Programları */}
-          <div className="lg:col-span-3 py-12 lg:px-8">
-            <div className="text-xs sm:text-[13px] font-extrabold tracking-[0.14em] text-cobalt-200 uppercase mb-5">
+          {/* Column 3: Eğitim Programlarımız */}
+          <div className="lg:col-span-3">
+            <h2 className="text-sm font-bold text-white mb-4">
               Eğitim Programlarımız
-            </div>
-            <ul className="space-y-3.5">
+            </h2>
+            <ul className="space-y-2">
               {programCategories.map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/egitim-programlarimiz#${cat.id}`}
-                    className="group inline-flex items-center gap-2.5 text-[14.5px] sm:text-[15px] font-medium text-cobalt-100 hover:text-white transition-colors"
+                    className="inline-flex items-center py-1 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
                   >
-                    <span className="h-1.5 w-1.5 bg-cobalt-400 group-hover:bg-crimson-500 transition-colors" />
-                    <span>{cat.title}</span>
+                    {cat.title}
                   </Link>
                 </li>
               ))}
@@ -98,54 +77,49 @@ export default function Footer() {
           </div>
 
           {/* Column 4: İletişim */}
-          <div className="lg:col-span-2 py-12 lg:pl-8 space-y-5">
-            <div className="text-xs sm:text-[13px] font-extrabold tracking-[0.14em] text-cobalt-200 uppercase">
-              İletişim
+          <div className="lg:col-span-3 space-y-4">
+            <h2 className="text-sm font-bold text-white mb-4">İletişim</h2>
+
+            <div className="space-y-3">
+              <a
+                href={siteConfig.contact.phoneHref}
+                className="min-h-[40px] flex items-center gap-2.5 text-[15px] font-bold text-white hover:text-cobalt-200 transition-colors"
+              >
+                <Phone className="h-4 w-4 text-crimson-500 shrink-0" />
+                <span>{siteConfig.contact.phoneDisplay}</span>
+              </a>
+
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="min-h-[40px] flex items-center gap-2.5 text-sm text-cobalt-200 hover:text-white transition-colors break-all"
+              >
+                <Mail className="h-4 w-4 text-crimson-500 shrink-0" />
+                <span>{siteConfig.contact.email}</span>
+              </a>
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <div className="text-xs text-cobalt-300 mb-1">Telefon & WhatsApp</div>
-                <a
-                  href={siteConfig.contact.phoneHref}
-                  className="inline-flex items-center gap-2 text-[15px] sm:text-base font-bold text-white hover:text-crimson-500 transition-colors"
-                >
-                  <Phone className="h-4 w-4 text-crimson-500 shrink-0" />
-                  <span>{siteConfig.contact.phoneDisplay}</span>
-                </a>
+            <div className="pt-3 border-t border-white/10 space-y-2.5 text-sm text-cobalt-200">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="h-4 w-4 text-crimson-500 shrink-0 mt-0.5" />
+                <span>{siteConfig.contact.locations.faceToFaceTitle}</span>
               </div>
-
-              <div>
-                <div className="text-xs text-cobalt-300 mb-1">E-Posta</div>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="inline-flex items-center gap-2 text-sm text-cobalt-100 hover:text-white transition-colors break-all"
-                >
-                  <Mail className="h-4 w-4 text-crimson-500 shrink-0" />
-                  <span>{siteConfig.contact.email}</span>
-                </a>
-              </div>
-
-              <div className="pt-3 border-t border-white/10 space-y-2.5 text-xs sm:text-sm text-cobalt-100/90">
-                <div className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 text-crimson-500 shrink-0 mt-0.5" />
-                  <span>İstanbul’un Tüm İlçelerinde Yüz Yüze Özel Ders</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Globe2 className="h-4 w-4 text-cobalt-300 shrink-0 mt-0.5" />
-                  <span>Tüm Türkiye’de Canlı Online Eğitim</span>
-                </div>
+              <div className="flex items-start gap-2.5">
+                <Globe2 className="h-4 w-4 text-cobalt-300 shrink-0 mt-0.5" />
+                <span>{siteConfig.contact.locations.onlineTitle}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright — pb-24 sm:pb-8 prevents mobile action dock from obscuring content */}
-        <div className="py-8 pb-24 sm:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-[13px] text-cobalt-300 text-center sm:text-left">
+        {/* Bottom Bar */}
+        <div className="py-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-[13px] text-cobalt-300 text-center sm:text-left">
           <div>
             © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
           </div>
-          <div>Kurucu: Bahadır AYBAR · {siteConfig.legalSubtitle}</div>
+          <div>
+            {siteConfig.founder.name} · {siteConfig.founder.role} ·{" "}
+            {siteConfig.legalSubtitle}
+          </div>
         </div>
       </div>
     </footer>

@@ -1,151 +1,126 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { Phone, Mail, MapPin, Globe2, ArrowUpRight, Check } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, Mail, MapPin, Globe2, MessageCircle, ArrowUpRight } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { programCategories } from "@/data/content";
-import { MaskedLines } from "@/components/motion/Primitives";
 import { AybarCrestEmblem } from "@/components/brand/AybarCrest";
 
+const LESSON_FORMATS = ["İstanbul’da Yüz Yüze", "Canlı Online"] as const;
+
 export default function IletisimPage() {
-  const [selectedProgram, setSelectedProgram] = useState(
-    programCategories[0].title
+  const [selectedProgram, setSelectedProgram] = useState<string>(
+    programCategories[0].shortTitle
   );
-  const [format, setFormat] = useState("İstanbul Yüz Yüze Özel Ders");
-  const [studentName, setStudentName] = useState("");
-  const [gradeOrGoal, setGradeOrGoal] = useState("");
-  const [note, setNote] = useState("");
-
-  const composedMessage = useMemo(() => {
-    const lines = [
-      "Merhaba, Aybar Akademi birebir özel ders ve 30 dakikalık ücretsiz tanışma seansı için bilgi almak istiyorum.",
-      `• Program: ${selectedProgram}`,
-      `• Tercih Edilen Format: ${format}`,
-      studentName.trim() ? `• Öğrenci / Veli Adı: ${studentName.trim()}` : "",
-      gradeOrGoal.trim() ? `• Sınıf / Hedef Sınav: ${gradeOrGoal.trim()}` : "",
-      note.trim() ? `• Not / İlçe: ${note.trim()}` : "",
-    ].filter(Boolean);
-
-    return lines.join("\n");
-  }, [selectedProgram, format, studentName, gradeOrGoal, note]);
+  const [format, setFormat] = useState<string>(LESSON_FORMATS[0]);
+  const [studentName, setStudentName] = useState<string>("");
+  const [note, setNote] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.open(getWhatsAppUrl(composedMessage), "_blank", "noopener,noreferrer");
+    const lines = [
+      "Merhaba, AYBAR AKADEMİ birebir özel ders ve 30 dakikalık ücretsiz tanışma seansı için bilgi almak istiyorum.",
+      `Eğitim Alanı: ${selectedProgram}`,
+      `Ders Tercihi: ${format}`,
+      studentName.trim() ? `Öğrenci / Veli Adı: ${studentName.trim()}` : "",
+      note.trim() ? `Not: ${note.trim()}` : "",
+    ].filter(Boolean);
+
+    window.open(
+      getWhatsAppUrl(lines.join("\n")),
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
     <div className="bg-paper text-ink">
-      {/* Cobalt Studio Hero */}
+      {/* 1. Clean Cobalt Header */}
       <section className="relative studio-hero text-white border-b border-white/15 overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 -bottom-20 text-white/[0.06]"
         >
-          <AybarCrestEmblem variant="watermark" className="h-[440px] w-[440px]" />
+          <AybarCrestEmblem variant="watermark" className="h-[420px] w-[420px]" />
         </div>
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-22 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs font-bold mb-6 shadow-crimson">
-            <Check className="h-3.5 w-3.5" />
-            <span>İletişim & Ücretsiz Keşif Seansı</span>
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-20 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tightest leading-[1.12] text-white">
+              İletişim & Ücretsiz Tanışma Seansı
+            </h1>
+
+            <p className="mt-4 text-base sm:text-lg text-cobalt-50/95 leading-relaxed">
+              İlk derse başlamadan önce gerçekleştirdiğimiz 30 dakikalık ücretsiz
+              tanışma seansı ve birebir özel ders planlaması için bizimle
+              iletişime geçebilirsiniz.
+            </p>
           </div>
-
-          <MaskedLines
-            as="h1"
-            immediate
-            className="text-[2.15rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tightest leading-[1.06] max-w-3xl"
-            lines={[
-              "30 Dakikalık Ücretsiz Tanışma",
-              <span key="hl" className="font-serif italic font-medium text-cobalt-200">
-                ve Özel Ders Başvurusu
-              </span>,
-            ]}
-          />
-
-          <p className="mt-5 text-base sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
-            İlk derse başlamadan önce gerçekleştirdiğimiz 30 dakikalık ücretsiz
-            tanışma seansı ve öğrenme stili analizi için formu doldurabilir veya
-            doğrudan bize ulaşabilirsiniz.
-          </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-14 sm:py-20 lg:py-24">
+      {/* 2. Clean 2-Column Content */}
+      <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Left 7 Columns: Quick WhatsApp Application Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Friendly WhatsApp Starter Form */}
             <form
               onSubmit={handleSubmit}
-              className="lg:col-span-7 bg-white border border-cobalt-900/15 shadow-card p-6 sm:p-10 space-y-7"
+              className="lg:col-span-7 rounded-2xl bg-white p-6 sm:p-8 border border-cobalt-900/12 shadow-card space-y-6"
             >
-              <div className="pb-5 border-b border-cobalt-900/10">
+              <div>
                 <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink">
-                  Özel Ders & Tanışma Seansı Planlayıcı
+                  Ücretsiz Tanışma Seansı Başlatın
                 </h2>
                 <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
-                  Seçimlerinizi yapıp tek tıkla doğrudan WhatsApp danışma
-                  hattımıza iletebilirsiniz.
+                  Eğitim alanı ve ders tercihinizi seçerek WhatsApp üzerinden
+                  doğrudan bize ulaşabilirsiniz.
                 </p>
               </div>
 
-              {/* Step 1: Program Category */}
+              {/* 1. Eğitim Alanı Seçin */}
               <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="h-6 w-6 rounded-full bg-cobalt-700 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                    1
-                  </span>
-                  <label className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
-                    Eğitim Alanı Seçin
-                  </label>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <label className="block text-sm font-extrabold text-ink mb-2.5">
+                  1. Eğitim Alanı Seçin
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                   {programCategories.map((cat) => {
-                    const active = selectedProgram === cat.title;
+                    const isActive = selectedProgram === cat.shortTitle;
                     return (
                       <button
                         key={cat.id}
                         type="button"
-                        onClick={() => setSelectedProgram(cat.title)}
-                        className={`text-left min-h-[46px] px-4 py-3.5 text-sm sm:text-[15px] font-bold border transition-colors ${
-                          active
+                        onClick={() => setSelectedProgram(cat.shortTitle)}
+                        className={`rounded-lg px-3.5 py-3 text-left text-[13.5px] sm:text-sm font-bold border transition-all min-h-[46px] cursor-pointer ${
+                          isActive
                             ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
-                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700 hover:bg-cobalt-50/50"
+                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700/40 hover:bg-cobalt-50/50"
                         }`}
                       >
-                        {cat.title}
+                        {cat.shortTitle}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Step 2: Format */}
+              {/* 2. Ders Tercihi */}
               <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="h-6 w-6 rounded-full bg-crimson-600 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                    2
-                  </span>
-                  <label className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
-                    Ders Formatı Tercihi
-                  </label>
-                </div>
+                <label className="block text-sm font-extrabold text-ink mb-2.5">
+                  2. Ders Tercihi
+                </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {[
-                    "İstanbul Yüz Yüze Özel Ders",
-                    "Tüm Türkiye Canlı Online",
-                  ].map((item) => {
-                    const active = format === item;
+                  {LESSON_FORMATS.map((item) => {
+                    const isActive = format === item;
                     return (
                       <button
                         key={item}
                         type="button"
                         onClick={() => setFormat(item)}
-                        className={`text-left min-h-[46px] px-4 py-3.5 text-sm sm:text-[15px] font-bold border transition-colors ${
-                          active
-                            ? "bg-crimson-600 text-white border-crimson-600 shadow-crimson"
-                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700 hover:bg-cobalt-50/50"
+                        className={`rounded-lg px-4 py-3 text-left text-sm sm:text-[15px] font-bold border transition-all min-h-[46px] cursor-pointer ${
+                          isActive
+                            ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
+                            : "bg-paper text-ink border-cobalt-900/12 hover:border-cobalt-700/40 hover:bg-cobalt-50/50"
                         }`}
                       >
                         {item}
@@ -155,153 +130,114 @@ export default function IletisimPage() {
                 </div>
               </div>
 
-              {/* Step 3: Details — text-base sm:text-[15px] prevents iOS Safari auto-zoom */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span className="h-6 w-6 rounded-full bg-cobalt-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                    3
-                  </span>
-                  <span className="text-sm font-bold uppercase tracking-wider text-cobalt-900">
-                    Öğrenci & İletişim Bilgileri
-                  </span>
-                </div>
+              {/* 3. Öğrenci Adı veya Notunuz */}
+              <div className="space-y-3.5">
+                <label className="block text-sm font-extrabold text-ink">
+                  3. Öğrenci Adı veya Notunuz (İsteğe Bağlı)
+                </label>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-bold text-ink mb-1.5">
-                      Öğrenci veya Veli Adı Soyadı
-                    </label>
-                    <input
-                      type="text"
-                      value={studentName}
-                      onChange={(e) => setStudentName(e.target.value)}
-                      placeholder="Örn: Ayşe Yılmaz"
-                      className="w-full min-h-[48px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
-                    />
-                  </div>
+                <input
+                  type="text"
+                  value={studentName}
+                  onChange={(e) => setStudentName(e.target.value)}
+                  placeholder="Öğrenci veya Veli Adı"
+                  className="w-full min-h-[48px] rounded-lg px-4 py-3 text-base bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+                />
 
-                  <div>
-                    <label className="block text-sm font-bold text-ink mb-1.5">
-                      Sınıf veya Hedef Sınav / Ders
-                    </label>
-                    <input
-                      type="text"
-                      value={gradeOrGoal}
-                      onChange={(e) => setGradeOrGoal(e.target.value)}
-                      placeholder="Örn: 12. Sınıf YKS Matematik / IELTS"
-                      className="w-full min-h-[48px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-ink mb-1.5">
-                    İlçe veya Eklemek İstediğiniz Not (İsteğe Bağlı)
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
-                    placeholder="Örn: Kadıköy yüz yüze ders talep ediyoruz..."
-                    className="w-full min-h-[92px] px-4 py-3 text-base sm:text-[15px] bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
-                  />
-                </div>
-              </div>
-
-              {/* Live WhatsApp Message Preview */}
-              <div className="bg-paper-warm border border-cobalt-900/15 p-4 sm:p-5">
-                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-cobalt-900/10">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" />
-                    <span className="text-xs sm:text-[13px] font-extrabold uppercase tracking-wider text-cobalt-900">
-                      Canlı WhatsApp Mesaj Önizlemesi
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono text-ink-muted">
-                    Otomatik Hazırlanır
-                  </span>
-                </div>
-                <div className="p-4 bg-white border border-cobalt-900/10 text-sm sm:text-[15px] font-mono text-ink leading-relaxed whitespace-pre-wrap select-all">
-                  {composedMessage}
-                </div>
-                <div className="mt-2 text-xs sm:text-[13px] text-ink-muted">
-                  Gönder butonuna bastığınızda bu metin hazır olarak WhatsApp sohbetinize aktarılır.
-                </div>
+                <textarea
+                  rows={3}
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                  placeholder="Sınıf düzeyi, hedef sınav veya ilçe bilgisi..."
+                  className="w-full rounded-lg px-4 py-3 text-base bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full min-h-[50px] inline-flex items-center justify-center gap-2.5 bg-crimson-600 hover:bg-cobalt-900 text-white py-4 px-6 text-[15px] sm:text-base font-extrabold transition-colors shadow-crimson"
+                className="w-full min-h-[50px] inline-flex items-center justify-center gap-2.5 rounded-lg bg-crimson-600 hover:bg-crimson-700 text-white py-3.5 px-6 text-base font-extrabold transition-colors shadow-crimson cursor-pointer"
               >
-                <span>WhatsApp Üzerinden Hemen Gönder</span>
+                <span>WhatsApp ile Hemen Gönder</span>
                 <ArrowUpRight className="h-4 w-4" />
               </button>
             </form>
 
-            {/* Right 5 Columns: Direct Contact Info */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-cobalt-950 text-white p-7 sm:p-8 border border-cobalt-900 shadow-studio space-y-6">
-                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight">
-                  Doğrudan İletişim Kanallarımız
-                </h3>
+            {/* Right Column: Clean Contact & Verbatim Locations Card */}
+            <div className="lg:col-span-5 rounded-2xl bg-white p-6 sm:p-8 border border-cobalt-900/12 shadow-card space-y-6">
+              <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink">
+                İletişim Bilgilerimiz
+              </h2>
 
-                <div className="space-y-4 pt-2 border-t border-white/12">
+              <div className="space-y-4">
+                <a
+                  href={siteConfig.contact.phoneHref}
+                  className="flex items-center gap-3.5 p-4 rounded-xl bg-paper border border-cobalt-900/10 hover:border-cobalt-700/40 transition-colors min-h-[56px]"
+                >
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cobalt-50 text-cobalt-700">
+                    <Phone className="h-5 w-5" />
+                  </span>
                   <div>
-                    <div className="text-xs text-cobalt-300 mb-1">
-                      Telefon & WhatsApp Danışma Hattı
+                    <div className="text-xs font-bold text-ink-muted">Telefon</div>
+                    <div className="text-base sm:text-lg font-extrabold text-ink">
+                      {siteConfig.contact.phoneDisplay}
                     </div>
-                    <a
-                      href={siteConfig.contact.phoneHref}
-                      className="inline-flex items-center gap-2.5 text-xl sm:text-2xl font-extrabold text-white hover:text-crimson-500 transition-colors"
-                    >
-                      <Phone className="h-5 w-5 text-crimson-500" />
-                      <span>{siteConfig.contact.phoneDisplay}</span>
-                    </a>
                   </div>
-
-                  <div>
-                    <div className="text-xs text-cobalt-300 mb-1">E-Posta</div>
-                    <a
-                      href={`mailto:${siteConfig.contact.email}`}
-                      className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-semibold text-cobalt-100 hover:text-white transition-colors"
-                    >
-                      <Mail className="h-4 w-4 text-crimson-500" />
-                      <span>{siteConfig.contact.email}</span>
-                    </a>
-                  </div>
-                </div>
+                </a>
 
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white py-4 px-5 text-[15px] font-extrabold transition-colors"
+                  className="flex items-center gap-3.5 p-4 rounded-xl bg-paper border border-cobalt-900/10 hover:border-cobalt-700/40 transition-colors min-h-[56px]"
                 >
-                  <span>WhatsApp ile Anında Yazın</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#25D366]/15 text-[#178d44]">
+                    <MessageCircle className="h-5 w-5" />
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-bold text-ink-muted">WhatsApp</div>
+                    <div className="text-base font-extrabold text-ink truncate">
+                      {siteConfig.contact.phoneDisplay}
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-ink-muted shrink-0" />
+                </a>
+
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="flex items-center gap-3.5 p-4 rounded-xl bg-paper border border-cobalt-900/10 hover:border-cobalt-700/40 transition-colors min-h-[56px]"
+                >
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cobalt-50 text-cobalt-700">
+                    <Mail className="h-5 w-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <div className="text-xs font-bold text-ink-muted">E-Posta</div>
+                    <div className="text-sm sm:text-base font-bold text-ink truncate">
+                      {siteConfig.contact.email}
+                    </div>
+                  </div>
                 </a>
               </div>
 
-              <div className="bg-white border border-cobalt-900/15 p-6 sm:p-7 space-y-5 shadow-card">
+              <div className="pt-6 border-t border-cobalt-900/10 space-y-5">
                 <div className="flex items-start gap-3.5">
                   <MapPin className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-extrabold text-base sm:text-lg text-ink">
+                    <h3 className="font-extrabold text-base sm:text-lg text-ink">
                       {siteConfig.contact.locations.faceToFaceTitle}
-                    </h4>
-                    <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
+                    </h3>
+                    <p className="mt-1 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
                       {siteConfig.contact.locations.faceToFaceDetail}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-5 border-t border-cobalt-900/10 flex items-start gap-3.5">
+                <div className="pt-4 border-t border-cobalt-900/10 flex items-start gap-3.5">
                   <Globe2 className="h-5 w-5 text-cobalt-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-extrabold text-base sm:text-lg text-ink">
+                    <h3 className="font-extrabold text-base sm:text-lg text-ink">
                       {siteConfig.contact.locations.onlineTitle}
-                    </h4>
-                    <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
+                    </h3>
+                    <p className="mt-1 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
                       {siteConfig.contact.locations.onlineDetail}
                     </p>
                   </div>
