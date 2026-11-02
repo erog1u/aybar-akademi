@@ -1,43 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import React from "react";
 import { getWhatsAppUrl } from "@/config/site";
-import { scrollToTopSmooth } from "@/lib/scroll";
 
 export default function FloatingWhatsApp() {
-  const [showTop, setShowTop] = useState(false);
-
-  useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setShowTop(window.scrollY > 420);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
-      {showTop && (
-        <button
-          type="button"
-          onClick={scrollToTopSmooth}
-          aria-label="Sayfanın Başına Dön"
-          title="Yukarı Çık"
-          className="h-11 w-11 rounded-full bg-cobalt-900 hover:bg-cobalt-800 active:scale-95 text-white border border-white/20 shadow-lg flex items-center justify-center transition-all cursor-pointer"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </button>
-      )}
-
+    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5 pointer-events-auto select-none">
       <a
         href={getWhatsAppUrl()}
         target="_blank"

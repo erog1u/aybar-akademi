@@ -7,6 +7,19 @@ import { ArrowUpRight } from "lucide-react";
 
 export const LUXURY_EASE = [0.22, 1, 0.36, 1] as const;
 
+function useIsTouch() {
+  const [isTouch, setIsTouch] = React.useState(false);
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsTouch(
+        window.matchMedia("(max-width: 768px)").matches ||
+        window.matchMedia("(pointer: coarse)").matches
+      );
+    }
+  }, []);
+  return isTouch;
+}
+
 /* -------------------------------------------------------------------------- */
 /* 1. Masked Line-by-Line Headline Reveal (GPU-pure transform + opacity)      */
 /* -------------------------------------------------------------------------- */
@@ -23,6 +36,20 @@ export function MaskedLines({
   delay?: number;
   immediate?: boolean;
 }) {
+  const isTouch = useIsTouch();
+
+  if (isTouch) {
+    return (
+      <Tag className={className}>
+        {lines.map((line, idx) => (
+          <span key={idx} className="block pt-1 pb-1">
+            {line}
+          </span>
+        ))}
+      </Tag>
+    );
+  }
+
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
@@ -37,7 +64,7 @@ export function MaskedLines({
               ? { animate: { y: "0%", opacity: 1 } }
               : {
                   whileInView: { y: "0%", opacity: 1 },
-                  viewport: { once: true, margin: "-20px" },
+                  viewport: { once: true, margin: "80px" },
                 })}
             transition={{
               duration: 0.55,
@@ -69,17 +96,23 @@ export function Reveal({
   y?: number;
   immediate?: boolean;
 }) {
+  const isTouch = useIsTouch();
+
+  if (isTouch) {
+    return <div className={`motion-reveal ${className}`}>{children}</div>;
+  }
+
   return (
     <motion.div
-      className={className}
+      className={`motion-reveal ${className}`}
       initial={{ opacity: 0, y }}
       {...(immediate
         ? { animate: { opacity: 1, y: 0 } }
         : {
             whileInView: { opacity: 1, y: 0 },
-            viewport: { once: true, margin: "-20px" },
+            viewport: { once: true, margin: "80px" },
           })}
-      transition={{ duration: 0.48, ease: LUXURY_EASE, delay }}
+      transition={{ duration: 0.45, ease: LUXURY_EASE, delay }}
     >
       {children}
     </motion.div>
@@ -104,6 +137,27 @@ export function PhotoFrame({
   priority?: boolean;
   caption?: React.ReactNode;
 }) {
+  const isTouch = useIsTouch();
+
+  if (isTouch) {
+    return (
+      <div
+        className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 border border-cobalt-900/12 shadow-studio ${className}`}
+      >
+        <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>
+          <img
+            src={src}
+            alt={alt}
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {caption && <div className="pt-3 pb-1 px-1.5">{caption}</div>}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.97, y: 12 }}
@@ -111,9 +165,9 @@ export function PhotoFrame({
         ? { animate: { opacity: 1, scale: 1, y: 0 } }
         : {
             whileInView: { opacity: 1, scale: 1, y: 0 },
-            viewport: { once: true, margin: "-20px" },
+            viewport: { once: true, margin: "80px" },
           })}
-      transition={{ duration: 0.52, ease: LUXURY_EASE }}
+      transition={{ duration: 0.48, ease: LUXURY_EASE }}
       className={`group overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 border border-cobalt-900/12 shadow-studio ${className}`}
     >
       <div className={`overflow-hidden rounded-xl bg-cobalt-50 ${aspectClass}`}>

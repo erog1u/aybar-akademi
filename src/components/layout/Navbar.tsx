@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { LUXURY_EASE } from "@/components/motion/Primitives";
@@ -12,13 +12,6 @@ import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 240,
-    damping: 32,
-    restDelta: 0.002,
-  });
 
   useEffect(() => {
     setMobileOpen(false);
@@ -109,13 +102,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
-        {/* GPU Hızlandırmalı Okuma İlerleme Çizgisi */}
-        <motion.div
-          aria-hidden="true"
-          style={{ scaleX: smoothProgress }}
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-crimson-600 origin-left pointer-events-none will-change-transform"
-        />
       </header>
 
       {/* Clean Mobile Menu Drawer */}

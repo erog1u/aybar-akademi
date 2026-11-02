@@ -19,16 +19,14 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
-    overflow-x: hidden;
-    max-width: 100%;
-    width: 100%;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
     width: 100%;
     position: relative;
+    -webkit-overflow-scrolling: touch;
   }
 
   img {
@@ -97,4 +95,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #dc1b2e;
+}
+
+/* Mobilde ve dokunmatik ekranlarda animasyon bekleme donmalarını sıfırla:
+   İçerikler anında görünür, 120Hz ProMotion donanım hızlandırmasıyla kayar! */
+@media (max-width: 768px), (pointer: coarse) {
+  .motion-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }

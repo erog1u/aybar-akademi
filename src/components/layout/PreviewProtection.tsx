@@ -97,7 +97,7 @@ export default function PreviewProtection({
       {IS_PREVIEW_MODE && (
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-[75]"
+          className="pointer-events-none fixed inset-0 z-[75] hidden md:block"
           style={{
             backgroundImage: `url("data:image/svg+xml,${WATERMARK_SVG}")`,
             backgroundRepeat: "repeat",
