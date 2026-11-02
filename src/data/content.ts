@@ -210,16 +210,11 @@ export const programCategories: ProgramCategory[] = [
     code: "03",
     shortTitle: "Üniversite & Akademik",
     title: "Üniversite Düzeyi & Akademik Dersler",
-    tagline:
-      "AYBAR AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
-    summary:
-      "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
     items: [
       {
-        title: "Felsefe, Sosyoloji ve Psikoloji Bölümleri Akademik Dersleri",
-        featured: true,
-        leaderNote:
+        title:
           "AYBAR AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
+        featured: true,
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
         subjects: ["Felsefe", "Sosyoloji", "Psikoloji"],
@@ -325,17 +320,17 @@ export const programCategories: ProgramCategory[] = [
       {
         title: "Spor Özel Dersleri",
         description: "Birebir eğitmen eşliğinde Yüzme dersleri",
-        subjects: ["Yüzme Dersleri"],
+        subjects: [],
       },
       {
         title: "Sürücülük Eğitimi",
         description: "Güvenli ve profesyonel Direksiyon Dersleri",
-        subjects: ["Direksiyon Dersleri"],
+        subjects: [],
       },
       {
         title: "Sanat Akademisi",
         description: "Ruhunuzu besleyen Dans ve Müzik eğitimleri",
-        subjects: ["Dans Eğitimleri", "Müzik Eğitimleri"],
+        subjects: [],
       },
     ],
   },

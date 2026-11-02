@@ -2,9 +2,7 @@ import path from "path";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    path.join(__dirname, "./src/**/*.{js,ts,jsx,tsx,mdx}"),
-  ],
+  content: [path.join(__dirname, "./src/**/*.{js,ts,jsx,tsx,mdx}")],
   theme: {
     extend: {
       spacing: {
@@ -56,9 +54,19 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: [
+          '"Plus Jakarta Sans"',
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif",
+        ],
+        brand: [
+          '"Montserrat"',
+          '"Plus Jakarta Sans"',
+          "-apple-system",
+          "sans-serif",
+        ],
         serif: ['"Lora"', "Georgia", "serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
       },
       letterSpacing: {
         tightest: "-0.035em",

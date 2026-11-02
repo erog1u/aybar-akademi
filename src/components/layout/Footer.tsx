@@ -111,15 +111,26 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="py-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-[13px] text-cobalt-300 text-center sm:text-left">
+        {/* Bottom Bar + Eroğlu Solutions Signature */}
+        <div className="py-7 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
           <div>
-            © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} {siteConfig.name} ·{" "}
+            {siteConfig.founder.name} ({siteConfig.founder.role})
           </div>
-          <div>
-            {siteConfig.founder.name} · {siteConfig.founder.role} ·{" "}
-            {siteConfig.legalSubtitle}
-          </div>
+
+          <a
+            href={siteConfig.agency.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-cobalt-100 hover:text-white transition-all"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-crimson-500 shrink-0" />
+            <span className="text-cobalt-200">Tasarım & Yazılım:</span>
+            <span className="font-brand font-extrabold tracking-wide text-white">
+              {siteConfig.agency.name}
+            </span>
+            <ArrowUpRight className="h-3.5 w-3.5 text-crimson-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+          </a>
         </div>
       </div>
     </footer>

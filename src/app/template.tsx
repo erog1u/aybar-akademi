@@ -4,63 +4,31 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { LUXURY_EASE } from "@/components/motion/Primitives";
-import { AybarCrestEmblem } from "@/components/brand/AybarCrest";
 
-const ROUTE_TITLES: Record<string, string> = {
-  "/": "Ana Sayfa",
-  "/hakkimizda": "Hakkımızda",
-  "/egitim-programlarimiz": "Eğitim Programlarımız",
-  "/egitim-modelimiz": "Eğitim Modelimiz",
-  "/neden-farkliyiz": "Aybar Akademi Neden Farklı?",
-  "/iletisim": "İletişim",
-};
-
+/**
+ * Sıfır kasma / 120 FPS sayfa geçiş çizgisi:
+ * Tam ekran clip-path perde yerine yalnızca GPU hızlandırmalı ince üst çizgi
+ * kullanır; dokunmatik kaydırmayı ve tıklamaları hiçbir zaman kilitlemez.
+ */
 export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
-  if (pathname === "/onizleme") {
+  if (pathname === "/onizleme" || pathname?.startsWith("/onizleme/")) {
     return <>{children}</>;
   }
 
-  const title = ROUTE_TITLES[pathname] || "Aybar Akademi";
-
   return (
     <>
-      {/* Trailing Signal Crimson Edge */}
       <motion.div
         aria-hidden="true"
-        className="fixed inset-0 z-[99] pointer-events-none bg-crimson-600"
-        initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
-        animate={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
+        className="fixed top-0 left-0 right-0 h-[2.5px] z-[95] pointer-events-none bg-crimson-600 origin-left will-change-transform"
+        initial={{ scaleX: 0, opacity: 1 }}
+        animate={{ scaleX: 1, opacity: 0 }}
         transition={{
-          duration: 0.53,
-          ease: LUXURY_EASE,
-          delay: 0.05,
+          scaleX: { duration: 0.28, ease: LUXURY_EASE },
+          opacity: { duration: 0.2, delay: 0.24 },
         }}
       />
-
-      {/* Primary Cobalt Shutter with Integrated Vector Crest */}
-      <motion.div
-        aria-hidden="true"
-        className="fixed inset-0 z-[100] pointer-events-none bg-cobalt-900 halftone-cobalt flex flex-col items-center justify-center p-6 text-center"
-        initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
-        animate={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
-        transition={{
-          duration: 0.45,
-          ease: LUXURY_EASE,
-          delay: 0.01,
-        }}
-      >
-        <AybarCrestEmblem variant="dark" compact className="h-16 w-16 mb-4" />
-        <div className="font-serif font-bold text-sm tracking-[0.14em] text-cobalt-200 uppercase">
-          AYBAR AKADEMİ
-        </div>
-        <div className="mt-1 font-sans font-extrabold text-2xl sm:text-4xl tracking-tightest text-white">
-          {title}
-        </div>
-      </motion.div>
-
-      {/* Direct rendering without any CSS transform wrapper to preserve position: sticky */}
       {children}
     </>
   );

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 import { LUXURY_EASE } from "@/components/motion/Primitives";
@@ -12,6 +12,13 @@ import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 240,
+    damping: 32,
+    restDelta: 0.002,
+  });
 
   useEffect(() => {
     setMobileOpen(false);
@@ -37,14 +44,15 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10">
+      {/* Mobilde saf bg-white (backdrop-blur yok -> %100 akıcı 120fps kaydırma!) */}
+      <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white lg:bg-white/95 lg:backdrop-blur-md border-b border-cobalt-900/10 relative">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-3">
           {/* Left: Brand Lockup */}
           <Link href="/" className="group min-w-0 shrink-0">
             <AybarBrandLockup variant="light" />
           </Link>
 
-          {/* Center: Clean Desktop Navigation */}
+          {/* Center: Clean Desktop Navigation with Sliding Active Pill */}
           <nav
             aria-label="Ana Menü"
             className="hidden lg:flex items-center gap-0.5 xl:gap-1"
@@ -59,13 +67,20 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13.5px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
+                  className={`relative px-2.5 xl:px-3.5 py-2 rounded-lg text-[13.5px] xl:text-[14.5px] font-semibold transition-colors whitespace-nowrap ${
                     isActive
-                      ? "bg-cobalt-700 text-white shadow-sm"
+                      ? "text-white"
                       : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
                   }`}
                 >
-                  {item.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="desktop-nav-active"
+                      transition={{ duration: 0.28, ease: LUXURY_EASE }}
+                      className="absolute inset-0 rounded-lg bg-cobalt-700 shadow-sm -z-10"
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
               );
             })}
@@ -77,7 +92,7 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-colors whitespace-nowrap shadow-sm"
+              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-all whitespace-nowrap shadow-sm"
             >
               Ücretsiz Tanışma Seansı
             </a>
@@ -87,13 +102,20 @@ export default function Navbar() {
               onClick={() => setMobileOpen(true)}
               aria-label="Menüyü Aç"
               aria-expanded={mobileOpen}
-              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 hover:bg-cobalt-800 text-white text-sm font-bold inline-flex items-center gap-2 transition-colors"
+              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 active:scale-95 text-white text-sm font-bold inline-flex items-center gap-2 transition-transform"
             >
               <Menu className="h-4 w-4" />
               <span>Menü</span>
             </button>
           </div>
         </div>
+
+        {/* GPU Hızlandırmalı Okuma İlerleme Çizgisi */}
+        <motion.div
+          aria-hidden="true"
+          style={{ scaleX: smoothProgress }}
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-crimson-600 origin-left pointer-events-none will-change-transform"
+        />
       </header>
 
       {/* Clean Mobile Menu Drawer */}
@@ -104,16 +126,16 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 z-[89] bg-cobalt-950/50 backdrop-blur-sm"
+              className="fixed inset-0 z-[89] bg-cobalt-950/55"
             />
             <motion.aside
-              data-lenis-prevent
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.32, ease: LUXURY_EASE }}
-              className="fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto"
+              transition={{ duration: 0.26, ease: LUXURY_EASE }}
+              className="fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto will-change-transform"
             >
               <div>
                 <div className="h-16 px-4 sm:px-5 border-b border-cobalt-900/10 flex items-center justify-between gap-2">

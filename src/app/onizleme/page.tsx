@@ -413,7 +413,7 @@ export default function ClientPreviewStudioPage() {
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             <AybarCrestEmblem variant="dark" className="h-8 w-8" />
             <div className="hidden sm:block">
-              <div className="font-serif font-bold text-xs sm:text-sm tracking-wide text-white leading-none">
+              <div className="font-brand font-extrabold text-xs sm:text-sm tracking-[0.06em] uppercase text-white leading-none">
                 {siteConfig.name}
               </div>
               <div className="text-[10px] text-cobalt-300 font-sans mt-0.5 leading-none hidden xl:block">

@@ -8,6 +8,7 @@
  */
 
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const IS_PREVIEW_MODE = process.env.NEXT_PUBLIC_PREVIEW_MODE === "true";
 
 export function assetPath(p: string): string {
   if (!p.startsWith("/")) return p;
@@ -23,6 +24,10 @@ export const siteConfig = {
   founder: {
     name: "Bahadır AYBAR",
     role: "AYBAR AKADEMİ Kurucusu",
+  },
+  agency: {
+    name: "Eroğlu Solutions",
+    url: "https://eroglusolutions.com",
   },
   logos: {
     emblem: assetPath("/images/logo-emblem.png"),

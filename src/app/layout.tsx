@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import SiteShell from "@/components/layout/SiteShell";
-import { siteConfig } from "@/config/site";
+import PreviewProtection from "@/components/layout/PreviewProtection";
+import { siteConfig, IS_PREVIEW_MODE } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
@@ -11,6 +12,18 @@ export const metadata: Metadata = {
   },
   description:
     "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
+  robots: IS_PREVIEW_MODE
+    ? {
+        index: false,
+        follow: false,
+        nocache: true,
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+        },
+      }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -34,14 +47,20 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-paper text-ink antialiased selection:bg-crimson-600 selection:text-white">
-        <SmoothScrollProvider>
-          <SiteShell>{children}</SiteShell>
-        </SmoothScrollProvider>
+      <body
+        className={`font-sans bg-paper text-ink antialiased selection:bg-crimson-600 selection:text-white ${
+          IS_PREVIEW_MODE ? "preview-protected select-none" : ""
+        }`}
+      >
+        <PreviewProtection>
+          <SmoothScrollProvider>
+            <SiteShell>{children}</SiteShell>
+          </SmoothScrollProvider>
+        </PreviewProtection>
       </body>
     </html>
   );
