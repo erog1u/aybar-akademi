@@ -37,7 +37,10 @@ export function MaskedLines({
   return (
     <Tag className={className}>
       {lines.map((line, idx) => (
-        <span key={idx} className="block overflow-hidden pb-1.5 -mb-1.5">
+        <span
+          key={idx}
+          className="block overflow-hidden pt-2.5 -mt-2.5 pb-2.5 -mb-2.5 px-1.5 -mx-1.5"
+        >
           <motion.span
             className="block"
             initial={{ y: "100%", opacity: 0 }}
@@ -106,7 +109,7 @@ export function SectionHeader({
 }) {
   return (
     <div
-      className={`pb-8 mb-12 border-b ${
+      className={`pb-6 sm:pb-8 mb-8 sm:mb-12 border-b ${
         dark ? "border-white/15" : "border-cobalt-900/12"
       }`}
     >
@@ -191,6 +194,9 @@ export function MagneticLink({
   const springY = useSpring(y, { damping: 16, stiffness: 200, mass: 0.12 });
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== "undefined" && !window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const cx = rect.left + rect.width / 2;
@@ -221,10 +227,10 @@ export function MagneticLink({
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: springX, y: springY }}
-      className={`group inline-flex items-center gap-3 px-6 py-3.5 text-sm font-bold tracking-tight transition-colors duration-300 ${styles} ${className}`}
+      className={`group inline-flex w-full sm:w-auto justify-center text-center items-center gap-3 px-6 py-3.5 text-sm font-bold tracking-tight transition-colors duration-300 ${styles} ${className}`}
     >
       <span>{children}</span>
-      <span className="relative flex h-5 w-5 items-center justify-center overflow-hidden">
+      <span className="relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden">
         <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4" />
         <ArrowUpRight className="absolute h-4 w-4 -translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0" />
       </span>
@@ -233,14 +239,19 @@ export function MagneticLink({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex w-full sm:w-auto"
+      >
         {content}
       </a>
     );
   }
 
   return (
-    <Link href={href} className="inline-block">
+    <Link href={href} className="inline-flex w-full sm:w-auto">
       {content}
     </Link>
   );
@@ -439,13 +450,14 @@ export function SuccessDiagnosticWidget() {
                   : "text-ink-muted hover:bg-cobalt-50 hover:text-cobalt-800"
               }`}
             >
-              {s.code}. Adım
+              <span className="sm:hidden">0{s.code}</span>
+              <span className="hidden sm:inline">{s.code}. Adım</span>
             </button>
           );
         })}
       </div>
 
-      <div className="p-5 min-h-[124px] flex flex-col justify-center bg-white">
+      <div className="p-5 min-h-[132px] flex flex-col justify-center bg-white">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.code}
@@ -584,7 +596,7 @@ export function NextChapterBanner({
           </p>
         </div>
 
-        <div className="shrink-0">
+        <div className="shrink-0 w-full sm:w-auto">
           <MagneticLink href={href} variant="crimson">
             {buttonLabel}
           </MagneticLink>

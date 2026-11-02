@@ -19,7 +19,7 @@ import {
 
 export default function HakkimizdaPage() {
   return (
-    <div className="bg-paper text-ink overflow-x-clip">
+    <div className="bg-paper text-ink">
       {/* 1. Cobalt Studio Hero */}
       <section className="relative studio-hero text-white border-b border-white/15 overflow-hidden">
         <div
@@ -29,8 +29,8 @@ export default function HakkimizdaPage() {
           <AybarCrestEmblem variant="watermark" className="h-[460px] w-[460px]" />
         </div>
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-22 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs font-bold mb-6 shadow-crimson">
                 <Check className="h-3.5 w-3.5" />
@@ -57,25 +57,42 @@ export default function HakkimizdaPage() {
               </div>
             </div>
 
-            {/* Integrated Vector Seal & Studio Visual */}
-            <div className="lg:col-span-5">
-              <div className="bg-white text-ink p-8 border border-white/25 shadow-studio flex flex-col items-center text-center">
-                <AybarInstitutionalSeal variant="light" />
-                <div className="mt-6 pt-5 border-t border-cobalt-900/10 w-full grid grid-cols-2 divide-x divide-cobalt-900/10">
-                  <div>
-                    <div className="font-serif font-bold text-2xl text-cobalt-800">
+            {/* Integrated Vector Seal & 3-Pillar Summary Strip */}
+            <div className="lg:col-span-5 w-full">
+              <div className="bg-white text-ink p-5 sm:p-8 border border-white/25 shadow-studio flex flex-col items-center text-center">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-cobalt-50 border border-cobalt-700/20 text-cobalt-800 text-[11px] font-bold uppercase tracking-wider mb-5">
+                  <Check className="h-3.5 w-3.5 text-crimson-600" />
+                  <span>Resmi Kurumsal Mühür</span>
+                </div>
+
+                <div className="w-full flex justify-center py-2">
+                  <AybarInstitutionalSeal variant="light" />
+                </div>
+
+                {/* Crisp 3-Pillar Summary Strip */}
+                <div className="mt-6 pt-5 border-t border-cobalt-900/10 w-full grid grid-cols-3 divide-x divide-cobalt-900/10 text-center">
+                  <div className="px-1.5 sm:px-2">
+                    <div className="font-serif font-bold text-lg sm:text-2xl text-cobalt-800">
                       {siteConfig.experienceYears} Yıl
                     </div>
-                    <div className="text-xs text-ink-muted mt-0.5">
-                      Köklü Tecrübe
+                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                      Deneyim
                     </div>
                   </div>
-                  <div>
-                    <div className="font-serif font-bold text-2xl text-crimson-600">
+                  <div className="px-1.5 sm:px-2">
+                    <div className="font-serif font-bold text-lg sm:text-2xl text-crimson-600">
                       %100
                     </div>
-                    <div className="text-xs text-ink-muted mt-0.5">
-                      Maarif Modeline Uyum
+                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                      Maarif Uyum
+                    </div>
+                  </div>
+                  <div className="px-1.5 sm:px-2">
+                    <div className="font-serif font-bold text-lg sm:text-2xl text-cobalt-900">
+                      39 + 81
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-ink-muted mt-0.5 font-medium leading-tight">
+                      İlçe + 81 İl
                     </div>
                   </div>
                 </div>
@@ -86,7 +103,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* 2. Sunduğumuz Çözümler (Verbatim) */}
-      <section className="py-20 lg:py-24">
+      <section className="py-14 sm:py-20 lg:py-24">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <SectionHeader
             eyebrow="SUNDUĞUMUZ ÇÖZÜMLER"
@@ -94,15 +111,15 @@ export default function HakkimizdaPage() {
             subtitle={aboutContent.solutionsIntro}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             {aboutContent.solutions.map((sol, idx) => (
-              <Reveal key={sol.index} delay={idx * 0.08}>
+              <Reveal key={sol.index} delay={idx * 0.08} className="h-full flex flex-col">
                 <SpotlightCard
                   glowColor="rgba(0, 68, 181, 0.1)"
-                  className="h-full bg-white border border-cobalt-900/15 p-8 shadow-card flex flex-col justify-between"
+                  className="h-full bg-white border border-cobalt-900/15 p-6 sm:p-8 shadow-card flex flex-col justify-between"
                 >
                   <div>
-                    <span className="inline-block px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-5">
+                    <span className="inline-block px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-5 shadow-sm">
                       {sol.index}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink leading-snug">
@@ -120,7 +137,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* 3. Eğitimde Sınır Tanımıyoruz (Verbatim) */}
-      <section className="py-20 lg:py-24 bg-paper-tint border-y border-cobalt-900/12">
+      <section className="py-14 sm:py-20 lg:py-24 bg-paper-tint border-y border-cobalt-900/12">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <SectionHeader
             eyebrow="HİZMET AĞIMIZ"
@@ -128,8 +145,8 @@ export default function HakkimizdaPage() {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-cobalt-900 text-white p-8 sm:p-10 border border-cobalt-900 shadow-studio">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-5">
+            <div className="bg-cobalt-900 text-white p-7 sm:p-10 border border-cobalt-900 shadow-studio">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-5 shadow-crimson">
                 <MapPin className="h-3.5 w-3.5" />
                 <span>Yüz Yüze Özel Ders</span>
               </div>
@@ -141,8 +158,8 @@ export default function HakkimizdaPage() {
               </p>
             </div>
 
-            <div className="bg-white text-ink p-8 sm:p-10 border border-cobalt-900/15 shadow-card">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-5">
+            <div className="bg-white text-ink p-7 sm:p-10 border border-cobalt-900/15 shadow-card">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-cobalt-700 text-white text-xs font-bold mb-5 shadow-sm">
                 <Globe2 className="h-3.5 w-3.5" />
                 <span>Canlı Online Eğitim</span>
               </div>
@@ -156,7 +173,7 @@ export default function HakkimizdaPage() {
           </div>
 
           {/* Closing Verbatim Paragraph */}
-          <div className="mt-10 bg-white border-l-4 border-crimson-600 border-y border-r border-cobalt-900/12 p-8 sm:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="mt-10 bg-white border-l-4 border-crimson-600 border-y border-r border-cobalt-900/12 p-6 sm:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <p className="font-serif italic text-lg sm:text-xl text-cobalt-950 leading-relaxed max-w-4xl">
               “{aboutContent.closingParagraph}”
             </p>

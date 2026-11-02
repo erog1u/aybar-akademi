@@ -20,6 +20,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
 
   ::selection {
@@ -29,25 +30,18 @@
 }
 
 @layer components {
-  /* Multi-layer Royal Cobalt Studio Hero: solid fallback + halftone dots + deep studio gradient */
   .studio-hero {
     background-color: #0044b5;
     background-image:
-      radial-gradient(rgba(255, 255, 255, 0.14) 1.35px, transparent 1.35px),
+      radial-gradient(rgba(255, 255, 255, 0.13) 1.35px, transparent 1.35px),
       linear-gradient(135deg, #0055e0 0%, #0044b5 52%, #051d52 100%);
     background-size: 18px 18px, 100% 100%;
   }
 
-  /* Halftone dot overlay that preserves bg-cobalt-* utility background-color */
   .halftone-cobalt {
     background-color: #0044b5;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.35px, transparent 1.35px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.13) 1.35px, transparent 1.35px);
     background-size: 18px 18px;
-  }
-
-  .halftone-light {
-    background-image: radial-gradient(rgba(0, 68, 181, 0.1) 1.25px, transparent 1.25px);
-    background-size: 20px 20px;
   }
 }
 
@@ -56,22 +50,18 @@
   pointer-events: auto !important;
 }
 
-/* Editorial Drop Cap for Founder's Message */
-.editorial-dropcap::first-letter {
-  float: left;
-  font-family: "Lora", Georgia, serif;
-  font-size: 3.9rem;
-  line-height: 0.84;
-  padding-top: 0.18rem;
-  padding-right: 0.7rem;
-  padding-bottom: 0.1rem;
-  font-weight: 600;
-  color: #0044b5;
+/* Hide scrollbars on horizontal mobile chip bars while keeping touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {

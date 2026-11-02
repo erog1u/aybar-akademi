@@ -11,6 +11,7 @@ import { siteConfig } from "@/config/site";
 export function AybarCrestEmblem({
   variant = "light",
   className = "h-12 w-12",
+  compact = false,
 }: {
   variant?: "light" | "dark" | "watermark";
   className?: string;
@@ -54,23 +55,23 @@ export function AybarBrandLockup({
   variant?: "light" | "dark";
 }) {
   return (
-    <div className="inline-flex items-center gap-3.5 select-none">
-      <div className="transition-transform duration-300 group-hover:scale-105">
+    <div className="inline-flex items-center gap-2.5 sm:gap-3.5 select-none min-w-0">
+      <div className="transition-transform duration-300 group-hover:scale-105 shrink-0">
         <AybarCrestEmblem
           variant={variant}
-          className="h-11 w-11 sm:h-12 sm:w-12"
+          className="h-10 w-10 sm:h-12 sm:w-12"
         />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-0">
         <span
-          className={`font-serif font-bold text-lg sm:text-[1.22rem] tracking-tight leading-none ${
+          className={`font-serif font-bold text-base sm:text-[1.22rem] tracking-tight leading-none truncate ${
             variant === "dark" ? "text-white" : "text-cobalt-900"
           }`}
         >
           {siteConfig.name}
         </span>
         <span
-          className={`text-[11px] font-medium tracking-[0.05em] mt-1 ${
+          className={`text-[10px] sm:text-[11px] font-medium tracking-[0.05em] mt-1 truncate max-w-[185px] sm:max-w-none ${
             variant === "dark" ? "text-cobalt-200" : "text-ink-muted"
           }`}
         >

@@ -14,6 +14,14 @@ import {
 } from "@/components/motion/Primitives";
 import { AybarCrestEmblem } from "@/components/brand/AybarCrest";
 
+const STEP_LABELS: Record<string, string> = {
+  "01": "01. İlk Tanışma",
+  "02": "02. Yenilikçi Yöntemler",
+  "03": "03. Hata Defteri",
+  "04": "04. Veli İletişimi",
+  "05": "05. Mentorluk",
+};
+
 export default function NedenFarkliyizPage() {
   const [activeStep, setActiveStep] = useState("01");
   const lenis = useLenis();
@@ -22,15 +30,17 @@ export default function NedenFarkliyizPage() {
     setActiveStep(step);
     const el = document.getElementById(`ilke-${step}`);
     if (!el) return;
+    const offset =
+      typeof window !== "undefined" && window.innerWidth < 1024 ? -168 : -110;
     if (lenis) {
-      lenis.scrollTo(el, { offset: -110, duration: 1.1 });
+      lenis.scrollTo(el, { offset, duration: 1.1 });
     } else {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="bg-paper text-ink overflow-x-clip">
+    <div className="bg-paper text-ink">
       {/* 1. Cobalt Studio Hero */}
       <section className="relative studio-hero text-white border-b border-white/15 overflow-hidden">
         <div
@@ -40,8 +50,8 @@ export default function NedenFarkliyizPage() {
           <AybarCrestEmblem variant="watermark" className="h-[460px] w-[460px]" />
         </div>
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-22 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs font-bold mb-6 shadow-crimson">
                 <Check className="h-3.5 w-3.5" />
@@ -65,19 +75,43 @@ export default function NedenFarkliyizPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 w-full">
               <SuccessDiagnosticWidget />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Mobile Sticky Step Jumper (< 1024px) */}
+      <div className="lg:hidden sticky top-[110px] z-30 bg-white/95 backdrop-blur-xl border-b border-cobalt-900/12 px-4 py-2.5 shadow-sm">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+          {whyDifferentContent.principles.map((p) => {
+            const isActive = activeStep === p.step;
+            const label = STEP_LABELS[p.step] || `${p.step}. İlke`;
+            return (
+              <button
+                key={p.step}
+                type="button"
+                onClick={() => jumpToStep(p.step)}
+                className={`shrink-0 min-h-[40px] px-3.5 py-2 text-xs font-bold whitespace-nowrap transition-colors border ${
+                  isActive
+                    ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
+                    : "bg-paper text-ink hover:bg-cobalt-50 border-cobalt-900/12"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* 2. Sticky Split-Screen Scrollytelling: 5 Standart İlke (Verbatim) */}
-      <section className="py-20 lg:py-26">
+      <section className="py-14 sm:py-20 lg:py-24">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left Sticky Step Ruler */}
-            <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Left Sticky Step Ruler (Desktop >= 1024px) */}
+            <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-28 space-y-6">
               <div>
                 <div className="text-xs font-bold tracking-wider uppercase text-crimson-600 mb-2">
                   Süreç Yönetimi
@@ -95,7 +129,7 @@ export default function NedenFarkliyizPage() {
                       key={p.step}
                       type="button"
                       onClick={() => jumpToStep(p.step)}
-                      className={`w-full text-left px-5 py-4 flex items-center gap-3.5 transition-colors relative ${
+                      className={`w-full text-left min-h-[44px] px-5 py-4 flex items-center gap-3.5 transition-colors relative ${
                         isActive
                           ? "bg-cobalt-700 text-white"
                           : "text-ink hover:bg-cobalt-50"
@@ -130,10 +164,10 @@ export default function NedenFarkliyizPage() {
                   id={`ilke-${p.step}`}
                   onViewportEnter={() => setActiveStep(p.step)}
                   viewport={{ amount: 0.35 }}
-                  className="bg-white border border-cobalt-900/15 shadow-card p-6 sm:p-10 scroll-mt-32"
+                  className="bg-white border border-cobalt-900/15 shadow-card p-6 sm:p-10 scroll-mt-44 lg:scroll-mt-32"
                 >
-                  <div className="flex items-center gap-3 pb-5 mb-6 border-b border-cobalt-900/10">
-                    <span className="px-3 py-1 bg-crimson-600 text-white text-xs font-bold">
+                  <div className="flex items-start sm:items-center gap-3 pb-5 mb-6 border-b border-cobalt-900/10">
+                    <span className="px-3 py-1 bg-crimson-600 text-white text-xs font-bold shadow-crimson whitespace-nowrap shrink-0 mt-0.5 sm:mt-0">
                       {Number(p.step)}. İlke
                     </span>
                     <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink">
@@ -167,9 +201,9 @@ export default function NedenFarkliyizPage() {
           </div>
 
           {/* Pedagogical Outcome (Verbatim) */}
-          <div className="mt-16 bg-cobalt-950 text-white p-8 sm:p-12 border border-cobalt-900 shadow-studio flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div className="mt-12 sm:mt-16 bg-cobalt-950 text-white p-7 sm:p-12 border border-cobalt-900 shadow-studio flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div className="max-w-3xl">
-              <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4">
+              <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4 shadow-crimson">
                 Sonuç ve Kazanım
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tightest">

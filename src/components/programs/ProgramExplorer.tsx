@@ -33,6 +33,11 @@ export default function ProgramExplorer() {
   const [query, setQuery] = useState<string>("");
   const [selected, setSelected] = useState<SelectedProgram | null>(null);
 
+  const totalProgramCount = useMemo(
+    () => programCategories.reduce((acc, cat) => acc + cat.items.length, 0),
+    []
+  );
+
   useEffect(() => {
     const syncHash = () => {
       const hash = window.location.hash.replace("#", "");
@@ -85,21 +90,30 @@ export default function ProgramExplorer() {
 
   return (
     <>
-      {/* Sticky Filter & Search Bar */}
-      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-xl border-b border-cobalt-900/12 shadow-sm">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-4 space-y-3">
-          {/* Category Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+      {/* Sticky Filter & Search Bar — Exact Dock Alignment below Navbar */}
+      <div className="sticky top-[110px] lg:top-[82px] z-30 bg-white/95 backdrop-blur-xl border-b border-cobalt-900/12 shadow-sm">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3.5 space-y-2 sm:space-y-3">
+          {/* Category Pills Row with badges & no-scrollbar */}
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1">
             <button
               type="button"
               onClick={() => handleCatSelect("all")}
-              className={`relative px-4 py-2 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors border ${
+              className={`relative inline-flex items-center gap-2 min-h-[40px] px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors border ${
                 activeCatId === "all"
-                  ? "bg-cobalt-700 text-white border-cobalt-700"
+                  ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
                   : "bg-paper text-ink hover:bg-cobalt-50 border-cobalt-900/12"
               }`}
             >
-              Tüm Programlar
+              <span>Tüm Programlar</span>
+              <span
+                className={`px-1.5 py-0.5 text-[10px] sm:text-xs font-mono font-bold leading-none ${
+                  activeCatId === "all"
+                    ? "bg-white/20 text-white"
+                    : "bg-cobalt-100 text-cobalt-800"
+                }`}
+              >
+                {totalProgramCount}
+              </span>
             </button>
 
             {programCategories.map((cat) => {
@@ -109,19 +123,28 @@ export default function ProgramExplorer() {
                   key={cat.id}
                   type="button"
                   onClick={() => handleCatSelect(cat.id)}
-                  className={`relative px-4 py-2 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors border ${
+                  className={`relative inline-flex items-center gap-2 min-h-[40px] px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors border ${
                     isActive
-                      ? "bg-cobalt-700 text-white border-cobalt-700"
+                      ? "bg-cobalt-700 text-white border-cobalt-700 shadow-sm"
                       : "bg-paper text-ink hover:bg-cobalt-50 border-cobalt-900/12"
                   }`}
                 >
-                  {cat.shortTitle}
+                  <span>{cat.shortTitle}</span>
+                  <span
+                    className={`px-1.5 py-0.5 text-[10px] sm:text-xs font-mono font-bold leading-none ${
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-cobalt-100 text-cobalt-800"
+                    }`}
+                  >
+                    {cat.items.length}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Search Input */}
+          {/* Search Input — text-base on mobile prevents iOS Safari auto-zoom */}
           <div className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-muted" />
             <input
@@ -129,14 +152,14 @@ export default function ProgramExplorer() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Sınav, ders veya yabancı dil ara (örn: YKS, LGS, KPSS Eğitim Bilimleri, IELTS, Almanca, Psikoloji)..."
-              className="w-full pl-10 pr-10 py-2.5 text-sm bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
+              className="w-full pl-10 pr-10 py-2.5 min-h-[42px] text-base sm:text-sm bg-paper border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
             />
             {query && (
               <button
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Aramayı Temizle"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-crimson-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center text-ink-muted hover:text-crimson-600"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -146,7 +169,7 @@ export default function ProgramExplorer() {
       </div>
 
       {/* Program Categories Stream */}
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-20 space-y-20">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24 space-y-16 sm:space-y-20">
         {filtered.length === 0 ? (
           <div className="bg-white border border-cobalt-900/12 p-12 text-center">
             <p className="text-lg font-bold text-ink">
@@ -158,17 +181,21 @@ export default function ProgramExplorer() {
                 setQuery("");
                 setActiveCatId("all");
               }}
-              className="mt-4 px-5 py-2.5 bg-cobalt-700 text-white text-xs font-bold"
+              className="mt-4 px-5 py-2.5 min-h-[40px] bg-cobalt-700 text-white text-xs font-bold"
             >
               Tüm Programları Göster
             </button>
           </div>
         ) : (
           filtered.map((cat) => (
-            <section key={cat.id} id={cat.id} className="scroll-mt-44">
+            <section
+              key={cat.id}
+              id={cat.id}
+              className="scroll-mt-52 lg:scroll-mt-44"
+            >
               {/* Category Header */}
               <div className="pb-6 mb-8 border-b border-cobalt-900/12">
-                <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-3">
+                <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-3 shadow-crimson">
                   {cat.tagline}
                 </div>
                 <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tightest text-ink">
@@ -291,7 +318,7 @@ export default function ProgramExplorer() {
         buttonLabel="Eğitim Modelimizi İncele"
       />
 
-      {/* Slide-Over Program Drawer */}
+      {/* Slide-Over Program Detail Drawer (z-[95]) */}
       <AnimatePresence>
         {selected && (
           <>
@@ -300,7 +327,7 @@ export default function ProgramExplorer() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelected(null)}
-              className="fixed inset-0 z-[70] bg-cobalt-950/60 backdrop-blur-sm"
+              className="fixed inset-0 z-[90] bg-cobalt-950/60 backdrop-blur-sm"
             />
             <motion.aside
               data-lenis-prevent
@@ -308,7 +335,7 @@ export default function ProgramExplorer() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.38, ease: LUXURY_EASE }}
-              className="fixed top-0 right-0 bottom-0 z-[80] w-full max-w-lg bg-white text-ink border-l border-cobalt-900/15 shadow-2xl flex flex-col justify-between overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 z-[95] w-full max-w-lg bg-white text-ink border-l border-cobalt-900/15 shadow-2xl flex flex-col justify-between overflow-y-auto"
             >
               <div>
                 <div className="bg-cobalt-900 text-white p-6 flex items-start justify-between gap-4">
@@ -324,7 +351,7 @@ export default function ProgramExplorer() {
                     type="button"
                     onClick={() => setSelected(null)}
                     aria-label="Kapat"
-                    className="h-9 w-9 border border-white/20 flex items-center justify-center text-white hover:bg-white/10 shrink-0"
+                    className="h-10 w-10 border border-white/20 flex items-center justify-center text-white hover:bg-white/10 shrink-0"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -383,14 +410,15 @@ export default function ProgramExplorer() {
                 </div>
               </div>
 
-              <div className="p-6 border-t border-cobalt-900/12 bg-paper-warm">
+              {/* Sticky CTA footer with safe area padding */}
+              <div className="sticky bottom-0 z-10 p-5 sm:p-6 border-t border-cobalt-900/12 bg-paper-warm/95 backdrop-blur-md pb-[max(1.25rem,env(safe-area-inset-bottom))]">
                 <a
                   href={getWhatsAppUrl(
                     `Merhaba, Aybar Akademi "${selected.item.title}" birebir özel ders programı ve 30 dakikalık ücretsiz tanışma seansı hakkında bilgi almak istiyorum.`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white py-4 px-6 text-sm font-bold transition-colors shadow-crimson"
+                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-cobalt-900 text-white py-3.5 sm:py-4 px-6 text-sm font-bold transition-colors shadow-crimson"
                 >
                   <span>Bu Program İçin WhatsApp’tan Bilgi Al</span>
                   <ArrowUpRight className="h-4 w-4" />

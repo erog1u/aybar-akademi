@@ -33,9 +33,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
         animate={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
         transition={{
-          duration: 0.62,
+          duration: 0.53,
           ease: LUXURY_EASE,
-          delay: 0.07,
+          delay: 0.05,
         }}
       />
 
@@ -46,9 +46,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
         animate={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
         transition={{
-          duration: 0.52,
+          duration: 0.45,
           ease: LUXURY_EASE,
-          delay: 0.02,
+          delay: 0.01,
         }}
       >
         <AybarCrestEmblem variant="dark" compact className="h-16 w-16 mb-4" />
@@ -60,17 +60,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
         </div>
       </motion.div>
 
-      {/* Content always stays opacity: 1 so it is NEVER invisible */}
-      <motion.div
-        initial={{ y: 10 }}
-        animate={{ y: 0 }}
-        transition={{
-          duration: 0.45,
-          ease: LUXURY_EASE,
-        }}
-      >
-        {children}
-      </motion.div>
+      {/* Direct rendering without any CSS transform wrapper to preserve position: sticky */}
+      {children}
     </>
   );
 }

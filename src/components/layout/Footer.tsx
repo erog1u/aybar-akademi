@@ -24,19 +24,19 @@ export default function Footer() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 shrink-0 w-full lg:w-auto">
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 bg-crimson-600 hover:bg-crimson-700 text-white px-7 py-4 text-sm font-bold tracking-tight transition-colors shadow-crimson"
+              className="group inline-flex w-full sm:w-auto justify-center items-center gap-3 bg-crimson-600 hover:bg-crimson-700 text-white px-7 py-4 text-sm font-bold tracking-tight transition-colors shadow-crimson text-center"
             >
               <span>WhatsApp ile Tanışma Planla</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <Link
               href="/iletisim"
-              className="inline-flex items-center gap-2 border border-white/25 hover:bg-white hover:text-cobalt-950 text-white px-6 py-4 text-sm font-bold tracking-tight transition-colors"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 border border-white/25 hover:bg-white hover:text-cobalt-950 text-white px-6 py-4 text-sm font-bold tracking-tight transition-colors text-center"
             >
               <span>İletişim Sayfası</span>
             </Link>
@@ -140,8 +140,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="py-8 pb-20 sm:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cobalt-300 text-center sm:text-left">
+        {/* Bottom Copyright — pb-24 sm:pb-8 prevents mobile action dock from obscuring content */}
+        <div className="py-8 pb-24 sm:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cobalt-300 text-center sm:text-left">
           <div>
             © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
           </div>

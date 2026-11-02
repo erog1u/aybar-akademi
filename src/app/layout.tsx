@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import SiteShell from "@/components/layout/SiteShell";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -13,6 +11,12 @@ export const metadata: Metadata = {
   },
   description:
     "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu uzman öğretmen kadrosu, İstanbul'un tüm ilçelerinde yüz yüze ve tüm Türkiye'de canlı online VIP birebir özel ders kurumudur.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0044B5",
 };
 
 export default function RootLayout({
@@ -36,12 +40,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-paper text-ink antialiased selection:bg-crimson-600 selection:text-white">
         <SmoothScrollProvider>
-          <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <FloatingWhatsApp />
+          <SiteShell>{children}</SiteShell>
         </SmoothScrollProvider>
       </body>
     </html>

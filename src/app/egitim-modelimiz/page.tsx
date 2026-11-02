@@ -7,7 +7,6 @@ import { getWhatsAppUrl } from "@/config/site";
 import {
   MaskedLines,
   Reveal,
-  SectionHeader,
   MagneticLink,
   NextChapterBanner,
   SpotlightCard,
@@ -18,7 +17,7 @@ export default function EgitimModelimizPage() {
   const icons = [ShieldCheck, Compass, Target, Users];
 
   return (
-    <div className="bg-paper text-ink overflow-x-clip">
+    <div className="bg-paper text-ink">
       {/* 1. Cobalt Studio Hero */}
       <section className="relative studio-hero text-white border-b border-white/15 overflow-hidden">
         <div
@@ -28,8 +27,8 @@ export default function EgitimModelimizPage() {
           <AybarCrestEmblem variant="watermark" className="h-[460px] w-[460px]" />
         </div>
 
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-22 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-crimson-600 text-white text-xs font-bold mb-6 shadow-crimson">
                 <Check className="h-3.5 w-3.5" />
@@ -63,14 +62,20 @@ export default function EgitimModelimizPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="bg-white p-3 border border-white/25 shadow-studio">
+            <div className="lg:col-span-5 w-full">
+              <div className="bg-white p-2.5 sm:p-3 border border-white/25 shadow-studio">
                 <div className="aspect-[4/3] overflow-hidden bg-cobalt-900">
                   <img
                     src="/images/vip-mentorship.jpg"
                     alt="Aybar Akademi VIP Süreç Yönetimi"
                     className="w-full h-full object-cover"
                   />
+                </div>
+                {/* Crisp Studio Caption Bar */}
+                <div className="mt-2.5 py-2 px-3 bg-cobalt-950 text-white flex items-center justify-between text-[11px] font-bold tracking-wider uppercase">
+                  <span className="text-cobalt-100">VIP SÜREÇ YÖNETİMİ</span>
+                  <span className="text-crimson-500 font-black">·</span>
+                  <span className="text-cobalt-100">BİREBİR EĞİTİM KOÇLUĞU</span>
                 </div>
               </div>
             </div>
@@ -79,8 +84,8 @@ export default function EgitimModelimizPage() {
       </section>
 
       {/* 2. All 4 Education Model Pillars (Verbatim) */}
-      <section className="py-20 lg:py-26">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
+      <section className="py-14 sm:py-20 lg:py-24">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 space-y-10 sm:space-y-12">
           {educationModelContent.sections.map((sec, idx) => {
             const Icon = icons[idx % icons.length];
             const isDark = idx % 2 === 1;
@@ -95,9 +100,9 @@ export default function EgitimModelimizPage() {
                   }`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                    {/* Left Title Column */}
-                    <div className="lg:col-span-5">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-xs font-bold mb-4">
+                    {/* Left Title Column — Desktop Sticky */}
+                    <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-crimson-600 text-white text-xs font-bold shadow-crimson">
                         <Icon className="h-3.5 w-3.5" />
                         <span>0{idx + 1}. Bölüm</span>
                       </div>
@@ -107,7 +112,7 @@ export default function EgitimModelimizPage() {
                       </h2>
 
                       <p
-                        className={`mt-4 text-sm sm:text-base leading-relaxed ${
+                        className={`text-sm sm:text-base leading-relaxed ${
                           isDark ? "text-cobalt-100/90" : "text-ink-muted"
                         }`}
                       >
