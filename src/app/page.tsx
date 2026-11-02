@@ -203,7 +203,7 @@ export default function HomePage() {
       {/* =================================================================== */}
       <section
         ref={heroRef}
-        className="relative bg-gradient-to-br from-[#0055E0] via-cobalt-700 to-[#062466] halftone-cobalt text-white border-b border-white/15 overflow-hidden"
+        className="relative studio-hero text-white border-b border-white/15 overflow-hidden"
       >
         {/* Subtle Vector Crest Architectural Watermark */}
         <div

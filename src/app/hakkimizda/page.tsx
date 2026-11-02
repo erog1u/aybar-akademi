@@ -21,7 +21,7 @@ export default function HakkimizdaPage() {
   return (
     <div className="bg-paper text-ink overflow-x-clip">
       {/* 1. Cobalt Studio Hero */}
-      <section className="relative bg-gradient-to-br from-[#0055E0] via-cobalt-700 to-cobalt-950 halftone-cobalt text-white border-b border-white/15 overflow-hidden">
+      <section className="relative studio-hero text-white border-b border-white/15 overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 -bottom-20 text-white/[0.06]"
