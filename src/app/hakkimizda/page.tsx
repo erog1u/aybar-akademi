@@ -78,9 +78,9 @@ export default function HakkimizdaPage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
+                <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
                 Evinizin konforunda özel ders
               </div>
             </div>
@@ -120,13 +120,7 @@ export default function HakkimizdaPage() {
                 className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <span
-                    className={`inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold mb-4 ${
-                      idx === 0
-                        ? "bg-crimson-600 text-white"
-                        : "bg-cobalt-700 text-white"
-                    }`}
-                  >
+                  <span className="inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold mb-4 bg-cobalt-700 text-white shadow-sm">
                     {sol.index}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-cobalt-950 leading-snug">

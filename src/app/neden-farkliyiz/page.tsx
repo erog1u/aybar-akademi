@@ -140,7 +140,7 @@ export default function NedenFarkliyizPage() {
                   {/* Sol Başlık Kolonu */}
                   <div className="lg:col-span-4">
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-crimson-600 text-white text-xs font-extrabold shadow-sm">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-cobalt-700 text-white text-xs font-extrabold shadow-sm">
                         0{pIdx + 1}
                       </span>
                       <span className="text-xs font-extrabold uppercase tracking-wider text-cobalt-700">
@@ -157,7 +157,7 @@ export default function NedenFarkliyizPage() {
                   <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                     {p.items.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-5 w-5 text-cobalt-700 shrink-0 mt-0.5" />
                         <div>
                           <h4 className="text-[15px] sm:text-base font-bold text-cobalt-950 leading-snug">
                             {item.title}

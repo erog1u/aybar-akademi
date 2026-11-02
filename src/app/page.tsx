@@ -164,9 +164,9 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-center gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
+              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
+                <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
                 Evinizin konforunda özel ders
               </div>
             </div>
@@ -278,13 +278,7 @@ export default function HomePage() {
                     key={solution.index}
                     className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:bg-white transition-all flex items-start gap-4"
                   >
-                    <span
-                      className={`inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold shrink-0 mt-0.5 ${
-                        sIdx === 0
-                          ? "bg-crimson-600 text-white"
-                          : "bg-cobalt-700 text-white"
-                      }`}
-                    >
+                    <span className="inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold shrink-0 mt-0.5 bg-cobalt-700 text-white shadow-sm">
                       {solution.index}
                     </span>
                     <div>

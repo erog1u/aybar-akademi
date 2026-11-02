@@ -175,7 +175,7 @@ export default function EgitimModelimizPage() {
                   <div className="flex items-start justify-between gap-4 pb-6 border-b border-cobalt-900/10">
                     <div>
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-extrabold mb-3">
-                        <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                        <span className="h-2 w-2 rounded-full bg-cobalt-600" />
                         <span>Aşama 0{idx + 1}</span>
                       </div>
                       <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-ink tracking-tight leading-snug">
@@ -220,7 +220,7 @@ export default function EgitimModelimizPage() {
                           </>
                         ) : (
                           <>
-                            <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-white">
+                            <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cobalt-700 text-white shadow-sm">
                               <Check className="h-3 w-3 stroke-[3]" />
                             </span>
                             <p className="text-base sm:text-[16.5px] font-semibold text-ink leading-relaxed">
