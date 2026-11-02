@@ -6,9 +6,16 @@ Tasarım & Yazılım: **Eroğlu Solutions** ([eroglusolutions.com](https://erogl
 
 ---
 
+## Canlı Önizleme ve Dağıtım
+
+- **Korumalı Müşteri Önizleme URL'si:** [https://erog1u.github.io/aybar-akademi/](https://erog1u.github.io/aybar-akademi/)
+- **Geri Dönüş Güvenlik Etiketi (Rollback Tag):** `checkpoint-user-save` (Commit `86d98bd`)
+
+---
+
 ## Geliştirici & Claude Code Kılavuzu
 
-Proje mimarisi, dizin haritası, değiştirilemez içerik/tasarım kuralları, npm komutları ve yapılacaklar listesi için ana geliştirici kılavuzu:  
+Proje mimarisi, dizin haritası, değiştirilemez kurallar, bağımlılıklar, npm komutları ve yapılacaklar listesi için ana geliştirici kılavuzu:  
 👉 **[CLAUDE.md](CLAUDE.md)**
 
 Tüm dokümantasyon ve kılavuz belgeleri:
@@ -27,13 +34,16 @@ npm install
 # Geliştirme sunucusunu başlatın (http://localhost:3000)
 npm run dev
 
-# TypeScript tip kontrolü
+# TypeScript tip kontrolü (0 hata kuralı)
 npm run typecheck
+
+# Yerel derleme testi
+npm run build
 
 # Korumalı GitHub Pages CDN önizleme dağıtımı
 npm run deploy:preview
 
-# Headless görsel denetim (qa-shots/)
+# Headless görsel ve taşma denetimi (qa-shots/)
 npm run audit:visual
 ```
 

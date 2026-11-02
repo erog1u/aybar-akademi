@@ -1,149 +1,148 @@
 # AYBAR AKADEMİ — Claude Code Geliştirici Kılavuzu
 
-Bu belge, Claude Code ve geliştiriciler için projenin amacını, mimarisini, değiştirilemez kurallarını ve operasyonel komutlarını özetler.
+Bu belge, **Claude Code** ve projeyi devralacak geliştiriciler için mimariyi, değiştirilemez kuralları, dosya sorumluluklarını, komutları ve açık işleri eksiksiz biçimde özetler.
 
 ---
 
-## 1. Proje Amacı ve Kapsamı
-- **Müşteri:** AYBAR AKADEMİ (33 yıllık köklü deneyim, Türkiye Yüzyılı Maarif Modeline %100 uyumlu VIP birebir özel ders kurumu).
-- **Geliştirici:** Eroğlu Solutions (`https://eroglusolutions.com`).
-- **Amaç:** Next.js 15 tabanlı, statik dışa aktarılan (SSG/export), ultra hızlı, mobil uyumlu ve kurumsal prestiji yansıtan web sitesi.
+## 1. Proje Amacı ve Kimliği
+- **Kurum:** AYBAR AKADEMİ (33 yıllık köklü deneyim, Türkiye Yüzyılı Maarif Modeline %100 uyumlu VIP birebir özel ders ve eğitim koçluğu kurumu).
+- **Geliştirici Ajans:** Eroğlu Solutions ([eroglusolutions.com](https://eroglusolutions.com)).
+- **Amaç:** Next.js 15 tabanlı, statik dışa aktarılan (SSG/export), ultra hızlı (103 KB shared bundle), mobil uyumlu (0px taşma), kurumsal prestiji yansıtan, sıfır takılmalı (zero-lag) modern web sitesi.
+- **Canlı Korumalı Önizleme CDN:** `https://erog1u.github.io/aybar-akademi/`
+- **Geri Dönüş Güvenlik Noktası (Rollback Tag):** Git etiketi `checkpoint-user-save` (Commit: `86d98bd`) remote üzerinde korunmaktadır.
 
 ---
 
 ## 2. Teknoloji Yığını (Tech Stack)
-- **Framework:** Next.js 15 (App Router, Static Export), React 19, TypeScript
-- **Stil & Tasarım:** Tailwind CSS
-  - Ana Renkler: Kraliyet Kobalt Mavisi (`#0044B5`), Sinyal Kırmızı (`#DC1B2E`), Gece Laciverti (`#08245E`), Sıcak Beyaz (`#FAFBFD`)
+- **Çekirdek:** Next.js 15 (App Router, Static Export), React 19, TypeScript 5.8
+- **Stil & Tasarım:** Tailwind CSS 3.4
+  - Kurumsal Palet: Kraliyet Kobalt Mavisi (`#0044B5`), Gece Mavisi (`#08245E`, `#04153B`), Sinyal Kırmızı (`#DC1B2E`), Arka Plan (`#FAFBFD`), Metin (`#09152B`)
 - **İkonlar:** `lucide-react`
-- **Animasyon:** `framer-motion` (yalnızca GPU dostu transform/opacity; mobilde takılmasız akış)
-- **Tipografi (`latin-ext` tam Türkçe karakter desteği):**
-  - Marka Başlığı: `Montserrat` (800 ağırlık, uppercase, geniş harf aralığı)
-  - Arayüz & İçerik Başlıkları / Gövde: `Plus Jakarta Sans`
-  - Vurgular / Kurucu Mesajı: `Lora` (yalnızca italik alıntılarda)
+- **Animasyon & Akıcılık:**
+  - Saf CSS GPU donanım hızlandırmalı keyframe'ler (`@keyframes pageEnter`, `animate-gentle-glow`, `animate-badge-breathe`, `animate-float-slow`, `radar-beacon`).
+  - Sayfa geçişleri: `src/app/template.tsx` (0.32s ipeksi crossfade/lift).
+  - JavaScript thread'ini donduran ağır scroll kütüphaneleri (Lenis vb.) kaldırılmış; `html { scroll-behavior: smooth }` ile 120 FPS akıcılık sağlanmıştır.
+- **Görsel Optimizasyonu:** Node.js `sharp` + `mozjpeg` progressive sıkıştırma (tüm ana görseller ≤100 KB, `decoding="async"`, `fetchPriority="high"`).
 
 ---
 
-## 3. Dizin Haritası (Folder Map)
+## 3. Dizin ve Dosya Haritası
 
 ```text
 aybar-akademi/
-├── src/
-│   ├── app/                               # Rota sayfaları ve şablonlar
-│   │   ├── page.tsx                       # Ana Sayfa
-│   │   ├── hakkimizda/page.tsx            # Hakkımızda
-│   │   ├── egitim-programlarimiz/page.tsx # Özel Ders Eğitim Programlarımız
-│   │   ├── egitim-modelimiz/page.tsx      # Eğitim Modelimiz & Metodoloji
-│   │   ├── neden-farkliyiz/page.tsx       # Neden Farklıyız? (Avantajlar)
-│   │   ├── iletisim/page.tsx              # İletişim & Lokasyonlar
-│   │   ├── onizleme/page.tsx              # Studio önizleme / test alanı
-│   │   ├── layout.tsx                     # Kök mizanpaj, fontlar ve meta veriler
-│   │   ├── template.tsx                   # Sayfa geçiş animasyonu (GPU shutter)
-│   │   ├── not-found.tsx                  # Özel 404 sayfası
-│   │   └── globals.css                    # Tailwind ve temel tipografi stilleri
-│   ├── components/
-│   │   ├── layout/                        # Navbar, Footer, SiteShell, FloatingWhatsApp, PreviewProtection
-│   │   ├── brand/                         # AybarCrest (vektörel kurumsal arma)
-│   │   ├── motion/                        # Primitives.tsx (hafif hareket bileşenleri)
-│   │   ├── programs/                      # ProgramExplorer.tsx (kategori ve ders filtreleme)
-│   │   └── providers/                     # SmoothScrollProvider.tsx (120Hz doğal scroll)
-│   ├── config/
-│   │   └── site.ts                        # TEK AYAR NOKTASI: Telefon, logo, WhatsApp, e-posta, ajans
-│   ├── data/
-│   │   └── content.ts                     # TÜM SİTE METİNLERİ (docs/MUSTERI_METNI.md kaynaklı)
-│   └── lib/
-│       └── scroll.ts                      # Tıklamalarda içerik başına kaydırma (scrollToSection)
-├── public/
-│   └── images/                            # Optimize edilmiş görseller (≤120KB, lazy loading)
+├── CLAUDE.md                              # Bu ana rehber belge
+├── README.md                              # Repo genel tanıtımı
 ├── docs/
-│   ├── KULLANICI_TALIMATLARI.md           # TÜM GEÇMİŞ KOMUTLARIN VE KURALLARIN ÖZETİ (Mutlaka Okunmalı)
+│   ├── KULLANICI_TALIMATLARI.md           # Müşteri/Ajans tüm geçmiş kural ve tasarım standartları özeti
 │   ├── CANLIYA_ALMA_REHBERI.md            # Önizleme koruması ve Cloudflare Pages canlı dağıtım rehberi
-│   └── MUSTERI_METNI.md                   # Müşteriden gelen resmi metin (DEĞİŞTİRİLEMEZ KAYNAK)
-└── scripts/
-    ├── deploy-preview.sh                  # GitHub Pages CDN korumalı önizleme dağıtım betiği
-    └── visual-audit.mjs                   # Headless Chrome CDP mobil/tablet/desktop görsel denetim betiği
+│   └── MUSTERI_METNI.md                   # Müşterinin resmi ham metni (DEĞİŞTİRİLEMEZ TEK KAYNAK)
+├── scripts/
+│   ├── deploy-preview.sh                  # GitHub Pages CDN korumalı önizleme dağıtım betiği
+│   └── visual-audit.mjs                   # Headless Chrome CDP mobil/tablet/desktop görsel denetim betiği
+├── public/
+│   └── images/                            # Optimize edilmiş görseller (≤100 KB)
+│       ├── hero-one-on-one.jpg            # Ana sayfa hero stüdyo görseli
+│       ├── maarif-academic-mentorship.jpg # 33 Yıllık Deneyim & Maarif mentörlük fotoğrafı (98 KB)
+│       ├── programs-global-study.jpg      # Eğitim Programlarımız hero görseli
+│       ├── vip-mentorship.jpg             # Eğitim Modelimiz hero görseli
+│       ├── exam-strategy-notebook.jpg     # Neden Farklıyız hero görseli
+│       ├── istanbul-home-tutoring.jpg     # Hakkımızda hero görseli
+│       ├── logo-full.png                  # Resmi tam logo (148 KB)
+│       └── logo-emblem.png                # Vektörel/PNG arma (37 KB)
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                       # Ana Sayfa (Hero, Bölümlerimiz, 33 Yıl Çözümler, Kurucu Mesajı, SSS)
+│   │   ├── hakkimizda/page.tsx            # Hakkımızda (Kurumsal Tarihçe, Çözümler, Hizmet Ağı)
+│   │   ├── egitim-programlarimiz/page.tsx # Eğitim Programlarımız vitrini
+│   │   ├── egitim-modelimiz/page.tsx      # Eğitim Modelimiz (4 Temel Aşama, 4 Yönlü Başarı Ekosistemi)
+│   │   ├── neden-farkliyiz/page.tsx       # Neden Farklıyız? (5 Standart İlke, Hata Defteri Metodolojisi)
+│   │   ├── iletisim/page.tsx              # İletişim (3 Adımlı Form, Canlı WhatsApp Mesaj Önizlemesi, Lokasyonlar)
+│   │   ├── onizleme/page.tsx              # Cihaz Simülatörü Studio (iPhone 15 Pro, iPad Air, Masaüstü)
+│   │   ├── layout.tsx                     # Kök layout, SEO meta verileri, OpenGraph, JSON-LD
+│   │   ├── template.tsx                   # 0.32s GPU donanım hızlandırmalı sayfa geçiş katmanı
+│   │   ├── globals.css                    # Tailwind katmanları, özel animasyon keyframe'leri, tipografi
+│   │   ├── robots.ts & sitemap.ts         # Otomatik XML sitemap ve robots.txt üretimi
+│   │   └── not-found.tsx                  # Prestijli 404 sayfası
+│   ├── components/
+│   │   ├── brand/
+│   │   │   └── AybarCrest.tsx             # Resmi dairesel arma ve AybarBrandLockup logo bileşeni
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx                 # 80px/64px sticky kurumsal menü ve mobil drawer
+│   │   │   ├── Footer.tsx                 # Kurumsal alt bilgi, program linkleri ve telif şeridi
+│   │   │   ├── SiteShell.tsx              # Sayfa sarmalayıcı (Navbar/Footer/WhatsApp orkestrasyonu)
+│   │   │   ├── FloatingWhatsApp.tsx       # Yeşil radar sinyalli yüzen WhatsApp danışma butonu
+│   │   │   ├── Breadcrumbs.tsx            # Schema.org uyumlu BreadcrumbList navigasyon izi
+│   │   │   └── PreviewProtection.tsx      # Önizleme koruması (alan adı kilidi, kopya engeli, watermark)
+│   │   ├── motion/
+│   │   │   └── Primitives.tsx             # MaskedLines, PhotoFrame, SectionHeader, MagneticLink, NextChapterBanner
+│   │   ├── programs/
+│   │   │   └── ProgramExplorer.tsx        # Anında Canlı Arama (Search), 6 Kategori Sekmesi, Program Kartları
+│   │   ├── faq/
+│   │   │   └── FaqSection.tsx             # 6 Maddelik Akordeon SSS bileşeni (FAQPage Schema uyumlu)
+│   │   └── seo/
+│   │       └── JsonLd.tsx                 # Schema.org EducationalOrganization, Person, Course, FAQPage JSON-LD
+│   ├── config/
+│   │   └── site.ts                        # TEK AYAR MERKEZİ: Telefon, e-posta, WhatsApp, logolar, ajans bilgisi
+│   ├── data/
+│   │   └── content.ts                     # TÜM SİTE İÇERİKLERİ (MUSTERI_METNI.md kaynaklı resmi veriler)
+│   └── lib/
+│       └── scroll.ts                      # Tıklamalarda içerik başına yumuşak kaydırma (scrollToSection)
 ```
 
 ---
 
 ## 4. TARTIŞMASIZ KURALLAR (Non-Negotiable Rules)
-> **Önemli:** Her kod veya içerik değişikliğinden önce [docs/KULLANICI_TALIMATLARI.md](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/docs/KULLANICI_TALIMATLARI.md) dosyasını referans alınız.
 
-1. **Metinler Yalnızca Müşteri Kaynaklıdır:**
-   - Sitedeki metinlerin tek kaynağı [docs/MUSTERI_METNI.md](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/docs/MUSTERI_METNI.md) olup [src/data/content.ts](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/src/data/content.ts) üzerinden yönetilir.
-   - Uydurma garanti ("Garantili", "%100 başarı"), yapay istatistik, hayali rozet/slogan, karşılaştırma tablosu veya uydurma süreç adımı **KESİNLİKLE YASAKTIR**.
-   - "Laf kalabalığı" yapılmaz; kaçınılmaz UI metinleri ("İncele", "Sonraki", "WhatsApp ile Bilgi Al") kısa ve nötr olmalıdır.
-2. **Görsel Kullanım Sınırı:**
-   - Sayfa başına **en fazla 1 ana fotoğraf** (yalnızca ana sayfada en fazla 2). Gereksiz görsel eklenmez.
-   - Tüm görseller sıkıştırılmış (≤120KB) ve `loading="lazy"` nitelikli olmalıdır.
-3. **Mobilde Sıfır Takılma (No-Jank):**
-   - Telefondaki gezinmede donma/kasma kabul edilmez.
-   - Mobilde ağır `backdrop-blur`, dev blur gölgeler veya tam ekranı bloke eden perdeler yasaktır; animasyonlar sadece `transform` ve `opacity` ile sınırlıdır.
-4. **Tıklamalarda İçeriğe Kaydırma:**
-   - Kategori sekmesi, adım veya filtre değiştiğinde kullanıcıyı ilgili içeriğin başına kaydırın ([src/lib/scroll.ts](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/src/lib/scroll.ts) içindeki `scrollToSection`).
-5. **Tipografi Standartları:**
-   - Marka adı: `font-brand` (Montserrat 800, uppercase, geniş harf aralığı).
-   - Başlık ve gövde: Plus Jakarta Sans (`tracking-tight` -0.015em; Türkçe harfler İ, Ö, Ü, Ğ sıkışmayacak/çakışmayacak).
-   - Başlık satır yüksekliği 1.15–1.2, gövde satır yüksekliği `leading-relaxed` (1.65), mobilde gövde boyutu ≥15px.
-   - Eyebrow (etiket): 12–13px, `font-bold`, `tracking-[0.08em]`. Gövde içinde büyük harfle bağırma yapılmaz.
-   - Alıntı ve vurgu: `font-serif` (Lora italik) — yalnızca kurucu sözü ve alıntılarda.
+1. **İçerik Sadakati (EN ÖNEMLİ KURAL):**
+   - Sitedeki tüm metinlerin tek yasal kaynağı `docs/MUSTERI_METNI.md` belgesidir.
+   - Uydurma garanti ("Garantili", "%100 sınav garantisi"), yapay istatistik, hayali rozet, uydurma süreç adımı **KESİNLİKLE YASAKTIR**.
+   - İstanbul'un 39 ilçesinde yüz yüze (evde), Türkiye'nin 81 ilinde canlı online ayrımı net olarak korunmalıdır.
+2. **Görsel ve Performans Disiplini:**
+   - Sayfa başına **en fazla 1 ana görsel** (ana sayfada en fazla 2). Asla kontrolsüz fotoğraf eklenmez.
+   - Yeni görsel eklenecekse önce Node.js `sharp` ile `mozjpeg` sıkıştırmasından geçirilip ≤100 KB seviyesine indirilmelidir.
+   - Tüm `<img>` etiketlerinde `loading="lazy"` ve `decoding="async"` bulunmalıdır.
+3. **Tipografi ve Kutu Çarpışması Koruması:**
+   - H1 başlıkları içinde metinlerin üstüne taşan kalın arka plan kutuları (`inline-block bg-white ...`) konulmamalıdır; satır aralıkları ferah tutulmalıdır.
+   - Başlık satır yüksekliği 1.15–1.2, gövde satır yüksekliği `leading-relaxed` (1.65). Mobilde gövde yazı boyutu ≥15px olmalıdır.
+   - Alıntılar ve kurucu sözleri haricinde italik/serif font kullanılmaz; ana tipografi sans-serif'tir (`Plus Jakarta Sans`, `Montserrat`).
+4. **Hero 4-Stat Şerit Simetrisi:**
+   - Hero altlarındaki 4 sütunlu şeritlerde rakamların rengi tek tip beyaz (`text-white font-extrabold`) olmalıdır; araya clashing kırmızı rakam sıkıştırılmamalıdır.
+   - 4 metrik tüm sayfalarda tutarlıdır: `33 Yıl Köklü Deneyim`, `%100 Maarif Modeli`, `39 İlçe İstanbul Yüz Yüze`, `81 İl Canlı Online Eğitim`.
 
 ---
 
-## 5. Komutlar (Commands)
+## 5. Çalıştırma ve Dağıtım Komutları
 
 ```bash
-# Geliştirme sunucusu
+# 1. Geliştirme sunucusunu başlatma (http://localhost:3000)
 npm run dev
 
-# TypeScript tip kontrolü
+# 2. TypeScript tip denetimi (0 hata kuralı)
 npm run typecheck
 
-# Standart Next.js derlemesi
+# 3. Yerel derleme testi (Static export kontrolü)
 npm run build
 
-# Korumalı GitHub Pages önizleme derlemesi (static export)
+# 4. Korumalı GitHub Pages CDN önizleme derlemesi
 npm run build:preview
 
-# Canlı yayın derlemesi (Cloudflare Pages için static export)
-npm run build:production
-
-# Korumalı önizlemeyi GitHub Pages CDN'e yükleme (gh auth gerektirir)
+# 5. Korumalı CDN önizlemesini GitHub Pages'a yükleme (gh-pages dalına force push)
 npm run deploy:preview
 
-# Headless Chrome ile mobil/tablet/desktop görsel kalite denetimi (qa-shots/ çıktısı)
+# 6. Canlı yayın derlemesi (Cloudflare Pages için)
+npm run build:production
+
+# 7. Headless Chrome ile 40 ekran görüntülü görsel ve taşma denetimi
 npm run audit:visual
 ```
 
 ---
 
-## 6. Ortam Değişkenleri (Environment Variables)
+## 6. Açık İşler / Müşteriden Beklenenler (Pending Tasks)
 
-| Değişken | Değer / Amaç |
-| :--- | :--- |
-| `STATIC_EXPORT` | `true` verildiğinde `next.config.ts` statik dışa aktarım (`output: "export"`) moduna geçer ve `out/` dizinini üretir. |
-| `NEXT_PUBLIC_BASE_PATH` | GitHub Pages CDN alt dizini için yol ön eki (örn: `/aybar-akademi`). Boş ise kök dizin kullanılır. |
-| `NEXT_PUBLIC_PREVIEW_MODE` | `true` olduğunda alan adı kilidi, sağ tık/metin kopyalama engeli, Google `noindex` ve `EROĞLU SOLUTIONS · ÖNİZLEME` filigranı devreye girer. Canlı yayında tanımlanmaz. |
+Claude Code ile devam ederken tamamlanması gereken nihai operasyonel adımlar:
 
----
-
-## 7. Dağıtım Mimarisi (Deployment)
-
-1. **Korumalı Müşteri Önizlemesi (GitHub Pages CDN):**
-   - URL: `https://erog1u.github.io/aybar-akademi/`
-   - Dağıtım: `npm run deploy:preview` (`scripts/deploy-preview.sh`)
-   - Kod gizliliği, alan adı kilidi, kopya koruması ve filigran otomatik aktiftir.
-2. **Kalıcı Canlı Yayın (Cloudflare Pages):**
-   - Kaynak kodlar gizli (Private) depoda tutulur.
-   - Cloudflare Pages Build Ayarı: `STATIC_EXPORT=true npm run build`, Çıktı: `out`.
-   - `NEXT_PUBLIC_PREVIEW_MODE` eklenmez; böylece kilitler ve filigran otomatik kalkar, Google indekslemesi açılır.
-   - Detaylı adımlar için: [docs/CANLIYA_ALMA_REHBERI.md](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/docs/CANLIYA_ALMA_REHBERI.md).
-
----
-
-## 8. Açık İşler / Yapılacaklar (Pending Tasks)
-
-- [ ] **Müşteri Telefon Numarası:** Müşteriden kesin telefon numarası ve WhatsApp hattı geldiğinde [src/config/site.ts](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/src/config/site.ts) (`phoneDisplay`, `phoneHref`, `whatsappNumber`) güncellenecek.
-- [ ] **Müşteri Logosu:** Müşteri logoda küçük bir değişiklik yapabileceğini bildirdi; güncel logo geldiğinde `public/images/` altına eklenip [src/config/site.ts](file:///Users/tahaereneroglu/.gemini/antigravity/scratch/aybar-akademi/src/config/site.ts) güncellenecek.
-- [ ] **Ajans Bağlantısı:** `eroglusolutions.com` bağlantısı ve alt bilgi imzası teyit edilecek.
-- [ ] **Canlı Alan Adı:** Alan adı (`aybarakademi.com` / `aybarakademi.com.tr`) tescil edilip Cloudflare Pages üzerine bağlanacak.
+- [ ] **Müşteri Telefon Numarası:** Müşteriden nihai kurumsal telefon ve WhatsApp hattı geldiğinde sadece `src/config/site.ts` dosyasındaki `phoneDisplay`, `phoneHref` ve `whatsappNumber` alanları güncellenecektir.
+- [ ] **Müşteri Logosu:** Müşteri mevcut logoda ufak bir revize yapabileceğini belirtmiştir; yeni dosya gelirse `public/images/` altına konulup `src/config/site.ts` içindeki dosya adresi güncellenecektir.
+- [ ] **Ajans Bağlantısı:** `eroglusolutions.com` bağlantısı ve alt bilgi imzası teyit edilecektir.
+- [ ] **Cloudflare Pages Canlı Yayını:** Müşteri alan adı (`aybarakademi.com`) onaylandığında `docs/CANLIYA_ALMA_REHBERI.md` adımları takip edilerek Cloudflare Pages'a bağlanacaktır.
