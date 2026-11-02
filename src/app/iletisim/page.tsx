@@ -47,12 +47,17 @@ export default function IletisimPage() {
       <Breadcrumbs items={[{ label: "İletişim" }]} />
 
       {/* 1. Canlı ve Ferah Cobalt Başlık */}
-      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20 relative">
+        <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-xs">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
                 <span>30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI</span>
               </div>
 
@@ -70,37 +75,37 @@ export default function IletisimPage() {
             </div>
 
             <div className="lg:col-span-4 flex justify-center lg:justify-end relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="p-6 rounded-2xl bg-white/10 border border-white/15 text-center relative z-10 shadow-sm backdrop-blur-sm">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="p-6 rounded-2xl bg-white/10 border border-white/20 text-center relative z-10 shadow-studio backdrop-blur-md">
                 <AybarInstitutionalSeal variant="dark" />
               </div>
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 İletişim & Erişim Sütunu */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-center gap-3.5">
+          {/* Hero Tabanı: 4 İletişim & Erişim Sütunu (Ferah Cam Panel Kartları) */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">İstanbul</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">39 İlçede Yüz Yüze</strong>
                 Evinizin konforunda özel ders
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Canlı Online</strong>
                 Tüm Türkiye’de interaktif
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">Birebir</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">VIP Danışmanlık</strong>
                 Kişiye özel süreç yönetimi
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">Direkt</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">WhatsApp Hattı</strong>
@@ -204,6 +209,21 @@ export default function IletisimPage() {
                     placeholder="Sınıf düzeyi, hedef sınav veya ilçe bilgisi..."
                     className="w-full rounded-xl px-4 py-2.5 text-sm sm:text-base bg-paper border border-cobalt-900/10 focus:outline-none focus:border-cobalt-700 text-ink placeholder:text-ink-subtle"
                   />
+                </div>
+
+                {/* Canlı WhatsApp Mesaj Önizlemesi (Cancan & Şeffaflık) */}
+                <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200/60 text-xs sm:text-[13px] text-emerald-950 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-emerald-800">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>WhatsApp Mesaj Önizlemesi:</span>
+                  </div>
+                  <div className="font-mono text-[11px] sm:text-xs text-emerald-900 bg-white/80 p-2.5 rounded-lg border border-emerald-200/50 leading-relaxed space-y-0.5">
+                    <div>Merhaba, AYBAR AKADEMİ birebir özel ders ve 30 dakikalık ücretsiz tanışma seansı için bilgi almak istiyorum.</div>
+                    <div>• Eğitim Alanı: <strong className="font-bold">{selectedProgram}</strong></div>
+                    <div>• Ders Tercihi: <strong className="font-bold">{format}</strong></div>
+                    {studentName.trim() && <div>• Öğrenci/Veli: <strong className="font-bold">{studentName.trim()}</strong></div>}
+                    {note.trim() && <div>• Not: <strong className="font-bold">{note.trim()}</strong></div>}
+                  </div>
                 </div>
 
                 <button

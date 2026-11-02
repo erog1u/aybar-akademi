@@ -11,8 +11,12 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp İletişim"
-        className="h-[52px] w-[52px] sm:h-12 sm:w-auto sm:px-5 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] active:scale-95 text-white shadow-lg flex items-center justify-center sm:gap-2.5 text-sm font-bold transition-all hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
+        className="relative h-[52px] w-[52px] sm:h-12 sm:w-auto sm:px-5 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] active:scale-95 text-white shadow-xl flex items-center justify-center sm:gap-2.5 text-sm font-bold transition-all hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
       >
+        <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+          <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80" />
+          <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-400 border-2 border-white shadow-sm" />
+        </span>
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6 sm:h-5 sm:w-5 fill-current shrink-0"

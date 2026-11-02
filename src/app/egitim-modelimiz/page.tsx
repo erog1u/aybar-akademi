@@ -21,12 +21,17 @@ export default function EgitimModelimizPage() {
       <Breadcrumbs items={[{ label: "Eğitim Modelimiz" }]} />
 
       {/* 1. Canlı ve Ferah Cobalt Hero */}
-      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20 relative">
+        <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-xs">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
                 <span>{educationModelContent.eyebrow}</span>
               </div>
 
@@ -60,13 +65,17 @@ export default function EgitimModelimizPage() {
             </div>
 
             <div className="lg:col-span-5 w-full relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>VIP Süreç Koçluğu</span>
+              </div>
               <PhotoFrame
                 src={assetPath("/images/vip-mentorship.jpg")}
                 alt={educationModelContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
-                className="relative z-10"
+                className="relative z-10 shadow-studio"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
@@ -80,30 +89,30 @@ export default function EgitimModelimizPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Aşamalı Model Şeridi */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-center gap-3.5">
+          {/* Hero Tabanı: 4 Aşamalı Model Şeridi (Ferah Cam Panel Kartları) */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">VIP Süreç</strong>
                 Kişiye özel yol haritası
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Eğitim Koçluğu</strong>
                 Zaman ve sınav stratejisi
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Temel Taşlar</strong>
                 Birebir tam öğrenme modeli
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">04</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Güçlü Köprü</strong>
@@ -233,6 +242,67 @@ export default function EgitimModelimizPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Bütüncül Başarı Ekosistemi — 4 Yönlü Destek Modeli */}
+      <section className="py-14 sm:py-20 bg-cobalt-950 text-white border-t border-cobalt-900 overflow-hidden relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cobalt-700/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+              BÜTÜNCÜL SİSTEM
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mt-1.5">
+              4 Yönlü Başarı Ekosistemi
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-cobalt-200 leading-relaxed">
+              Öğrenciyi merkezine alan, koçluk ve aile iş birliğiyle desteklenen kusursuz bir başarı köprüsü.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
+              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+                01
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Uzman Branş Öğretmeni</h3>
+              <p className="text-xs sm:text-sm text-cobalt-200 leading-relaxed">
+                Maarif Modeline hâkim uzmanlıkla, öğrencinin anlama hızına göre birebir anlatım ve Active Recall teknikleri.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
+              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+                02
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Eğitim Koçu & Mentorluk</h3>
+              <p className="text-xs sm:text-sm text-cobalt-200 leading-relaxed">
+                Zaman yönetimi, sınav stratejisi ve kaygı kontrolüyle motivasyonu sürekli zirvede tutan profesyonel rehberlik.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
+              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+                03
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Şeffaf Veli İletişimi</h3>
+              <p className="text-xs sm:text-sm text-cobalt-200 leading-relaxed">
+                Her ders bitiminde WhatsApp üzerinden detaylı ders sonu raporu ve aylık periyotlarla somut net artış analizleri.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
+              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+                04
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Okul & Sınav Uyumu</h3>
+              <p className="text-xs sm:text-sm text-cobalt-200 leading-relaxed">
+                Okul yazılı sınavları, LGS/YKS/KPSS takvimi ve MEB kazanımlarıyla %100 eşzamanlı ve planlı ilerleyiş.
+              </p>
             </div>
           </div>
         </div>

@@ -21,12 +21,17 @@ export default function NedenFarkliyizPage() {
       <Breadcrumbs items={[{ label: "Neden Farklıyız?" }]} />
 
       {/* 1. Canlı ve Ferah Cobalt Hero */}
-      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20 relative">
+        <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-badge-breathe" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/12 border border-white/25 text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase mb-5 shadow-sm backdrop-blur-xs">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
                 <span>{whyDifferentContent.eyebrow}</span>
               </div>
 
@@ -60,13 +65,17 @@ export default function NedenFarkliyizPage() {
             </div>
 
             <div className="lg:col-span-5 w-full relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/25 via-indigo-400/15 to-sky-300/25 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
+              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Kişiye Özel Hata Defteri</span>
+              </div>
               <PhotoFrame
                 src={assetPath("/images/exam-strategy-notebook.jpg")}
                 alt={whyDifferentContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority
-                className="relative z-10"
+                className="relative z-10 shadow-studio"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
                     <span className="flex items-center gap-1.5">
@@ -80,30 +89,30 @@ export default function NedenFarkliyizPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 5 Standart İlke Özeti */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-center gap-3.5">
+          {/* Hero Tabanı: 5 Standart İlke Özeti (Ferah Cam Panel Kartları) */}
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">İlk Tanışma</strong>
                 Öğrenme stili ve önyargı analizi
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Yenilikçi Yöntem</strong>
                 Flipped classroom & active recall
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Hata Defteri</strong>
                 Eksikleri sıfırlama tekniği
               </div>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">04</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Veli İletişimi</strong>

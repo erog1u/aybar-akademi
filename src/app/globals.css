@@ -148,8 +148,8 @@
     transform: scale(0.98);
   }
   100% {
-    opacity: 0.65;
-    transform: scale(1.04);
+    opacity: 0.75;
+    transform: scale(1.06);
   }
 }
 
@@ -164,13 +164,46 @@
     opacity: 0.9;
   }
   50% {
-    transform: scale(1.08);
+    transform: scale(1.12);
     opacity: 1;
   }
 }
 
 .animate-badge-breathe {
   animation: badge-breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.radar-beacon {
+  animation: radar-pulse 2s infinite;
 }
 
 .interactive-lift {
@@ -181,8 +214,19 @@
 }
 
 .interactive-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -4px rgba(0, 68, 181, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(0, 68, 181, 0.16);
+}
+
+.glow-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -8px rgba(0, 68, 181, 0.18);
+  border-color: rgba(0, 68, 181, 0.45);
 }
 
 @keyframes shimmer-sweep {
