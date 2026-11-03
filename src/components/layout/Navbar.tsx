@@ -270,14 +270,9 @@ export default function Navbar() {
 
         {/* B. KAYDIRILABİLİR İÇERİK ALANI — Sadece bu alan kayar; başlık ve alt butonlar her an sabittir */}
         <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-5 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-bold mb-1">
-            <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
-            <span>30 Dk Ücretsiz Tanışma Seansı</span>
-          </div>
-
           <nav
             aria-label="Mobil Menü Linkleri"
-            className="space-y-1.5 pt-1"
+            className="space-y-1.5"
           >
             {siteConfig.navigation.map((item, idx) => {
               const isActive =

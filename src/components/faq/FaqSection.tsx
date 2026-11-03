@@ -60,69 +60,70 @@ export default function FaqSection({
   lead = "VIP özel ders sürecimiz, Maarif Modeli uyumumuz ve veli bilgilendirme sistemimiz hakkında merak edilenler.",
   className = "",
 }: FaqSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  // Varsayılan olarak tüm maddeler kapalı (null) — Sadece tıklanınca açılır
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (idx: number) => {
     setOpenIndex((prev) => (prev === idx ? null : idx));
   };
 
   return (
-    <section className={`py-14 sm:py-20 bg-paper-warm/50 border-t border-cobalt-900/10 ${className}`}>
+    <section className={`py-10 sm:py-14 bg-paper-warm/40 border-t border-cobalt-900/10 ${className}`}>
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="max-w-3xl mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cobalt-100/70 border border-cobalt-200 text-cobalt-900 text-xs sm:text-[13px] font-bold tracking-wide uppercase mb-3">
+        <div className="max-w-3xl mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cobalt-100/70 border border-cobalt-200 text-cobalt-900 text-xs font-bold tracking-wide uppercase mb-2">
             <HelpCircle className="h-3.5 w-3.5 text-cobalt-700" />
             <span>Merak Edilenler</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink tracking-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-ink tracking-tight">
             {heading}
           </h2>
-          <p className="mt-3 text-[15px] sm:text-base text-ink-muted leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-ink-muted leading-relaxed">
             {lead}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-8 space-y-3.5">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+          <div className="lg:col-span-8 space-y-2.5">
             {FAQ_DATA.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? "bg-white border-crimson-500/50 shadow-lg ring-1 ring-crimson-500/20"
-                      : "bg-white border-cobalt-900/10 hover:border-crimson-300 hover:shadow-sm"
+                      ? "bg-white border-crimson-500/50 shadow-md ring-1 ring-crimson-500/20"
+                      : "bg-white border-cobalt-900/10 hover:border-crimson-300 hover:shadow-xs"
                   }`}
                 >
                   <button
                     type="button"
                     onClick={() => toggleItem(idx)}
                     aria-expanded={isOpen}
-                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none rounded-2xl"
+                    className="w-full text-left p-3.5 sm:p-4 flex items-center justify-between gap-3 cursor-pointer focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none rounded-xl"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className={`text-xs font-black px-2.5 py-1 rounded-lg transition-colors ${
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className={`text-[11px] font-black px-2 py-0.5 rounded-md shrink-0 transition-colors ${
                         isOpen
-                          ? "text-crimson-700 bg-crimson-50 border border-crimson-200/60 shadow-xs"
+                          ? "text-crimson-700 bg-crimson-50 border border-crimson-200/60"
                           : "text-cobalt-700 bg-cobalt-50"
                       }`}>
                         0{idx + 1}
                       </span>
-                      <h3 className={`text-base sm:text-[17px] font-bold leading-snug transition-colors ${
-                        isOpen ? "text-cobalt-950" : "text-ink"
+                      <h3 className={`text-sm sm:text-[15px] font-bold leading-snug transition-colors ${
+                        isOpen ? "text-cobalt-950 font-extrabold" : "text-ink"
                       }`}>
                         {item.question}
                       </h3>
                     </div>
                     <ChevronDown
-                      className={`h-5 w-5 shrink-0 transition-transform duration-300 ${
+                      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-crimson-600" : "text-cobalt-700"
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-[15px] sm:text-base text-ink-muted leading-relaxed border-t border-cobalt-900/5">
+                    <div className="px-4 sm:px-5 pb-4 pt-1 text-xs sm:text-sm text-ink-muted leading-relaxed border-t border-cobalt-900/5 bg-paper/40">
                       <p>{item.answer}</p>
                     </div>
                   )}
@@ -131,30 +132,30 @@ export default function FaqSection({
             })}
           </div>
 
-          {/* Sağ Kolon: Hızlı Bilgi & WhatsApp Danışma Kartı */}
-          <div className="lg:col-span-4 bg-white rounded-2xl border border-cobalt-900/12 p-6 sm:p-7 shadow-sm sticky top-24">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-crimson-600">
+          {/* Sağ Kolon: Hızlı Bilgi & WhatsApp Danışma Kartı (Kompakt) */}
+          <div className="lg:col-span-4 bg-white rounded-2xl border border-cobalt-900/12 p-5 sm:p-6 shadow-sm sticky top-24">
+            <span className="text-[11px] font-extrabold uppercase tracking-wider text-crimson-600">
               Sorunuz mu var?
             </span>
-            <h4 className="text-lg font-bold text-ink mt-1">
+            <h4 className="text-base sm:text-lg font-bold text-ink mt-0.5">
               Size Özel Bilgilendirme
             </h4>
-            <p className="text-sm text-ink-muted mt-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-ink-muted mt-1.5 leading-relaxed">
               Öğrencinizin sınıf düzeyi, ihtiyaç duyduğu branşlar ve 30 dakikalık
               ücretsiz tanışma seansı için doğrudan eğitim danışmanımızla
               görüşebilirsiniz.
             </p>
 
-            <div className="mt-5 pt-5 border-t border-cobalt-900/10 space-y-3">
+            <div className="mt-4 pt-4 border-t border-cobalt-900/10 space-y-2.5">
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] active:scale-[0.98] text-white py-3 px-4 rounded-xl text-sm font-bold shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] active:scale-[0.98] text-white py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
               >
                 <span>WhatsApp ile Danışın</span>
               </a>
-              <div className="text-center text-xs text-ink-muted">
+              <div className="text-center text-[11px] text-ink-subtle">
                 30 Dk Ücretsiz Tanışma Seansı
               </div>
             </div>
