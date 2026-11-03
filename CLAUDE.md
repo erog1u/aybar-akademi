@@ -101,16 +101,16 @@ aybar-akademi/
    - Uydurma garanti ("Garantili", "%100 sınav garantisi"), yapay istatistik, hayali rozet, uydurma süreç adımı **KESİNLİKLE YASAKTIR**.
    - Hizmet alanı müşteri metnindeki gibi yazılır: İstanbul’un tüm ilçelerinde yüz yüze (evde), tüm Türkiye’de canlı online. "39 ilçe", "81 il" ve "%100 Maarif uyumu" yazılmaz.
 2. **Görsel ve Performans Disiplini:**
-   - Sayfa başına **en fazla 1 ana görsel** (ana sayfada en fazla 2). Asla kontrolsüz fotoğraf eklenmez.
+   - Ana sayfada alt görsel kadın öğretmen ve kız öğrencidir (`hero-one-on-one.jpg`). Erkeğin kıza ders anlattığı görsel (`maarif-academic-mentorship.jpg`) yalnız Hakkımızda sayfasındadır. Ana sayfa kahramanında sloganlı görseller 5 saniyede bir kayar.
    - Yeni görsel eklenecekse önce Node.js `sharp` ile `mozjpeg` sıkıştırmasından geçirilip ≤100 KB seviyesine indirilmelidir.
    - Tüm `<img>` etiketlerinde `loading="lazy"` ve `decoding="async"` bulunmalıdır.
 3. **Tipografi ve Kutu Çarpışması Koruması:**
    - H1 başlıkları içinde metinlerin üstüne taşan kalın arka plan kutuları (`inline-block bg-white ...`) konulmamalıdır; satır aralıkları ferah tutulmalıdır.
    - Başlık satır yüksekliği 1.15–1.2, gövde satır yüksekliği `leading-relaxed` (1.65). Mobilde gövde yazı boyutu ≥15px olmalıdır.
    - Alıntılar ve kurucu sözleri haricinde italik/serif kullanılmaz. Gövde ve marka yazısı Plus Jakarta Sans'tır. Lora yalnızca alıntıda, JetBrains Mono kodda kullanılır.
-4. **Hero 4-Stat Şerit Simetrisi:**
-   - Hero altlarındaki 4 sütunlu şeritlerde rakamların rengi tek tip beyaz (`text-white font-extrabold`) olmalıdır; araya clashing kırmızı rakam sıkıştırılmamalıdır.
-   - Sitede “30 dakika”, “30 dk” ve ilk dersin ücretsiz olduğuna dair ifade bulunmaz.
+4. **Ortak kahraman ve başlık:**
+   - Sayfa sloganları `PageHero`, bölüm başlıkları `SectionHeading` ile aynı ölçekte durur. Hero altında 4 sütunlu istatistik şeridi yoktur.
+   - Sitede “30 dakika”, “30 dk” ve ilk dersin ücretsiz olduğuna dair ifade bulunmaz. Düğmeler “Hemen Hızlı Teklif Alın!” veya “Bilgi Al” der.
 
 ---
 
