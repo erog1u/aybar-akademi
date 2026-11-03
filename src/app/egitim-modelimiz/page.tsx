@@ -38,7 +38,20 @@ export default function EgitimModelimizPage() {
               <MaskedLines
                 as="h1"
                 className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[educationModelContent.headline]}
+                lines={[
+                  "Ezberci Değil; Bütüncül,",
+                  <span
+                    key="model-crimson-box"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                  >
+                    <span className="relative z-10">Birebir ve Kişiye Özel.</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
+                    </span>
+                  </span>,
+                ]}
               />
 
               <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
@@ -123,13 +136,31 @@ export default function EgitimModelimizPage() {
         </div>
       </section>
 
+      {/* Mobil Hızlı Aşama Atlama Çubuğu (Mobilde PC ile Eşit Konfor ve Zenginlik) */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10 px-4 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-xs">
+        <span className="text-[11px] font-black uppercase text-crimson-600 shrink-0 pr-1 border-r border-cobalt-900/10">
+          Aşamalar:
+        </span>
+        {sections.map((sec, idx) => (
+          <a
+            key={sec.code}
+            href={`#asama-${sec.code}`}
+            className="shrink-0 px-3 py-1.5 rounded-lg bg-paper border border-cobalt-900/10 text-xs font-bold text-ink active:scale-95 hover:bg-crimson-50 hover:text-crimson-700 hover:border-crimson-300 transition-colors flex items-center gap-1.5"
+          >
+            <span className="font-mono text-[11px] text-crimson-600 font-extrabold">0{idx + 1}</span>
+            <span>{sec.shortTitle}</span>
+          </a>
+        ))}
+      </div>
+
       {/* 2. Dört Temel Aşama — Mimari ve Ferah Düzen (Kutucuk Yığını Yok!) */}
       <section id="model-asamalari" className="py-12 sm:py-16 lg:py-24 scroll-mt-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Sol Sütun — Masaüstünde Sabit Model Rehberi */}
             <div className="lg:col-span-4 lg:sticky lg:top-28">
-              <div className="rounded-2xl bg-white p-6 sm:p-7 border border-cobalt-900/10 shadow-sm">
+              <div className="rounded-2xl bg-white p-6 sm:p-7 border border-cobalt-900/10 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
                 <span className="text-xs font-extrabold uppercase tracking-widest text-crimson-600">
                   Bütüncül Sistem
                 </span>
@@ -149,12 +180,12 @@ export default function EgitimModelimizPage() {
                       className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-cobalt-50 transition-colors text-xs sm:text-sm font-bold text-ink"
                     >
                       <span className="flex items-center gap-2.5">
-                        <span className="h-6 w-6 rounded-md bg-cobalt-100 group-hover:bg-cobalt-700 group-hover:text-white text-cobalt-800 flex items-center justify-center text-xs font-extrabold transition-colors">
+                        <span className="h-6 w-6 rounded-md bg-cobalt-100 group-hover:bg-crimson-600 group-hover:text-white text-cobalt-800 flex items-center justify-center text-xs font-extrabold transition-colors">
                           0{idx + 1}
                         </span>
                         <span>{sec.shortTitle}</span>
                       </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-cobalt-400 group-hover:translate-x-1 group-hover:text-cobalt-700 transition-all" />
+                      <ArrowRight className="h-3.5 w-3.5 text-cobalt-400 group-hover:translate-x-1 group-hover:text-crimson-600 transition-all" />
                     </a>
                   ))}
                 </nav>
@@ -164,7 +195,7 @@ export default function EgitimModelimizPage() {
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 text-white py-3 px-4 text-xs sm:text-sm font-bold transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 active:scale-95 text-white py-3 px-4 text-xs sm:text-sm font-bold transition-all shadow-sm"
                   >
                     <span>30 Dk Ücretsiz Tanışma Planla</span>
                   </a>
@@ -178,21 +209,22 @@ export default function EgitimModelimizPage() {
                 <article
                   key={sec.code}
                   id={`asama-${sec.code}`}
-                  className="rounded-2xl bg-white p-6 sm:p-9 lg:p-10 border border-cobalt-900/10 shadow-sm scroll-mt-24"
+                  className="rounded-2xl bg-white p-6 sm:p-9 lg:p-10 border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 scroll-mt-24 relative overflow-hidden group"
                 >
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
                   {/* Aşama Başlık Alanı */}
                   <div className="flex items-start justify-between gap-4 pb-6 border-b border-cobalt-900/10">
                     <div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-black mb-3 border border-crimson-200/50">
-                        <span className="h-2 w-2 rounded-full bg-crimson-600" />
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-black mb-3 shadow-crimson">
+                        <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                         <span>Aşama 0{idx + 1}</span>
                       </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-ink tracking-tight leading-snug">
+                      <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-ink tracking-tight leading-snug group-hover:text-cobalt-950 transition-colors">
                         {sec.title}
                       </h3>
                     </div>
 
-                    <span className="hidden sm:block font-brand text-4xl lg:text-5xl font-black text-crimson-600/15 select-none shrink-0">
+                    <span className="hidden sm:block font-brand text-4xl lg:text-5xl font-black text-crimson-600/20 select-none shrink-0 group-hover:text-crimson-600/35 transition-colors">
                       0{idx + 1}
                     </span>
                   </div>

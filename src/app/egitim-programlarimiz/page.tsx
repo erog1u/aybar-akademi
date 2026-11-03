@@ -30,7 +30,20 @@ export default function EgitimProgramlarimizPage() {
               <MaskedLines
                 as="h1"
                 className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[programsIntro.headline]}
+                lines={[
+                  "İlkokuldan Üniversiteye,",
+                  <span
+                    key="programs-crimson-box"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                  >
+                    <span className="relative z-10">Kapsamlı ve Birebir Eğitim.</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
+                    </span>
+                  </span>,
+                ]}
               />
 
               <p className="mt-5 text-[15.5px] sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">

@@ -38,7 +38,20 @@ export default function NedenFarkliyizPage() {
               <MaskedLines
                 as="h1"
                 className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[whyDifferentContent.headline]}
+                lines={[
+                  "Eğitimde Fark Yaratan",
+                  <span
+                    key="why-crimson-box"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                  >
+                    <span className="relative z-10">5 Temel Standart.</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
+                    </span>
+                  </span>,
+                ]}
               />
 
               <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
@@ -123,6 +136,23 @@ export default function NedenFarkliyizPage() {
         </div>
       </section>
 
+      {/* Mobil Hızlı İlke Atlama Çubuğu (Mobilde PC ile Eşit Konfor ve Zenginlik) */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10 px-4 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-xs">
+        <span className="text-[11px] font-black uppercase text-crimson-600 shrink-0 pr-1 border-r border-cobalt-900/10">
+          İlkeler:
+        </span>
+        {principles.map((p, pIdx) => (
+          <a
+            key={p.step}
+            href={`#ilke-${p.step}`}
+            className="shrink-0 px-3 py-1.5 rounded-lg bg-paper border border-cobalt-900/10 text-xs font-bold text-ink active:scale-95 hover:bg-crimson-50 hover:text-crimson-700 hover:border-crimson-300 transition-colors flex items-center gap-1.5"
+          >
+            <span className="font-mono text-[11px] text-crimson-600 font-extrabold">0{pIdx + 1}</span>
+            <span className="whitespace-nowrap">{p.title.split(" ")[0]}</span>
+          </a>
+        ))}
+      </div>
+
       {/* 2. 5 Standart İlke — Ferah, Şeffaf ve Kusursuz Okuma Mimarisi */}
       <section id="ilkeler" className="py-12 sm:py-16 lg:py-24 scroll-mt-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -143,9 +173,10 @@ export default function NedenFarkliyizPage() {
             {principles.map((p, pIdx) => (
               <div
                 key={p.step}
-                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-crimson-500/50 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group"
+                id={`ilke-${p.step}`}
+                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-crimson-500/50 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group scroll-mt-24"
               >
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
                   {/* Sol Başlık Kolonu */}
                   <div className="lg:col-span-4">
@@ -153,8 +184,9 @@ export default function NedenFarkliyizPage() {
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-crimson-600 text-white text-xs font-black shadow-crimson group-hover:scale-105 transition-transform">
                         0{pIdx + 1}
                       </span>
-                      <span className="text-xs font-black uppercase tracking-wider text-crimson-700 bg-crimson-50 px-2.5 py-0.5 rounded-full border border-crimson-200/50">
-                        Standart İlke
+                      <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-crimson-700 bg-crimson-50 px-2.5 py-0.5 rounded-full border border-crimson-200/50">
+                        <span className="h-1.5 w-1.5 rounded-full bg-crimson-600 animate-pulse" />
+                        <span>Standart İlke</span>
                       </span>
                     </div>
 

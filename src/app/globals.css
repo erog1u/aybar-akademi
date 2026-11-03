@@ -22,6 +22,7 @@
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
     max-width: 100vw;
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -30,6 +31,10 @@
     width: 100%;
     position: relative;
     -webkit-overflow-scrolling: touch;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 
   img {

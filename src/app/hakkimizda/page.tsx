@@ -34,7 +34,20 @@ export default function HakkimizdaPage() {
               <MaskedLines
                 as="h1"
                 className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[aboutContent.headline]}
+                lines={[
+                  "33 Yıllık Köklü Eğitim Deneyimi ve",
+                  <span
+                    key="about-crimson-box"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                  >
+                    <span className="relative z-10">Yeni Nesil Maarif Modeli.</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
+                    </span>
+                  </span>,
+                ]}
               />
 
               <div className="mt-6 space-y-4 text-base sm:text-lg text-cobalt-50/95 leading-relaxed">
@@ -128,7 +141,7 @@ export default function HakkimizdaPage() {
                 key={sol.index}
                 className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
               >
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
                 <div>
                   <span className="inline-flex items-center justify-center h-8 px-3 rounded-xl text-xs font-black mb-4 bg-crimson-600 text-white shadow-crimson group-hover:scale-105 transition-transform">
                     {sol.index}
@@ -162,13 +175,15 @@ export default function HakkimizdaPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="rounded-2xl bg-white text-ink border border-cobalt-900/10 shadow-sm p-7 sm:p-9 flex flex-col justify-between">
+            <div className="rounded-2xl bg-white text-ink border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-extrabold mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-extrabold mb-4 border border-crimson-200/50">
+                  <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
                   <MapPin className="h-3.5 w-3.5" />
                   <span>Yüz Yüze Özel Ders</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-cobalt-950">
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-cobalt-950 group-hover:text-crimson-600 transition-colors">
                   {aboutContent.reachItems[0].title}
                 </h3>
                 <p className="mt-3.5 text-base sm:text-[17px] text-ink-muted leading-relaxed">
@@ -177,13 +192,15 @@ export default function HakkimizdaPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white text-ink border border-cobalt-900/10 shadow-sm p-7 sm:p-9 flex flex-col justify-between">
+            <div className="rounded-2xl bg-white text-ink border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-extrabold mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-extrabold mb-4 border border-cobalt-200/50">
+                  <span className="h-2 w-2 rounded-full bg-cobalt-700 animate-pulse" />
                   <Globe2 className="h-3.5 w-3.5" />
                   <span>Canlı Online Eğitim</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-cobalt-950">
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-cobalt-950 group-hover:text-cobalt-700 transition-colors">
                   {aboutContent.reachItems[1].title}
                 </h3>
                 <p className="mt-3.5 text-base sm:text-[17px] text-ink-muted leading-relaxed">
@@ -193,7 +210,8 @@ export default function HakkimizdaPage() {
             </div>
           </div>
 
-          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-cobalt-900/10 text-center max-w-3xl mx-auto shadow-sm">
+          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-cobalt-900/10 text-center max-w-3xl mx-auto shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-100" />
             <p className="text-base sm:text-lg font-medium text-cobalt-950 leading-relaxed">
               {aboutContent.closingParagraph}
             </p>

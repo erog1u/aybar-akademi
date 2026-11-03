@@ -22,13 +22,13 @@ export default function Navbar() {
       }
     };
     if (mobileOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("menu-open");
       window.addEventListener("keydown", handleKeyDown);
     } else {
-      document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
     }
     return () => {
-      document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [mobileOpen]);
@@ -128,7 +128,7 @@ export default function Navbar() {
               aria-label="Menüyü Aç"
               aria-expanded={mobileOpen}
               aria-controls="mobile-drawer"
-              className="lg:hidden h-10 px-3 rounded-lg bg-cobalt-950 active:scale-95 text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none shadow-sm"
+              className="lg:hidden h-10 px-3 rounded-lg bg-cobalt-950 active:scale-95 text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none shadow-sm touch-manipulation"
             >
               <Menu className="h-4 w-4" />
               <span>Menü</span>
@@ -139,18 +139,22 @@ export default function Navbar() {
 
       {/* Donanım Hızlandırmalı CSS Mobil Çekmece — JS animasyon gecikmesi yok, %100 anında tepki */}
       <div
-        className={`fixed inset-0 z-[89] bg-cobalt-950/50 transition-opacity duration-200 ${
+        className={`fixed inset-0 z-[89] bg-cobalt-950/60 backdrop-blur-xs transition-opacity duration-300 ease-out touch-none ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileOpen(false)}
+        onTouchMove={(e) => {
+          if (mobileOpen) e.preventDefault();
+        }}
         aria-hidden="true"
       />
 
       <aside
         id="mobile-drawer"
-        className={`fixed top-0 right-0 bottom-0 z-[90] w-full max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto transition-transform duration-250 ease-out will-change-transform ${
+        className={`fixed inset-y-0 right-0 z-[90] w-full max-w-[340px] sm:max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto overscroll-contain transition-transform duration-300 ease-out will-change-transform transform-gpu ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ WebkitOverflowScrolling: "touch" }}
         aria-label="Mobil Menü Çekmecesi"
       >
         <div>
@@ -162,7 +166,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileOpen(false)}
               aria-label="Menüyü Kapat"
-              className="h-11 w-11 rounded-lg bg-paper-warm hover:bg-cobalt-50 text-ink flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+              className="h-11 w-11 rounded-lg bg-paper-warm hover:bg-cobalt-50 active:scale-95 text-ink flex items-center justify-center shrink-0 transition-all cursor-pointer touch-manipulation"
             >
               <X className="h-5 w-5" />
             </button>
@@ -184,7 +188,7 @@ export default function Navbar() {
                   href={item.href}
                   prefetch={true}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-all ${
+                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-all touch-manipulation ${
                     isActive
                       ? "bg-cobalt-950 text-white shadow-md border-l-4 border-crimson-600 pl-3.5"
                       : "text-ink hover:bg-cobalt-50 hover:text-cobalt-700"
@@ -212,14 +216,16 @@ export default function Navbar() {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full min-h-[48px] rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 shadow-sm transition-colors"
+            onClick={() => setMobileOpen(false)}
+            className="w-full min-h-[48px] rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-95 text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 shadow-sm transition-all touch-manipulation"
           >
             <span>WhatsApp ile İletişime Geç</span>
             <ArrowUpRight className="h-4 w-4 shrink-0" />
           </a>
           <a
             href={siteConfig.contact.phoneHref}
-            className="w-full min-h-[48px] rounded-xl bg-white border border-cobalt-900/15 hover:border-cobalt-700 text-ink py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 transition-colors"
+            onClick={() => setMobileOpen(false)}
+            className="w-full min-h-[48px] rounded-xl bg-white border border-cobalt-900/15 hover:border-cobalt-700 active:scale-95 text-ink py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 transition-all touch-manipulation"
           >
             <Phone className="h-4 w-4 text-cobalt-700 shrink-0" />
             <span>{siteConfig.contact.phoneDisplay}</span>

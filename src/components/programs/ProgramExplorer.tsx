@@ -144,23 +144,29 @@ export default function ProgramExplorer() {
                 key={cat.id}
                 type="button"
                 onClick={() => handleSelectCategory(cat.id)}
-                className={`shrink-0 sm:shrink min-h-[48px] px-3.5 py-2.5 rounded-xl text-left transition-all duration-300 flex items-center justify-between gap-2.5 cursor-pointer relative overflow-hidden ${
+                className={`shrink-0 sm:shrink min-h-[48px] px-3.5 py-2.5 rounded-xl text-left transition-all duration-300 flex items-center justify-between gap-2.5 cursor-pointer relative overflow-hidden active:scale-95 touch-manipulation ${
                   isActive
-                    ? "bg-crimson-600 text-white shadow-crimson ring-2 ring-crimson-400/30 scale-[1.02]"
-                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-crimson-300 border border-cobalt-900/10 shadow-sm"
+                    ? "bg-crimson-600 text-white shadow-crimson ring-2 ring-crimson-400/40 scale-[1.02]"
+                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-crimson-300 hover:-translate-y-0.5 border border-cobalt-900/10 shadow-sm"
                 }`}
               >
-                <div className="flex items-center gap-2 min-w-0">
+                {isActive && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-light-sweep pointer-events-none" />
+                )}
+                <div className="flex items-center gap-2 min-w-0 relative z-10">
                   <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-white" : "text-cobalt-700"}`} />
                   <span className="text-xs sm:text-[13px] font-bold whitespace-nowrap">
                     {cat.shortTitle}
                   </span>
                 </div>
-                <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shrink-0 ${
-                  isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700"
-                }`}>
-                  {cat.items.length}
-                </span>
+                <div className="flex items-center gap-1.5 shrink-0 relative z-10">
+                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />}
+                  <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
+                    isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700"
+                  }`}>
+                    {cat.items.length}
+                  </span>
+                </div>
               </button>
             );
           })}
@@ -271,9 +277,14 @@ export default function ProgramExplorer() {
               return (
                 <div
                   key={idx}
-                  className="md:col-span-2 rounded-2xl bg-cobalt-950 text-white p-6 sm:p-8 border border-cobalt-800"
+                  className="md:col-span-2 rounded-2xl bg-cobalt-950 text-white p-6 sm:p-8 border border-cobalt-800 relative overflow-hidden shadow-card"
                 >
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-400 to-crimson-600" />
                   <div className="flex items-center gap-1.5 text-xs font-bold text-crimson-400 mb-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-crimson-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-crimson-400" />
+                    </span>
                     <Sparkles className="h-3.5 w-3.5" />
                     <span>Özel Program</span>
                   </div>
@@ -309,7 +320,7 @@ export default function ProgramExplorer() {
                       href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-sm transition-colors whitespace-nowrap"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-95 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-crimson transition-all whitespace-nowrap"
                     >
                       <span>WhatsApp ile Bilgi Al</span>
                       <ArrowUpRight className="h-4 w-4" />
@@ -322,10 +333,11 @@ export default function ProgramExplorer() {
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
               >
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-ink">
+                  <h4 className="text-lg sm:text-xl font-bold text-ink group-hover:text-cobalt-950 transition-colors">
                     {item.title}
                   </h4>
 
@@ -350,7 +362,7 @@ export default function ProgramExplorer() {
                           <span key={sIdx}>
                             {sIdx > 0 && ", "}
                             {isCoaching ? (
-                              <span className="inline-block px-1.5 py-0.5 rounded bg-crimson-50 text-crimson-700 font-extrabold text-[11px] sm:text-xs">
+                              <span className="inline-block px-1.5 py-0.5 rounded bg-crimson-50 text-crimson-700 font-extrabold text-[11px] sm:text-xs border border-crimson-200/50">
                                 {sub}
                               </span>
                             ) : (
@@ -368,10 +380,10 @@ export default function ProgramExplorer() {
                     href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group"
+                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group/link"
                   >
                     <span>Bu Program İçin Danışma Planlayın</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                   </a>
                 </div>
               </div>

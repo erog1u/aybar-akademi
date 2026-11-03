@@ -76,7 +76,20 @@ export default function IletisimPage() {
               <MaskedLines
                 as="h1"
                 className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={["İletişim & Randevu Planlama"]}
+                lines={[
+                  "İletişim & Randevu Planlama",
+                  <span
+                    key="contact-crimson-box"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                  >
+                    <span className="relative z-10">30 Dk Ücretsiz Tanışma Seansı.</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
+                    </span>
+                  </span>,
+                ]}
               />
 
               <p className="mt-5 text-base sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
@@ -138,7 +151,7 @@ export default function IletisimPage() {
                 className="rounded-3xl bg-white p-6 sm:p-8 lg:p-9 border border-cobalt-900/10 shadow-sm space-y-6 relative overflow-hidden"
               >
                 {/* İnce Kırmızı Vurgu Çizgisi */}
-                <div className="absolute top-0 inset-x-0 h-1 bg-crimson-600" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
 
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-bold uppercase mb-2">
@@ -263,18 +276,22 @@ export default function IletisimPage() {
                 {/* Gönder Butonu */}
                 <button
                   type="submit"
-                  className="w-full min-h-[50px] inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-[0.99] text-white py-3 px-6 text-sm sm:text-base font-bold transition-all shadow-crimson cursor-pointer"
+                  className="relative overflow-hidden w-full min-h-[52px] inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white py-3.5 px-6 text-sm sm:text-base font-extrabold transition-all shadow-crimson cursor-pointer touch-manipulation group"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  <span>WhatsApp ile Hemen Gönder</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    <MessageCircle className="h-5 w-5" />
+                    <span>WhatsApp ile Hemen Gönder</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-light-sweep pointer-events-none" />
                 </button>
               </form>
             </div>
 
             {/* Sağ Sütun: Net ve Sade İletişim Bilgileri */}
             <div className="lg:col-span-5 space-y-5">
-              <div className="rounded-3xl bg-white p-6 sm:p-8 border border-cobalt-900/10 shadow-sm space-y-6">
+              <div className="rounded-3xl bg-white p-6 sm:p-8 border border-cobalt-900/10 shadow-sm space-y-6 relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
                 <div>
                   <span className="text-xs font-bold uppercase tracking-widest text-crimson-600">
                     DOĞRUDAN İLETİŞİM
