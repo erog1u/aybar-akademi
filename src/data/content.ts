@@ -442,11 +442,6 @@ export const whyDifferentContent = {
       title: "Ders Öncesi ve İlk Tanışma (Profesyonel Başlangıç)",
       items: [
         {
-          title: "30 Dakikalık Tanışma Seansı",
-          detail:
-            "İlk gün ve ilk derse özgü olarak konuya direkt girilmez; ders başlamadan önce 30 dakikalık ücretsiz bir keşif seansı yapılır.",
-        },
-        {
           title: "Öğrenme Stili Analizi",
           detail:
             "Bu süreçte öğrencinin akademik altyapısı, görsel/işitsel/kinestetik öğrenme stili ve derse karşı geliştirdiği zihinsel önyargılar saptanır.",

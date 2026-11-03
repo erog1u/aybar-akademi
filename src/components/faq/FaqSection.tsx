@@ -12,12 +12,6 @@ export interface FaqItem {
 
 export const FAQ_DATA: FaqItem[] = [
   {
-    question: "İlk tanışma seansı nasıl gerçekleşir ve ücretli midir?",
-    answer:
-      "İlk gün ve ilk derse özgü olarak ders başlamadan önce 30 dakikalık ücretsiz bir keşif seansı yapılır. Bu süreçte öğrencinin akademik altyapısı, görsel/işitsel/kinestetik öğrenme stili ve derse karşı geliştirdiği zihinsel önyargılar saptanır. Karşılıklı sorumlulukları, ders saatine sadakati ve ödev disiplinini netleştiren taahhüdün ardından normal ders sürecine başlanır.",
-    category: "Başlangıç & Keşif",
-  },
-  {
     question: "Birebir özel dersler hangi illerde ve hangi formatlarda sunuluyor?",
     answer:
       "İstanbul’un tüm ilçelerinde, evinizin konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti sağlıyoruz. Tüm Türkiye’de ise teknolojinin imkânlarıyla, coğrafi sınırları ortadan kaldıran interaktif online eğitim modellerimizle yanınızdayız.",
@@ -141,9 +135,7 @@ export default function FaqSection({
               Size Özel Bilgilendirme
             </h3>
             <p className="text-xs sm:text-sm text-ink-muted mt-1.5 leading-relaxed">
-              Öğrencinizin sınıf düzeyi, ihtiyaç duyduğu branşlar ve 30 dakikalık
-              ücretsiz tanışma seansı için doğrudan eğitim danışmanımızla
-              görüşebilirsiniz.
+              Bilgi almak için yazabilirsiniz.
             </p>
 
             <div className="mt-4 pt-4 border-t border-cobalt-900/10 space-y-2.5">
@@ -156,7 +148,7 @@ export default function FaqSection({
                 <span>WhatsApp ile Danışın</span>
               </a>
               <div className="text-center text-[11px] text-ink-subtle">
-                30 Dk Ücretsiz Tanışma Seansı
+                Bilgi Al
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ import {
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
 import { PhotoFrame } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import ContactForm from "@/components/forms/ContactForm";
+import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 
 export default function IletisimPage() {
   return (
@@ -29,18 +29,13 @@ export default function IletisimPage() {
                   <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                 </span>
-                <span>30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI</span>
+                <span>İletişim</span>
               </div>
 
-              <h1 className="max-w-3xl text-[1.45rem] font-extrabold leading-[1.25] tracking-tight text-white sm:text-3xl lg:text-4xl">
+              <h1 className="max-w-4xl text-balance text-[1.55rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
                 Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır
               </h1>
 
-              <p className="mt-5 text-base sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
-                İlk derse başlamadan önce gerçekleştirdiğimiz 30 dakikalık
-                ücretsiz tanışma seansı, öğrencinin seviye analizi ve birebir
-                özel ders planlaması için doğrudan bizimle iletişime geçebilirsiniz.
-              </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-cobalt-200">
                 <span className="flex items-center gap-1.5">
@@ -56,45 +51,24 @@ export default function IletisimPage() {
 
             {/* Sağ: Stüdyo Görsel Kartı */}
             <div className="lg:col-span-5 relative">
-              <div className="absolute top-3 left-3 sm:left-auto sm:right-3 z-20 max-w-[calc(100%-1.5rem)] px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold shadow-crimson flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                <span>Randevu Hattı Aktif</span>
-              </div>
-
               <PhotoFrame
                 src={assetPath("/images/vip-mentorship.jpg")}
-                alt="AYBARİst AKADEMİ Birebir Özel Ders ve Ücretsiz Tanışma Seansı"
+                alt="Öğretmen ile veli görüşmesi"
                 aspectClass="aspect-[16/10]"
                 priority
                 className="relative z-10 shadow-studio"
-                caption={
-                  <div className="flex items-center justify-between gap-2 text-xs font-bold text-cobalt-950 px-1 pr-16 lg:pr-0">
-                    <span className="flex items-center gap-1.5 text-cobalt-900">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      30 Dk Ücretsiz Tanışma
-                    </span>
-                    <span className="text-crimson-600 font-extrabold">
-                      Hemen Başlayın
-                    </span>
-                  </div>
-                }
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Ana Gövde: 2 Sütunlu İletişim ve Güvenli Lead Capture Formu */}
+      <QuoteRequestSection id="iletisim-teklif" />
+
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Sol Sütun: Gelişmiş, Güvenli Lead Capture Formu */}
-            <div className="lg:col-span-7">
-              <ContactForm />
-            </div>
-
-            {/* Sağ Sütun: Net ve Sade İletişim Bilgileri */}
-            <div className="lg:col-span-5 space-y-5">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <div className="space-y-5 lg:col-span-7 lg:col-start-1">
               <div className="rounded-3xl bg-white p-6 sm:p-8 border border-cobalt-900/10 shadow-sm space-y-6 relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
                 <div>

@@ -12,7 +12,6 @@ import {
   ArrowUpRight,
   ArrowLeft,
   ArrowRight,
-  Sparkles,
   Search,
   X,
 } from "lucide-react";
@@ -103,7 +102,7 @@ export default function ProgramExplorer() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-bold mb-2">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>6 Ana Akademik Alan · Kişiye Özel Müfredat</span>
+              <span>Eğitim Programlarımız</span>
             </div>
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-ink tracking-tight">
               Eğitim Programlarımızı Keşfedin
@@ -290,15 +289,6 @@ export default function ProgramExplorer() {
                   className="md:col-span-2 rounded-2xl bg-cobalt-950 text-white p-6 sm:p-8 border border-cobalt-800 relative overflow-hidden shadow-card"
                 >
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-400 to-crimson-600" />
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-crimson-400 mb-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-crimson-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-crimson-400" />
-                    </span>
-                    <Sparkles className="h-3.5 w-3.5" />
-                    <span>Özel Program</span>
-                  </div>
-
                   <h4 className="text-xl sm:text-2xl font-extrabold text-white">
                     {item.title}
                   </h4>
@@ -322,10 +312,7 @@ export default function ProgramExplorer() {
                     </div>
                   )}
 
-                  <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <span className="text-xs text-cobalt-200">
-                      Bahadır Aybar liderliğinde 30 dakikalık ücretsiz tanışma seansı planlayın.
-                    </span>
+                  <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
                     <a
                       href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                       target="_blank"

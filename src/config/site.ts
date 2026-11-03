@@ -37,7 +37,7 @@ export const siteConfig = {
     url: "https://eroglusolutions.com",
   },
   logos: {
-    emblem: assetPath("/images/logo-mark.svg"),
+    emblem: assetPath("/images/logo-seal.png"),
     full: assetPath("/images/logo-full.png"),
     original: assetPath("/images/logo-original.jpg"),
   },
@@ -48,7 +48,7 @@ export const siteConfig = {
     // WhatsApp numarasını başında + olmadan ülke koduyla yazın (örn: 905439766734)
     whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905439766734",
     whatsappDefaultMessage:
-      "Merhaba, AYBARİst AKADEMİ birebir özel ders programları ve 30 dakikalık ücretsiz tanışma seansı hakkında bilgi almak istiyorum.",
+      "Merhaba, AYBARİst AKADEMİ birebir özel ders programları hakkında bilgi almak istiyorum.",
     address:
       "Carousel AVM - Workinton, Zeytinlik Mah. Fişekhane Cad. No:5 İçkapı No:17 Bakırköy/İstanbul",
     email: process.env.NEXT_PUBLIC_EMAIL || "iletisim@aybarakademi.com",

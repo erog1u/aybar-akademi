@@ -11,7 +11,7 @@ export default function JsonLd() {
     name: siteConfig.name,
     legalName: "AYBARİst AKADEMİ",
     url: baseUrl,
-    logo: `${baseUrl}/images/logo-emblem.png`,
+    logo: `${baseUrl}/images/logo-seal.png`,
     description:
       "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadrosuyla, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumu.",
     founder: {
@@ -48,60 +48,6 @@ export default function JsonLd() {
     sameAs: [getWhatsAppUrl()],
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "İlk tanışma seansı nasıl gerçekleşir ve ücretli midir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "İlk gün ve ilk derse özgü olarak ders başlamadan önce 30 dakikalık ücretsiz bir keşif seansı yapılır. Bu süreçte öğrencinin akademik altyapısı, görsel/işitsel/kinestetik öğrenme stili ve derse karşı geliştirdiği zihinsel önyargılar saptanır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Özel dersler hangi şehirlerde ve hangi formatlarda verilmektedir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "İstanbul’un tüm ilçelerinde öğrencinin ev konforunda birebir yüz yüze; tüm Türkiye’de ise canlı online eğitim modellerimizle sunulmaktadır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Kişiye özel Hata Defteri tekniği nedir ve nasıl uygulanır?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Öğrencinin ödevlerde, denemelerde ya da yazılı sınavlarda takıldığı soru tipleri dijital bir hata defterine işlenir. Sınav öncesinde genel tekrar yerine yalnızca bu hata havuzu eritilir; hatalar sıfırlanır ve kalıcı net artışı sağlanır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Veliler ders ve gelişim sürecinden nasıl haberdar edilir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Her dersin bitiminde veliye WhatsApp üzerinden ders içeriği, öğrencinin durumu ve ödev takibini içeren profesyonel ders sonu raporu iletilir. Ayrıca aylık periyotlarla deneme/yazılı sınav puanları ve odaklanma süresi gelişimini gösteren performans değerlendirmesi sunulur.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Yeni Nesil Türkiye Yüzyılı Maarif Modeli ile dersler nasıl uyumludur?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Öğretmen kadromuz yeni nesil Maarif Modeline tam hâkimdir. Kitlesel ve ezberci kalıpları yıkan, öğrencinin aktif katılımını (Flipped Classroom) ve kalıcı öğrenmesini (Active Recall) sağlayan modern pedagojik standartlar uygulanır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Bahadır Aybar bizzat hangi dersleri vermektedir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kurucumuz Bahadır Aybar; KPSS Eğitim Bilimleri (Öğretmen Adayları) ile Üniversite düzeyinde Felsefe, Sosyoloji ve Psikoloji bölümlerinin tüm akademik derslerini ve mentorluk programlarını bizzat yürütmektedir.",
-        },
-      },
-    ],
-  };
 
   const coursesSchema = {
     "@context": "https://schema.org",
@@ -184,12 +130,7 @@ export default function JsonLd() {
           __html: JSON.stringify(educationalOrganizationSchema),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

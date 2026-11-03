@@ -5,7 +5,6 @@ import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import {
-  MaskedLines,
   PhotoFrame,
   NextChapterBanner,
 } from "@/components/motion/Primitives";
@@ -33,20 +32,9 @@ export default function NedenFarkliyizPage() {
                 <span>{whyDifferentContent.eyebrow}</span>
               </div>
 
-              <MaskedLines
-                as="h1"
-                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[
-                  "Eğitimde Fark Yaratan",
-                  <span
-                    key="why-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default mt-1 sm:mt-2"
-                  >
-                    <span className="relative z-10">5 Temel Standart.</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
-                  </span>,
-                ]}
-              />
+              <h1 className="max-w-4xl text-balance text-[1.55rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
+                {whyDifferentContent.headline}
+              </h1>
 
               <p className="mt-5 text-base sm:text-lg text-cobalt-50 leading-relaxed max-w-2xl">
                 {whyDifferentContent.lead}
@@ -59,7 +47,7 @@ export default function NedenFarkliyizPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-crimson transition-all active:scale-[0.98]"
                 >
-                  <span>Ücretsiz Tanışma Seansı Planla</span>
+                  <span>Bilgi Al</span>
                   <ArrowRight className="h-4 w-4 text-white" />
                 </a>
                 <a
@@ -96,37 +84,7 @@ export default function NedenFarkliyizPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 5 Standart İlke Özeti (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:pr-20">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">İlk Tanışma</strong>
-                Öğrenme stili ve önyargı analizi
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">02</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Yenilikçi Yöntem</strong>
-                Flipped classroom & active recall
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">03</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Hata Defteri</strong>
-                Eksikleri sıfırlama tekniği
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">04</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Veli İletişimi</strong>
-                Her ders sonu şeffaf rapor
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -223,16 +181,13 @@ export default function NedenFarkliyizPage() {
               {whyDifferentContent.pedagogicalOutcome.body}
             </p>
             <div className="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <span className="text-xs sm:text-sm text-cobalt-200">
-                Aybar Akademi ile başarı şansa değil, kanıtlanmış pedagojik sisteme emanettir.
-              </span>
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-2.5 text-sm font-bold shadow-sm whitespace-nowrap transition-colors"
               >
-                <span>Ücretsiz Keşif Seansı Planla</span>
+                <span>Bilgi Al</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -241,8 +196,8 @@ export default function NedenFarkliyizPage() {
       </section>
 
       <NextChapterBanner
-        title="Ücretsiz Tanışma Seansı Planlayın"
-        description="İlk derse başlamadan önce gerçekleştirdiğimiz 30 dakikalık ücretsiz keşif seansı için bizimle hemen iletişime geçin."
+        title="Bilgi Alyın"
+        description="İletişim"
         href="/iletisim"
         buttonLabel="İletişim"
       />

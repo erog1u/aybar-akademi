@@ -59,7 +59,7 @@ export default function HomeSloganSlider() {
   }, [reduceMotion]);
 
   return (
-    <div className="relative z-10 overflow-hidden rounded-2xl bg-cobalt-950 shadow-studio aspect-[4/3]">
+    <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-2xl bg-cobalt-950 shadow-studio sm:aspect-[4/3]">
       <div
         className={`flex h-full ${reduceMotion ? "" : "transition-transform duration-700 ease-out"}`}
         style={{
@@ -85,7 +85,7 @@ export default function HomeSloganSlider() {
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#04153B]/95 via-[#04153B]/55 to-transparent p-4 pr-16 sm:p-5 sm:pr-6">
-              <p className="max-w-[34rem] text-sm font-extrabold leading-snug text-white sm:text-lg">
+              <p className="max-w-[34rem] text-balance text-base font-extrabold leading-[1.15] tracking-tight text-white sm:text-xl">
                 {slide.slogan}
               </p>
             </div>

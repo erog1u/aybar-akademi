@@ -30,14 +30,9 @@ export default function HakkimizdaPage() {
                 <span>{aboutContent.eyebrow}</span>
               </div>
 
-              <h1 className="max-w-full text-[1.6rem] min-[400px]:text-[1.75rem] sm:text-5xl lg:text-[3.15rem] font-extrabold tracking-tight leading-[1.15] text-white">
-                <span className="block">EĞİTİMDE</span>{" "}
-                <span className="block">SINIR TANIMIYORUZ</span>
+              <h1 className="max-w-4xl text-balance text-[1.55rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
+                EĞİTİMDE SINIR TANIMIYORUZ
               </h1>
-              <p className="mt-5 max-w-2xl text-base sm:text-lg text-cobalt-50 leading-relaxed">
-                İstanbul’un tüm ilçelerinde evinizin konforunda yüz yüze, tüm Türkiye’de canlı online yanınızdayız.
-              </p>
-
               <div className="mt-6 space-y-4 text-base sm:text-lg text-cobalt-50/95 leading-relaxed">
                 <p>{aboutContent.introParagraphs[0]}</p>
                 <div className="rounded-xl bg-white/12 border-l-4 border-white/60 p-4 sm:p-5 text-white font-semibold shadow-sm">
@@ -48,10 +43,6 @@ export default function HakkimizdaPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
-                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                <span>33 Yıllık Deneyim</span>
-              </div>
               <PhotoFrame
                 src={assetPath("/images/maarif-academic-mentorship.jpg")}
                 alt={aboutContent.headline}
@@ -71,37 +62,7 @@ export default function HakkimizdaPage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:pr-20">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white leading-none whitespace-nowrap">33 Yıl</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Köklü Deneyim</strong>
-                Çeyrek asrı aşan uzman kadro
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">Maarif</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Hâkim Kadro</strong>
-                Yeni nesil Maarif Modeli
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">İstanbul</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Tüm İlçelerinde</strong>
-                Evinizde yüz yüze özel ders
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">Türkiye</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Tüm Türkiye’de</strong>
-                Canlı online eğitim
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 

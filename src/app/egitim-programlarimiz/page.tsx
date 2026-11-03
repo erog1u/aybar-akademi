@@ -27,7 +27,7 @@ export default function EgitimProgramlarimizPage() {
                 <span>{programsIntro.eyebrow}</span>
               </div>
 
-              <h1 className="max-w-3xl text-[1.45rem] font-extrabold leading-[1.2] tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h1 className="max-w-4xl text-balance text-[1.55rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
                 DEĞİŞEN DÜNYAYA AYBARİST&apos;İN GÜCÜYLE HAZIRLAN
               </h1>
 
@@ -38,60 +38,17 @@ export default function EgitimProgramlarimizPage() {
 
             <div className="lg:col-span-5 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
-                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                <span>6 Ana Akademik Alan</span>
-              </div>
               <PhotoFrame
                 src={assetPath("/images/programs-global-study.jpg")}
                 alt={programsIntro.headline}
                 aspectClass="aspect-[16/10]"
                 priority
                 className="relative z-10 shadow-studio"
-                caption={
-                  <div className="flex items-center justify-between gap-2 text-xs font-bold text-cobalt-950 px-1 pr-16 lg:pr-0">
-                    <span className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      6 Ana Akademik Alan
-                    </span>
-                    <span className="text-cobalt-700 font-extrabold">Birebir Özel Ders</span>
-                  </div>
-                }
               />
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:pr-20">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">6 Alan</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Kapsamlı Müfredat</strong>
-                İlkokuldan üniversiteye
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">11 Dil</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Dünya Dilleri</strong>
-                YDS, YDT ve uluslararası
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">Maarif</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Hâkim Kadro</strong>
-                Yeni nesil Maarif Modeli
-              </div>
-            </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">VIP</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Eğitim Koçluğu</strong>
-                Bireysel takip ve analiz
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 

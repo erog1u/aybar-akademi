@@ -2,458 +2,87 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  BookOpen,
-  Compass,
-  ShieldCheck,
-  MapPin,
-  ArrowUpRight,
-} from "lucide-react";
-import { assetPath, getWhatsAppUrl, siteConfig } from "@/config/site";
-import {
-  founderMessage,
-  aboutContent,
-  programsIntro,
-} from "@/data/content";
-import {
-  MaskedLines,
-  PhotoFrame,
-  SectionHeader,
-  MagneticLink,
-  NextChapterBanner,
-} from "@/components/motion/Primitives";
-import { AybarInstitutionalSeal } from "@/components/brand/AybarCrest";
-import FaqSection from "@/components/faq/FaqSection";
+import { PhotoFrame } from "@/components/motion/Primitives";
+import PageHero from "@/components/layout/PageHero";
 import HomeSloganSlider from "@/components/home/HomeSloganSlider";
-import QuickQuoteForm from "@/components/forms/QuickQuoteForm";
+import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
+import { assetPath } from "@/config/site";
 
-const GUIDED_SECTIONS = [
-  {
-    badge: "01",
-    title: "Eğitim Programlarımız",
-    description:
-      "İlkokuldan üniversiteye sınav hazırlık, okula takviye, 11 dünya dili ve sanat derslerimiz.",
-    href: "/egitim-programlarimiz",
-    icon: BookOpen,
-  },
-  {
-    badge: "02",
-    title: "Eğitim Modelimiz",
-    description:
-      "Kişiye özel VIP Süreç Yönetimi, eğitim koçluğu ve aile-veli-okul köprüsü modelimiz.",
-    href: "/egitim-modelimiz",
-    icon: Compass,
-  },
-  {
-    badge: "03",
-    title: "Neden Farklıyız?",
-    description:
-      "30 dakikalık ücretsiz tanışma seansından öğrenciye özel hata defterine 5 standart ilkemiz.",
-    href: "/neden-farkliyiz",
-    icon: ShieldCheck,
-  },
-  {
-    badge: "04",
-    title: "Hakkımızda",
-    description:
-      "33 yıllık köklü deneyimimiz; İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online eğitim.",
-    href: "/hakkimizda",
-    icon: MapPin,
-  },
-] as const;
+const YELPAZE = [
+  "Sınav Hazırlık: LGS ve YKS (TYT-AYT) odaklı nokta atışı koçluk ve birebir özel ders programları",
+  "Okul Destek Takviyeleri: İlkokuldan üniversiteye kadar tüm sınıflarda okul başarısını artıran özel dersler (Maarif Modeline uyumlu yeni nesil özel dersler)",
+  "Kariyer Sınavları: KPSS ve ALES hazırlığa yönelik özel dersler",
+  "Dil ve Gelişim: Çocuklar ve yetişkinler için yabancı dil programları, sürücü eğitimleri, sanat ile spor branşları ile ilgili birebir özel dersler",
+];
 
 export default function HomePage() {
   return (
     <div className="bg-paper text-ink">
-      {/* 1. Ferah ve Güçlü Cobalt Hero */}
-      <section className="studio-hero text-white py-12 sm:py-16 lg:py-20 border-b border-white/15 overflow-hidden relative">
-        {/* Zarif Arka Plan Parıltıları */}
-        <div className="absolute top-1/4 left-0 sm:left-10 w-80 sm:w-96 h-80 sm:h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-0 sm:right-10 w-80 sm:w-96 h-80 sm:h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Sol Sütun */}
-            <div className="lg:col-span-6 min-w-0">
-              <div className="inline-flex items-start sm:items-center gap-2.5 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full shadow-sm">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
-                </span>
-                <span className="min-w-0 leading-snug">33 Yıllık Köklü Eğitim Deneyimi · Maarif Modeline Hâkim Kadro</span>
-              </div>
-
-              <MaskedLines
-                as="h1"
-                className="text-[2.25rem] sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.15]"
-                lines={[
-                  "Her Öğrenciye",
-                  <span key="ayni-egitim" className="text-cobalt-200">
-                    Aynı Eğitim Değil,
-                  </span>,
-                  <span
-                    key="dogru-egitim"
-                    className="block mt-2.5 sm:mt-3"
-                  >
-                    <span className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-2 rounded-2xl bg-crimson-600 text-white font-black tracking-tight shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default">
-                      {/* Işıltılı Sürekli Akan Işık Çizgisi (Shimmer Loop) */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-light-sweep pointer-events-none" />
-
-                      <span className="relative z-10 text-white drop-shadow-xs">Doğru Eğitim.</span>
-                    </span>
-                  </span>,
-                ]}
-              />
-
-              <p className="mt-6 text-base sm:text-lg text-cobalt-100 leading-relaxed max-w-2xl">
-                33 yıllık köklü eğitim deneyimimiz ve yeni nesil Maarif Modeline hâkim uzman kadromuzla, kitlesel kalıpları bir kenara bırakıyoruz. İlkokuldan üniversiteye her öğrencimizin anlama hızına, eksiklerine ve hedeflerine özel kurgulanmış <strong className="text-white font-bold">birebir VIP özel ders</strong> ve <strong className="text-white font-bold">eğitim koçluğu</strong> sunuyoruz.
-              </p>
-
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-cobalt-200">
-                <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-cobalt-300" />
-                  <strong className="text-white font-bold">İstanbul:</strong> Tüm İlçelerde Evinizde Yüz Yüze
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  <strong className="text-white font-bold">Tüm Türkiye:</strong> Canlı Online Eğitim
-                </span>
-              </div>
-
-              <div className="mt-8 flex flex-col sm:flex-row gap-3.5">
-                <MagneticLink
-                  href={getWhatsAppUrl()}
-                  external
-                  variant="crimson"
-                >
-                  Ücretsiz Tanışma Seansı
-                </MagneticLink>
-                <MagneticLink
-                  href="/egitim-programlarimiz"
-                  variant="outline-light"
-                >
-                  Eğitim Programlarımız
-                </MagneticLink>
-              </div>
-            </div>
-
-            {/* Sağ Sütun — Doğru Oranlanmış Görsel Stüdyo Kartı + Işıltılı Arka Işık & Canlı Rozetler */}
-            <div className="lg:col-span-6 min-w-0 relative">
-              <HomeSloganSlider />
-            </div>
-          </div>
-
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde ve PC'de Eşit Zarafet) */}
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:pr-20">
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white leading-none whitespace-nowrap flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-crimson-400 sm:hidden shrink-0" />
-                33 Yıl
-              </span>
-              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Köklü Deneyim</strong>
-                Çeyrek asrı aşan uzman kadro
-              </div>
-            </div>
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 sm:hidden shrink-0" />
-                Maarif
-              </span>
-              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Hâkim Kadro</strong>
-                Yeni nesil Maarif Modeli
-              </div>
-            </div>
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-sky-400 sm:hidden shrink-0" />
-                İstanbul
-              </span>
-              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Tüm İlçelerinde</strong>
-                Evinizde yüz yüze özel ders
-              </div>
-            </div>
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300 sm:hidden shrink-0" />
-                Türkiye
-              </span>
-              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Tüm Türkiye’de</strong>
-                Canlı online eğitim
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-cobalt-900/10 bg-white py-12 sm:py-16">
-        <div className="mx-auto grid max-w-[1380px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:px-10">
-          <div className="lg:col-span-5">
-            <h2 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <PageHero
+        eyebrow="AYBARİst AKADEMİ"
+        title="Eğitimde Güvenin, Başarıda Uzmanlığın Adresi"
+        subtitle="33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim"
+        wideMedia
+        actions={
+          <>
+            <Link
+              href="#teklif"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-crimson-600 px-5 text-sm font-extrabold text-white hover:bg-crimson-700 sm:text-base"
+            >
               Hemen Hızlı Teklif Alın!
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-ink-muted">
-              Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
-            </p>
-            <p className="mt-4 text-sm font-bold text-cobalt-800">
-              Yüz Yüze ve Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
-            </p>
-          </div>
-          <div className="rounded-3xl border border-cobalt-900/10 bg-paper p-5 sm:p-7 lg:col-span-7">
-            <QuickQuoteForm />
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Canlı, Şık ve Prestijli 4 Bölüm Yönlendirmesi (Mobilde 2x2 App Paneli, PC'de 4 Kolon) */}
-      <section className="py-12 sm:py-20 bg-paper border-b border-cobalt-900/10">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <SectionHeader
-            eyebrow="BÖLÜMLERİMİZ"
-            title="İncelemek İstediğiniz Alanı Seçin"
-            subtitle="İhtiyacınız olan bölüme doğrudan geçerek detayları inceleyebilirsiniz."
-          />
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            {GUIDED_SECTIONS.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex flex-col justify-between p-3.5 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
-                  <div>
-                    <div className="flex items-center justify-between mb-3 sm:mb-5">
-                      <span className="h-9 w-9 sm:h-12 sm:w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm">
-                        <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
-                      </span>
-                      <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-crimson-50 text-[10px] sm:text-[11px] font-black tracking-wider text-crimson-700 border border-crimson-200/50 group-hover:bg-crimson-600 group-hover:text-white transition-colors shadow-xs">
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-sm sm:text-xl font-extrabold text-ink group-hover:text-crimson-600 transition-colors tracking-tight leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <p className="hidden sm:block mt-2.5 text-sm sm:text-[14.5px] text-ink-muted leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 sm:pt-5 mt-2 sm:mt-4 border-t border-cobalt-900/5 flex items-center justify-between text-xs sm:text-sm font-bold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
-                    <span className="text-[11px] sm:text-sm">Bölümü İncele</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. 33 Yıllık Deneyim & Çözümlerimiz (Kız Fotoğrafı Yerine Tam Alakalı Mentorluk Fotoğrafı) */}
-      <section className="py-14 sm:py-20 bg-white border-b border-cobalt-900/10">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Sol Sütun — Deneyimli Öğretmen & Maarif Modeli Mentorluk Fotoğrafı */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24">
-              <PhotoFrame
-                src={assetPath("/images/maarif-academic-mentorship.jpg")}
-                alt="AYBARİst AKADEMİ 33 Yıllık Köklü Eğitim Deneyimi ve Maarif Modeli Mentorluk"
-                aspectClass="aspect-[4/3]"
-                caption={
-                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
-                    <span className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
-                      Türkiye Yüzyılı Maarif Modeli
-                    </span>
-                    <span className="text-crimson-600 font-extrabold">Alanında Uzman Kadro</span>
-                  </div>
-                }
-              />
-              <div className="mt-4 p-4 rounded-xl bg-cobalt-950 text-white border border-cobalt-800 text-xs sm:text-sm text-center font-bold shadow-sm">
-                İstanbul’un Tüm İlçelerinde Yüz Yüze · Tüm Türkiye’de Canlı Online
-              </div>
-            </div>
-
-            {/* Sağ Sütun — Zengin, Ferah ve Nitelikli Çözüm Listesi */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 mb-2.5">
-                <span className="h-2 w-2 rounded-full bg-crimson-600 inline-block" />
-                <span className="text-xs font-bold tracking-wider uppercase text-cobalt-700">
-                  {aboutContent.eyebrow}
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-ink">
-                {aboutContent.headline}
-              </h2>
-
-              <p className="mt-4 text-base text-ink-muted leading-relaxed">
-                Eğitim yalnızca ders anlatmaktan ibaret değildir; doğru rehberlik, sürekli takip ve disiplinli bir çalışma ortamı başarının vazgeçilmez unsurlarıdır.
-              </p>
-
-              {/* Çözümler: Zengin, Numaralandırılmış Şık Çözüm Kartları */}
-              <div className="mt-8 space-y-4">
-                {aboutContent.solutions.map((solution) => (
-                  <div
-                    key={solution.index}
-                    className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-crimson-500/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 group"
-                  >
-                    <span className="inline-flex items-center justify-center h-8 px-3 rounded-xl text-xs font-black shrink-0 mt-0.5 bg-crimson-600 text-white shadow-crimson group-hover:scale-105 transition-transform">
-                      {solution.index}
-                    </span>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-ink group-hover:text-cobalt-950 transition-colors">
-                        {solution.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm sm:text-base text-ink-muted leading-relaxed">
-                        {solution.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <MagneticLink href="/hakkimizda" variant="cobalt">
-                  Hakkımızda Sayfasını İncele
-                </MagneticLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Kurucumuzun Mesajı (Bahadır AYBAR) — Metni Bölmeden, Vurucu Cümleleri Vurgulayarak */}
-      <section className="py-14 sm:py-20 bg-white">
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Sol Kurumsal Mühür */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24">
-              <div className="p-6 rounded-2xl bg-paper border border-cobalt-900/10 text-center">
-                <div className="flex justify-center">
-                  <AybarInstitutionalSeal variant="light" />
-                </div>
-                <div className="mt-5 pt-4 border-t border-cobalt-900/10">
-                  <div className="font-brand text-lg font-extrabold tracking-wide text-cobalt-950">
-                    {founderMessage.author}
-                  </div>
-                  <div className="mt-0.5 text-xs font-bold text-crimson-600">
-                    {founderMessage.role}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sağ Kurucu Mektubu — Orijinal Metin Eksiksiz, Vurucu Yerler Vurgulu, Kutusuz ve Saygın */}
-            <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 mb-3">
-                <span className="h-2 w-2 rounded-full bg-crimson-600" />
-                <span className="text-xs font-bold tracking-wider uppercase text-cobalt-800">
-                  {founderMessage.eyebrow}
-                </span>
-              </div>
-
-              <h2 className="text-xl sm:text-2xl font-extrabold text-ink leading-snug">
-                {founderMessage.salutation}
-              </h2>
-
-              <div className="mt-6 space-y-4 text-[15px] sm:text-base text-ink-muted leading-relaxed">
-                <p>
-                  Eğitim, bireyin içindeki potansiyeli keşfetme, onu en doğru şekilde işleme ve geleceğe güvenle taşıma yolculuğudur. Bu yolculuğun her aşamasında,{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna
-                  </strong>{" "}
-                  inanıyoruz. İşte tam da bu yüzden, kitlesel ve tek düze eğitim kalıplarını bir kenara bırakarak,{" "}
-                  <strong className="text-crimson-600 font-extrabold">
-                    birebir eğitime dayalı, kişiye özel ve “VIP” standartlarında bir öğrenme modeli
-                  </strong>{" "}
-                  inşa ettik.
-                </p>
-
-                <p>
-                  Kurumumuz, ilkokul çağındaki bir çocuğun okul destek derslerinden,{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    LGS, YKS, KPSS ve ALES gibi hayatın dönüm noktası sayılan akademik sınavlara kadar
-                  </strong>{" "}
-                  çok geniş bir yelpazede eğitim ve koçluk hizmeti sunmaktadır. Sadece akademik başarıyı değil; çocuklardan yetişkinlere kadar her yaş grubunun kişisel gelişimini de önemsiyoruz. Bu doğrultuda, dünya vatandaşı bireyler yetiştiren yabancı dil eğitimlerimizden, ruhu ve bedeni besleyen spor ve sanat programlarımıza kadar{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    hayatın her alanına dokunan zengin bir içerik
-                  </strong>{" "}
-                  sağlıyoruz.
-                </p>
-
-                <p>
-                  Günümüz dünyasının getirdiği esneklik ve hız ihtiyacının farkındayız. Bu nedenle, öğrencilerimizin konforunu ön planda tutarak,{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    teknolojik olanaklarla donatılmış online canlı dersler ile samimi ve odaklanmayı artıran yüz yüze özel ders modellerini
-                  </strong>{" "}
-                  bir arada sunuyoruz. Zaman ve mekân sınırlarını ortadan kaldırarak,{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    alanında uzman, dinamik ve tecrübeli öğretmen kadromuzu
-                  </strong>{" "}
-                  doğrudan sizin hedeflerinize yönlendiriyoruz.
-                </p>
-
-                <p>
-                  Bizim için eğitim; sadece az sayıda öğrenciye klasik anlamda ders vermek değil,{" "}
-                  <strong className="text-cobalt-950 font-bold">
-                    her bir öğrencimizin mentörlüğünü üstlenmek, onun kaygılarını yönetmek, eksiklerini nokta atışı tespit etmek
-                  </strong>{" "}
-                  ve başarıya giden yolda en güçlü yol arkadaşı olmaktır. Geliştirdiğimiz güçlü takip sistemleri ve kişiselleştirilmiş programlar sayesinde,{" "}
-                  <strong className="text-crimson-600 font-extrabold">
-                    her öğrencimizin kendi zirvesine ulaşmasını sağlamak
-                  </strong>{" "}
-                  en büyük gurur kaynağımızdır.
-                </p>
-
-                <p className="text-cobalt-950 font-bold text-base sm:text-lg pt-2 border-t border-cobalt-900/10">
-                  “Geleceği tesadüflere değil, doğru planlanmış bir eğitime emanet etmek isteyen herkesi, bu ayrıcalıklı ve başarı odaklı eğitim dünyasına davet ediyorum.”
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-cobalt-900/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs sm:text-sm text-ink-muted">
-                    {founderMessage.closing}
-                  </p>
-                  <div className="font-brand text-base sm:text-lg font-extrabold text-cobalt-950 mt-1">
-                    {founderMessage.author}
-                  </div>
-                  <div className="text-xs font-semibold text-cobalt-700">
-                    {founderMessage.role}
-                  </div>
-                </div>
-
-                <MagneticLink
-                  href={getWhatsAppUrl()}
-                  external
-                  variant="crimson"
-                >
-                  Ücretsiz Tanışma Seansı
-                </MagneticLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sıkça Sorulan Sorular — Maarif Modeli ve VIP Birebir Süreç Standartları */}
-      <FaqSection />
-
-      <NextChapterBanner
-        title={programsIntro.headline}
-        description={programsIntro.closing}
-        href="/egitim-programlarimiz"
-        buttonLabel="Eğitim Programlarımız"
+            </Link>
+            <Link
+              href="/egitim-programlarimiz"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/30 px-5 text-sm font-bold text-white hover:bg-white/10 sm:text-base"
+            >
+              Eğitim Programlarımız
+            </Link>
+          </>
+        }
+        media={<HomeSloganSlider />}
       />
+
+      <QuoteRequestSection />
+
+      <section className="border-b border-cobalt-900/10 bg-paper py-12 sm:py-16">
+        <div className="mx-auto grid max-w-[1380px] grid-cols-1 items-start gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-10">
+          <div className="lg:col-span-5">
+            <PhotoFrame
+              src={assetPath("/images/hero-one-on-one.jpg")}
+              alt="Öğretmen ve kız öğrenci birebir ders çalışırken"
+              aspectClass="aspect-[4/3]"
+            />
+          </div>
+          <div className="lg:col-span-7">
+            <p className="text-base leading-relaxed text-ink-muted">
+              Her öğrencinin öğrenme hızı, potansiyeli ve hedefleri parmak izi gibi tektir. AYBARİst AKADEMİ olarak; 33 yıllık köklü birikimimiz ve alanında uzman ve yeni nesil Maarif Modeline hâkim öğretmen kadromuzla, ezberci yaklaşımlardan uzak, tamamen öğrenciye özel eğitim modelleri sunuyoruz.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-ink-muted">
+              Amacımız yalnızca sınavlara hazırlamak değil; öğrencinin öğrenme tutkusunu canlandırmak ve onu hedeflerine en sağlam adımlarla ulaştırmaktır.
+            </p>
+            <h2 className="mt-8 text-2xl font-extrabold leading-[1.2] tracking-tight text-ink sm:text-3xl">
+              Geniş Eğitim Yelpazemiz
+            </h2>
+            <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
+              {YELPAZE.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <h2 className="mt-8 text-2xl font-extrabold leading-[1.2] tracking-tight text-ink sm:text-3xl">
+              Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği
+            </h2>
+            <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
+              <li>
+                İstanbul Geneli Yüz Yüze Eğitim: Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle bire bir yüz yüze ders imkanı.
+              </li>
+              <li>
+                Türkiye Geneli Online Eğitim: Nerede olursanız olun, dijital platformlar üzerinden sınırsız ve kaliteli canlı dersler.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

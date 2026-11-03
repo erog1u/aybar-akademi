@@ -110,7 +110,7 @@ aybar-akademi/
    - Alıntılar ve kurucu sözleri haricinde italik/serif kullanılmaz. Gövde ve marka yazısı Plus Jakarta Sans'tır. Lora yalnızca alıntıda, JetBrains Mono kodda kullanılır.
 4. **Hero 4-Stat Şerit Simetrisi:**
    - Hero altlarındaki 4 sütunlu şeritlerde rakamların rengi tek tip beyaz (`text-white font-extrabold`) olmalıdır; araya clashing kırmızı rakam sıkıştırılmamalıdır.
-   - Hero şeridinde uydurma oran veya il sayısı yoktur. Kullanılan ifadeler: `33 Yıl / Köklü Deneyim`, `Maarif / Hâkim Kadro`, `İstanbul / Tüm İlçelerinde`, `Türkiye / Tüm Türkiye’de`. `30 dakikalık ücretsiz tanışma` müşteri metnindedir ve korunur.
+   - Sitede “30 dakika”, “30 dk” ve ilk dersin ücretsiz olduğuna dair ifade bulunmaz.
 
 ---
 

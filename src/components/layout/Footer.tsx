@@ -17,9 +17,6 @@ export default function Footer() {
               <AybarBrandLockup variant="dark" />
             </Link>
 
-            <p className="text-sm sm:text-base text-cobalt-200 font-medium leading-relaxed max-w-sm">
-              {siteConfig.motto}
-            </p>
 
             <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-1">
               <a
@@ -28,7 +25,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-3 rounded-xl text-sm font-bold transition-colors focus-visible:ring-2 focus-visible:ring-crimson-500 focus-visible:outline-none"
               >
-                <span>Ücretsiz Tanışma Seansı</span>
+                <span>Bilgi Al</span>
                 <ArrowUpRight className="h-4 w-4 shrink-0" />
               </a>
               <Link
