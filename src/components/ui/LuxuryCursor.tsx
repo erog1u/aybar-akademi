@@ -3,26 +3,23 @@
 import React, { useEffect, useRef, useState } from "react";
 
 /**
- * AYBAR AKADEMİ — Belirgin, İri & Sıfır Gecikmeli Lüks İmleç (Zero-Delay Horizon Cursor)
- * ---------------------------------------------------------------------------------------
- * 1. SIFIR GECİKME (0ms Latency):
- *    - Fare hareketi doğrudan donanım koordinatlarıyla senkronizedir (translate3d + translate(-50%, -50%)).
- *    - Lerp veya yapay gecikme içermez; fiziksel farenin gittiği anında oradadır.
- *    - Mousemove esnasında gereksiz React render'ları tetiklenmez.
+ * AYBAR AKADEMİ — Sade & Animasyonlu Lüks İmleç (Minimalist Animated Cursor)
+ * -------------------------------------------------------------------------
+ * 1. SADE & ZARİF TASARIM:
+ *    - Göz yoran vizör çizgileri, radar işaretleri veya karmaşa tamamen kaldırıldı.
+ *    - Temiz, minimalist iki katmanlı geometri: İncecik dış halka ve keskin merkez odak noktası.
  * 
- * 2. İRİ & BELİRGİN TASARIM (52px -> 88px):
- *    - Dinlenme durumu 52px: Sayfada net, belirgin ve prestijli görünür, asla kaybolmaz.
- *    - Hover durumu 88px: Buton, link ve kartlarda manyetik ve lüks bir vizör gibi genişler.
- *    - Hem koyu kobalt (#002B7A) hem kar beyazı zeminlerde çift konturlu yüksek kontrast.
+ * 2. AKICI ANİMASYONLAR:
+ *    - Dinlenme (32px) -> Hover (56px) geçişi ipeksi bir yaylanma (spring) ile genişler.
+ *    - Hover durumunda arka planda hafif cam buğusu ve kobalt/kırmızı ton geçişi oluşur.
+ *    - Tıklamada (mousedown) yay gibi elastik sıkışma (tactile click snap) gerçekleşir.
  * 
- * 3. HASSAS VİZÖR & MÜCEVHER ÇEKİRDEK:
- *    - Merkezde 12px Aybar Kırmızısı (#DC1B2E), beyaz halka ve altın ışıltılı odak noktası.
- *    - 4 köşeli İsviçre kronometresi / optik vizör çizgileriyle (cardinal ticks) zanaatkar estetiği.
- *    - Tıklamada (mousedown) anlık mekanik geri bildirim (snap scale).
+ * 3. SIFIR GECİKME (0ms Latency):
+ *    - Fare konumu donanım koordinatlarına doğrudan kilitlidir (translate3d + translate(-50%, -50%)).
+ *    - Konumda hiçbir lerp / arkadan sürüklenme gecikmesi yoktur.
  * 
- * 4. GÜVENLİ & MOBİL DOSTU:
- *    - Dokunmatik ekranlarda (iOS / Android) kesinlikle devre dışıdır, sıfır işlemci yükü.
- *    - Metin girişlerinde (input/textarea) kusursuzca gizlenir, standart metin imleci devreye girer.
+ * 4. YÜKSEK KONTRAST:
+ *    - Hem bembeyaz sayfa zemininde hem koyu kobalt alanlarda net, seçilebilir ve asil.
  */
 export default function LuxuryCursor() {
   const [enabled, setEnabled] = useState(false);
@@ -39,7 +36,7 @@ export default function LuxuryCursor() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Yalnızca hassas fiziksel fare işaretçisi olan masaüstü cihazlarda çalıştır
+    // Yalnızca fiziksel fareye sahip masaüstü ekranlarda aktifleştir
     const isFinePointer = window.matchMedia(
       "(pointer: fine) and (hover: hover)"
     ).matches;
@@ -50,7 +47,7 @@ export default function LuxuryCursor() {
     document.body.classList.add("has-custom-pointer");
 
     const onMouseMove = (e: MouseEvent) => {
-      // 1. SIFIR GECİKME: Donanım koordinatlarını doğrudan DOM transformuna aktar
+      // 0ms Gecikmesiz Donanım Konumlandırma
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
       }
@@ -60,7 +57,6 @@ export default function LuxuryCursor() {
         setIsVisible(true);
       }
 
-      // 2. Etkileşimli öğe kontrolü (Sadece durum değiştiğinde React state güncelle)
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -123,86 +119,41 @@ export default function LuxuryCursor() {
         isVisible && !isInput ? "opacity-100" : "opacity-0"
       }`}
       style={{
-        // Koordinat hareketi 0ms anlıktır (transform transition'a dahil edilmez!)
-        // Sadece boyut ve opaklık pürüzsüz yaylanma ile genişler
+        // Konum 0ms anlıktır. Sadece boyut ve opaklık animasyonludur.
         transition:
-          "opacity 0.22s ease, width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1)",
-        width: isHovered ? "88px" : "52px",
-        height: isHovered ? "88px" : "52px",
+          "opacity 0.2s ease, width 0.26s cubic-bezier(0.16, 1, 0.3, 1), height 0.26s cubic-bezier(0.16, 1, 0.3, 1)",
+        width: isHovered ? "56px" : "32px",
+        height: isHovered ? "56px" : "32px",
       }}
       aria-hidden="true"
     >
-      {/* DIŞ ÇERÇEVE — Lüks Optik Çerçeve & Çift Konturlu Belirginlik */}
+      {/* SADE VE ANİMASYONLU HALKA */}
       <div
-        className={`w-full h-full rounded-full relative flex items-center justify-center transition-all duration-200 ease-out ${
+        className={`w-full h-full rounded-full flex items-center justify-center transition-all duration-200 ease-out relative ${
           isActive
-            ? "scale-85 bg-crimson-600/30 border-2 border-crimson-600 shadow-[0_0_28px_rgba(220,27,46,0.6)]"
+            ? "scale-75 bg-crimson-600/20 border-[1.5px] border-crimson-600 shadow-[0_0_16px_rgba(220,27,46,0.4)]"
             : isHovered
-            ? "scale-100 bg-cobalt-950/15 backdrop-blur-[2px] border-2 border-crimson-600 shadow-[0_0_32px_rgba(220,27,46,0.5),0_6px_20px_rgba(0,43,122,0.4)]"
-            : "scale-100 bg-white/10 backdrop-blur-[1px] border-[1.5px] border-cobalt-800/80 shadow-[0_4px_22px_rgba(0,43,122,0.35),0_0_12px_rgba(255,255,255,0.7)]"
+            ? "scale-100 bg-crimson-600/10 backdrop-blur-[2px] border-[1.5px] border-crimson-600/80 shadow-[0_0_20px_rgba(220,27,46,0.35)]"
+            : "scale-100 bg-slate-900/5 backdrop-blur-[1px] border-[1.5px] border-slate-900/60 shadow-[0_2px_8px_rgba(0,0,0,0.18)]"
         }`}
       >
-        {/* Beyaz Yüksek Kontrast Güvenlik Çemberi (Koyu zeminlerde netlik için) */}
+        {/* Beyaz İnce İç Vurgu (Koyu zeminlerde mükemmel kontrast sağlar) */}
         <div
-          className={`absolute inset-0 rounded-full border pointer-events-none transition-colors duration-200 ${
-            isHovered
-              ? "border-crimson-400/40"
-              : "border-white/70"
+          className={`absolute inset-0 rounded-full border transition-colors duration-200 pointer-events-none ${
+            isHovered ? "border-white/30" : "border-white/60"
           }`}
         />
 
-        {/* Hover Halosu (İnteraktif öğelerin üzerinde açılan zarif dalga) */}
-        {isHovered && (
-          <div className="absolute -inset-1.5 rounded-full border border-crimson-500/30 animate-pulse pointer-events-none" />
-        )}
-
-        {/* 4 KARDİNAL VİZÖR İŞARETİ (Swiss Chronograph / Horology Viewfinder Ticks) */}
-        {/* Kuzey (Üst) */}
-        <span
-          className={`absolute top-1 left-1/2 -translate-x-1/2 rounded-full transition-all duration-200 pointer-events-none ${
-            isHovered
-              ? "w-1 h-2 bg-crimson-500 shadow-[0_0_6px_#dc1b2e]"
-              : "w-0.5 h-1.5 bg-cobalt-800 shadow-[0_0_2px_#ffffff]"
-          }`}
-        />
-        {/* Güney (Alt) */}
-        <span
-          className={`absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full transition-all duration-200 pointer-events-none ${
-            isHovered
-              ? "w-1 h-2 bg-crimson-500 shadow-[0_0_6px_#dc1b2e]"
-              : "w-0.5 h-1.5 bg-cobalt-800 shadow-[0_0_2px_#ffffff]"
-          }`}
-        />
-        {/* Batı (Sol) */}
-        <span
-          className={`absolute left-1 top-1/2 -translate-y-1/2 rounded-full transition-all duration-200 pointer-events-none ${
-            isHovered
-              ? "w-2 h-1 bg-crimson-500 shadow-[0_0_6px_#dc1b2e]"
-              : "w-1.5 h-0.5 bg-cobalt-800 shadow-[0_0_2px_#ffffff]"
-          }`}
-        />
-        {/* Doğu (Sağ) */}
-        <span
-          className={`absolute right-1 top-1/2 -translate-y-1/2 rounded-full transition-all duration-200 pointer-events-none ${
-            isHovered
-              ? "w-2 h-1 bg-crimson-500 shadow-[0_0_6px_#dc1b2e]"
-              : "w-1.5 h-0.5 bg-cobalt-800 shadow-[0_0_2px_#ffffff]"
-          }`}
-        />
-
-        {/* MERKEZ MÜCEVHER ODAK NOKTASI (0ms Hassas Tıklama Çekirdeği) */}
+        {/* MERKEZ ODAK NOKTASI (Minimal & Keskin) */}
         <div
-          className={`rounded-full relative z-20 pointer-events-none transition-all duration-150 flex items-center justify-center ${
+          className={`rounded-full transition-all duration-200 pointer-events-none ${
             isActive
-              ? "w-3 h-3 bg-crimson-600 ring-2 ring-white shadow-md scale-90"
+              ? "w-2.5 h-2.5 bg-crimson-600 scale-90 ring-1 ring-white"
               : isHovered
-              ? "w-4 h-4 bg-crimson-600 ring-2 ring-white ring-offset-1 ring-offset-crimson-200 shadow-[0_0_12px_rgba(220,27,46,0.9)]"
-              : "w-3.5 h-3.5 bg-crimson-600 ring-2 ring-white shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+              ? "w-2 h-2 bg-crimson-600/60 scale-75 ring-1 ring-white/80"
+              : "w-2 h-2 bg-crimson-600 ring-1.5 ring-white shadow-sm"
           }`}
-        >
-          {/* Merkez Mikro Pırlanta Odak Parıltısı (1.5px net tıklama referansı) */}
-          <span className="w-1 h-1 rounded-full bg-white shadow-sm pointer-events-none" />
-        </div>
+        />
       </div>
     </div>
   );

@@ -144,6 +144,24 @@
    Donanım Hızlandırmalı Çift Katmanlı Perde & Lazer Işık Çizgisi
    ======================================================== */
 
+@keyframes curtainCrimson {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes curtainCobalt {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
 @keyframes laserProgressSweep {
   0% {
     transform: scaleX(0);
@@ -166,7 +184,7 @@
 @keyframes pageEnter {
   0% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px);
   }
   100% {
     opacity: 1;
@@ -175,11 +193,22 @@
 }
 
 .page-transition {
-  animation: pageEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+.page-shutter-cobalt {
+  animation: curtainCobalt 0.44s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  will-change: transform;
+}
+
+.page-shutter-crimson {
+  animation: curtainCrimson 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  will-change: transform;
 }
 
 .page-laser-bar {
-  animation: laserProgressSweep 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: laserProgressSweep 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: left;
   will-change: transform, opacity;
 }
