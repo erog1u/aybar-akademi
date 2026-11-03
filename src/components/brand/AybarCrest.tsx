@@ -38,20 +38,22 @@ export function AybarCrestEmblem({
 
 export function AybarBrandLockup({
   variant = "light",
+  compactOnMobile = false,
 }: {
   variant?: "light" | "dark";
+  compactOnMobile?: boolean;
 }) {
   return (
-    <div className="inline-flex items-center gap-2.5 sm:gap-3.5 select-none min-w-0">
+    <div className="inline-flex items-center gap-2 sm:gap-3.5 select-none min-w-0">
       <div className="transition-transform duration-300 group-hover:scale-105 shrink-0">
         <AybarCrestEmblem
           variant={variant}
-          className="h-10 w-10 sm:h-12 sm:w-12"
+          className="h-9 w-9 sm:h-12 sm:w-12"
         />
       </div>
       <div className="flex flex-col min-w-0 justify-center">
         {/* Ana Kurumsal Başlık (AYBAR AKADEMİ) — Türkçedeki noktalı büyük İ harfinin üst noktası asla kırpılmaz */}
-        <div className="font-brand font-black text-[1.02rem] sm:text-[1.22rem] tracking-[0.02em] uppercase leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none">
+        <div className="font-brand font-black text-[0.95rem] sm:text-[1.22rem] tracking-[0.02em] uppercase leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none whitespace-nowrap">
           <span className={variant === "dark" ? "text-white" : "text-cobalt-950"}>
             AYBAR
           </span>
@@ -65,7 +67,9 @@ export function AybarBrandLockup({
         </div>
         {/* Kurumsal Alt Başlık */}
         <div
-          className={`text-[8.5px] sm:text-[10px] font-bold tracking-[0.06em] uppercase flex items-center gap-1 sm:gap-1.5 whitespace-nowrap select-none ${
+          className={`text-[8.5px] sm:text-[10px] font-bold tracking-[0.06em] uppercase items-center gap-1 sm:gap-1.5 whitespace-nowrap select-none ${
+            compactOnMobile ? "hidden sm:flex" : "flex"
+          } ${
             variant === "dark" ? "text-cobalt-200/90" : "text-cobalt-900/65"
           }`}
         >
