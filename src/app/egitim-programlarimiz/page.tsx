@@ -38,10 +38,6 @@ export default function EgitimProgramlarimizPage() {
                   >
                     <span className="relative z-10">Kapsamlı ve Birebir Eğitim.</span>
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
-                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                      <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
-                    </span>
                   </span>,
                 ]}
               />
