@@ -5,7 +5,7 @@ import { educationModelContent, whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero, { SectionHeading } from "@/components/layout/PageHero";
+import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 
 export default function EgitimModelimizPage() {
   return (
@@ -14,7 +14,11 @@ export default function EgitimModelimizPage() {
 
       <PageHero
         eyebrow="Eğitim Modelimiz"
-        title="Eğitim Modelimiz"
+        title={
+          <>
+            Eğitim <SloganMark>Modelimiz</SloganMark>
+          </>
+        }
         subtitle={educationModelContent.lead}
         actions={
           <a

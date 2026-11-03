@@ -5,7 +5,7 @@ import { aboutContent, programsIntro } from "@/data/content";
 import { assetPath } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero, { SectionHeading } from "@/components/layout/PageHero";
+import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 
 export default function HakkimizdaPage() {
   return (
@@ -14,7 +14,11 @@ export default function HakkimizdaPage() {
 
       <PageHero
         eyebrow="Hakkımızda"
-        title="EĞİTİMDE SINIR TANIMIYORUZ"
+        title={
+          <>
+            Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
+          </>
+        }
         media={
           <PhotoFrame
             src={assetPath("/images/maarif-academic-mentorship.jpg")}
@@ -51,7 +55,9 @@ export default function HakkimizdaPage() {
 
       <section className="bg-paper py-12 sm:py-16">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
-          <SectionHeading>{aboutContent.reachHeadline}</SectionHeading>
+          <SectionHeading>
+            Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
+          </SectionHeading>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             {aboutContent.reachItems.map((item) => (
               <article

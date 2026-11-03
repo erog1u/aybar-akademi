@@ -1,7 +1,7 @@
 import React from "react";
 import { assetPath } from "@/config/site";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero from "@/components/layout/PageHero";
+import PageHero, { SloganMark } from "@/components/layout/PageHero";
 
 const PARAGRAPHS = [
   "Eğitim, bireyin içindeki potansiyeli keşfetme, onu en doğru şekilde işleme ve geleceğe güvenle taşıma yolculuğudur. Bu yolculuğun her aşamasında, her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna inanıyoruz. İşte tam da bu yüzden, kitlesel ve tek düze eğitim kalıplarını bir kenara bırakarak, birebir eğitime dayalı, kişiye özel ve \"VIP\" standartlarında bir öğrenme modeli inşa ettik.",
@@ -17,7 +17,11 @@ export default function KurucuPage() {
       <Breadcrumbs items={[{ label: "Kurucumuzun Mesajı" }]} />
       <PageHero
         eyebrow="Kurucumuzun Mesajı"
-        title="Online canlı dersler ile yüzyüze özel ders modellerini birarada sunuyoruz."
+        title={
+          <>
+            Online canlı dersler ile yüzyüze özel ders modellerini <SloganMark>birarada sunuyoruz.</SloganMark>
+          </>
+        }
         media={
           <img
             src={assetPath("/images/founder-bahadir.webp")}

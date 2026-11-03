@@ -2,35 +2,60 @@
 
 import React, { useEffect, useState } from "react";
 import { assetPath } from "@/config/site";
+import { SloganMark } from "@/components/layout/PageHero";
 
 const SLIDES = [
   {
+    id: "guven",
     src: "/images/hero-one-on-one.jpg",
     alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
-    slogan: "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi",
+    slogan: (
+      <>
+        Eğitimde Güvenin, <SloganMark>Uzmanlığın Adresi</SloganMark>
+      </>
+    ),
   },
   {
+    id: "tecrube",
     src: "/images/exam-strategy-notebook.jpg",
     alt: "Birebir ders sırasında defter üzerinde çalışan eller",
-    slogan: "33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim",
+    slogan: (
+      <>
+        33 Yıllık Tecrübe | <SloganMark>Birebir & Özel Çözümler</SloganMark> | Yüz Yüze ve Online Eğitim
+      </>
+    ),
   },
   {
+    id: "sinir",
     src: "/images/istanbul-home-tutoring.jpg",
     alt: "Evde yüz yüze birebir ders",
-    slogan: "EĞİTİMDE SINIR TANIMIYORUZ",
+    slogan: (
+      <>
+        Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
+      </>
+    ),
   },
   {
+    id: "dunya",
     src: "/images/programs-global-study.jpg",
     alt: "Birebir ders çalışan öğrenci",
-    slogan: "DEĞİŞEN DÜNYAYA AYBARİST'İN GÜCÜYLE HAZIRLAN",
+    slogan: (
+      <>
+        Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlan
+      </>
+    ),
   },
   {
+    id: "online",
     src: "/images/online-interactive-lesson.jpg",
     alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
-    slogan:
-      "Online canlı dersler ile yüzyüze özel ders modellerini birarada sunuyoruz.",
+    slogan: (
+      <>
+        Online canlı dersler ile yüzyüze özel ders modellerini <SloganMark>birarada sunuyoruz.</SloganMark>
+      </>
+    ),
   },
-] as const;
+];
 
 export default function HomeSloganSlider() {
   const [index, setIndex] = useState(0);
@@ -53,9 +78,9 @@ export default function HomeSloganSlider() {
   }, [reduceMotion]);
 
   return (
-    <div className="relative z-10 aspect-[16/10] overflow-hidden rounded-2xl bg-cobalt-950 shadow-studio sm:aspect-[4/3]">
+    <div className="relative z-10 overflow-hidden rounded-2xl bg-cobalt-950 shadow-studio">
       <div
-        className={`flex h-full ${reduceMotion ? "" : "transition-transform duration-700 ease-out"}`}
+        className={`flex ${reduceMotion ? "" : "transition-transform duration-700 ease-out"}`}
         style={{
           width: `${SLIDES.length * 100}%`,
           transform: `translateX(-${(index * 100) / SLIDES.length}%)`,
@@ -63,35 +88,35 @@ export default function HomeSloganSlider() {
       >
         {SLIDES.map((slide, slideIndex) => (
           <div
-            key={slide.slogan}
-            className="relative h-full shrink-0"
+            key={slide.id}
+            className="flex shrink-0 flex-col"
             style={{ width: `${100 / SLIDES.length}%` }}
             aria-hidden={slideIndex !== index}
           >
-            <img
-              src={assetPath(slide.src)}
-              alt={slide.alt}
-              width={1200}
-              height={900}
-              decoding="async"
-              fetchPriority={slideIndex === 0 ? "high" : undefined}
-              loading={slideIndex === 0 ? "eager" : "lazy"}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#04153B]/95 via-[#04153B]/55 to-transparent p-4 pr-16 sm:p-5 sm:pr-6">
-              <p className="max-w-[34rem] text-balance text-base font-extrabold leading-[1.15] tracking-tight text-white sm:text-xl">
-                {slide.slogan}
-              </p>
+            <div className="relative aspect-[16/10] sm:aspect-[4/3]">
+              <img
+                src={assetPath(slide.src)}
+                alt={slide.alt}
+                width={1200}
+                height={900}
+                decoding="async"
+                fetchPriority={slideIndex === 0 ? "high" : undefined}
+                loading={slideIndex === 0 ? "eager" : "lazy"}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute left-3 top-3 flex gap-1.5" aria-hidden="true">
+                {SLIDES.map((dotSlide, dot) => (
+                  <span
+                    key={dotSlide.id}
+                    className={`h-1.5 rounded-full ${dot === index ? "w-5 bg-white" : "w-1.5 bg-white/50"}`}
+                  />
+                ))}
+              </div>
             </div>
+            <p className="px-4 py-3 pr-16 text-balance text-sm font-extrabold leading-snug tracking-tight text-white sm:pr-4 sm:text-base">
+              {slide.slogan}
+            </p>
           </div>
-        ))}
-      </div>
-      <div className="absolute left-3 top-3 flex gap-1.5" aria-hidden="true">
-        {SLIDES.map((slide, dot) => (
-          <span
-            key={slide.slogan}
-            className={`h-1.5 rounded-full ${dot === index ? "w-5 bg-white" : "w-1.5 bg-white/50"}`}
-          />
         ))}
       </div>
     </div>

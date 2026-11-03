@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { programCategories, programsIntro } from "@/data/content";
+import { SloganMark } from "@/components/layout/PageHero";
 import { getWhatsAppUrl } from "@/config/site";
 import { NextChapterBanner } from "@/components/motion/Primitives";
 
@@ -98,11 +99,13 @@ export default function ProgramExplorer() {
     <section className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
       {/* Kategori Seçici & Canlı Arama Çubuğu */}
       <div className="mb-10">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
           <div>
-            <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
-              <span className="mt-[0.45em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
-              <span>{programsIntro.headline}</span>
+            <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.4] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
+              <span className="mt-[0.55em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
+              <span>
+                Sizin için hazırladığımız, <SloganMark>başarı odaklı</SloganMark> eğitim programlarımız
+              </span>
             </h2>
           </div>
 

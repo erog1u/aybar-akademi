@@ -6,7 +6,7 @@ import { assetPath } from "@/config/site";
 import { PhotoFrame } from "@/components/motion/Primitives";
 import ProgramExplorer from "@/components/programs/ProgramExplorer";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero from "@/components/layout/PageHero";
+import PageHero, { SloganMark } from "@/components/layout/PageHero";
 
 export default function EgitimProgramlarimizPage() {
   return (
@@ -15,7 +15,11 @@ export default function EgitimProgramlarimizPage() {
 
       <PageHero
         eyebrow="Eğitim Programlarımız"
-        title="DEĞİŞEN DÜNYAYA AYBARİST'İN GÜCÜYLE HAZIRLAN"
+        title={
+          <>
+            Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlan
+          </>
+        }
         subtitle={programsIntro.lead}
         media={
           <PhotoFrame

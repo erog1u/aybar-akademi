@@ -72,7 +72,7 @@ export function AybarBrandLockup({
         {/* Kurumsal Alt Başlık */}
         <div
           className={`text-[8.5px] sm:text-[10px] font-bold tracking-[0.06em] uppercase items-center gap-1 sm:gap-1.5 whitespace-nowrap select-none ${
-            compactOnMobile ? "hidden sm:flex" : "flex"
+            compactOnMobile ? "hidden xl:flex" : "flex"
           } ${
             variant === "dark" ? "text-cobalt-200/90" : "text-cobalt-900/65"
           }`}

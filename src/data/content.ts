@@ -60,7 +60,7 @@ export const aboutContent = {
         "Derslerimizi, sadece branşına hâkim değil, aynı zamanda öğrenciyle doğru iletişim kurabilen, motivasyonu yüksek ve tecrübeli uzman öğretmenlerimizle yürütüyoruz.",
     },
   ],
-  reachHeadline: "EĞİTİMDE SINIR TANIMIYORUZ",
+  reachHeadline: "Eğitimde Sınır Tanımıyoruz",
   reachItems: [
     {
       title: "İstanbul’un Tüm İlçelerinde",
@@ -432,9 +432,9 @@ export const educationModelContent = {
 
 export const whyDifferentContent = {
   eyebrow: "AYBARİst AKADEMİ NEDEN FARKLI?",
-  headline: "AYBARİst AKADEMİ'DE Fark Yaratan Standart İlkeler",
+  headline: "AYBARİst AKADEMİ'de Fark Yaratan Standart İlkeler",
   lead: "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir. Eğitim camiasında fark yaratan bu yaklaşım, “Tam Öğrenme” modelini merkezine alarak öğrencileri sıfır hata ile zirveye taşır.",
-  principlesHeading: "AYBARİst AKADEMİ'DE Fark Yaratan Standart İlkeler",
+  principlesHeading: "AYBARİst AKADEMİ'de Fark Yaratan Standart İlkeler",
   principles: [
     {
       step: "01",

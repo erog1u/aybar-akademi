@@ -5,7 +5,7 @@ import { whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero, { SectionHeading } from "@/components/layout/PageHero";
+import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 
 export default function NedenFarkliyizPage() {
   return (
@@ -14,7 +14,11 @@ export default function NedenFarkliyizPage() {
 
       <PageHero
         eyebrow="Neden Farklıyız?"
-        title={whyDifferentContent.headline}
+        title={
+          <>
+            AYBARİst AKADEMİ&apos;de <SloganMark>Fark Yaratan</SloganMark> Standart İlkeler
+          </>
+        }
         subtitle={whyDifferentContent.lead}
         actions={
           <a

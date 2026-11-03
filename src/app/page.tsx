@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { PhotoFrame } from "@/components/motion/Primitives";
-import PageHero, { SectionHeading } from "@/components/layout/PageHero";
+import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 import HomeSloganSlider from "@/components/home/HomeSloganSlider";
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 import { assetPath } from "@/config/site";
@@ -20,7 +20,11 @@ export default function HomePage() {
     <div className="bg-paper text-ink">
       <PageHero
         eyebrow="AYBARİst AKADEMİ"
-        title="Eğitimde Güvenin, Başarıda Uzmanlığın Adresi"
+        title={
+          <>
+            Eğitimde Güvenin, <SloganMark>Uzmanlığın Adresi</SloganMark>
+          </>
+        }
         subtitle="33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim"
         wideMedia
         actions={
@@ -61,7 +65,9 @@ export default function HomePage() {
               Amacımız yalnızca sınavlara hazırlamak değil; öğrencinin öğrenme tutkusunu canlandırmak ve onu hedeflerine en sağlam adımlarla ulaştırmaktır.
             </p>
             <div className="mt-8">
-              <SectionHeading>Geniş Eğitim Yelpazemiz</SectionHeading>
+              <SectionHeading>
+                Geniş <SloganMark>Eğitim Yelpazemiz</SloganMark>
+              </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               {YELPAZE.map((line) => (
@@ -69,7 +75,9 @@ export default function HomePage() {
               ))}
             </ul>
             <div className="mt-8">
-              <SectionHeading>Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği</SectionHeading>
+              <SectionHeading>
+                Kesintisiz Eğitim: <SloganMark>Yüz Yüze & Online</SloganMark> Seçeneği
+              </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               <li>
