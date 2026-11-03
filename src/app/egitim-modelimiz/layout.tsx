@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/egitim-modelimiz/",
   },
   openGraph: {
-    title: "Eğitim Modelimiz | AYBAR AKADEMİ",
+    title: "Eğitim Modelimiz | AYBARİst AKADEMİ",
     description:
       "Ezberci değil; bütüncül, birebir ve kişiye özel VIP eğitim modeli. 4 aşamalı metodoloji ve 4 yönlü başarı ekosistemi.",
     url: `${SITE_URL}/egitim-modelimiz/`,

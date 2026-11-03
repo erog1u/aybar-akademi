@@ -3,7 +3,7 @@
 import React from "react";
 import { programsIntro } from "@/data/content";
 import { assetPath } from "@/config/site";
-import { MaskedLines, PhotoFrame } from "@/components/motion/Primitives";
+import { PhotoFrame } from "@/components/motion/Primitives";
 import ProgramExplorer from "@/components/programs/ProgramExplorer";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
@@ -27,20 +27,9 @@ export default function EgitimProgramlarimizPage() {
                 <span>{programsIntro.eyebrow}</span>
               </div>
 
-              <MaskedLines
-                as="h1"
-                className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[
-                  "İlkokuldan Üniversiteye,",
-                  <span
-                    key="programs-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default mt-1 sm:mt-2"
-                  >
-                    <span className="relative z-10">Kapsamlı ve Birebir Eğitim.</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
-                  </span>,
-                ]}
-              />
+              <h1 className="max-w-3xl text-[1.45rem] font-extrabold leading-[1.2] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                DEĞİŞEN DÜNYAYA AYBARİST&apos;İN GÜCÜYLE HAZIRLAN
+              </h1>
 
               <p className="mt-5 text-[15.5px] sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
                 {programsIntro.lead}
@@ -60,7 +49,7 @@ export default function EgitimProgramlarimizPage() {
                 priority
                 className="relative z-10 shadow-studio"
                 caption={
-                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                  <div className="flex items-center justify-between gap-2 text-xs font-bold text-cobalt-950 px-1 pr-16 lg:pr-0">
                     <span className="flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       6 Ana Akademik Alan

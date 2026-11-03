@@ -9,7 +9,7 @@ export default function JsonLd() {
     "@type": "EducationalOrganization",
     "@id": `${baseUrl}/#organization`,
     name: siteConfig.name,
-    legalName: "AYBAR AKADEMİ",
+    legalName: "AYBARİst AKADEMİ",
     url: baseUrl,
     logo: `${baseUrl}/images/logo-emblem.png`,
     description:
@@ -40,7 +40,9 @@ export default function JsonLd() {
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "İstanbul",
+      streetAddress: siteConfig.contact.address,
+      addressLocality: "Bakırköy",
+      addressRegion: "İstanbul",
       addressCountry: "TR",
     },
     sameAs: [getWhatsAppUrl()],

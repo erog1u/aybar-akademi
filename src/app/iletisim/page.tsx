@@ -9,7 +9,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
-import { MaskedLines, PhotoFrame } from "@/components/motion/Primitives";
+import { PhotoFrame } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import ContactForm from "@/components/forms/ContactForm";
 
@@ -32,20 +32,9 @@ export default function IletisimPage() {
                 <span>30 DAKİKALIK ÜCRETSİZ TANIŞMA SEANSI</span>
               </div>
 
-              <MaskedLines
-                as="h1"
-                className="text-[2.1rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[
-                  "İletişim & Randevu Planlama",
-                  <span
-                    key="contact-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
-                  >
-                    <span className="relative z-10">30 Dk Ücretsiz Tanışma Seansı.</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
-                  </span>,
-                ]}
-              />
+              <h1 className="max-w-3xl text-[1.45rem] font-extrabold leading-[1.25] tracking-tight text-white sm:text-3xl lg:text-4xl">
+                Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır
+              </h1>
 
               <p className="mt-5 text-base sm:text-lg text-cobalt-50/95 leading-relaxed max-w-2xl">
                 İlk derse başlamadan önce gerçekleştirdiğimiz 30 dakikalık
@@ -73,8 +62,8 @@ export default function IletisimPage() {
               </div>
 
               <PhotoFrame
-                src={assetPath("/images/istanbul-home-tutoring.jpg")}
-                alt="AYBAR AKADEMİ Birebir Özel Ders ve Ücretsiz Tanışma Seansı"
+                src={assetPath("/images/vip-mentorship.jpg")}
+                alt="AYBARİst AKADEMİ Birebir Özel Ders ve Ücretsiz Tanışma Seansı"
                 aspectClass="aspect-[16/10]"
                 priority
                 className="relative z-10 shadow-studio"
@@ -186,6 +175,28 @@ export default function IletisimPage() {
                       İlet →
                     </span>
                   </a>
+                </div>
+
+                <div className="space-y-3 border-t border-cobalt-900/10 pt-3">
+                  <h3 className="text-sm font-extrabold text-ink">Adres</h3>
+                  <p className="text-sm leading-relaxed text-ink">
+                    {siteConfig.contact.address}
+                  </p>
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(siteConfig.contact.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cobalt-700 px-4 text-sm font-extrabold text-white"
+                  >
+                    Yol Tarifi Al
+                  </a>
+                  <iframe
+                    title="AYBARİst AKADEMİ konum"
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(siteConfig.contact.address)}&z=16&output=embed`}
+                    className="h-56 w-full rounded-2xl border border-cobalt-900/10"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
 
                 {/* Lokasyon Kapsamı */}

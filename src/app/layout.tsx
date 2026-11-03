@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
+    "AYBARİst AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
   alternates: {
     canonical: "/",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "AYBAR AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim.",
+        alt: "AYBARİst AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim.",
       },
     ],
   },
@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AYBAR AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim." />
+        <meta property="og:image:alt" content="AYBARİst AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim." />
         <meta name="twitter:image" content={`${SITE_URL}/images/og-image.jpg`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

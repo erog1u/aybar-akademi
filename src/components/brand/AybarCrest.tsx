@@ -52,15 +52,19 @@ export function AybarBrandLockup({
         />
       </div>
       <div className="flex flex-col min-w-0 justify-center">
-        {/* Ana Kurumsal Başlık (AYBAR AKADEMİ) — Türkçedeki noktalı büyük İ harfinin üst noktası asla kırpılmaz */}
-        <div className="font-brand font-black text-[0.95rem] sm:text-[1.22rem] tracking-[0.02em] uppercase leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none whitespace-nowrap">
-          <span className={variant === "dark" ? "text-white" : "text-cobalt-950"}>
-            AYBAR
+        {/* Ana Kurumsal Başlık (AYBARİst AKADEMİ) — Türkçedeki noktalı büyük İ harfinin üst noktası asla kırpılmaz */}
+        <div className="font-brand font-black text-[0.92rem] sm:text-[1.15rem] tracking-[0.01em] leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none whitespace-nowrap">
+          <span className="inline-flex items-baseline" aria-label="AYBARİst">
+            <span className={variant === "dark" ? "text-white" : "text-[#0044B5]"}>
+              AYBAR
+            </span>
+            <span className="text-[#DC1B2E]">İ</span>
+            <span className="text-[#DC1B2E] lowercase">st</span>
           </span>
           <span
-            className={
+            className={`uppercase ${
               variant === "dark" ? "text-cobalt-200" : "text-cobalt-700"
-            }
+            }`}
           >
             AKADEMİ
           </span>

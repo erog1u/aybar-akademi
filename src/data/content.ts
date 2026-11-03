@@ -29,14 +29,14 @@ export const founderMessage = {
   ],
   closing: "Sevgi, saygı ve başarı dileklerimle...",
   author: "Bahadır AYBAR",
-  role: "AYBAR AKADEMİ Kurucusu",
+  role: "AYBARİst AKADEMİ Kurucusu",
 };
 
 export const aboutContent = {
   eyebrow: "HAKKIMIZDA",
   headline: "33 Yıllık Köklü Eğitim Deneyimi ve Yeni Nesil Maarif Modeline Hâkim Kadro",
   introParagraphs: [
-    "AYBAR AKADEMİ, 33 yıllık köklü eğitim deneyimini, alanında uzman ve profesyonel, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birleştiren çağdaş bir eğitim kurumudur.",
+    "AYBARİst AKADEMİ, 33 yıllık köklü eğitim deneyimini, alanında uzman ve profesyonel, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birleştiren çağdaş bir eğitim kurumudur.",
     "Eğitimde çeyrek asrı aşan bu güçlü tecrübemizle, her öğrencimizi hayallerindeki geleceğe sevgi, ilgi ve akademik disiplinle hazırlıyoruz. Bizim için başarı bir tesadüf değil; doğru yönlendirme, kesintisiz takip ve doğru yöntemlerle kazanılan kalıcı bir alışkanlıktır.",
   ],
   solutionsIntro:
@@ -46,7 +46,7 @@ export const aboutContent = {
       index: "01",
       title: "Kişiye Özgü Bireyselleştirilmiş Program",
       description:
-        "Her öğrencinin öğrenme hızı, algı dünyası ve ihtiyaçları farklıdır. AYBAR AKADEMİ'de eğitim, standart kalıplarla değil, öğrencinin eksiklerine ve hedeflerine özel hazırlanan bireysel programlarla yürütülür.",
+        "Her öğrencinin öğrenme hızı, algı dünyası ve ihtiyaçları farklıdır. AYBARİst AKADEMİ'de eğitim, standart kalıplarla değil, öğrencinin eksiklerine ve hedeflerine özel hazırlanan bireysel programlarla yürütülür.",
     },
     {
       index: "02",
@@ -75,13 +75,13 @@ export const aboutContent = {
     },
   ],
   closingParagraph:
-    "Başarıyı zirveye taşıyan eğitim yolculuğunda sağlam bir temel atmak, eksikleri hızla kapatmak, güvenli ve emin adımlarla hedefinize ulaşmak için doğru adrestesiniz. Başarıya giden bu yolda AYBAR AKADEMİ ailesi olarak her an yanınızda olmaktan gurur duyuyoruz.",
+    "Başarıyı zirveye taşıyan eğitim yolculuğunda sağlam bir temel atmak, eksikleri hızla kapatmak, güvenli ve emin adımlarla hedefinize ulaşmak için doğru adrestesiniz. Başarıya giden bu yolda AYBARİst AKADEMİ ailesi olarak her an yanınızda olmaktan gurur duyuyoruz.",
 };
 
 export const programsIntro = {
-  eyebrow: "AYBAR AKADEMİ’DE ÖZEL DERS",
+  eyebrow: "AYBARİst AKADEMİ’DE ÖZEL DERS",
   headline: "Sizin İçin Hazırladığımız, Başarı Odaklı Eğitim Programlarımız",
-  lead: "AYBAR AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın. Alanında profesyonel, vizyoner kadromuzla ilkokuldan üniversiteye, ulusal sınavlardan uluslararası kariyer basamaklarına kadar her yaş grubuna ve her seviyeye uygun, tamamen birebir özel derslerimizle başarıyı bir hedef olmaktan çıkarıp sizi zirveye taşıyan bir standart haline getiriyoruz.",
+  lead: "AYBARİst AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın. Alanında profesyonel, vizyoner kadromuzla ilkokuldan üniversiteye, ulusal sınavlardan uluslararası kariyer basamaklarına kadar her yaş grubuna ve her seviyeye uygun, tamamen birebir özel derslerimizle başarıyı bir hedef olmaktan çıkarıp sizi zirveye taşıyan bir standart haline getiriyoruz.",
   closing:
     "Hedefiniz ne olursa olsun, birebir öğrenme modeli ve uzman kadromuzla başarıya giden en kısa ve etkili yolu birlikte inşa ediyoruz.",
 };
@@ -133,7 +133,7 @@ export const programCategories: ProgramCategory[] = [
         title: "KPSS Eğitim Bilimleri (Öğretmen Adayları İçin)",
         featured: true,
         leaderNote:
-          "AYBAR AKADEMİ Kurucusu Bahadır Aybar Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
+          "AYBARİst AKADEMİ Kurucusu Bahadır Aybar Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
         description:
           "Tüm Eğitim Bilimleri dersleri bizzat kurumumuzun kurucusu Bahadır Aybar tarafından yüksek akademik standartlarda verilmektedir.",
         subjects: [
@@ -213,7 +213,7 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title:
-          "AYBAR AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
+          "AYBARİst AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
         featured: true,
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
@@ -339,7 +339,7 @@ export const programCategories: ProgramCategory[] = [
 export const educationModelContent = {
   eyebrow: "EĞİTİM MODELİMİZ",
   headline: "VIP Süreç Yönetimi ve Bütüncül Rehberlik Platformu",
-  lead: "AYBAR AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
+  lead: "AYBARİst AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
   sections: [
     {
       code: "01",
@@ -432,10 +432,10 @@ export const educationModelContent = {
 };
 
 export const whyDifferentContent = {
-  eyebrow: "AYBAR AKADEMİ NEDEN FARKLI?",
-  headline: "AYBAR AKADEMİ'DE Fark Yaratan Standart İlkeler",
+  eyebrow: "AYBARİst AKADEMİ NEDEN FARKLI?",
+  headline: "AYBARİst AKADEMİ'DE Fark Yaratan Standart İlkeler",
   lead: "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir. Eğitim camiasında fark yaratan bu yaklaşım, “Tam Öğrenme” modelini merkezine alarak öğrencileri sıfır hata ile zirveye taşır.",
-  principlesHeading: "AYBAR AKADEMİ'DE Fark Yaratan Standart İlkeler",
+  principlesHeading: "AYBARİst AKADEMİ'DE Fark Yaratan Standart İlkeler",
   principles: [
     {
       step: "01",
