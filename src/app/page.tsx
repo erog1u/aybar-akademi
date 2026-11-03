@@ -49,7 +49,7 @@ export default function HomePage() {
           <div className="lg:col-span-5">
             <PhotoFrame
               src={assetPath("/images/hero-one-on-one.jpg")}
-              alt="Öğretmen ve kız öğrenci birebir ders çalışırken"
+              alt="Kadın öğretmen ve kız öğrenci birebir ders çalışırken"
               aspectClass="aspect-[4/3]"
             />
           </div>

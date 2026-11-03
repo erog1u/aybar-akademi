@@ -100,9 +100,9 @@ export default function ProgramExplorer() {
       <div className="mb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
           <div>
-            <h2 className="max-w-4xl text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl">
-              <span className="mb-2 block h-2 w-2 rounded-full bg-crimson-600" aria-hidden="true" />
-              {programsIntro.headline}
+            <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
+              <span className="mt-[0.45em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
+              <span>{programsIntro.headline}</span>
             </h2>
           </div>
 

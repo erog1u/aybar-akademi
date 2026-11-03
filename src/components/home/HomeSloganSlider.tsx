@@ -6,7 +6,7 @@ import { assetPath } from "@/config/site";
 const SLIDES = [
   {
     src: "/images/hero-one-on-one.jpg",
-    alt: "Öğretmen ve kız öğrenci birebir ders çalışırken",
+    alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
     slogan: "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi",
   },
   {
@@ -26,15 +26,9 @@ const SLIDES = [
   },
   {
     src: "/images/online-interactive-lesson.jpg",
-    alt: "Canlı online ders",
+    alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
     slogan:
       "Online canlı dersler ile yüzyüze özel ders modellerini birarada sunuyoruz.",
-  },
-  {
-    src: "/images/vip-mentorship.jpg",
-    alt: "Öğretmen ve öğrenci görüşmesi",
-    slogan:
-      "Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
   },
 ] as const;
 
@@ -69,7 +63,7 @@ export default function HomeSloganSlider() {
       >
         {SLIDES.map((slide, slideIndex) => (
           <div
-            key={slide.src}
+            key={slide.slogan}
             className="relative h-full shrink-0"
             style={{ width: `${100 / SLIDES.length}%` }}
             aria-hidden={slideIndex !== index}
@@ -95,7 +89,7 @@ export default function HomeSloganSlider() {
       <div className="absolute left-3 top-3 flex gap-1.5" aria-hidden="true">
         {SLIDES.map((slide, dot) => (
           <span
-            key={slide.src}
+            key={slide.slogan}
             className={`h-1.5 rounded-full ${dot === index ? "w-5 bg-white" : "w-1.5 bg-white/50"}`}
           />
         ))}

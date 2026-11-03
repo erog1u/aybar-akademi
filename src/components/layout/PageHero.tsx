@@ -59,9 +59,9 @@ export default function PageHero({
 /** Same H2 scale on every page: navy type, red accent, wraps on a 390px screen. */
 export function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="max-w-4xl text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl">
-      <span className="mb-2 block h-2 w-2 rounded-full bg-crimson-600" aria-hidden="true" />
-      {children}
+    <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
+      <span className="mt-[0.45em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
+      <span>{children}</span>
     </h2>
   );
 }
