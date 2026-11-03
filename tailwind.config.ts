@@ -55,22 +55,13 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "var(--font-sans)",
           '"Plus Jakarta Sans"',
-          "var(--font-inter)",
-          "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
           "sans-serif",
         ],
-        brand: [
-          "var(--font-brand)",
-          '"Montserrat"',
-          "var(--font-sans)",
-          '"Plus Jakarta Sans"',
-          "-apple-system",
-          "sans-serif",
-        ],
+        serif: ['"Lora"', "Georgia", "serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
       },
       letterSpacing: {
         tightest: "-0.018em",

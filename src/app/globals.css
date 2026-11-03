@@ -68,31 +68,6 @@
   }
 }
 
-/* ==========================================================================
-   ÖZEL LÜKS İNTERAKTİF MOUSE İMLECİ (DESKTOP SMOOTH CURSOR)
-   ========================================================================== */
-@media (pointer: fine) and (hover: hover) {
-  body.has-smooth-cursor,
-  body.has-smooth-cursor a,
-  body.has-smooth-cursor button,
-  body.has-smooth-cursor [role="button"],
-  body.has-smooth-cursor [role="link"],
-  body.has-smooth-cursor .cursor-pointer {
-    cursor: none !important;
-  }
-
-  body.has-smooth-cursor input,
-  body.has-smooth-cursor textarea,
-  body.has-smooth-cursor select {
-    cursor: auto !important;
-  }
-}
-
-@media (pointer: coarse), (hover: none) {
-  .smooth-cursor-root {
-    display: none !important;
-  }
-}
 
 @layer components {
   .studio-hero {
