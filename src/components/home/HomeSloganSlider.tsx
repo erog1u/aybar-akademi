@@ -10,9 +10,9 @@ const SLIDES = [
     slogan: "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi",
   },
   {
-    src: "/images/maarif-academic-mentorship.jpg",
-    alt: "Öğretmenin kıza ders anlattığı birebir çalışma",
-    slogan: "33 Yıllık Tecrübe",
+    src: "/images/exam-strategy-notebook.jpg",
+    alt: "Birebir ders sırasında defter üzerinde çalışan eller",
+    slogan: "33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim",
   },
   {
     src: "/images/istanbul-home-tutoring.jpg",

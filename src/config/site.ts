@@ -26,7 +26,6 @@ export function assetPath(p: string): string {
 export const siteConfig = {
   name: "AYBARİst AKADEMİ",
   legalSubtitle: "Eğitim · Yayıncılık · Danışmanlık",
-  motto: "Bilginin Kaynağı, Başarının Mimarı",
   experienceYears: 33,
   founder: {
     name: "Bahadır AYBAR",

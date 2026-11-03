@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { PhotoFrame } from "@/components/motion/Primitives";
-import PageHero from "@/components/layout/PageHero";
+import PageHero, { SectionHeading } from "@/components/layout/PageHero";
 import HomeSloganSlider from "@/components/home/HomeSloganSlider";
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 import { assetPath } from "@/config/site";
@@ -60,17 +60,17 @@ export default function HomePage() {
             <p className="mt-3 text-base leading-relaxed text-ink-muted">
               Amacımız yalnızca sınavlara hazırlamak değil; öğrencinin öğrenme tutkusunu canlandırmak ve onu hedeflerine en sağlam adımlarla ulaştırmaktır.
             </p>
-            <h2 className="mt-8 text-2xl font-extrabold leading-[1.2] tracking-tight text-ink sm:text-3xl">
-              Geniş Eğitim Yelpazemiz
-            </h2>
+            <div className="mt-8">
+              <SectionHeading>Geniş Eğitim Yelpazemiz</SectionHeading>
+            </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               {YELPAZE.map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
-            <h2 className="mt-8 text-2xl font-extrabold leading-[1.2] tracking-tight text-ink sm:text-3xl">
-              Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği
-            </h2>
+            <div className="mt-8">
+              <SectionHeading>Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği</SectionHeading>
+            </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               <li>
                 İstanbul Geneli Yüz Yüze Eğitim: Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle bire bir yüz yüze ders imkanı.

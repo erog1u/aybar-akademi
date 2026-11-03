@@ -100,12 +100,9 @@ export default function ProgramExplorer() {
       <div className="mb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-bold mb-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Eğitim Programlarımız</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-ink tracking-tight">
-              Eğitim Programlarımızı Keşfedin
+            <h2 className="max-w-4xl text-balance text-2xl font-extrabold leading-[1.2] tracking-tight text-cobalt-950 sm:text-3xl">
+              <span className="mb-2 block h-2 w-2 rounded-full bg-crimson-600" aria-hidden="true" />
+              {programsIntro.headline}
             </h2>
           </div>
 
@@ -379,7 +376,7 @@ export default function ProgramExplorer() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group/link"
                   >
-                    <span>Bu Program İçin Danışma Planlayın</span>
+                    <span>Bilgi Al</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                   </a>
                 </div>
@@ -415,7 +412,7 @@ export default function ProgramExplorer() {
               href="/egitim-modelimiz"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold transition-colors"
             >
-              <span>Eğitim Modelimizi İnceleyin</span>
+              <span>Eğitim Modelimiz</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           )}
@@ -429,8 +426,8 @@ export default function ProgramExplorer() {
       </div>
 
       <NextChapterBanner
-        title="Eğitim Modelimizi Keşfedin"
-        description="VIP Süreç Yönetimi, eğitim koçluğu ve aile-veli-okul köprüsü modelimizi adım adım inceleyin."
+        title="Eğitim Modelimiz"
+        description="AYBARİst AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur."
         href="/egitim-modelimiz"
         buttonLabel="Eğitim Modelimiz"
       />

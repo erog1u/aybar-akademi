@@ -35,8 +35,7 @@ export default function JsonLd() {
       "@type": "ContactPoint",
       telephone: siteConfig.contact.phoneHref.replace("tel:", ""),
       contactType: "customer service",
-      availableLanguage: ["tr", "en"],
-      contactOption: "TollFree",
+      availableLanguage: ["tr"],
     },
     address: {
       "@type": "PostalAddress",
@@ -89,9 +88,9 @@ export default function JsonLd() {
       {
         "@type": "Course",
         position: 4,
-        name: "Dünya Dilleri & Uluslararası Sertifikasyon (11 Dünya Dili)",
+        name: "Dünya Dilleri & Uluslararası Sertifikasyon",
         description:
-          "IELTS, TOEFL, Goethe, DELF gibi uluslararası sınavlara ve küresel iletişime hazırlayan özel dil dersleri.",
+          "Dünya ile Konuşun, Sınırları Kaldırın! Yabancı dil eğitiminde sadece konuşmayı değil, kariyerinizi şekillendirecek küresel sınavları hedefliyoruz.",
         provider: {
           "@type": "EducationalOrganization",
           name: siteConfig.name,
@@ -101,8 +100,7 @@ export default function JsonLd() {
         "@type": "Course",
         position: 5,
         name: "Türkiye Özelindeki Ulusal Yabancı Dil Sınavları (YDT, YDS)",
-        description:
-          "YDT ve YDS sınavlarında hedef odaklı gramer, kelime ve soru çözüm stratejileriyle başarı eğitimi.",
+        description: "Türkiye özelindeki ulusal yabancı dil sınavları: YDT ve YDS.",
         provider: {
           "@type": "EducationalOrganization",
           name: siteConfig.name,

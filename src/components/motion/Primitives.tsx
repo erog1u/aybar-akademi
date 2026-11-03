@@ -237,10 +237,7 @@ export function NextChapterBanner({
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="text-xs font-bold tracking-wider uppercase text-crimson-400 mb-1.5 block">
-              Sıradaki Bölüm
-            </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
+            <h3 className="text-2xl font-extrabold leading-[1.2] tracking-tight text-white sm:text-3xl">
               {title}
             </h3>
             <p className="mt-2 text-sm sm:text-base text-cobalt-200 leading-relaxed">

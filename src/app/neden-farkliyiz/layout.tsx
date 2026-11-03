@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Neden Farklıyız? | AYBARİst AKADEMİ",
     description:
-      "Her öğrenciye standart olarak uyguladığımız, rastlantılara yer bırakmayan 5 aşamalı başarı metodolojimiz ve kişiye özel Hata Defteri tekniğimiz.",
+      "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir.",
     url: `${SITE_URL}/neden-farkliyiz/`,
   },
 };

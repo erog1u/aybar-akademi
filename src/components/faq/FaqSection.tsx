@@ -51,7 +51,7 @@ interface FaqSectionProps {
 
 export default function FaqSection({
   heading = "Sıkça Sorulan Sorular",
-  lead = "VIP özel ders sürecimiz, Maarif Modeli uyumumuz ve veli bilgilendirme sistemimiz hakkında merak edilenler.",
+  lead = "",
   className = "",
 }: FaqSectionProps) {
   // Varsayılan olarak tüm maddeler kapalı (null) — Sadece tıklanınca açılır
