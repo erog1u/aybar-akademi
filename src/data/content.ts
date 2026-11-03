@@ -61,7 +61,7 @@ export const aboutContent = {
         "Derslerimizi, sadece branşına hâkim değil, aynı zamanda öğrenciyle doğru iletişim kurabilen, motivasyonu yüksek ve tecrübeli uzman öğretmenlerimizle yürütüyoruz.",
     },
   ],
-  reachHeadline: "Eğitimde Sınır Tanımıyoruz",
+  reachHeadline: "EĞİTİMDE SINIR TANIMIYORUZ",
   reachItems: [
     {
       title: "İstanbul’un Tüm İlçelerinde",

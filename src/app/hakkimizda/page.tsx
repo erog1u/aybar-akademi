@@ -5,7 +5,6 @@ import { MapPin, Globe2 } from "lucide-react";
 import { aboutContent, programsIntro } from "@/data/content";
 import { assetPath } from "@/config/site";
 import {
-  MaskedLines,
   PhotoFrame,
   NextChapterBanner,
 } from "@/components/motion/Primitives";
@@ -31,20 +30,13 @@ export default function HakkimizdaPage() {
                 <span>{aboutContent.eyebrow}</span>
               </div>
 
-              <MaskedLines
-                as="h1"
-                className="text-[2.05rem] sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                lines={[
-                  "33 Yıllık Köklü Eğitim Deneyimi ve",
-                  <span
-                    key="about-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default mt-1 sm:mt-2"
-                  >
-                    <span className="relative z-10">Yeni Nesil Maarif Modeli.</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />
-                  </span>,
-                ]}
-              />
+              <h1 className="max-w-full text-[1.6rem] min-[400px]:text-[1.75rem] sm:text-5xl lg:text-[3.15rem] font-extrabold tracking-tight leading-[1.15] text-white">
+                <span className="block">EĞİTİMDE</span>{" "}
+                <span className="block">SINIR TANIMIYORUZ</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-base sm:text-lg text-cobalt-50 leading-relaxed">
+                İstanbul’un tüm ilçelerinde evinizin konforunda yüz yüze, tüm Türkiye’de canlı online yanınızdayız.
+              </p>
 
               <div className="mt-6 space-y-4 text-base sm:text-lg text-cobalt-50/95 leading-relaxed">
                 <p>{aboutContent.introParagraphs[0]}</p>
@@ -165,7 +157,7 @@ export default function HakkimizdaPage() {
                 YÜZ YÜZE & ONLINE
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-ink">
+            <h2 className="max-w-full text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.2] text-ink">
               {aboutContent.reachHeadline}
             </h2>
           </div>
