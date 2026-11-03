@@ -16,16 +16,20 @@ export default function Navbar() {
   const scrollYRef = React.useRef(0);
   const prevPathRef = React.useRef(pathname);
   const lastScrollY = React.useRef(0);
+  const accumulatedUp = React.useRef(0);
+  const accumulatedDown = React.useRef(0);
 
   useEffect(() => {
     setMobileOpen(false);
     setHeaderVisible(true);
     document.documentElement.classList.remove("header-hidden");
+    accumulatedUp.current = 0;
+    accumulatedDown.current = 0;
   }, [pathname]);
 
-  // Akıllı Kaydırma Yönü Tespiti:
-  // - Aşağı kaydırırken (içerik okurken) üst çubuk gizlenir ve ekran ferahlar.
-  // - Yukarı doğru ufak bir kaydırmada (-4px) üst çubuk anında ve HIZLA geri gelir.
+  // Akıllı ve Hassas Kaydırma Yönü Tespiti (Akümülatif Delta ile 120Hz/60Hz Uyumlu):
+  // - Aşağı kaydırırken (içerik okunurken) üst çubuk akıcı şekilde gizlenir.
+  // - Yukarı doğru en ufak harekette (toplam 6px bile yeterli!) çubuk anında ve HIZLA geri gelir.
   useEffect(() => {
     let ticking = false;
 
@@ -34,25 +38,38 @@ export default function Navbar() {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
 
-          // 1. Sayfa tepe noktasındayken (ilk 60px) çubuk daima görünür
-          if (currentY <= 60) {
+          // 1. Sayfa tepe noktasındayken (ilk 50px) çubuk daima görünür
+          if (currentY <= 50) {
             setHeaderVisible(true);
             setHasScrolled(false);
             document.documentElement.classList.remove("header-hidden");
+            accumulatedUp.current = 0;
+            accumulatedDown.current = 0;
           } else {
             setHasScrolled(true);
 
-            const diff = currentY - lastScrollY.current;
+            const delta = currentY - lastScrollY.current;
 
-            // 2. Aşağı kaydırma eşiği (8px): Kullanıcı içerik okurken çubuk yukarı çekilsin
-            if (diff > 8) {
-              setHeaderVisible(false);
-              document.documentElement.classList.add("header-hidden");
-            }
-            // 3. Yukarı kaydırma eşiği (-4px): Çubuk anında ve HIZLA gelsin!
-            else if (diff < -4) {
-              setHeaderVisible(true);
-              document.documentElement.classList.remove("header-hidden");
+            if (delta < 0) {
+              // Yukarı kaydırma (parmak aşağı çekildiğinde)
+              accumulatedUp.current += Math.abs(delta);
+              accumulatedDown.current = 0;
+
+              // En ufak yukarı kaydırma hareketinde (6px birikince) çubuk ANINDA belirsin!
+              if (accumulatedUp.current >= 6) {
+                setHeaderVisible(true);
+                document.documentElement.classList.remove("header-hidden");
+              }
+            } else if (delta > 0) {
+              // Aşağı kaydırma (içerik okunurken)
+              accumulatedDown.current += delta;
+              accumulatedUp.current = 0;
+
+              // Kullanıcı bilinçli olarak aşağı kaydırdığında (24px birikince) çubuk gizlensin
+              if (accumulatedDown.current >= 24 && currentY > 60) {
+                setHeaderVisible(false);
+                document.documentElement.classList.add("header-hidden");
+              }
             }
           }
 
@@ -142,20 +159,20 @@ export default function Navbar() {
             : "-translate-y-full pointer-events-none"
         } ${hasScrolled ? "shadow-md" : "shadow-none"}`}
       >
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-2 xl:gap-4">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-6 2xl:px-8 h-full flex items-center justify-between gap-2 xl:gap-4">
           {/* Sol: Logo ve Kurumsal İsim */}
           <Link
             href="/"
             prefetch={true}
-            className="group min-w-0 shrink-0 focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded-lg"
+            className="group min-w-0 shrink-0 focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded-lg py-1"
           >
             <AybarBrandLockup variant="light" />
           </Link>
 
-          {/* Orta: Masaüstü Navigasyon */}
+          {/* Orta: Masaüstü Navigasyon (Her Ekran Genişliğinde Taşmayan & Ferah Mimari) */}
           <nav
             aria-label="Ana Menü"
-            className="hidden lg:flex items-center gap-0.5 xl:gap-1"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5"
           >
             {siteConfig.navigation.map((item) => {
               const isActive =
@@ -175,7 +192,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   prefetch={true}
-                  className={`px-2.5 xl:px-3.5 py-2 rounded-lg text-[13px] xl:text-[14.5px] font-bold transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none ${
+                  className={`px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-lg text-[13px] xl:text-[13.5px] 2xl:text-[14px] font-bold transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none ${
                     isActive
                       ? "bg-cobalt-700 text-white shadow-sm"
                       : "text-ink hover:text-cobalt-700 hover:bg-cobalt-50"
@@ -183,8 +200,8 @@ export default function Navbar() {
                 >
                   {shortLabel ? (
                     <>
-                      <span className="hidden xl:inline">{item.label}</span>
-                      <span className="inline xl:hidden">{shortLabel}</span>
+                      <span className="hidden 2xl:inline">{item.label}</span>
+                      <span className="inline 2xl:hidden">{shortLabel}</span>
                     </>
                   ) : (
                     item.label
@@ -201,10 +218,10 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none"
+              className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3.5 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none"
             >
-              <span className="hidden xl:inline">Ücretsiz Tanışma Seansı</span>
-              <span className="inline xl:hidden">Ücretsiz Tanışma</span>
+              <span className="hidden 2xl:inline">Ücretsiz Tanışma Seansı</span>
+              <span className="inline 2xl:hidden">Ücretsiz Tanışma</span>
             </a>
 
             {/* Mobil Hızlı Tanışma Aksiyonu (Mobilde PC ile Eşit Zenginlik) */}

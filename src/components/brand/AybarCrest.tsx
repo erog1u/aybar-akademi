@@ -49,8 +49,9 @@ export function AybarBrandLockup({
           className="h-10 w-10 sm:h-12 sm:w-12"
         />
       </div>
-      <div className="flex flex-col min-w-0">
-        <div className="font-brand font-extrabold text-[1.04rem] sm:text-[1.24rem] tracking-[0.045em] uppercase leading-none truncate flex items-center gap-1.5">
+      <div className="flex flex-col min-w-0 justify-center">
+        {/* Ana Kurumsal Başlık (AYBAR AKADEMİ) — Türkçedeki noktalı büyük İ harfinin üst noktası asla kırpılmaz */}
+        <div className="font-brand font-black text-[1.02rem] sm:text-[1.22rem] tracking-[0.02em] uppercase leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none">
           <span className={variant === "dark" ? "text-white" : "text-cobalt-950"}>
             AYBAR
           </span>
@@ -62,9 +63,10 @@ export function AybarBrandLockup({
             AKADEMİ
           </span>
         </div>
+        {/* Kurumsal Alt Başlık */}
         <div
-          className={`text-[8.5px] sm:text-[11px] font-semibold tracking-wide uppercase mt-1 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap ${
-            variant === "dark" ? "text-cobalt-200/90" : "text-ink-muted"
+          className={`text-[8.5px] sm:text-[10px] font-bold tracking-[0.06em] uppercase flex items-center gap-1 sm:gap-1.5 whitespace-nowrap select-none ${
+            variant === "dark" ? "text-cobalt-200/90" : "text-cobalt-900/65"
           }`}
         >
           <span>Eğitim</span>
