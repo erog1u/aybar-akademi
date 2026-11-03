@@ -18,7 +18,7 @@ export default function EgitimModelimizPage() {
 
   return (
     <div className="bg-paper text-ink">
-      <Breadcrumbs items={[{ label: "Eğitim Modelimiz" }]} />
+      <Breadcrumbs items={[{ label: "Eğitim Modelimiz", href: "/egitim-modelimiz" }]} />
 
       {/* 1. Canlı ve Ferah Cobalt Hero */}
       <section className="studio-hero text-white border-b border-white/15 overflow-hidden py-12 sm:py-16 lg:py-20 relative">
@@ -42,7 +42,7 @@ export default function EgitimModelimizPage() {
                   "Ezberci Değil; Bütüncül,",
                   <span
                     key="model-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default mt-1 sm:mt-2"
                   >
                     <span className="relative z-10">Birebir ve Kişiye Özel.</span>
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />

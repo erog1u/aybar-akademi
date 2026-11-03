@@ -110,22 +110,27 @@ export default function ProgramExplorer() {
             </h2>
           </div>
 
-          {/* Anında Arama Kutusu */}
+          {/* Anında Arama Kutusu (iOS Auto-Zoom Korumalı & Doğru Sanal Klavye) */}
           <div className="w-full sm:w-72 relative">
             <Search className="h-4 w-4 text-cobalt-700 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
-              type="text"
+              type="search"
+              inputMode="search"
+              autoComplete="off"
+              autoCapitalize="none"
+              spellCheck="false"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Ders, sınav veya program ara..."
-              className="w-full h-11 pl-10 pr-9 rounded-xl bg-white border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-xs sm:text-sm text-ink placeholder:text-ink-subtle shadow-sm transition-all"
+              className="w-full h-12 min-h-[48px] pl-10 pr-10 rounded-xl bg-white border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-base sm:text-sm text-ink placeholder:text-ink-subtle shadow-sm transition-all touch-manipulation"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink p-1"
+                className="absolute right-1 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink min-h-[48px] min-w-[48px] inline-flex items-center justify-center p-2 rounded-lg touch-manipulation"
                 title="Aramayı Temizle"
+                aria-label="Aramayı Temizle"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -133,8 +138,8 @@ export default function ProgramExplorer() {
           </div>
         </div>
 
-        {/* 6 Alan İçin Şık Butonlar */}
-        <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-2.5 overflow-x-auto no-scrollbar pb-2 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* 6 Alan İçin Şık ve Ferah Mikro-Kart Mimarisi (PC ve Mobilde Sıfır Taşma) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 pt-1">
           {programCategories.map((cat, idx) => {
             const Icon = CATEGORY_ICONS[cat.id] || BookOpen;
             const isActive = !searchQuery && cat.id === activeCategory.id;
@@ -144,27 +149,32 @@ export default function ProgramExplorer() {
                 key={cat.id}
                 type="button"
                 onClick={() => handleSelectCategory(cat.id)}
-                className={`shrink-0 sm:shrink min-h-[48px] px-3.5 py-2.5 rounded-xl text-left transition-all duration-300 flex items-center justify-between gap-2.5 cursor-pointer relative overflow-hidden active:scale-95 touch-manipulation ${
+                className={`group p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-300 flex flex-col justify-between min-h-[88px] sm:min-h-[96px] gap-2.5 cursor-pointer relative overflow-hidden select-none active:scale-[0.98] ${
                   isActive
-                    ? "bg-crimson-600 text-white shadow-crimson ring-2 ring-crimson-400/40 scale-[1.02]"
-                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-crimson-300 hover:-translate-y-0.5 border border-cobalt-900/10 shadow-sm"
+                    ? "bg-crimson-600 text-white shadow-crimson ring-2 ring-crimson-400/50"
+                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-crimson-300/60 hover:-translate-y-0.5 border border-cobalt-900/10 shadow-sm"
                 }`}
               >
                 {isActive && (
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-light-sweep pointer-events-none" />
                 )}
-                <div className="flex items-center gap-2 min-w-0 relative z-10">
-                  <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-white" : "text-cobalt-700"}`} />
-                  <span className="text-xs sm:text-[13px] font-bold whitespace-nowrap">
-                    {cat.shortTitle}
+                {/* 1. Kat (Üst Satır): Sol İkon Kutusu, Sağ Program Sayısı Rozeti */}
+                <div className="flex items-center justify-between w-full relative z-10 gap-2">
+                  <div className={`h-7 w-7 sm:h-8 sm:w-8 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                    isActive ? "bg-white/20 text-white" : "bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-50 group-hover:text-crimson-600"
+                  }`}>
+                    <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  </div>
+                  <span className={`text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 transition-colors ${
+                    isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-50 group-hover:text-crimson-700"
+                  }`}>
+                    {cat.items.length} Program
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 shrink-0 relative z-10">
-                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />}
-                  <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
-                    isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700"
-                  }`}>
-                    {cat.items.length}
+                {/* 2. Kat (Alt Satır): Alan Adı — Ferah, Kalın ve Net */}
+                <div className="relative z-10 w-full min-w-0">
+                  <span className="text-xs sm:text-[13px] font-extrabold leading-snug tracking-tight block break-words">
+                    {cat.shortTitle}
                   </span>
                 </div>
               </button>
@@ -397,7 +407,7 @@ export default function ProgramExplorer() {
             <button
               type="button"
               onClick={() => handleSelectCategory(prevCat.id)}
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold border border-cobalt-900/15 bg-white text-cobalt-900 hover:bg-cobalt-50 transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold border border-cobalt-900/15 bg-white text-cobalt-900 hover:bg-cobalt-50 transition-colors cursor-pointer"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Önceki: {prevCat.shortTitle}</span>
@@ -408,7 +418,7 @@ export default function ProgramExplorer() {
             <button
               type="button"
               onClick={() => handleSelectCategory(nextCat.id)}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 text-white px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 text-white px-5 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold transition-colors cursor-pointer"
             >
               <span>Sonraki: {nextCat.shortTitle}</span>
               <ArrowRight className="h-4 w-4" />
@@ -416,7 +426,7 @@ export default function ProgramExplorer() {
           ) : (
             <Link
               href="/egitim-modelimiz"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-5 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold transition-colors"
             >
               <span>Eğitim Modelimizi İnceleyin</span>
               <ArrowRight className="h-4 w-4" />

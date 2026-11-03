@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/layout/Breadcrumbs";
 export default function EgitimProgramlarimizPage() {
   return (
     <div className="bg-paper text-ink">
-      <Breadcrumbs items={[{ label: "Eğitim Programlarımız" }]} />
+      <Breadcrumbs items={[{ label: "Eğitim Programlarımız", href: "/egitim-programlarimiz" }]} />
 
       {/* Canlı Cobalt Başlık Alanı */}
       <section className="studio-hero text-white py-12 sm:py-16 lg:py-20 border-b border-white/15 overflow-hidden relative">
@@ -34,7 +34,7 @@ export default function EgitimProgramlarimizPage() {
                   "İlkokuldan Üniversiteye,",
                   <span
                     key="programs-crimson-box"
-                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson animate-crimson-box overflow-hidden mt-1 sm:mt-2"
+                    className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-1.5 rounded-2xl bg-crimson-600 text-white font-extrabold shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default mt-1 sm:mt-2"
                   >
                     <span className="relative z-10">Kapsamlı ve Birebir Eğitim.</span>
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-light-sweep pointer-events-none" />

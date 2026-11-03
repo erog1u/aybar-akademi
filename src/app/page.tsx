@@ -93,7 +93,7 @@ export default function HomePage() {
                     key="dogru-egitim"
                     className="block mt-2.5 sm:mt-3"
                   >
-                    <span className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-2 rounded-2xl bg-crimson-600 text-white font-black tracking-tight shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none">
+                    <span className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-2 rounded-2xl bg-crimson-600 text-white font-black tracking-tight shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none cursor-default">
                       {/* Işıltılı Sürekli Akan Işık Çizgisi (Shimmer Loop) */}
                       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-light-sweep pointer-events-none" />
 

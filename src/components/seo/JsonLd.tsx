@@ -1,8 +1,8 @@
 import React from "react";
-import { siteConfig, getWhatsAppUrl } from "@/config/site";
+import { siteConfig, getWhatsAppUrl, SITE_URL } from "@/config/site";
 
 export default function JsonLd() {
-  const baseUrl = "https://erog1u.github.io/aybar-akademi";
+  const baseUrl = SITE_URL;
 
   const educationalOrganizationSchema = {
     "@context": "https://schema.org",
@@ -11,7 +11,7 @@ export default function JsonLd() {
     name: siteConfig.name,
     legalName: "AYBAR AKADEMİ",
     url: baseUrl,
-    logo: `${baseUrl}/images/aybar-crest-emblem.png`,
+    logo: `${baseUrl}/images/logo-emblem.png`,
     description:
       "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadrosuyla, İstanbul’un 39 ilçesinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir VIP özel ders kurumu.",
     founder: {

@@ -44,6 +44,8 @@
 
   body.menu-open {
     overflow: hidden;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: auto;
   }
 
   img {
@@ -54,6 +56,41 @@
   ::selection {
     background-color: #dc1b2e;
     color: #ffffff;
+  }
+
+  /* iOS Safari Auto-Zoom Bug Prevention Safeguard (Tüm mobil girişlerde min 16px font zorunluluğu) */
+  @media screen and (max-width: 639px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   ÖZEL LÜKS İNTERAKTİF MOUSE İMLECİ (DESKTOP SMOOTH CURSOR)
+   ========================================================================== */
+@media (pointer: fine) and (hover: hover) {
+  body.has-smooth-cursor,
+  body.has-smooth-cursor a,
+  body.has-smooth-cursor button,
+  body.has-smooth-cursor [role="button"],
+  body.has-smooth-cursor [role="link"],
+  body.has-smooth-cursor .cursor-pointer {
+    cursor: none !important;
+  }
+
+  body.has-smooth-cursor input,
+  body.has-smooth-cursor textarea,
+  body.has-smooth-cursor select {
+    cursor: auto !important;
+  }
+}
+
+@media (pointer: coarse), (hover: none) {
+  .smooth-cursor-root {
+    display: none !important;
   }
 }
 
@@ -138,31 +175,10 @@
   }
 }
 
-@keyframes curtainCrimson {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes curtainCobalt {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
 @keyframes pageEnter {
   0% {
     opacity: 0;
-    transform: translateY(18px);
-  }
-  40% {
-    opacity: 0.6;
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
@@ -171,22 +187,11 @@
 }
 
 .page-transition {
-  animation: pageEnter 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
-  will-change: transform, opacity;
-}
-
-.page-shutter-cobalt {
-  animation: curtainCobalt 0.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-  will-change: transform;
-}
-
-.page-shutter-crimson {
-  animation: curtainCrimson 0.46s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-  will-change: transform;
+  animation: pageEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .page-laser-bar {
-  animation: laserProgressSweep 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: laserProgressSweep 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: left;
   will-change: transform, opacity;
 }
@@ -327,18 +332,24 @@
 
 @keyframes crimson-box-pulse {
   0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 4px 22px -2px rgba(220, 27, 46, 0.55), 0 0 0 0 rgba(220, 27, 46, 0.7);
+    box-shadow: 0 4px 18px -2px rgba(220, 27, 46, 0.45), 0 0 0 1px rgba(251, 86, 104, 0.4);
+    border-color: rgba(251, 86, 104, 0.55);
   }
   50% {
-    transform: scale(1.03);
-    box-shadow: 0 12px 34px 2px rgba(220, 27, 46, 0.75), 0 0 0 8px rgba(220, 27, 46, 0);
+    box-shadow: 0 8px 28px 2px rgba(220, 27, 46, 0.7), 0 0 0 3px rgba(220, 27, 46, 0.2);
+    border-color: rgba(255, 255, 255, 0.75);
   }
 }
 
 .animate-crimson-box {
-  animation: crimson-box-pulse 2.2s ease-in-out infinite;
-  will-change: transform, box-shadow;
+  animation: crimson-box-pulse 2.6s ease-in-out infinite;
+  will-change: box-shadow, border-color;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
 }
 
 @keyframes light-sweep {

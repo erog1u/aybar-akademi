@@ -137,9 +137,9 @@ export default function FaqSection({
             <span className="text-[11px] font-extrabold uppercase tracking-wider text-crimson-600">
               Sorunuz mu var?
             </span>
-            <h4 className="text-base sm:text-lg font-bold text-ink mt-0.5">
+            <h3 className="text-base sm:text-lg font-bold text-ink mt-0.5">
               Size Özel Bilgilendirme
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-ink-muted mt-1.5 leading-relaxed">
               Öğrencinizin sınıf düzeyi, ihtiyaç duyduğu branşlar ve 30 dakikalık
               ücretsiz tanışma seansı için doğrudan eğitim danışmanımızla

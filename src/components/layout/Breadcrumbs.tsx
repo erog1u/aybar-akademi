@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
+import { SITE_URL } from "@/config/site";
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,7 +13,7 @@ export interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const baseUrl = "https://erog1u.github.io/aybar-akademi";
+  const baseUrl = SITE_URL;
 
   const breadcrumbsSchema = {
     "@context": "https://schema.org",
@@ -24,12 +25,17 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         name: "Ana Sayfa",
         item: `${baseUrl}/`,
       },
-      ...items.map((it, idx) => ({
-        "@type": "ListItem",
-        position: idx + 2,
-        name: it.label,
-        ...(it.href ? { item: `${baseUrl}${it.href}` } : {}),
-      })),
+      ...items.map((it, idx) => {
+        const itemUrl = it.href
+          ? `${baseUrl}${it.href.startsWith("/") ? "" : "/"}${it.href}${it.href.endsWith("/") ? "" : "/"}`
+          : `${baseUrl}/`;
+        return {
+          "@type": "ListItem",
+          position: idx + 2,
+          name: it.label,
+          item: itemUrl,
+        };
+      }),
     ],
   };
 

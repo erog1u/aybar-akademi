@@ -17,7 +17,7 @@ const WATERMARK_SVG = encodeURIComponent(
 export default function PreviewProtection({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const [authorized, setAuthorized] = useState(true);
 

@@ -7,8 +7,15 @@
  * otomatik olarak buradan beslenir.
  */
 
+import { buildSafeWhatsAppUrl } from "@/lib/security";
+
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const IS_PREVIEW_MODE = process.env.NEXT_PUBLIC_PREVIEW_MODE === "true";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (IS_PREVIEW_MODE
+    ? "https://erog1u.github.io/aybar-akademi"
+    : "https://aybarakademi.com");
 
 export function assetPath(p: string): string {
   if (!p.startsWith("/")) return p;
@@ -35,14 +42,14 @@ export const siteConfig = {
     original: assetPath("/images/logo-original.jpg"),
   },
   contact: {
-    // Telefon numarası netleştiğinde buradan değiştirin:
-    phoneDisplay: "0 (532) 000 00 00",
-    phoneHref: "tel:+905320000000",
+    // Telefon numarası netleştiğinde buradan değiştirin (veya NEXT_PUBLIC_PHONE_DISPLAY env değişkeni ile verin):
+    phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "0 (532) 000 00 00",
+    phoneHref: process.env.NEXT_PUBLIC_PHONE_HREF || "tel:+905320000000",
     // WhatsApp numarasını başında + olmadan ülke koduyla yazın (örn: 905321234567)
-    whatsappNumber: "905320000000",
+    whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905320000000",
     whatsappDefaultMessage:
       "Merhaba, AYBAR AKADEMİ birebir özel ders programları ve 30 dakikalık ücretsiz tanışma seansı hakkında bilgi almak istiyorum.",
-    email: "iletisim@aybarakademi.com",
+    email: process.env.NEXT_PUBLIC_EMAIL || "iletisim@aybarakademi.com",
     locations: {
       faceToFaceTitle: "İstanbul’un Tüm İlçelerinde",
       faceToFaceDetail:
@@ -63,8 +70,8 @@ export const siteConfig = {
 } as const;
 
 export function getWhatsAppUrl(customMessage?: string): string {
-  const text = encodeURIComponent(
+  return buildSafeWhatsAppUrl(
+    siteConfig.contact.whatsappNumber,
     customMessage || siteConfig.contact.whatsappDefaultMessage
   );
-  return `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${text}`;
 }
