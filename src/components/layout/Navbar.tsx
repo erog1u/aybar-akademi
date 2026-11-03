@@ -97,8 +97,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Sağ: CTA & Mobil Menü Butonu */}
-          <div className="flex items-center shrink-0">
+          {/* Sağ: CTA & Mobil Menü Butonları (Mobilde de Canlı Kırmızı Tanışma Butonu) */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Masaüstü CTA */}
             <a
               href={getWhatsAppUrl()}
               target="_blank"
@@ -109,13 +110,25 @@ export default function Navbar() {
               <span className="inline xl:hidden">Ücretsiz Tanışma</span>
             </a>
 
+            {/* Mobil Hızlı Tanışma Aksiyonu (Mobilde PC ile Eşit Zenginlik) */}
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lg:hidden h-10 px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-crimson"
+              aria-label="30 Dk Ücretsiz Tanışma Seansı"
+            >
+              <span>Tanışma</span>
+            </a>
+
+            {/* Mobil Menü Butonu */}
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Menüyü Aç"
               aria-expanded={mobileOpen}
               aria-controls="mobile-drawer"
-              className="lg:hidden h-11 px-4 rounded-lg bg-cobalt-900 active:scale-95 text-white text-sm font-bold inline-flex items-center gap-2 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none"
+              className="lg:hidden h-10 px-3 rounded-lg bg-cobalt-950 active:scale-95 text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none shadow-sm"
             >
               <Menu className="h-4 w-4" />
               <span>Menü</span>
@@ -159,7 +172,7 @@ export default function Navbar() {
             aria-label="Mobil Menü Linkleri"
             className="p-4 sm:p-5 space-y-1.5"
           >
-            {siteConfig.navigation.map((item) => {
+            {siteConfig.navigation.map((item, idx) => {
               const isActive =
                 item.href === "/"
                   ? pathname === "/"
@@ -171,16 +184,21 @@ export default function Navbar() {
                   href={item.href}
                   prefetch={true}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-colors ${
+                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-all ${
                     isActive
-                      ? "bg-cobalt-700 text-white shadow-sm"
+                      ? "bg-cobalt-950 text-white shadow-md border-l-4 border-crimson-600 pl-3.5"
                       : "text-ink hover:bg-cobalt-50 hover:text-cobalt-700"
                   }`}
                 >
-                  <span>{item.label}</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className={`text-xs font-mono font-bold ${isActive ? "text-crimson-400" : "text-ink-subtle"}`}>
+                      0{idx + 1}
+                    </span>
+                    <span>{item.label}</span>
+                  </div>
                   <ArrowUpRight
                     className={`h-4 w-4 shrink-0 ${
-                      isActive ? "text-white/90" : "text-ink-subtle"
+                      isActive ? "text-crimson-400" : "text-ink-subtle"
                     }`}
                   />
                 </Link>

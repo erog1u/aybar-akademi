@@ -145,8 +145,8 @@ export default function HomePage() {
             <div className="lg:col-span-6 min-w-0 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-indigo-400/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
 
-              {/* Üst Yüzen Kırmızı Rozet (Süs & Cancan) */}
-              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+              {/* Üst Yüzen Kırmızı Rozet (Mobilde ve Masaüstünde Canlı & Süs) */}
+              <div className="absolute -top-3 sm:-top-3.5 right-3 sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson animate-float-slow">
                 <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>VIP Birebir Mentörlük</span>
               </div>
@@ -172,32 +172,44 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+          {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde ve PC'de Eşit Zarafet) */}
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-400 sm:hidden" />
+                33 Yıl
+              </span>
+              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Köklü Deneyim</strong>
                 Çeyrek asrı aşan uzman kadro
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 sm:hidden" />
+                %100
+              </span>
+              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Maarif Modeli</strong>
                 Yeni nesil beceri temelli
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-sky-400 sm:hidden" />
+                39 İlçe
+              </span>
+              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
                 Evinizin konforunda özel ders
               </div>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
-              <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300 sm:hidden" />
+                81 İl
+              </span>
+              <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
                 Tüm Türkiye’de kesintisiz erişim
               </div>
@@ -206,8 +218,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Canlı, Şık ve Prestijli 4 Bölüm Yönlendirmesi */}
-      <section className="py-14 sm:py-20 bg-paper border-b border-cobalt-900/10">
+      {/* 2. Canlı, Şık ve Prestijli 4 Bölüm Yönlendirmesi (Mobilde 2x2 App Paneli, PC'de 4 Kolon) */}
+      <section className="py-12 sm:py-20 bg-paper border-b border-cobalt-900/10">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
           <SectionHeader
             eyebrow="BÖLÜMLERİMİZ"
@@ -215,38 +227,38 @@ export default function HomePage() {
             subtitle="İhtiyacınız olan bölüme doğrudan geçerek detayları inceleyebilirsiniz."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {GUIDED_SECTIONS.map((item) => {
               const Icon = item.icon;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  className="group flex flex-col justify-between p-3.5 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 relative overflow-hidden"
                 >
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
                   <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="h-12 w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm">
-                        <Icon className="h-6 w-6" />
+                    <div className="flex items-center justify-between mb-3 sm:mb-5">
+                      <span className="h-9 w-9 sm:h-12 sm:w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm">
+                        <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
                       </span>
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-crimson-50 text-[11px] font-black tracking-wider text-crimson-700 border border-crimson-200/50 group-hover:bg-crimson-600 group-hover:text-white transition-colors shadow-xs">
+                      <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-crimson-50 text-[10px] sm:text-[11px] font-black tracking-wider text-crimson-700 border border-crimson-200/50 group-hover:bg-crimson-600 group-hover:text-white transition-colors shadow-xs">
                         {item.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-ink group-hover:text-crimson-600 transition-colors tracking-tight">
+                    <h3 className="text-sm sm:text-xl font-extrabold text-ink group-hover:text-crimson-600 transition-colors tracking-tight leading-snug">
                       {item.title}
                     </h3>
 
-                    <p className="mt-2.5 text-sm sm:text-[14.5px] text-ink-muted leading-relaxed">
+                    <p className="hidden sm:block mt-2.5 text-sm sm:text-[14.5px] text-ink-muted leading-relaxed">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="pt-5 mt-4 border-t border-cobalt-900/5 flex items-center justify-between text-xs sm:text-sm font-bold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
-                    <span>Bölümü İncele</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <div className="pt-3 sm:pt-5 mt-2 sm:mt-4 border-t border-cobalt-900/5 flex items-center justify-between text-xs sm:text-sm font-bold text-cobalt-700 group-hover:text-crimson-600 transition-colors">
+                    <span className="text-[11px] sm:text-sm">Bölümü İncele</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </div>
                 </Link>
               );
