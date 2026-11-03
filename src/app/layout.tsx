@@ -20,17 +20,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
     description:
-      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman kadro. İstanbul 39 ilçede evinizde yüz yüze ve tüm Türkiye'de canlı online VIP özel ders.",
+      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu uzman kadro. İstanbul'un 39 ilçesinde evinizde yüz yüze ve tüm Türkiye'de canlı online VIP özel ders.",
     url: "https://erog1u.github.io/aybar-akademi",
     siteName: siteConfig.name,
     locale: "tr_TR",
     type: "website",
     images: [
       {
-        url: "/images/hero-one-on-one.jpg",
+        url: "https://erog1u.github.io/aybar-akademi/images/og-image.jpg",
+        secureUrl: "https://erog1u.github.io/aybar-akademi/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AYBAR AKADEMİ Birebir Özel Ders ve Eğitim Koçluğu",
+        type: "image/jpeg",
+        alt: "AYBAR AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim.",
       },
     ],
   },
@@ -38,8 +40,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
     description:
-      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim kadro. İstanbul 39 ilçe yüz yüze & tüm Türkiye canlı online.",
-    images: ["/images/hero-one-on-one.jpg"],
+      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu kadro. İstanbul 39 ilçe yüz yüze & tüm Türkiye canlı online.",
+    images: ["https://erog1u.github.io/aybar-akademi/images/og-image.jpg"],
   },
   robots: IS_PREVIEW_MODE
     ? {
@@ -80,6 +82,13 @@ export default function RootLayout({
     <html lang="tr">
       <head>
         <JsonLd />
+        <meta property="og:image" content="https://erog1u.github.io/aybar-akademi/images/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://erog1u.github.io/aybar-akademi/images/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="AYBAR AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim." />
+        <meta name="twitter:image" content="https://erog1u.github.io/aybar-akademi/images/og-image.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
