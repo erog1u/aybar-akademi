@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 /**
  * Gerçek Aybar Akademi dairesel armasını (siteConfig.logos.emblem)
  * dikdörtgen kutu görüntüsü olmadan, dairesel madalyon çerçeve ve
- * modern kurumsal Montserrat (font-brand) tipografisiyle sayfaya entegre eder.
+ * Plus Jakarta Sans (font-brand) tipografisiyle sayfaya entegre eder.
  */
 export function AybarCrestEmblem({
   variant = "light",

@@ -1,7 +1,7 @@
 # AYBAR AKADEMİ — Kurumsal Web Sitesi
 
 **Bilginin Kaynağı, Başarının Mimarı**  
-33 yıllık köklü akademik deneyim ve Türkiye Yüzyılı Maarif Modeline %100 uyumlu VIP birebir özel ders platformu web sitesi.  
+33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birebir özel ders platformu.  
 Tasarım & Yazılım: **Eroğlu Solutions** ([eroglusolutions.com](https://eroglusolutions.com)).
 
 ---

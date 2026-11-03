@@ -402,10 +402,7 @@ export default function ClientPreviewStudioPage() {
     (mode === "mobile" || mode === "tablet") && zoomMode === "actual";
 
   return (
-    <div
-      data-lenis-prevent
-      className="preview-studio fixed inset-0 z-[120] bg-cobalt-950 text-white flex flex-col overflow-hidden select-none"
-    >
+    <div className="preview-studio fixed inset-0 z-[120] bg-cobalt-950 text-white flex flex-col overflow-hidden select-none">
       {/* Üst Kontrol Çubuğu */}
       <header className="bg-cobalt-950 border-b border-white/15 shrink-0 z-20">
         <div className="h-14 px-3 sm:px-5 flex items-center justify-between gap-2 sm:gap-3">

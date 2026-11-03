@@ -42,6 +42,9 @@ jobs:
     needs: quality-check
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -60,14 +63,12 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: "https://aybarakademi.com"
 
-      # Cloudflare Pages Direct Upload (GitHub Secret tanımlandıysa tetiklenir)
+      # Job-level env is visible to this `if`. A step-level env is not,
+      # so the old check could never see the token and never deployed.
       - name: Publish to Cloudflare Pages
-        if: env.CLOUDFLARE_API_TOKEN != ''
+        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy out --project-name=aybar-akademi
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
-import LuxuryCursor from "@/components/ui/LuxuryCursor";
 
 export default function SiteShell({
   children,
@@ -22,7 +21,6 @@ export default function SiteShell({
 
   return (
     <>
-      <LuxuryCursor />
       <div className="min-h-screen flex flex-col w-full max-w-full">
         <Navbar />
         <main id="main-content" className="flex-1 w-full max-w-full">

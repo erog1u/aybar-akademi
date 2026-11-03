@@ -54,7 +54,7 @@ const GUIDED_SECTIONS = [
     badge: "04",
     title: "Hakkımızda",
     description:
-      "33 yıllık köklü deneyimimiz, İstanbul 39 ilçe yüz yüze ve 81 il canlı online eğitim ağımız.",
+      "33 yıllık köklü deneyimimiz; İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online eğitim.",
     href: "/hakkimizda",
     icon: MapPin,
   },
@@ -73,12 +73,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Sol Sütun */}
             <div className="lg:col-span-6 min-w-0">
-              <div className="inline-flex items-center gap-2.5 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full shadow-sm hover:border-white/40 transition-colors backdrop-blur-xs">
+              <div className="inline-flex items-start sm:items-center gap-2.5 rounded-full bg-white/12 border border-white/25 px-4 py-1.5 text-xs sm:text-sm font-bold text-white mb-6 max-w-full shadow-sm">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="radar-beacon absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
                 </span>
-                <span>33 Yıllık Köklü Eğitim Deneyimi · %100 Maarif Uyumu</span>
+                <span className="min-w-0 leading-snug">33 Yıllık Köklü Eğitim Deneyimi · Maarif Modeline Hâkim Kadro</span>
               </div>
 
               <MaskedLines
@@ -110,11 +110,11 @@ export default function HomePage() {
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-cobalt-200">
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-cobalt-300" />
-                  <strong className="text-white font-bold">İstanbul:</strong> 39 İlçede Evinizde Yüz Yüze
+                  <strong className="text-white font-bold">İstanbul:</strong> Tüm İlçelerde Evinizde Yüz Yüze
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  <strong className="text-white font-bold">Tüm Türkiye:</strong> 81 İlde Canlı Online
+                  <strong className="text-white font-bold">Tüm Türkiye:</strong> Canlı Online Eğitim
                 </span>
               </div>
 
@@ -140,7 +140,7 @@ export default function HomePage() {
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-indigo-400/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
 
               {/* Üst Yüzen Kırmızı Rozet (Mobilde ve Masaüstünde Canlı & Süs) */}
-              <div className="absolute -top-3 sm:-top-3.5 right-3 sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson animate-float-slow">
+              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
                 <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>VIP Birebir Mentörlük</span>
               </div>
@@ -152,7 +152,7 @@ export default function HomePage() {
                 priority
                 className="relative z-10 shadow-studio"
                 caption={
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-[13px] font-bold">
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-[13px] font-bold pr-16 lg:pr-0">
                     <span className="text-cobalt-950 flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       Birebir VIP Özel Ders
@@ -167,10 +167,10 @@ export default function HomePage() {
           </div>
 
           {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde ve PC'de Eşit Zarafet) */}
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:pr-20">
             <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-crimson-400 sm:hidden" />
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white leading-none whitespace-nowrap flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-400 sm:hidden shrink-0" />
                 33 Yıl
               </span>
               <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
@@ -179,33 +179,33 @@ export default function HomePage() {
               </div>
             </div>
             <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 sm:hidden" />
-                %100
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 sm:hidden shrink-0" />
+                Maarif
               </span>
               <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Maarif Modeli</strong>
-                Yeni nesil beceri temelli
+                <strong className="text-white block font-bold">Hâkim Kadro</strong>
+                Yeni nesil Maarif Modeli
               </div>
             </div>
             <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-sky-400 sm:hidden" />
-                39 İlçe
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-sky-400 sm:hidden shrink-0" />
+                İstanbul
               </span>
               <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
-                Evinizin konforunda özel ders
+                <strong className="text-white block font-bold">Tüm İlçelerinde</strong>
+                Evinizde yüz yüze özel ders
               </div>
             </div>
             <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300 sm:hidden" />
-                81 İl
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300 sm:hidden shrink-0" />
+                Türkiye
               </span>
               <div className="text-[11px] sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
-                Tüm Türkiye’de kesintisiz erişim
+                <strong className="text-white block font-bold">Tüm Türkiye’de</strong>
+                Canlı online eğitim
               </div>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function HomePage() {
                 }
               />
               <div className="mt-4 p-4 rounded-xl bg-cobalt-950 text-white border border-cobalt-800 text-xs sm:text-sm text-center font-bold shadow-sm">
-                İstanbul’un 39 İlçesinde Evinizde Yüz Yüze · 81 İlde Canlı Online
+                İstanbul’un Tüm İlçelerinde Yüz Yüze · Tüm Türkiye’de Canlı Online
               </div>
             </div>
 
@@ -305,7 +305,7 @@ export default function HomePage() {
 
               {/* Çözümler: Zengin, Numaralandırılmış Şık Çözüm Kartları */}
               <div className="mt-8 space-y-4">
-                {aboutContent.solutions.map((solution, sIdx) => (
+                {aboutContent.solutions.map((solution) => (
                   <div
                     key={solution.index}
                     className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-crimson-500/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 group"

@@ -112,14 +112,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar + Eroğlu Solutions Signature — WhatsApp butonunun altında kalmaması için güvenli pb-20 ve lg:mr-52 */}
-        <div className="py-8 pb-28 sm:pb-24 lg:pb-20 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
+        <div className="py-8 pb-24 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
           <div className="text-cobalt-200">
             © {new Date().getFullYear()} {siteConfig.name} ·{" "}
             {siteConfig.founder.name} ({siteConfig.founder.role})
           </div>
 
           {/* Eroğlu Solutions İmzası — Masaüstünde WhatsApp butonunun tamamen solunda ve üstünde kalan korumalı alan */}
-          <div className="lg:pr-56 xl:pr-64 shrink-0">
+          <div className="lg:pr-20 shrink-0">
             <a
               href={siteConfig.agency.url}
               target="_blank"

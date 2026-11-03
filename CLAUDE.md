@@ -5,7 +5,7 @@ Bu belge, **Claude Code** ve projeyi devralacak geliştiriciler için mimariyi, 
 ---
 
 ## 1. Proje Amacı ve Kimliği
-- **Kurum:** AYBAR AKADEMİ (33 yıllık köklü deneyim, Türkiye Yüzyılı Maarif Modeline %100 uyumlu VIP birebir özel ders ve eğitim koçluğu kurumu).
+- **Kurum:** AYBAR AKADEMİ (33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birebir özel ders ve eğitim koçluğu).
 - **Geliştirici Ajans:** Eroğlu Solutions ([eroglusolutions.com](https://eroglusolutions.com)).
 - **Amaç:** Next.js 15 tabanlı, statik dışa aktarılan (SSG/export), ultra hızlı (103 KB shared bundle), mobil uyumlu (0px taşma), kurumsal prestiji yansıtan, sıfır takılmalı (zero-lag) modern web sitesi.
 - **Canlı Korumalı Önizleme CDN:** `https://erog1u.github.io/aybar-akademi/`
@@ -19,9 +19,11 @@ Bu belge, **Claude Code** ve projeyi devralacak geliştiriciler için mimariyi, 
   - Kurumsal Palet: Kraliyet Kobalt Mavisi (`#0044B5`), Gece Mavisi (`#08245E`, `#04153B`), Sinyal Kırmızı (`#DC1B2E`), Arka Plan (`#FAFBFD`), Metin (`#09152B`)
 - **İkonlar:** `lucide-react`
 - **Animasyon & Akıcılık:**
-  - Saf CSS GPU donanım hızlandırmalı keyframe'ler (`@keyframes pageEnter`, `animate-gentle-glow`, `animate-badge-breathe`, `animate-float-slow`, `radar-beacon`).
-  - Sayfa geçişleri: `src/app/template.tsx` (0.32s ipeksi crossfade/lift).
-  - JavaScript thread'ini donduran ağır scroll kütüphaneleri (Lenis vb.) kaldırılmış; `html { scroll-behavior: smooth }` ile 120 FPS akıcılık sağlanmıştır.
+  - Kaydırma tarayıcının kendi kaydırmasıdır. Lenis yok, özel imleç yok, tam ekran perde geçişi yok.
+  - `html { scroll-behavior: smooth; scroll-padding-top: var(--header-offset) }`. `prefers-reduced-motion: reduce` açıkken animasyonlar ve yumuşak kaydırma kapanır.
+  - Sayfa geçişi: `src/app/template.tsx` içinde kısa bir opaklık geçişi (`.page-enter`, yaklaşık 0.22s).
+  - Kalan süs animasyonları `src/app/globals.css` içindedir (`animate-gentle-glow`, `animate-crimson-box`, `radar-beacon`).
+- **Yazı tipleri (yüklü olanlar):** Plus Jakarta Sans (gövde, başlık ve `font-brand`), Lora (yalnızca alıntı/serif), JetBrains Mono (kod). Montserrat yüklenmez.
 - **Görsel Optimizasyonu:** Node.js `sharp` + `mozjpeg` progressive sıkıştırma (tüm ana görseller ≤100 KB, `decoding="async"`, `fetchPriority="high"`).
 
 ---
@@ -57,9 +59,9 @@ aybar-akademi/
 │   │   ├── egitim-modelimiz/page.tsx      # Eğitim Modelimiz (4 Temel Aşama, 4 Yönlü Başarı Ekosistemi)
 │   │   ├── neden-farkliyiz/page.tsx       # Neden Farklıyız? (5 Standart İlke, Hata Defteri Metodolojisi)
 │   │   ├── iletisim/page.tsx              # İletişim (3 Adımlı Form, Canlı WhatsApp Mesaj Önizlemesi, Lokasyonlar)
-│   │   ├── onizleme/page.tsx              # Cihaz Simülatörü Studio (iPhone 15 Pro, iPad Air, Masaüstü)
+│   │   ├── onizleme/page.tsx              # İç cihaz stüdyosu. Üretim derlemesinde 404; önizleme modunda açılır. noindex, sitemap dışı.
 │   │   ├── layout.tsx                     # Kök layout, SEO meta verileri, OpenGraph, JSON-LD
-│   │   ├── template.tsx                   # 0.32s GPU donanım hızlandırmalı sayfa geçiş katmanı
+│   │   ├── template.tsx                   # Kısa sayfa geçiş katmanı (opaklık). Perde/lazer yok.
 │   │   ├── globals.css                    # Tailwind katmanları, özel animasyon keyframe'leri, tipografi
 │   │   ├── robots.ts & sitemap.ts         # Otomatik XML sitemap ve robots.txt üretimi
 │   │   └── not-found.tsx                  # Prestijli 404 sayfası
@@ -69,8 +71,9 @@ aybar-akademi/
 │   │   ├── layout/
 │   │   │   ├── Navbar.tsx                 # 80px/64px sticky kurumsal menü ve mobil drawer
 │   │   │   ├── Footer.tsx                 # Kurumsal alt bilgi, program linkleri ve telif şeridi
-│   │   │   ├── SiteShell.tsx              # Sayfa sarmalayıcı (Navbar/Footer/WhatsApp orkestrasyonu)
-│   │   │   ├── FloatingWhatsApp.tsx       # Yeşil radar sinyalli yüzen WhatsApp danışma butonu
+│   │   │   ├── SiteShell.tsx              # Sayfa sarmalayıcı (Navbar/Footer/WhatsApp). Özel imleç yok.
+│   │   │   ├── FloatingWhatsApp.tsx       # Köşede ikon boyutunda yüzen WhatsApp danışma butonu
+│   │   │   ├── WhatsAppFloatingButton.tsx # Sabit butonun kendisi (metinli geniş pill değil)
 │   │   │   ├── Breadcrumbs.tsx            # Schema.org uyumlu BreadcrumbList navigasyon izi
 │   │   │   └── PreviewProtection.tsx      # Önizleme koruması (alan adı kilidi, kopya engeli, watermark)
 │   │   ├── motion/
@@ -96,7 +99,7 @@ aybar-akademi/
 1. **İçerik Sadakati (EN ÖNEMLİ KURAL):**
    - Sitedeki tüm metinlerin tek yasal kaynağı `docs/MUSTERI_METNI.md` belgesidir.
    - Uydurma garanti ("Garantili", "%100 sınav garantisi"), yapay istatistik, hayali rozet, uydurma süreç adımı **KESİNLİKLE YASAKTIR**.
-   - İstanbul'un 39 ilçesinde yüz yüze (evde), Türkiye'nin 81 ilinde canlı online ayrımı net olarak korunmalıdır.
+   - Hizmet alanı müşteri metnindeki gibi yazılır: İstanbul’un tüm ilçelerinde yüz yüze (evde), tüm Türkiye’de canlı online. "39 ilçe", "81 il" ve "%100 Maarif uyumu" yazılmaz.
 2. **Görsel ve Performans Disiplini:**
    - Sayfa başına **en fazla 1 ana görsel** (ana sayfada en fazla 2). Asla kontrolsüz fotoğraf eklenmez.
    - Yeni görsel eklenecekse önce Node.js `sharp` ile `mozjpeg` sıkıştırmasından geçirilip ≤100 KB seviyesine indirilmelidir.
@@ -104,10 +107,10 @@ aybar-akademi/
 3. **Tipografi ve Kutu Çarpışması Koruması:**
    - H1 başlıkları içinde metinlerin üstüne taşan kalın arka plan kutuları (`inline-block bg-white ...`) konulmamalıdır; satır aralıkları ferah tutulmalıdır.
    - Başlık satır yüksekliği 1.15–1.2, gövde satır yüksekliği `leading-relaxed` (1.65). Mobilde gövde yazı boyutu ≥15px olmalıdır.
-   - Alıntılar ve kurucu sözleri haricinde italik/serif font kullanılmaz; ana tipografi sans-serif'tir (`Plus Jakarta Sans`, `Montserrat`).
+   - Alıntılar ve kurucu sözleri haricinde italik/serif kullanılmaz. Gövde ve marka yazısı Plus Jakarta Sans'tır. Lora yalnızca alıntıda, JetBrains Mono kodda kullanılır.
 4. **Hero 4-Stat Şerit Simetrisi:**
    - Hero altlarındaki 4 sütunlu şeritlerde rakamların rengi tek tip beyaz (`text-white font-extrabold`) olmalıdır; araya clashing kırmızı rakam sıkıştırılmamalıdır.
-   - 4 metrik tüm sayfalarda tutarlıdır: `33 Yıl Köklü Deneyim`, `%100 Maarif Modeli`, `39 İlçe İstanbul Yüz Yüze`, `81 İl Canlı Online Eğitim`.
+   - Hero şeridinde uydurma oran veya il sayısı yoktur. Kullanılan ifadeler: `33 Yıl / Köklü Deneyim`, `Maarif / Hâkim Kadro`, `İstanbul / Tüm İlçelerinde`, `Türkiye / Tüm Türkiye’de`. `30 dakikalık ücretsiz tanışma` müşteri metnindedir ve korunur.
 
 ---
 
@@ -117,7 +120,7 @@ aybar-akademi/
 # 1. Geliştirme sunucusunu başlatma (http://localhost:3000)
 npm run dev
 
-# 2. TypeScript tip denetimi (0 hata kuralı)
+# 2. TypeScript tip denetimi (0 hata kuralı). next.config.ts derleme hatalarını yok saymaz.
 npm run typecheck
 
 # 3. Yerel derleme testi (Static export kontrolü)
