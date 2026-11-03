@@ -34,7 +34,6 @@ export const founderMessage = {
 
 export const aboutContent = {
   eyebrow: "HAKKIMIZDA",
-  headline: "33 Yıllık Köklü Eğitim Deneyimi ve Yeni Nesil Maarif Modeline Hâkim Kadro",
   introParagraphs: [
     "AYBARİst AKADEMİ, 33 yıllık köklü eğitim deneyimini, alanında uzman ve profesyonel, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birleştiren çağdaş bir eğitim kurumudur.",
     "Eğitimde çeyrek asrı aşan bu güçlü tecrübemizle, her öğrencimizi hayallerindeki geleceğe sevgi, ilgi ve akademik disiplinle hazırlıyoruz. Bizim için başarı bir tesadüf değil; doğru yönlendirme, kesintisiz takip ve doğru yöntemlerle kazanılan kalıcı bir alışkanlıktır.",
@@ -80,7 +79,7 @@ export const aboutContent = {
 
 export const programsIntro = {
   eyebrow: "AYBARİst AKADEMİ’DE ÖZEL DERS",
-  headline: "Sizin İçin Hazırladığımız, Başarı Odaklı Eğitim Programlarımız",
+  headline: "Sizin için hazırladığımız, başarı odaklı eğitim programlarımız",
   lead: "AYBARİst AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın. Alanında profesyonel, vizyoner kadromuzla ilkokuldan üniversiteye, ulusal sınavlardan uluslararası kariyer basamaklarına kadar her yaş grubuna ve her seviyeye uygun, tamamen birebir özel derslerimizle başarıyı bir hedef olmaktan çıkarıp sizi zirveye taşıyan bir standart haline getiriyoruz.",
   closing:
     "Hedefiniz ne olursa olsun, birebir öğrenme modeli ve uzman kadromuzla başarıya giden en kısa ve etkili yolu birlikte inşa ediyoruz.",
@@ -338,7 +337,7 @@ export const programCategories: ProgramCategory[] = [
 
 export const educationModelContent = {
   eyebrow: "EĞİTİM MODELİMİZ",
-  headline: "VIP Süreç Yönetimi ve Bütüncül Rehberlik Platformu",
+  headline: "Eğitim Modelimiz",
   lead: "AYBARİst AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
   sections: [
     {
@@ -441,11 +440,6 @@ export const whyDifferentContent = {
       step: "01",
       title: "Ders Öncesi ve İlk Tanışma (Profesyonel Başlangıç)",
       items: [
-        {
-          title: "30 Dakikalık Tanışma Seansı",
-          detail:
-            "İlk gün ve ilk derse özgü olarak konuya direkt girilmez; ders başlamadan önce 30 dakikalık ücretsiz bir keşif seansı yapılır.",
-        },
         {
           title: "Öğrenme Stili Analizi",
           detail:

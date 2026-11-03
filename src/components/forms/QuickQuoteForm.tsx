@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { getWhatsAppUrl } from "@/config/site";
+import { getWhatsAppUrl, siteConfig } from "@/config/site";
+import { SectionHeading } from "@/components/layout/PageHero";
 import {
   sanitizeText,
   validateName,
@@ -130,6 +131,30 @@ export default function QuickQuoteForm() {
         Hemen Hızlı Teklif Alın!
       </button>
     </form>
+  );
+}
+
+export function QuoteRequestSection({ id = "teklif" }: { id?: string }) {
+  return (
+    <section id={id} className="scroll-mt-20 border-b border-cobalt-900/10 bg-white py-8 sm:py-12">
+      <div className="mx-auto grid max-w-[1380px] grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+        <div className="lg:col-span-5">
+          <SectionHeading>Hemen Hızlı Teklif Alın!</SectionHeading>
+          <p className="mt-3 text-base leading-relaxed text-ink-muted">
+            Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
+          </p>
+          <p className="mt-4 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
+            Yüz Yüze & Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
+          </p>
+          <p className="mt-1 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
+            Detaylı Bilgi ve Randevu İçin: {siteConfig.contact.phoneDisplay}
+          </p>
+        </div>
+        <div className="rounded-3xl border border-cobalt-900/10 bg-paper p-4 pr-20 sm:p-7 sm:pr-7 lg:col-span-7">
+          <QuickQuoteForm />
+        </div>
+      </div>
+    </section>
   );
 }
 

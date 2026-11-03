@@ -238,7 +238,7 @@ export default function ContactForm({
 
       // WhatsApp Başvuru Mesajını Güvenli İnşa Et
       const lines = [
-        "👋 Merhaba, AYBARİst AKADEMİ 30 Dakikalık Ücretsiz Tanışma Seansı için randevu almak istiyorum.",
+        "Merhaba, AYBARİst AKADEMİ hakkında bilgi almak istiyorum.",
         "",
         `📚 Eğitim Alanı: ${cleanData.program}`,
         `📍 Ders Tercihi: ${cleanData.format}`,
@@ -378,7 +378,7 @@ export default function ContactForm({
           <span>HIZLI & GÜVENLİ RANDEVU</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink">
-          30 Dakikalık Ücretsiz Tanışma Seansı
+          Bilgi Al
         </h2>
         <p className="mt-1.5 text-sm sm:text-[15px] text-ink-muted leading-relaxed">
           Eğitim alanı ve ders biçiminizi seçip bilgilerinizi girerek doğrudan bizimle iletişime geçebilirsiniz.
@@ -666,7 +666,7 @@ export default function ContactForm({
             className="mt-0.5 h-5 w-5 rounded text-crimson-600 focus:ring-crimson-500 border-cobalt-900/20 cursor-pointer shrink-0"
           />
           <span className="leading-snug text-ink-muted">
-            <strong className="text-ink font-semibold">KVKK Aydınlatma Metni</strong> kapsamında randevu ve tanışma seansı planlaması amacıyla iletişim kurulmasını onaylıyorum.
+            <strong className="text-ink font-semibold">KVKK Aydınlatma Metni</strong> kapsamında iletişim kurulmasını onaylıyorum.
           </span>
         </label>
         {errors.kvkk && (
@@ -709,7 +709,7 @@ export default function ContactForm({
           ) : (
             <>
               <MessageCircle className="h-5 w-5" />
-              <span>WhatsApp ile Ücretsiz Seansı Başlat</span>
+              <span>Bilgi Al</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </>
           )}

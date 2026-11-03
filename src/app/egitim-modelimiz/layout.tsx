@@ -4,14 +4,14 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "Eğitim Modelimiz",
   description:
-    "Ezberci değil; bütüncül, birebir ve kişiye özel VIP eğitim modeli. VIP Süreç Yönetimi, eğitim koçluğu, tam öğrenme modeli ve veli-okul köprüsü standartlarımız.",
+    "AYBARİst AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
   alternates: {
     canonical: "/egitim-modelimiz/",
   },
   openGraph: {
     title: "Eğitim Modelimiz | AYBARİst AKADEMİ",
     description:
-      "Ezberci değil; bütüncül, birebir ve kişiye özel VIP eğitim modeli. 4 aşamalı metodoloji ve 4 yönlü başarı ekosistemi.",
+      "AYBARİst AKADEMİ Eğitim Modeli; ezberci kalıpları yıkan, kişiye özel kurgulanmış VIP Süreç Yönetimi ve alanında uzman eğitmen kadrosuyla öğrencileri potansiyellerinin zirvesine taşıyan, Maarif Modeline uyumlu, bütüncül bir rehberlik ve başarı platformudur.",
     url: `${SITE_URL}/egitim-modelimiz/`,
   },
 };

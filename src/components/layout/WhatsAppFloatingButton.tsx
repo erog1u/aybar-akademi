@@ -12,7 +12,7 @@ interface WhatsAppFloatingButtonProps {
 
 export default function WhatsAppFloatingButton({
   customMessage,
-  tooltipText = "30 Dk Ücretsiz Tanışma",
+  tooltipText = "Bilgi Al",
   className = "",
 }: WhatsAppFloatingButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -56,7 +56,7 @@ export default function WhatsAppFloatingButton({
         href={safeUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp İletişim Hattı - 30 Dakikalık Ücretsiz Tanışma Seansı"
+        aria-label="WhatsApp İletişim Hattı - Bilgi Al"
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

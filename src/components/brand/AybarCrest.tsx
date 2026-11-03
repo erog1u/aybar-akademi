@@ -118,18 +118,8 @@ export function AybarInstitutionalSeal({
         </div>
       </div>
 
-      <div className="mt-4 font-brand font-extrabold text-sm sm:text-base tracking-[0.06em] uppercase text-cobalt-950">
+      <div className="mt-4 font-brand font-extrabold text-sm sm:text-base tracking-[0.06em] text-cobalt-950">
         {siteConfig.name}
-      </div>
-
-      <div
-        className={`mt-2 px-4 py-1.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wide ${
-          variant === "dark"
-            ? "bg-cobalt-900/90 border-white/20 text-cobalt-100"
-            : "bg-cobalt-900 border-cobalt-900 text-white"
-        }`}
-      >
-        {siteConfig.motto}
       </div>
     </div>
   );

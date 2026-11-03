@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "İletişim & Randevu Planlama",
+  title: "İletişim",
   description:
-    "AYBARİst AKADEMİ ile 30 dakikalık ücretsiz tanışma seansı planlayın. İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders için hemen ulaşın.",
+    "Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
   alternates: {
     canonical: "/iletisim/",
   },
   openGraph: {
-    title: "İletişim & Randevu Planlama | AYBARİst AKADEMİ",
+    title: "İletişim | AYBARİst AKADEMİ",
     description:
-      "30 dakikalık ücretsiz tanışma seansı için bizimle iletişime geçin. İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online.",
+      "Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
     url: `${SITE_URL}/iletisim/`,
   },
 };

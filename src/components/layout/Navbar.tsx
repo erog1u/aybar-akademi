@@ -241,8 +241,8 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="hidden lg:inline-flex items-center justify-center bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white px-3.5 xl:px-4 py-2 xl:py-2.5 rounded-lg text-xs xl:text-sm font-bold transition-all whitespace-nowrap shadow-sm focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none"
             >
-              <span className="hidden 2xl:inline">Ücretsiz Tanışma Seansı</span>
-              <span className="inline 2xl:hidden">Ücretsiz Tanışma</span>
+              <span className="hidden 2xl:inline">Bilgi Al</span>
+              <span className="inline 2xl:hidden">Bilgi Al</span>
             </a>
 
             {/* Mobil Hızlı Tanışma Aksiyonu */}
@@ -251,9 +251,9 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="lg:hidden min-h-[38px] px-2.5 sm:px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm touch-manipulation whitespace-nowrap shrink-0"
-              aria-label="30 Dk Ücretsiz Tanışma Seansı"
+              aria-label="Bilgi Al"
             >
-              <span>Tanışma</span>
+              <span>Bilgi Al</span>
             </a>
 
             {/* Mobil Menü Butonu */}
@@ -404,7 +404,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="w-full min-h-[50px] rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-[0.98] text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2.5 shadow-crimson transition-all touch-manipulation select-none"
-            aria-label="WhatsApp ile 30 Dakikalık Ücretsiz Tanışma Seansı Başlat"
+            aria-label="WhatsApp ile Bilgi Al Başlat"
           >
             <svg
               viewBox="0 0 24 24"

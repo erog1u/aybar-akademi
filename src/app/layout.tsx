@@ -8,18 +8,18 @@ import { siteConfig, IS_PREVIEW_MODE, SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
+    default: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "AYBARİst AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
+    "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
+    title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
     description:
-      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadro. İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders.",
+      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -31,15 +31,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "AYBARİst AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim.",
+        alt: "AYBARİst AKADEMİ",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
+    title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
     description:
-      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim kadro. İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online.",
+      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: IS_PREVIEW_MODE
@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AYBARİst AKADEMİ | Her Öğrenciye Aynı Eğitim Değil, Doğru Eğitim." />
+        <meta property="og:image:alt" content="AYBARİst AKADEMİ" />
         <meta name="twitter:image" content={`${SITE_URL}/images/og-image.jpg`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

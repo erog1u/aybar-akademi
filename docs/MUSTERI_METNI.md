@@ -153,7 +153,7 @@ AYBAR AKADEMİ'DE Fark Yaratan Standart İlkeler
 
 1. Ders Öncesi ve İlk Tanışma (Profesyonel Başlangıç)
 
-• 30 Dakikalık Tanışma Seansı: İlk gün ve  ilk derse özgü olarak konuya direkt girilmez; Ders başlamadan önce 30 dakikalık ücretsiz bir keşif seansı yapılır. 
+• (Bu satır sitede kullanılmaz: müşteri sonradan 30 dakika ve ücretsiz ilk ders vaadinin kaldırılmasını istedi.) 
 • Öğrenme Stili Analizi: Bu süreçte öğrencinin akademik altyapısı, görsel/işitsel/kinestetik öğrenme stili ve derse karşı geliştirdiği zihinsel önyargılar saptanır.
 • Öğrenci Sözleşmesi: Karşılıklı sorumlulukları, ders saatine sadakati ve ödev disiplinini netleştiren resmi olmayan bir "İş Birliği Taahhüdü" imzalanır. Sonrasında normal ders süresince ders yapılır. 
 

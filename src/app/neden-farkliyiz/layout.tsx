@@ -4,14 +4,14 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "Neden Farklıyız?",
   description:
-    "Eğitimde fark yaratan 5 temel standart: 30 dk ücretsiz tanışma seansı, Flipped Classroom & Active Recall, kişiye özel Hata Defteri, şeffaf ders sonu raporu ve kurucu güvencesi.",
+    "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir.",
   alternates: {
     canonical: "/neden-farkliyiz/",
   },
   openGraph: {
     title: "Neden Farklıyız? | AYBARİst AKADEMİ",
     description:
-      "Her öğrenciye standart olarak uyguladığımız, rastlantılara yer bırakmayan 5 aşamalı başarı metodolojimiz ve kişiye özel Hata Defteri tekniğimiz.",
+      "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir.",
     url: `${SITE_URL}/neden-farkliyiz/`,
   },
 };
