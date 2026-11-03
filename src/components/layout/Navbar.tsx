@@ -10,28 +10,119 @@ import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const backdropRef = React.useRef<HTMLDivElement>(null);
+  const scrollYRef = React.useRef(0);
+  const prevPathRef = React.useRef(pathname);
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
     setMobileOpen(false);
+    setHeaderVisible(true);
+    document.documentElement.classList.remove("header-hidden");
   }, [pathname]);
 
+  // Akıllı Kaydırma Yönü Tespiti:
+  // - Aşağı kaydırırken (içerik okurken) üst çubuk gizlenir ve ekran ferahlar.
+  // - Yukarı doğru ufak bir kaydırmada (-4px) üst çubuk anında ve HIZLA geri gelir.
   useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+
+          // 1. Sayfa tepe noktasındayken (ilk 60px) çubuk daima görünür
+          if (currentY <= 60) {
+            setHeaderVisible(true);
+            setHasScrolled(false);
+            document.documentElement.classList.remove("header-hidden");
+          } else {
+            setHasScrolled(true);
+
+            const diff = currentY - lastScrollY.current;
+
+            // 2. Aşağı kaydırma eşiği (8px): Kullanıcı içerik okurken çubuk yukarı çekilsin
+            if (diff > 8) {
+              setHeaderVisible(false);
+              document.documentElement.classList.add("header-hidden");
+            }
+            // 3. Yukarı kaydırma eşiği (-4px): Çubuk anında ve HIZLA gelsin!
+            else if (diff < -4) {
+              setHeaderVisible(true);
+              document.documentElement.classList.remove("header-hidden");
+            }
+          }
+
+          lastScrollY.current = Math.max(0, currentY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.documentElement.classList.remove("header-hidden");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    // iOS Safari + Chrome kusursuz kaydırma kilidi (Body Scroll Lock):
+    // 1. Ekranın mevcut kaydırma pikselini kaydet ve sayfayı dondur
+    scrollYRef.current = window.scrollY;
+    prevPathRef.current = window.location.pathname;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollYRef.current}px`;
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+
+    // 2. Escape tuşu ile menüyü kapat
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileOpen(false);
       }
     };
-    if (mobileOpen) {
-      document.body.classList.add("menu-open");
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.classList.remove("menu-open");
+    window.addEventListener("keydown", handleKeyDown);
+
+    // 3. Arka plan karartmasına dokunulduğunda sayfa kaymasını kesin olarak engelle (non-passive listener)
+    const backdropEl = backdropRef.current;
+    const preventTouch = (e: TouchEvent) => {
+      e.preventDefault();
+    };
+    if (backdropEl) {
+      backdropEl.addEventListener("touchmove", preventTouch, { passive: false });
     }
+
     return () => {
-      document.body.classList.remove("menu-open");
+      document.documentElement.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+
+      // Eğer aynı sayfadaysa eski kaydırma konumuna dön, rota değiştiyse en tepeye git
+      if (window.location.pathname === prevPathRef.current) {
+        window.scrollTo(0, scrollYRef.current);
+      } else {
+        window.scrollTo(0, 0);
+      }
+
       window.removeEventListener("keydown", handleKeyDown);
+      if (backdropEl) {
+        backdropEl.removeEventListener("touchmove", preventTouch);
+      }
     };
   }, [mobileOpen]);
+
+  const isHeaderShowing = mobileOpen || headerVisible;
 
   return (
     <>
@@ -43,8 +134,14 @@ export default function Navbar() {
         Ana İçeriğe Atla
       </a>
 
-      {/* Saf bg-white (backdrop-blur yok -> %100 akıcı 120fps kaydırma ve anında tıklama!) */}
-      <header className="sticky top-0 z-50 h-16 lg:h-20 bg-white lg:bg-white/95 lg:backdrop-blur-md border-b border-cobalt-900/10 relative">
+      {/* Akıllı Akıcı Üst Çubuk (Aşağı kaydırınca gizlenir, yukarı kaydırınca HIZLA geri gelir) */}
+      <header
+        className={`sticky top-0 z-50 h-16 lg:h-20 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10 transition-transform duration-200 ease-out will-change-transform transform-gpu ${
+          isHeaderShowing
+            ? "translate-y-0"
+            : "-translate-y-full pointer-events-none"
+        } ${hasScrolled ? "shadow-md" : "shadow-none"}`}
+      >
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-10 h-full flex items-center justify-between gap-2 xl:gap-4">
           {/* Sol: Logo ve Kurumsal İsim */}
           <Link
@@ -137,44 +234,50 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Donanım Hızlandırmalı CSS Mobil Çekmece — JS animasyon gecikmesi yok, %100 anında tepki */}
+      {/* 1. Donanım Hızlandırmalı Arka Plan Karartması */}
       <div
-        className={`fixed inset-0 z-[89] bg-cobalt-950/60 backdrop-blur-xs transition-opacity duration-300 ease-out touch-none ${
+        ref={backdropRef}
+        className={`fixed inset-0 z-[89] bg-cobalt-950/70 backdrop-blur-xs transition-opacity duration-300 ease-out touch-none ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileOpen(false)}
-        onTouchMove={(e) => {
-          if (mobileOpen) e.preventDefault();
-        }}
         aria-hidden="true"
       />
 
+      {/* 2. Donanım Hızlandırmalı Mobil Menü Paneli (Mobilde Tam Ekran, Tablette Sağdan Açılan Panel) */}
       <aside
         id="mobile-drawer"
-        className={`fixed inset-y-0 right-0 z-[90] w-full max-w-[340px] sm:max-w-sm bg-white text-ink border-l border-cobalt-900/10 shadow-2xl flex flex-col justify-between overflow-y-auto overscroll-contain transition-transform duration-300 ease-out will-change-transform transform-gpu ${
+        className={`fixed inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[380px] sm:max-w-sm z-[90] bg-white text-ink sm:border-l sm:border-cobalt-900/10 shadow-2xl flex flex-col h-full h-dvh transition-transform duration-300 ease-out will-change-transform transform-gpu ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ WebkitOverflowScrolling: "touch" }}
         aria-label="Mobil Menü Çekmecesi"
       >
-        <div>
-          <div className="h-16 px-4 sm:px-5 border-b border-cobalt-900/10 flex items-center justify-between gap-2">
-            <div className="min-w-0">
-              <AybarBrandLockup variant="light" />
-            </div>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Menüyü Kapat"
-              className="h-11 w-11 rounded-lg bg-paper-warm hover:bg-cobalt-50 active:scale-95 text-ink flex items-center justify-center shrink-0 transition-all cursor-pointer touch-manipulation"
-            >
-              <X className="h-5 w-5" />
-            </button>
+        {/* A. SABİT TEPE BARI — Asla kaybolmaz, kaydırmadan etkilenmez */}
+        <div className="h-16 px-4 sm:px-5 border-b border-cobalt-900/10 flex items-center justify-between gap-2 shrink-0 bg-white z-10">
+          <div className="min-w-0">
+            <AybarBrandLockup variant="light" />
+          </div>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Menüyü Kapat"
+            className="h-11 w-11 rounded-lg bg-paper-warm hover:bg-cobalt-50 active:scale-95 text-ink flex items-center justify-center shrink-0 transition-all cursor-pointer touch-manipulation"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* B. KAYDIRILABİLİR İÇERİK ALANI — Sadece bu alan kayar; başlık ve alt butonlar her an sabittir */}
+        <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-5 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-bold mb-1">
+            <span className="h-2 w-2 rounded-full bg-crimson-600 animate-pulse" />
+            <span>30 Dk Ücretsiz Tanışma Seansı</span>
           </div>
 
           <nav
             aria-label="Mobil Menü Linkleri"
-            className="p-4 sm:p-5 space-y-1.5"
+            className="space-y-1.5 pt-1"
           >
             {siteConfig.navigation.map((item, idx) => {
               const isActive =
@@ -188,10 +291,10 @@ export default function Navbar() {
                   href={item.href}
                   prefetch={true}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-all touch-manipulation ${
+                  className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-bold transition-all touch-manipulation active:scale-[0.99] ${
                     isActive
                       ? "bg-cobalt-950 text-white shadow-md border-l-4 border-crimson-600 pl-3.5"
-                      : "text-ink hover:bg-cobalt-50 hover:text-cobalt-700"
+                      : "text-ink hover:bg-cobalt-50 hover:text-cobalt-700 bg-paper/60"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -211,13 +314,14 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="p-5 border-t border-cobalt-900/10 bg-paper-warm space-y-2.5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+        {/* C. SABİT TABAN BARI — WhatsApp ve Telefon her zaman parmak ucunda */}
+        <div className="p-4 sm:p-5 border-t border-cobalt-900/10 bg-paper shrink-0 space-y-2.5 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <a
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="w-full min-h-[48px] rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-95 text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 shadow-sm transition-all touch-manipulation"
+            className="w-full min-h-[48px] rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-95 text-white py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 shadow-crimson transition-all touch-manipulation"
           >
             <span>WhatsApp ile İletişime Geç</span>
             <ArrowUpRight className="h-4 w-4 shrink-0" />
@@ -225,7 +329,7 @@ export default function Navbar() {
           <a
             href={siteConfig.contact.phoneHref}
             onClick={() => setMobileOpen(false)}
-            className="w-full min-h-[48px] rounded-xl bg-white border border-cobalt-900/15 hover:border-cobalt-700 active:scale-95 text-ink py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 transition-all touch-manipulation"
+            className="w-full min-h-[48px] rounded-xl bg-white border border-cobalt-900/15 hover:border-cobalt-700 active:scale-95 text-ink py-3.5 px-5 text-[15px] font-bold inline-flex items-center justify-center gap-2 transition-all touch-manipulation shadow-xs"
           >
             <Phone className="h-4 w-4 text-cobalt-700 shrink-0" />
             <span>{siteConfig.contact.phoneDisplay}</span>

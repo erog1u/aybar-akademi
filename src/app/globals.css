@@ -9,6 +9,17 @@
     --crimson-signal: #dc1b2e;
     --paper-base: #fafbfd;
     --ink-base: #09152b;
+    --header-offset: 64px;
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --header-offset: 80px;
+    }
+  }
+
+  html.header-hidden {
+    --header-offset: 0px;
   }
 
   html {

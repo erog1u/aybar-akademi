@@ -137,7 +137,7 @@ export default function EgitimModelimizPage() {
       </section>
 
       {/* Mobil Hızlı Aşama Atlama Çubuğu (Mobilde PC ile Eşit Konfor ve Zenginlik) */}
-      <div className="lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10 px-4 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-xs">
+      <div className="lg:hidden sticky top-[var(--header-offset,64px)] z-30 bg-white/95 backdrop-blur-md border-b border-cobalt-900/10 px-4 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-xs transition-[top] duration-200 ease-out">
         <span className="text-[11px] font-black uppercase text-crimson-600 shrink-0 pr-1 border-r border-cobalt-900/10">
           Aşamalar:
         </span>
