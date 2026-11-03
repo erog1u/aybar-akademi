@@ -53,7 +53,7 @@ export default function HakkimizdaPage() {
                 <span>33 Yıllık Deneyim</span>
               </div>
               <PhotoFrame
-                src={assetPath("/images/istanbul-home-tutoring.jpg")}
+                src={assetPath("/images/maarif-academic-mentorship.jpg")}
                 alt={aboutContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority

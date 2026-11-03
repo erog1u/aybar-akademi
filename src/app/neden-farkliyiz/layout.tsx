@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/neden-farkliyiz/",
   },
   openGraph: {
-    title: "Neden Farklıyız? | AYBAR AKADEMİ",
+    title: "Neden Farklıyız? | AYBARİst AKADEMİ",
     description:
       "Her öğrenciye standart olarak uyguladığımız, rastlantılara yer bırakmayan 5 aşamalı başarı metodolojimiz ve kişiye özel Hata Defteri tekniğimiz.",
     url: `${SITE_URL}/neden-farkliyiz/`,

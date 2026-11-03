@@ -9,7 +9,7 @@ import {
   MapPin,
   ArrowUpRight,
 } from "lucide-react";
-import { assetPath, getWhatsAppUrl } from "@/config/site";
+import { assetPath, getWhatsAppUrl, siteConfig } from "@/config/site";
 import {
   founderMessage,
   aboutContent,
@@ -24,6 +24,8 @@ import {
 } from "@/components/motion/Primitives";
 import { AybarInstitutionalSeal } from "@/components/brand/AybarCrest";
 import FaqSection from "@/components/faq/FaqSection";
+import HomeSloganSlider from "@/components/home/HomeSloganSlider";
+import QuickQuoteForm from "@/components/forms/QuickQuoteForm";
 
 const GUIDED_SECTIONS = [
   {
@@ -137,32 +139,7 @@ export default function HomePage() {
 
             {/* Sağ Sütun — Doğru Oranlanmış Görsel Stüdyo Kartı + Işıltılı Arka Işık & Canlı Rozetler */}
             <div className="lg:col-span-6 min-w-0 relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-indigo-400/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-
-              {/* Üst Yüzen Kırmızı Rozet (Mobilde ve Masaüstünde Canlı & Süs) */}
-              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
-                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                <span>VIP Birebir Mentörlük</span>
-              </div>
-
-              <PhotoFrame
-                src={assetPath("/images/hero-one-on-one.jpg")}
-                alt="AYBAR AKADEMİ Birebir Özel Ders"
-                aspectClass="aspect-[4/3]"
-                priority
-                className="relative z-10 shadow-studio"
-                caption={
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-[13px] font-bold pr-16 lg:pr-0">
-                    <span className="text-cobalt-950 flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      Birebir VIP Özel Ders
-                    </span>
-                    <span className="px-2.5 py-1 rounded-md bg-cobalt-50 text-cobalt-800">
-                      Kişiye Özel Yol Haritası
-                    </span>
-                  </div>
-                }
-              />
+              <HomeSloganSlider />
             </div>
           </div>
 
@@ -208,6 +185,25 @@ export default function HomePage() {
                 Canlı online eğitim
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-cobalt-900/10 bg-white py-12 sm:py-16">
+        <div className="mx-auto grid max-w-[1380px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:px-10">
+          <div className="lg:col-span-5">
+            <h2 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+              Hemen Hızlı Teklif Alın!
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-ink-muted">
+              Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
+            </p>
+            <p className="mt-4 text-sm font-bold text-cobalt-800">
+              Yüz Yüze ve Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
+            </p>
+          </div>
+          <div className="rounded-3xl border border-cobalt-900/10 bg-paper p-5 sm:p-7 lg:col-span-7">
+            <QuickQuoteForm />
           </div>
         </div>
       </section>
@@ -269,7 +265,7 @@ export default function HomePage() {
             <div className="lg:col-span-5 lg:sticky lg:top-24">
               <PhotoFrame
                 src={assetPath("/images/maarif-academic-mentorship.jpg")}
-                alt="AYBAR AKADEMİ 33 Yıllık Köklü Eğitim Deneyimi ve Maarif Modeli Mentorluk"
+                alt="AYBARİst AKADEMİ 33 Yıllık Köklü Eğitim Deneyimi ve Maarif Modeli Mentorluk"
                 aspectClass="aspect-[4/3]"
                 caption={
                   <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">

@@ -204,6 +204,7 @@ export default function Navbar() {
                 "/egitim-programlarimiz": "Programlar",
                 "/egitim-modelimiz": "Modelimiz",
                 "/neden-farkliyiz": "Farkımız",
+                "/kurucumuzun-mesaji": "Kurucumuz",
               };
               const shortLabel = compactLabels[item.href];
 

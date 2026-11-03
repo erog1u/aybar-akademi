@@ -234,7 +234,7 @@ export default function ProgramExplorer() {
                   </div>
                   <div className="mt-5 pt-3.5 border-t border-cobalt-900/10">
                     <a
-                      href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
+                      href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group"
@@ -327,7 +327,7 @@ export default function ProgramExplorer() {
                       Bahadır Aybar liderliğinde 30 dakikalık ücretsiz tanışma seansı planlayın.
                     </span>
                     <a
-                      href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
+                      href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 active:scale-95 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-crimson transition-all whitespace-nowrap"
@@ -387,7 +387,7 @@ export default function ProgramExplorer() {
 
                 <div className="mt-5 pt-3.5 border-t border-cobalt-900/10">
                   <a
-                    href={getWhatsAppUrl(`Merhaba, AYBAR AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
+                    href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group/link"

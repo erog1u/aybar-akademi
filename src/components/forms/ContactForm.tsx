@@ -238,7 +238,7 @@ export default function ContactForm({
 
       // WhatsApp Başvuru Mesajını Güvenli İnşa Et
       const lines = [
-        "👋 Merhaba, AYBAR AKADEMİ 30 Dakikalık Ücretsiz Tanışma Seansı için randevu almak istiyorum.",
+        "👋 Merhaba, AYBARİst AKADEMİ 30 Dakikalık Ücretsiz Tanışma Seansı için randevu almak istiyorum.",
         "",
         `📚 Eğitim Alanı: ${cleanData.program}`,
         `📍 Ders Tercihi: ${cleanData.format}`,

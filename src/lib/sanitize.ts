@@ -1,5 +1,5 @@
 /**
- * AYBAR AKADEMİ - Güvenlik ve Form Sanitizasyon Araçları
+ * AYBARİst AKADEMİ - Güvenlik ve Form Sanitizasyon Araçları
  * XSS, HTML/Script enjeksiyonu ve potansiyel zararlı karakterleri filtreler.
  */
 

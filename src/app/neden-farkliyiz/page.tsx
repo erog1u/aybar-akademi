@@ -78,7 +78,7 @@ export default function NedenFarkliyizPage() {
                 <span>Kişiye Özel Hata Defteri</span>
               </div>
               <PhotoFrame
-                src={assetPath("/images/exam-strategy-notebook.jpg")}
+                src={assetPath("/images/istanbul-home-tutoring.jpg")}
                 alt={whyDifferentContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority

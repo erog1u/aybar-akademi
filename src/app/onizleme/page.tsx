@@ -100,7 +100,7 @@ function IPhone15ProFrame({
 
             {/* Canlı Web Görünümü (Iframe) */}
             <iframe
-              title="AYBAR AKADEMİ Mobil Önizleme"
+              title="AYBARİst AKADEMİ Mobil Önizleme"
               src={routeUrl(route)}
               key={`mobile-${route}-${reloadKey}`}
               className="w-[390px] flex-1 border-0 bg-white"
@@ -177,7 +177,7 @@ function IPadAirFrame({
 
             {/* Canlı Web Görünümü */}
             <iframe
-              title="AYBAR AKADEMİ Tablet Önizleme"
+              title="AYBARİst AKADEMİ Tablet Önizleme"
               src={routeUrl(route)}
               key={`tablet-${route}-${reloadKey}`}
               className="w-[768px] flex-1 border-0 bg-white"
@@ -272,7 +272,7 @@ function StudioDesktopWindow({
         className="relative w-full flex-1 bg-white overflow-hidden"
       >
         <iframe
-          title="AYBAR AKADEMİ Masaüstü Önizleme"
+          title="AYBARİst AKADEMİ Masaüstü Önizleme"
           src={routeUrl(route)}
           key={`desktop-${route}-${reloadKey}`}
           style={{

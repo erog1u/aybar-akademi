@@ -5,7 +5,7 @@ Bu belge, **Claude Code** ve projeyi devralacak geliştiriciler için mimariyi, 
 ---
 
 ## 1. Proje Amacı ve Kimliği
-- **Kurum:** AYBAR AKADEMİ (33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim öğretmen kadrosuyla birebir özel ders ve eğitim koçluğu).
+- **Kurum:** AYBARİst AKADEMİ. Sözcük işareti: `AYBAR` mavi ve büyük, `İ` kırmızı ve büyük, `st` kırmızı ve küçük, bitişik `AYBARİst`. Telefon ve WhatsApp: `0543 976 67 34` / `+905439766734` (`src/config/site.ts`).
 - **Geliştirici Ajans:** Eroğlu Solutions ([eroglusolutions.com](https://eroglusolutions.com)).
 - **Amaç:** Next.js 15 tabanlı, statik dışa aktarılan (SSG/export), ultra hızlı (103 KB shared bundle), mobil uyumlu (0px taşma), kurumsal prestiji yansıtan, sıfır takılmalı (zero-lag) modern web sitesi.
 - **Canlı Korumalı Önizleme CDN:** `https://erog1u.github.io/aybar-akademi/`

@@ -78,7 +78,7 @@ export default function EgitimModelimizPage() {
                 <span>Bütüncül VIP Sistem</span>
               </div>
               <PhotoFrame
-                src={assetPath("/images/vip-mentorship.jpg")}
+                src={assetPath("/images/model-coaching-bridge.jpg")}
                 alt={educationModelContent.headline}
                 aspectClass="aspect-[16/10] sm:aspect-[4/3]"
                 priority

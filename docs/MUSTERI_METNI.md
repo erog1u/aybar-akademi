@@ -192,5 +192,32 @@ Bizim için  eğitim; sadece az sayıda öğrenciye klasik anlamda ders vermek d
 Geleceği tesadüflere değil, doğru planlanmış bir eğitime emanet etmek isteyen herkesi, bu ayrıcalıklı ve başarı odaklı  eğitim dünyasına davet ediyorum.
 Sevgi, saygı ve başarı dileklerimle...
  Bahadır AYBAR 
-AYBAR AKADEMİ Kurucusu 
+AYBAR AKADEMİ Kurucusu
+
+---
+
+## 3 Kasım 2026 — Müşterinin sonraki iletileri
+
+Kurum adı: AYBARİst AKADEMİ
+Sözcük işareti: AYBAR mavi ve büyük harf, İ kırmızı ve büyük harf, st kırmızı ve küçük harf, bitişik AYBARİst.
+
+Hakkımızda sloganı: EĞİTİMDE SINIR TANIMIYORUZ
+Hakkımızda görseli: erkeğin kıza ders anlattığı görsel
+
+Ana sayfa görseli: kadın ve kız öğrenci
+Ana sayfada sloganlı görseller 5 saniye arayla sola kayar.
+Ana sayfada bilgi formu: Hemen Hızlı Teklif Alın!
+Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
+Alanlar: Öğrenci Adı-Soyadı, Veli Adı-Soyadı, Öğrenci Sınıf Düzeyi ya da Yaşı, İlçe/Semt, Yüz yüze mi Online mı?, Talep Edilen Ders(ler), İletişim Numarası.
+
+Programlar sloganı: DEĞİŞEN DÜNYAYA AYBARİST'İN GÜCÜYLE HAZIRLAN
+
+Kurucumuzun Mesajı sayfası sloganı: Online canlı dersler ile yüzyüze özel ders modellerini birarada sunuyoruz.
+İmza: Bahadır AYBAR, Kurucu
+
+İletişim adresi: Carousel AVM - Workinton, Zeytinlik Mah. Fişekhane Cad. No:5 İçkapı No:17 Bakırköy/İstanbul
+İletişim sloganı: Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır
+İletişim görseli: veli ile öğretmenin görüşmesi
+Yol tarifi eklenecek.
+Telefon: +90 543 976 67 34 / 0543 976 67 34 
 

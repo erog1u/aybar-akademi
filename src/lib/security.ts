@@ -1,5 +1,5 @@
 /**
- * AYBAR AKADEMİ — Form Güvenliği, Doğrulama & Sanitizasyon Kütüphanesi
+ * AYBARİst AKADEMİ — Form Güvenliği, Doğrulama & Sanitizasyon Kütüphanesi
  * ------------------------------------------------------------------
  * XSS injection koruması, Türkiye telefon formatlaması (+90 / 05xx),
  * çift tıklama (double-submit) engelleme, istemci tarafı rate-limit
@@ -254,7 +254,7 @@ export function buildSafeWhatsAppUrl(
   message: string
 ): string {
   // Sadece rakamları al, boşsa varsayılan
-  const cleanNumber = (whatsappNumber || "905320000000").replace(/\D/g, "");
+  const cleanNumber = (whatsappNumber || "905439766734").replace(/\D/g, "");
   // Mesajı güvenli sanitize et
   const cleanMsg = sanitizeText(message, 1500);
   const encodedText = encodeURIComponent(cleanMsg);
