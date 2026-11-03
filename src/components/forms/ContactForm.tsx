@@ -32,7 +32,7 @@ import {
 const LESSON_FORMATS = [
   {
     id: "yuz-yuze",
-    title: "İstanbul Yüz Yüze (39 İlçe)",
+    title: "İstanbul Yüz Yüze (Tüm İlçeler)",
     subtitle: "Evinizin konforunda birebir özel ders",
   },
   {

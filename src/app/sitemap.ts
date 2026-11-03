@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
   const now = new Date();
 
+  // /onizleme is an internal studio and is intentionally absent.
   const routes = [
     {
       url: `${baseUrl}/`,

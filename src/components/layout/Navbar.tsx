@@ -91,10 +91,7 @@ export default function Navbar() {
   useEffect(() => {
     if (!mobileOpen) return;
 
-    // 1. Lenis Smooth Scroll dondurma
-    window.__lenis?.stop();
-
-    // 2. iOS Safari + Android Chrome kusursuz kaydırma kilidi (Body Scroll Lock):
+    // iOS Safari + Android Chrome body scroll lock:
     // Ekranın mevcut kaydırma pikselini kaydet ve sayfayı dondur
     scrollYRef.current = window.scrollY;
     prevPathRef.current = window.location.pathname;
@@ -149,15 +146,10 @@ export default function Navbar() {
 
       if (isRouteChanged) {
         window.scrollTo(0, 0);
-        window.__lenis?.scrollTo(0, { immediate: true });
         isNavigatingRef.current = false;
       } else {
         window.scrollTo(0, scrollYRef.current);
-        window.__lenis?.scrollTo(scrollYRef.current, { immediate: true });
       }
-
-      // Lenis'i pürüzsüzce yeniden başlat
-      window.__lenis?.start();
 
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
@@ -299,9 +291,10 @@ export default function Navbar() {
         id="mobile-drawer"
         role="dialog"
         aria-modal="true"
+        aria-hidden={!mobileOpen}
         aria-label="Mobil Menü Çekmecesi"
         className={`fixed inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[380px] sm:max-w-sm z-[90] bg-white text-ink sm:border-l sm:border-cobalt-900/10 shadow-2xl flex flex-col h-full h-dvh transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform transform-gpu ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
+          mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         style={{
           WebkitOverflowScrolling: "touch",

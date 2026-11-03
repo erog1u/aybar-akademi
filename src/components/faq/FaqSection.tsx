@@ -20,7 +20,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     question: "Birebir özel dersler hangi illerde ve hangi formatlarda sunuluyor?",
     answer:
-      "İstanbul’un 39 ilçesinde öğrencinin kendi ev konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti sağlıyoruz. Tüm Türkiye genelinde (81 ilde) ise coğrafi sınırları ortadan kaldıran, teknolojik olanaklarla donatılmış interaktif canlı online eğitim modellerimizle kesintisiz erişim sunuyoruz.",
+      "İstanbul’un tüm ilçelerinde, evinizin konforunda, güvenli ve verimli bir ortamda birebir yüz yüze özel ders hizmeti sağlıyoruz. Tüm Türkiye’de ise teknolojinin imkânlarıyla, coğrafi sınırları ortadan kaldıran interaktif online eğitim modellerimizle yanınızdayız.",
     category: "Hizmet Ağı",
   },
   {

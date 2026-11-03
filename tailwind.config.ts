@@ -60,6 +60,12 @@ const config: Config = {
           "BlinkMacSystemFont",
           "sans-serif",
         ],
+        brand: [
+          '"Plus Jakarta Sans"',
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif",
+        ],
         serif: ['"Lora"', "Georgia", "serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },

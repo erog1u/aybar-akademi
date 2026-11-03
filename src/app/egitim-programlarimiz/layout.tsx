@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Eğitim Programlarımız | AYBAR AKADEMİ",
     description:
-      "6 ana akademik alanda ilkokuldan üniversiteye %100 birebir VIP özel ders programları. Yeni nesil Maarif Modeline tam uyumlu içerikler.",
+      "İlkokuldan üniversiteye birebir özel ders programları. Yeni nesil Maarif Modeline hâkim öğretmen kadrosu.",
     url: `${SITE_URL}/egitim-programlarimiz/`,
   },
 };

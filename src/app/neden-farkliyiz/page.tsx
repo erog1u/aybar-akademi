@@ -1,13 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import {
   MaskedLines,
-  Reveal,
   PhotoFrame,
   NextChapterBanner,
 } from "@/components/motion/Primitives";
@@ -75,7 +73,7 @@ export default function NedenFarkliyizPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 sm:-top-3.5 right-3 sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson animate-float-slow">
+              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
                 <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>Kişiye Özel Hata Defteri</span>
               </div>
@@ -99,7 +97,7 @@ export default function NedenFarkliyizPage() {
           </div>
 
           {/* Hero Tabanı: 5 Standart İlke Özeti (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:pr-20">
             <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
               <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">01</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">

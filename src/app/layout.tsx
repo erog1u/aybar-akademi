@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import SiteShell from "@/components/layout/SiteShell";
 import PreviewProtection from "@/components/layout/PreviewProtection";
 import JsonLd from "@/components/seo/JsonLd";
@@ -13,14 +12,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un 39 ilçesinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
+    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
     description:
-      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu uzman kadro. İstanbul'un 39 ilçesinde evinizde yüz yüze ve tüm Türkiye'de canlı online VIP özel ders.",
+      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadro. İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders.",
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Birebir Özel Ders & Eğitim Koçluğu`,
     description:
-      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu kadro. İstanbul 39 ilçe yüz yüze & tüm Türkiye canlı online.",
+      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim kadro. İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online.",
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: IS_PREVIEW_MODE
@@ -107,9 +106,7 @@ export default function RootLayout({
         }`}
       >
         <PreviewProtection>
-          <SmoothScrollProvider>
-            <SiteShell>{children}</SiteShell>
-          </SmoothScrollProvider>
+          <SiteShell>{children}</SiteShell>
         </PreviewProtection>
       </body>
     </html>

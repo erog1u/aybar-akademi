@@ -56,7 +56,7 @@ export default function HakkimizdaPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 sm:-top-3.5 right-3 sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson animate-float-slow">
+              <div className="absolute top-3 left-3 sm:left-auto sm:right-4 z-20 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-crimson-600 text-white font-black text-[10.5px] sm:text-xs shadow-crimson max-w-[calc(100%-1.5rem)]">
                 <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>33 Yıllık Deneyim</span>
               </div>
@@ -80,33 +80,33 @@ export default function HakkimizdaPage() {
           </div>
 
           {/* Hero Tabanı: 4 Kurumsal Güven Sütunu (Mobilde Asla Sıkışmayan Orantılı Düzen) */}
-          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:pr-20">
             <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">33 Yıl</span>
+              <span className="font-brand text-xl sm:text-3xl font-extrabold text-white leading-none whitespace-nowrap">33 Yıl</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
                 <strong className="text-white block font-bold">Köklü Deneyim</strong>
                 Çeyrek asrı aşan uzman kadro
               </div>
             </div>
             <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">%100</span>
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">Maarif</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Maarif Modeli</strong>
-                Yeni nesil beceri temelli
+                <strong className="text-white block font-bold">Hâkim Kadro</strong>
+                Yeni nesil Maarif Modeli
               </div>
             </div>
             <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">39 İlçe</span>
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">İstanbul</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">İstanbul Yüz Yüze</strong>
-                Evinizin konforunda özel ders
+                <strong className="text-white block font-bold">Tüm İlçelerinde</strong>
+                Evinizde yüz yüze özel ders
               </div>
             </div>
             <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3.5">
-              <span className="font-brand text-2xl sm:text-3xl font-extrabold text-white">81 İl</span>
+              <span className="font-brand text-xl sm:text-2xl font-extrabold text-white leading-tight">Türkiye</span>
               <div className="text-xs sm:text-[13px] text-cobalt-100 leading-snug">
-                <strong className="text-white block font-bold">Canlı Online Eğitim</strong>
-                Tüm Türkiye’de kesintisiz erişim
+                <strong className="text-white block font-bold">Tüm Türkiye’de</strong>
+                Canlı online eğitim
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function HakkimizdaPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            {aboutContent.solutions.map((sol, idx) => (
+            {aboutContent.solutions.map((sol) => (
               <div
                 key={sol.index}
                 className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"

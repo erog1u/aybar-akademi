@@ -13,7 +13,7 @@ export default function JsonLd() {
     url: baseUrl,
     logo: `${baseUrl}/images/logo-emblem.png`,
     description:
-      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadrosuyla, İstanbul’un 39 ilçesinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir VIP özel ders kurumu.",
+      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadrosuyla, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumu.",
     founder: {
       "@type": "Person",
       name: siteConfig.founder.name,
@@ -23,12 +23,12 @@ export default function JsonLd() {
       {
         "@type": "City",
         name: "İstanbul",
-        description: "39 İlçede Evinizde Yüz Yüze Birebir Özel Ders",
+        description: "İstanbul’un tüm ilçelerinde evinizde yüz yüze birebir özel ders",
       },
       {
         "@type": "Country",
         name: "Türkiye",
-        description: "81 İlde Kesintisiz Canlı Online Eğitim",
+        description: "Tüm Türkiye’de canlı online eğitim",
       },
     ],
     contactPoint: {
@@ -63,7 +63,7 @@ export default function JsonLd() {
         name: "Özel dersler hangi şehirlerde ve hangi formatlarda verilmektedir?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "İstanbul’un 39 ilçesinde öğrencinin ev konforunda birebir yüz yüze; tüm Türkiye’de (81 ilde) ise kesintisiz canlı interaktif online eğitim modellerimizle sunulmaktadır.",
+          text: "İstanbul’un tüm ilçelerinde öğrencinin ev konforunda birebir yüz yüze; tüm Türkiye’de ise canlı online eğitim modellerimizle sunulmaktadır.",
         },
       },
       {

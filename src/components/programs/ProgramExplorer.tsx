@@ -140,7 +140,7 @@ export default function ProgramExplorer() {
 
         {/* 6 Alan İçin Şık ve Ferah Mikro-Kart Mimarisi (PC ve Mobilde Sıfır Taşma) */}
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 pt-1">
-          {programCategories.map((cat, idx) => {
+          {programCategories.map((cat) => {
             const Icon = CATEGORY_ICONS[cat.id] || BookOpen;
             const isActive = !searchQuery && cat.id === activeCategory.id;
 

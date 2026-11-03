@@ -1,11 +1,8 @@
-import path from "path";
 import type { NextConfig } from "next";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const nextConfig: NextConfig = {
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
   output: process.env.STATIC_EXPORT === "true" ? "export" : undefined,
   basePath,
   trailingSlash: true,

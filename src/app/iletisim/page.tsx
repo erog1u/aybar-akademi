@@ -56,7 +56,7 @@ export default function IletisimPage() {
               <div className="mt-6 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-cobalt-200">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="h-4 w-4 text-crimson-400" />
-                  <strong className="text-white">İstanbul:</strong> 39 İlçede Yüz Yüze
+                  <strong className="text-white">İstanbul:</strong> Tüm İlçelerde Yüz Yüze
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Globe2 className="h-4 w-4 text-sky-400" />
@@ -67,7 +67,7 @@ export default function IletisimPage() {
 
             {/* Sağ: Stüdyo Görsel Kartı */}
             <div className="lg:col-span-5 relative">
-              <div className="absolute -top-3 -right-2 sm:-right-3 z-20 px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold shadow-crimson flex items-center gap-1.5">
+              <div className="absolute top-3 left-3 sm:left-auto sm:right-3 z-20 max-w-[calc(100%-1.5rem)] px-3 py-1 rounded-full bg-crimson-600 text-white text-xs font-bold shadow-crimson flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
                 <span>Randevu Hattı Aktif</span>
               </div>
@@ -79,7 +79,7 @@ export default function IletisimPage() {
                 priority
                 className="relative z-10 shadow-studio"
                 caption={
-                  <div className="flex items-center justify-between text-xs font-bold text-cobalt-950 px-1">
+                  <div className="flex items-center justify-between gap-2 text-xs font-bold text-cobalt-950 px-1 pr-16 lg:pr-0">
                     <span className="flex items-center gap-1.5 text-cobalt-900">
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       30 Dk Ücretsiz Tanışma

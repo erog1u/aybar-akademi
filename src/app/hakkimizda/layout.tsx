@@ -4,14 +4,14 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "Hakkımızda",
   description:
-    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul 39 ilçede evinizde yüz yüze ve 81 ilde canlı online VIP özel ders kurumudur.",
+    "AYBAR AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
   alternates: {
     canonical: "/hakkimizda/",
   },
   openGraph: {
     title: "Hakkımızda | AYBAR AKADEMİ",
     description:
-      "33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline %100 uyumlu uzman kadro. İstanbul 39 ilçe yüz yüze & tüm Türkiye canlı online VIP özel ders.",
+      "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadro. İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online.",
     url: `${SITE_URL}/hakkimizda/`,
   },
 };
