@@ -89,29 +89,35 @@ export default function FaqSection({
               return (
                 <div
                   key={idx}
-                  className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                     isOpen
-                      ? "bg-white border-cobalt-700/50 shadow-md ring-1 ring-cobalt-700/15"
-                      : "bg-white/80 border-cobalt-900/10 hover:border-cobalt-900/25"
+                      ? "bg-white border-crimson-500/50 shadow-lg ring-1 ring-crimson-500/20"
+                      : "bg-white border-cobalt-900/10 hover:border-crimson-300 hover:shadow-sm"
                   }`}
                 >
                   <button
                     type="button"
                     onClick={() => toggleItem(idx)}
                     aria-expanded={isOpen}
-                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded-xl"
+                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none rounded-2xl"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-cobalt-700 bg-cobalt-50 px-2 py-1 rounded">
+                      <span className={`text-xs font-black px-2.5 py-1 rounded-lg transition-colors ${
+                        isOpen
+                          ? "text-crimson-700 bg-crimson-50 border border-crimson-200/60 shadow-xs"
+                          : "text-cobalt-700 bg-cobalt-50"
+                      }`}>
                         0{idx + 1}
                       </span>
-                      <h3 className="text-base sm:text-[17px] font-bold text-ink leading-snug">
+                      <h3 className={`text-base sm:text-[17px] font-bold leading-snug transition-colors ${
+                        isOpen ? "text-cobalt-950" : "text-ink"
+                      }`}>
                         {item.question}
                       </h3>
                     </div>
                     <ChevronDown
-                      className={`h-5 w-5 text-cobalt-700 shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : ""
+                      className={`h-5 w-5 shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180 text-crimson-600" : "text-cobalt-700"
                       }`}
                     />
                   </button>

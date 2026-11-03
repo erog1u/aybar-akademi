@@ -91,9 +91,20 @@ export default function HomePage() {
                   </span>,
                   <span
                     key="dogru-egitim"
-                    className="text-white block mt-2 font-black tracking-tight"
+                    className="block mt-2.5 sm:mt-3"
                   >
-                    Doğru Eğitim.
+                    <span className="relative inline-flex items-center px-4 sm:px-6 py-1 sm:py-2 rounded-2xl bg-crimson-600 text-white font-black tracking-tight shadow-crimson border border-crimson-400/50 animate-crimson-box overflow-hidden select-none">
+                      {/* Işıltılı Sürekli Akan Işık Çizgisi (Shimmer Loop) */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-light-sweep pointer-events-none" />
+
+                      {/* Nabız Atan Beyaz Işık Noktası */}
+                      <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3 mr-2 sm:mr-3 shrink-0">
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-80 animate-ping" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-white shadow-xs" />
+                      </span>
+
+                      <span className="relative z-10 text-white drop-shadow-xs">Doğru Eğitim.</span>
+                    </span>
                   </span>,
                 ]}
               />
