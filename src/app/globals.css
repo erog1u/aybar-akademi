@@ -68,6 +68,19 @@
   }
 }
 
+@media (pointer: fine) and (hover: hover) {
+  body.has-custom-pointer,
+  body.has-custom-pointer * {
+    cursor: none !important;
+  }
+
+  body.has-custom-pointer input,
+  body.has-custom-pointer textarea,
+  body.has-custom-pointer select,
+  body.has-custom-pointer [contenteditable="true"] {
+    cursor: auto !important;
+  }
+}
 
 @layer components {
   .studio-hero {
