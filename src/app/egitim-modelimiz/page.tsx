@@ -50,10 +50,10 @@ export default function EgitimModelimizPage() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-cobalt-50 text-cobalt-950 px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-md border border-white/80 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-crimson transition-all active:scale-[0.98]"
                 >
                   <span>Ücretsiz Tanışma Seansı Planla</span>
-                  <ArrowRight className="h-4 w-4 text-cobalt-700" />
+                  <ArrowRight className="h-4 w-4 text-white" />
                 </a>
                 <a
                   href="#model-asamalari"
@@ -66,9 +66,9 @@ export default function EgitimModelimizPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>VIP Süreç Koçluğu</span>
+              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                <span>Bütüncül VIP Sistem</span>
               </div>
               <PhotoFrame
                 src={assetPath("/images/vip-mentorship.jpg")}
@@ -183,8 +183,8 @@ export default function EgitimModelimizPage() {
                   {/* Aşama Başlık Alanı */}
                   <div className="flex items-start justify-between gap-4 pb-6 border-b border-cobalt-900/10">
                     <div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt-50 text-cobalt-800 text-xs font-extrabold mb-3">
-                        <span className="h-2 w-2 rounded-full bg-cobalt-600" />
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-50 text-crimson-700 text-xs font-black mb-3 border border-crimson-200/50">
+                        <span className="h-2 w-2 rounded-full bg-crimson-600" />
                         <span>Aşama 0{idx + 1}</span>
                       </div>
                       <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-ink tracking-tight leading-snug">
@@ -192,14 +192,14 @@ export default function EgitimModelimizPage() {
                       </h3>
                     </div>
 
-                    <span className="hidden sm:block font-brand text-4xl lg:text-5xl font-extrabold text-cobalt-900/15 select-none shrink-0">
+                    <span className="hidden sm:block font-brand text-4xl lg:text-5xl font-black text-crimson-600/15 select-none shrink-0">
                       0{idx + 1}
                     </span>
                   </div>
 
                   {/* Vurgulu Giriş Cümlesi */}
                   {sec.intro ? (
-                    <div className="mt-5 p-4 sm:p-5 rounded-xl bg-paper-warm border-l-4 border-cobalt-700">
+                    <div className="mt-5 p-4 sm:p-5 rounded-xl bg-paper-warm border-l-4 border-crimson-600">
                       <p className="text-[15px] sm:text-base font-semibold text-cobalt-950 leading-relaxed">
                         {sec.intro}
                       </p>
@@ -215,7 +215,7 @@ export default function EgitimModelimizPage() {
                       >
                         {pt.label ? (
                           <>
-                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-cobalt-100 text-cobalt-800 text-xs font-extrabold">
+                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-crimson-600 text-white text-xs font-black shadow-crimson">
                               {pIdx + 1}
                             </span>
                             <div className="min-w-0">
@@ -265,8 +265,8 @@ export default function EgitimModelimizPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
-              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-crimson-500/60 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="h-10 w-10 rounded-xl bg-crimson-600 text-white flex items-center justify-center font-black text-sm mb-4 shadow-crimson group-hover:scale-105 transition-transform">
                 01
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Uzman Branş Öğretmeni</h3>
@@ -275,8 +275,8 @@ export default function EgitimModelimizPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
-              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-crimson-500/60 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="h-10 w-10 rounded-xl bg-crimson-600 text-white flex items-center justify-center font-black text-sm mb-4 shadow-crimson group-hover:scale-105 transition-transform">
                 02
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Eğitim Koçu & Mentorluk</h3>
@@ -285,8 +285,8 @@ export default function EgitimModelimizPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
-              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-crimson-500/60 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="h-10 w-10 rounded-xl bg-crimson-600 text-white flex items-center justify-center font-black text-sm mb-4 shadow-crimson group-hover:scale-105 transition-transform">
                 03
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Şeffaf Veli İletişimi</h3>
@@ -295,8 +295,8 @@ export default function EgitimModelimizPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300">
-              <div className="h-10 w-10 rounded-xl bg-cobalt-700/50 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-crimson-500/60 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="h-10 w-10 rounded-xl bg-crimson-600 text-white flex items-center justify-center font-black text-sm mb-4 shadow-crimson group-hover:scale-105 transition-transform">
                 04
               </div>
               <h3 className="text-lg font-bold text-white mb-2">Okul & Sınav Uyumu</h3>

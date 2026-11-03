@@ -146,18 +146,18 @@ export default function ProgramExplorer() {
                 onClick={() => handleSelectCategory(cat.id)}
                 className={`shrink-0 sm:shrink min-h-[48px] px-3.5 py-2.5 rounded-xl text-left transition-all duration-300 flex items-center justify-between gap-2.5 cursor-pointer relative overflow-hidden ${
                   isActive
-                    ? "bg-cobalt-700 text-white shadow-md ring-2 ring-cobalt-700/20"
-                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-cobalt-700/30 border border-cobalt-900/10 shadow-sm"
+                    ? "bg-crimson-600 text-white shadow-crimson ring-2 ring-crimson-400/30 scale-[1.02]"
+                    : "bg-white text-ink hover:bg-cobalt-50 hover:border-crimson-300 border border-cobalt-900/10 shadow-sm"
                 }`}
               >
                 <div className="flex items-center gap-2 min-w-0">
                   <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-white" : "text-cobalt-700"}`} />
-                  <span className="text-xs sm:text-[13px] font-bold truncate">
+                  <span className="text-xs sm:text-[13px] font-bold whitespace-nowrap">
                     {cat.shortTitle}
                   </span>
                 </div>
                 <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shrink-0 ${
-                  isActive ? "bg-white/20 text-white" : "bg-cobalt-50 text-cobalt-700"
+                  isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700"
                 }`}>
                   {cat.items.length}
                 </span>

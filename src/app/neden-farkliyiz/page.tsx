@@ -50,10 +50,10 @@ export default function NedenFarkliyizPage() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-cobalt-50 text-cobalt-950 px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-md border border-white/80 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white px-6 py-3.5 text-sm sm:text-base font-extrabold shadow-crimson transition-all active:scale-[0.98]"
                 >
                   <span>Ücretsiz Tanışma Seansı Planla</span>
-                  <ArrowRight className="h-4 w-4 text-cobalt-700" />
+                  <ArrowRight className="h-4 w-4 text-white" />
                 </a>
                 <a
                   href="#ilkeler"
@@ -66,8 +66,8 @@ export default function NedenFarkliyizPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>Kişiye Özel Hata Defteri</span>
               </div>
               <PhotoFrame
@@ -138,26 +138,27 @@ export default function NedenFarkliyizPage() {
             </p>
           </div>
 
-          {/* 5 İlke Kartları — Kutucuk Karmaşası Olmadan Temiz Düzen */}
+          {/* 5 İlke Kartları — Canlı Kırmızı Vurgulu ve Prestijli Düzen */}
           <div className="space-y-6 sm:space-y-8">
             {principles.map((p, pIdx) => (
               <div
                 key={p.step}
-                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-0.5"
+                className="rounded-2xl bg-white border border-cobalt-900/10 shadow-sm p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-crimson-500/50 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group"
               >
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
                   {/* Sol Başlık Kolonu */}
                   <div className="lg:col-span-4">
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-cobalt-700 text-white text-xs font-extrabold shadow-sm">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-crimson-600 text-white text-xs font-black shadow-crimson group-hover:scale-105 transition-transform">
                         0{pIdx + 1}
                       </span>
-                      <span className="text-xs font-extrabold uppercase tracking-wider text-cobalt-700">
+                      <span className="text-xs font-black uppercase tracking-wider text-crimson-700 bg-crimson-50 px-2.5 py-0.5 rounded-full border border-crimson-200/50">
                         Standart İlke
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-ink tracking-tight leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-ink tracking-tight leading-snug group-hover:text-cobalt-950 transition-colors">
                       {p.title}
                     </h3>
                   </div>
@@ -166,7 +167,7 @@ export default function NedenFarkliyizPage() {
                   <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                     {p.items.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-cobalt-700 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-5 w-5 text-crimson-600 shrink-0 mt-0.5" />
                         <div>
                           <h4 className="text-[15px] sm:text-base font-bold text-cobalt-950 leading-snug">
                             {item.title}

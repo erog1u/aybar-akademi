@@ -153,12 +153,17 @@ export default function IletisimPage() {
                   </p>
                 </div>
 
-                {/* 1. Eğitim Alanı Seçimi (Sade, Ferah Hap Butonlar) */}
+                {/* 1. Eğitim Alanı Seçimi (Yazıların Asla Kesilmediği Ferah Düzen) */}
                 <div>
-                  <label className="block text-sm font-extrabold text-cobalt-950 mb-2.5">
-                    1. İlgilendiğiniz Eğitim Alanını Seçin
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <label className="block text-sm font-extrabold text-cobalt-950">
+                      1. İlgilendiğiniz Eğitim Alanını Seçin
+                    </label>
+                    <span className="text-xs font-bold text-crimson-600 bg-crimson-50 px-2.5 py-0.5 rounded-full border border-crimson-200/50">
+                      Seçili: {selectedProgram}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 sm:gap-2.5">
                     {programCategories.map((cat) => {
                       const isActive = selectedProgram === cat.shortTitle;
                       return (
@@ -166,15 +171,15 @@ export default function IletisimPage() {
                           key={cat.id}
                           type="button"
                           onClick={() => setSelectedProgram(cat.shortTitle)}
-                          className={`rounded-xl px-3.5 py-3 text-left text-xs sm:text-[13.5px] font-bold border transition-all cursor-pointer flex items-center justify-between ${
+                          className={`rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold border transition-all cursor-pointer inline-flex items-center gap-2 ${
                             isActive
-                              ? "bg-crimson-600 text-white border-crimson-600 shadow-crimson"
+                              ? "bg-crimson-600 text-white border-crimson-600 shadow-crimson scale-[1.02]"
                               : "bg-paper text-ink border-cobalt-900/10 hover:border-crimson-400 hover:bg-white"
                           }`}
                         >
-                          <span className="truncate">{cat.shortTitle}</span>
+                          <span className="whitespace-normal leading-normal">{cat.shortTitle}</span>
                           {isActive && (
-                            <Check className="h-3.5 w-3.5 shrink-0 ml-1 text-white" />
+                            <Check className="h-4 w-4 shrink-0 text-white" />
                           )}
                         </button>
                       );
@@ -187,7 +192,7 @@ export default function IletisimPage() {
                   <label className="block text-sm font-extrabold text-cobalt-950 mb-2.5">
                     2. Ders Formatı Tercihiniz
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {LESSON_FORMATS.map((item) => {
                       const isActive = format === item.title;
                       return (
@@ -195,24 +200,24 @@ export default function IletisimPage() {
                           key={item.id}
                           type="button"
                           onClick={() => setFormat(item.title)}
-                          className={`rounded-xl p-3.5 text-left border transition-all cursor-pointer ${
+                          className={`rounded-2xl p-4 text-left border transition-all cursor-pointer ${
                             isActive
                               ? "bg-cobalt-950 text-white border-cobalt-950 shadow-sm ring-2 ring-crimson-600"
-                              : "bg-paper text-ink border-cobalt-900/10 hover:border-cobalt-300 hover:bg-white"
+                              : "bg-paper text-ink border-cobalt-900/10 hover:border-crimson-300 hover:bg-white"
                           }`}
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="font-extrabold text-xs sm:text-sm">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-extrabold text-xs sm:text-sm leading-snug">
                               {item.title}
                             </span>
                             {isActive && (
-                              <span className="text-[11px] font-bold text-crimson-400 bg-white/10 px-2 py-0.5 rounded-full">
+                              <span className="text-[11px] font-bold text-white bg-crimson-600 px-2.5 py-0.5 rounded-full shrink-0 shadow-xs">
                                 Seçildi
                               </span>
                             )}
                           </div>
                           <p
-                            className={`text-xs mt-1 leading-snug ${
+                            className={`text-xs mt-1.5 leading-relaxed ${
                               isActive ? "text-cobalt-200" : "text-ink-muted"
                             }`}
                           >
@@ -318,7 +323,7 @@ export default function IletisimPage() {
                       </span>
                       <div className="min-w-0">
                         <div className="text-xs font-bold text-ink-muted">WhatsApp Danışma</div>
-                        <div className="text-sm sm:text-base font-extrabold text-ink truncate">
+                        <div className="text-sm sm:text-base font-extrabold text-ink">
                           {siteConfig.contact.phoneDisplay}
                         </div>
                       </div>
@@ -339,7 +344,7 @@ export default function IletisimPage() {
                       </span>
                       <div className="min-w-0">
                         <div className="text-xs font-bold text-ink-muted">Resmi E-Posta</div>
-                        <div className="text-sm sm:text-base font-bold text-ink truncate">
+                        <div className="text-sm sm:text-base font-bold text-ink break-all">
                           {siteConfig.contact.email}
                         </div>
                       </div>

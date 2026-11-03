@@ -40,9 +40,9 @@ export default function EgitimProgramlarimizPage() {
 
             <div className="lg:col-span-5 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Bireysel Müfredat</span>
+              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                <span>6 Ana Akademik Alan</span>
               </div>
               <PhotoFrame
                 src={assetPath("/images/programs-global-study.jpg")}

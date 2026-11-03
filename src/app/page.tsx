@@ -117,7 +117,7 @@ export default function HomePage() {
                 <MagneticLink
                   href={getWhatsAppUrl()}
                   external
-                  variant="luminous"
+                  variant="crimson"
                 >
                   Ücretsiz Tanışma Seansı
                 </MagneticLink>
@@ -134,9 +134,9 @@ export default function HomePage() {
             <div className="lg:col-span-6 min-w-0 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-indigo-400/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
 
-              {/* Üst Yüzen Rozet (Süs & Cancan) */}
-              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              {/* Üst Yüzen Kırmızı Rozet (Süs & Cancan) */}
+              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>VIP Birebir Mentörlük</span>
               </div>
 
@@ -211,20 +211,20 @@ export default function HomePage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/60 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden"
+                  className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cobalt-600 via-sky-400 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600" />
                   <div>
                     <div className="flex items-center justify-between mb-5">
-                      <span className="h-12 w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-cobalt-700 group-hover:text-white group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm">
+                      <span className="h-12 w-12 rounded-xl bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-600 group-hover:text-white group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-300 shadow-sm">
                         <Icon className="h-6 w-6" />
                       </span>
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-paper-warm text-[11px] font-extrabold tracking-wider text-cobalt-800 border border-cobalt-900/5 group-hover:bg-cobalt-50 transition-colors">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-crimson-50 text-[11px] font-black tracking-wider text-crimson-700 border border-crimson-200/50 group-hover:bg-crimson-600 group-hover:text-white transition-colors shadow-xs">
                         {item.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-ink group-hover:text-cobalt-700 transition-colors tracking-tight">
+                    <h3 className="text-xl font-extrabold text-ink group-hover:text-crimson-600 transition-colors tracking-tight">
                       {item.title}
                     </h3>
 
@@ -291,13 +291,13 @@ export default function HomePage() {
                 {aboutContent.solutions.map((solution, sIdx) => (
                   <div
                     key={solution.index}
-                    className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:bg-white transition-all flex items-start gap-4"
+                    className="p-5 sm:p-6 rounded-2xl bg-paper border border-cobalt-900/10 shadow-sm hover:border-crimson-500/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 group"
                   >
-                    <span className="inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold shrink-0 mt-0.5 bg-cobalt-700 text-white shadow-sm">
+                    <span className="inline-flex items-center justify-center h-8 px-3 rounded-xl text-xs font-black shrink-0 mt-0.5 bg-crimson-600 text-white shadow-crimson group-hover:scale-105 transition-transform">
                       {solution.index}
                     </span>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-ink">
+                      <h3 className="text-lg sm:text-xl font-bold text-ink group-hover:text-cobalt-950 transition-colors">
                         {solution.title}
                       </h3>
                       <p className="mt-1.5 text-sm sm:text-base text-ink-muted leading-relaxed">

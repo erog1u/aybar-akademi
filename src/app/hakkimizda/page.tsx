@@ -47,8 +47,8 @@ export default function HakkimizdaPage() {
 
             <div className="lg:col-span-5 w-full relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/30 via-indigo-400/20 to-sky-300/30 rounded-3xl blur-2xl animate-gentle-glow pointer-events-none" />
-              <div className="absolute -top-3 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cobalt-950 font-extrabold text-xs shadow-lg border border-white/60 animate-float-slow">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="absolute -top-3.5 right-4 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-600 text-white font-black text-xs shadow-crimson animate-float-slow">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
                 <span>33 Yıllık Deneyim</span>
               </div>
               <PhotoFrame
@@ -126,13 +126,14 @@ export default function HakkimizdaPage() {
             {aboutContent.solutions.map((sol, idx) => (
               <div
                 key={sol.index}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-crimson-500/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
               >
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div>
-                  <span className="inline-flex items-center justify-center h-8 px-3 rounded-lg text-xs font-extrabold mb-4 bg-cobalt-700 text-white shadow-sm">
+                  <span className="inline-flex items-center justify-center h-8 px-3 rounded-xl text-xs font-black mb-4 bg-crimson-600 text-white shadow-crimson group-hover:scale-105 transition-transform">
                     {sol.index}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-cobalt-950 leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-cobalt-950 leading-snug group-hover:text-crimson-600 transition-colors">
                     {sol.title}
                   </h3>
                   <p className="mt-3 text-[15px] sm:text-base text-ink-muted leading-relaxed">
