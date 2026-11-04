@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { assetPath } from "@/config/site";
-import { SloganMark } from "@/components/layout/PageHero";
 
 const SLIDES = [
   {
@@ -11,7 +10,7 @@ const SLIDES = [
     alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
     slogan: (
       <>
-        Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
+        Eğitimde Güvenin, Başarıda Uzmanlığın Adresi
       </>
     ),
   },
@@ -21,7 +20,7 @@ const SLIDES = [
     alt: "Birebir ders sırasında defter üzerinde çalışan eller",
     slogan: (
       <>
-        <span className="whitespace-nowrap"><SloganMark>33 Yıllık Tecrübe</SloganMark>,</span> Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim
+        33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim
       </>
     ),
   },
@@ -31,7 +30,7 @@ const SLIDES = [
     alt: "Evde yüz yüze birebir ders",
     slogan: (
       <>
-        Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
+        Eğitimde Sınır Tanımıyoruz
       </>
     ),
   },
@@ -41,7 +40,7 @@ const SLIDES = [
     alt: "Birebir ders çalışan öğrenci",
     slogan: (
       <>
-        Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlanın
+        Değişen Dünyaya AYBARİst&apos;in Gücüyle Hazırlanın
       </>
     ),
   },
@@ -51,7 +50,7 @@ const SLIDES = [
     alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
     slogan: (
       <>
-        Online Canlı Dersler ile <SloganMark>Yüz Yüze Özel Ders</SloganMark> Modellerini Bir Arada Sunuyoruz
+        Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini Bir Arada Sunuyoruz
       </>
     ),
   },
