@@ -100,11 +100,11 @@ export default function IletisimPage() {
 
           <div className="mt-8 space-y-4 text-base leading-relaxed text-ink-muted">
             <p>
-              <strong className="text-ink">{siteConfig.contact.locations.faceToFaceTitle}:</strong>{" "}
+              <strong className="font-bold text-ink">{siteConfig.contact.locations.faceToFaceTitle}:</strong>{" "}
               {siteConfig.contact.locations.faceToFaceDetail}
             </p>
             <p>
-              <strong className="text-ink">{siteConfig.contact.locations.onlineTitle}:</strong>{" "}
+              <strong className="font-bold text-ink">{siteConfig.contact.locations.onlineTitle}:</strong>{" "}
               {siteConfig.contact.locations.onlineDetail}
             </p>
           </div>

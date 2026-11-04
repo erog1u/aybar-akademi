@@ -10,10 +10,18 @@ import { assetPath } from "@/config/site";
 import BrandText from "@/components/brand/BrandText";
 
 const YELPAZE = [
-  "Sınav Hazırlık: LGS ve YKS (TYT-AYT) odaklı nokta atışı koçluk ve birebir özel ders programları",
-  "Okul Destek Takviyeleri: İlkokuldan üniversiteye kadar tüm sınıflarda okul başarısını artıran özel dersler (Maarif Modeline uyumlu yeni nesil özel dersler)",
-  "Kariyer Sınavları: KPSS ve ALES hazırlığa yönelik özel dersler",
-  "Dil ve Gelişim: Çocuklar ve yetişkinler için yabancı dil programları, sürücü eğitimleri, sanat ile spor branşları ile ilgili birebir özel dersler",
+  <>
+    <strong className="font-bold text-ink">Sınav Hazırlık: LGS ve YKS (TYT-AYT)</strong> odaklı nokta atışı <strong className="font-bold text-ink">koçluk</strong> ve <strong className="font-bold text-ink">birebir özel ders</strong> programları
+  </>,
+  <>
+    <strong className="font-bold text-ink">Okul Destek Takviyeleri:</strong> İlkokuldan üniversiteye kadar tüm sınıflarda okul başarısını artıran özel dersler (Maarif Modeline uyumlu yeni nesil özel dersler)
+  </>,
+  <>
+    <strong className="font-bold text-ink">Kariyer Sınavları: KPSS ve ALES</strong> hazırlığa yönelik özel dersler
+  </>,
+  <>
+    <strong className="font-bold text-ink">Yabancı Dil ve Kişisel Gelişim:</strong> Çocuklar ve yetişkinler için yabancı dil programları, <strong className="font-bold text-ink">sürücü eğitimleri</strong>, <strong className="font-bold text-ink">sanat</strong> ile <strong className="font-bold text-ink">spor</strong> branşları ile ilgili birebir özel dersler
+  </>,
 ];
 
 export default function HomePage() {
@@ -70,8 +78,8 @@ export default function HomePage() {
               </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
-              {YELPAZE.map((line) => (
-                <li key={line}>{line}</li>
+              {YELPAZE.map((line, i) => (
+                <li key={i}>{line}</li>
               ))}
             </ul>
             <div className="mt-8">
@@ -81,10 +89,10 @@ export default function HomePage() {
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               <li>
-                İstanbul Geneli Yüz Yüze Eğitim: Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle bire bir yüz yüze ders imkanı.
+                <strong className="font-bold text-ink">İstanbul Geneli Yüz Yüze Eğitim:</strong> Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle bire bir yüz yüze ders imkanı.
               </li>
               <li>
-                Türkiye Geneli Online Eğitim: Nerede olursanız olun, dijital platformlar üzerinden sınırsız ve kaliteli canlı dersler.
+                <strong className="font-bold text-ink">Türkiye Geneli Online Eğitim:</strong> Nerede olursanız olun, dijital platformlar üzerinden sınırsız ve kaliteli canlı dersler.
               </li>
             </ul>
           </div>
