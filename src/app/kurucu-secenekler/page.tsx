@@ -5,40 +5,40 @@ import { assetPath } from "@/config/site";
 
 const OPTIONS = [
   {
-    id: "cam-1",
-    title: "Tasarım 1: Akustik Ahşap Çıtalar & Sıcak Jaluzili Pencere",
-    tag: "Ahşap Çıtalar & Jaluzi Gün Işığı",
-    src: "/images/founder-cam-agaci-1-akustik-jaluzi.webp",
-    badge: "⭐ 1. Tercih (En Çok Beğenilen)",
+    id: "traverten-1",
+    title: "Tasarım 1: Lüks Traverten Doğal Taş Duvar & Gizli Tavan Işığı",
+    tag: "Çıtasız & Şeritsiz Yeni Mimari Duvar",
+    src: "/images/founder-yeni-traverten-tas-duvar.webp",
+    badge: "🏆 1. TAVSİYE (Yeni Mimari Duvar & Ultra Canlı)",
     description:
-      "Arka duvarda sıcak ceviz akustik ahşap çıtalar ve dikey amber LED ışıklar, sağ tarafta ahşap jaluzili modern pencereden içeri süzülen doğal gün ışığı. Arkada solda konsolda canlı iğne yapraklı yeşil dağ çamı bonsai ağacı ve şık ciltli kitaplar. Masanın tamamı kadrajda, masada AYBARİst isimliği sol önde, defter ve kalem sağda konumlandırılmıştır.",
+      "Arka plandaki ahşap çıtalar ve dikey sarı LED şeritleri tamamen kaldırılarak yerine lüks açık bej traverten doğal mermer plaka duvar ve tavandan süzülen gizli mimari tavan ışığı yerleştirilmiştir. Kristal netliğinde 8K canlı renkler, arkada sol tarafta boy hizasına yükselen canlı ve gür iğne yapraklı salon çam ağacı, zengin koyu çikolata kahverengi ahşap masa, siyah takım elbise ceketi ve duvarda temiz 3D AYBARİst AKADEMİ logosu.",
   },
   {
-    id: "cam-2",
-    title: "Tasarım 2: Bej Traverten Taş Duvar & Tül Perdeli Pencere",
-    tag: "Doğal Taş & Yumuşak Tül Perde",
-    src: "/images/founder-cam-agaci-2-traverten-tul.webp",
-    badge: "🌿 Doğal Taş Zarafeti",
+    id: "tul-2",
+    title: "Tasarım 2: Tül Perdeli Ferah Pencere Işığı & Çam Ağacı",
+    tag: "Doğal Gün Işığı & Koyu Maun Masa",
+    src: "/images/founder-yeni-cam-agaci-tul-perde.webp",
+    badge: "☀️ Ferah & Aydınlık",
     description:
-      "Arka duvarda bej traverten/doğal taş mimari panel ve gizli LED aydınlatma, sağda zarif tül perdeli yüksek cam cephe. Koyu kahverengi maun masa, taş saksıda canlı yeşil çam ağacı, sol rafta kitaplar, siyah takım elbise ve temiz 3D logo.",
+      "Sağda tül perdeli mimari yüksek pencereden süzülen yumuşak gün ışığı, arkada sol tarafta gür yapraklı gerçek çam ağacı ve ciltli kitaplar, derin koyu kahverengi masa, siyah ceketli Bahadır Bey portresi ve temiz 3D duvar logosu.",
   },
   {
     id: "cam-3",
-    title: "Tasarım 3: Lüks Masif Ceviz Duvar Panelleri & Cam Cephe",
-    tag: "Tam Ceviz Panel & Maslak/Levent Stili",
-    src: "/images/founder-cam-agaci-3-ceviz-panel.webp",
-    badge: "🏛️ Prestijli Masif Ceviz",
+    title: "Tasarım 3: Modern Cam Cepheli Maslak/Levent Kule Stili",
+    tag: "Geniş Cam Cephe & Şehir Işığı",
+    src: "/images/founder-yeni-cam-agaci-cam-cephe.webp",
+    badge: "🏢 Kurumsal Plaza Tasarımı",
     description:
-      "Tüm arka duvarda zengin koyu ceviz mimari lambri paneller ve altın sarısı dikey LED kanalları, sağda tavandan tabana geniş mimari cam cephe. Masif seramik saksıda kıvrımlı gövdeli canlı çam ağacı, zengin kitap dizilimi ve koyu kahverengi makam masası.",
+      "Sağda tavandan tabana panoramik modern cam cephe, seramik saksıda sağlıklı yeşil dağ çamı, sol rafta altın varaklı külliyat, zengin koyu kahverengi ceviz masa dokusu ve siyah takım elbise.",
   },
   {
-    id: "cam-4",
-    title: "Tasarım 4: Çağdaş Gri Doku & Dikey Ceviz Çıta Aksanları",
-    tag: "Modern Venedik Sıva & Çıta",
-    src: "/images/founder-cam-agaci-4-minimal-gri-slat.webp",
-    badge: "✨ Çağdaş Minimalist CEO Ofisi",
+    id: "jaluzi-4",
+    title: "Tasarım 4: Ahşap Jaluzili Sıcak Pencere Işığı & Çam Ağacı",
+    tag: "Ahşap Jaluzi & Zengin Akustik Doku",
+    src: "/images/founder-yeni-cam-agaci-jaluzi.webp",
+    badge: "🍂 Sıcak & Klasik Duruş",
     description:
-      "Modern sıcak gri mimari dokulu duvar, iki yanda ceviz akustik çıta sütunları, sağda geniş ofis penceresi. Sol konsolda seramik saksıda sağlıklı dağ çamı ve klasik ciltler, geniş ceviz masa ve siyah takım elbiseli Bahadır Bey portresi.",
+      "Sağda ahşap jaluzilerden süzülen sıcak yatay ışık çizgileri, arkada sol tarafta heybetli yeşil çam ağacı, zengin kitap dizilimi, masanın tamamını gösteren koyu kahverengi ceviz masa ve siyah takım elbiseli kurucu portresi.",
   },
 ];
 
@@ -50,13 +50,13 @@ export default function KurucuSeceneklerPage() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-8">
         <div>
           <span className="text-xs font-bold tracking-wider uppercase text-crimson-600 bg-crimson-50 px-3 py-1 rounded-full border border-crimson-200">
-            Müşteri Talepleriyle Yeniden Üretildi
+            Nihai Müşteri Revizyonu (Yeni Duvar & Işık Tasarımı)
           </span>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-cobalt-950 mt-3 tracking-tight">
-            Kurucumuz Bahadır Aybar — Çam Ağaçlı & Koyu Masalı 4 Yeni Tasarım
+            Kurucumuz Bahadır Aybar — 4 Farklı Duvar & Çam Ağacı Tasarımı
           </h1>
           <p className="mt-2 text-base text-ink-muted max-w-3xl leading-relaxed">
-            Bahadır Bey&apos;in ve müşterinin tüm istekleri eksiksiz uygulandı: <strong>Siyah ceket</strong>, masanın tamamının kadrajda göründüğü <strong>koyu kahverengi geniş makam masası</strong>, çiçek yerine <strong>canlı minyatür çam ağacı</strong>, <strong>arkada solda kitaplar</strong>, masadaki AYBARİst isimlik ve defterinin dengeli yeni konumu, <strong>&quot;Bilginin Kaynağı&quot; sloganı kaldırılarak</strong> arkada 4 farklı şık mimari tasarım.
+            Müşterimizin tüm talepleri eksiksiz uygulandı: <strong>İnce çıtalar ve dikey sarı LED çizgileri kaldırılarak yeni lüks duvar tasarımı</strong>, <strong>kristal netliğinde ve canlı renkler</strong>, arkada <strong>gerçek salon çam ağacı</strong>, <strong>arkada solda kitaplar</strong>, masanın tamamının kadrajda göründüğü <strong>koyu kahverengi masa</strong>, <strong>siyah ceket</strong> ve <strong>slogansız temiz 3D AYBARİst AKADEMİ logosu</strong>.
           </p>
         </div>
 
