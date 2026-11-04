@@ -148,4 +148,4 @@ Claude Code ile devam ederken tamamlanması gereken nihai operasyonel adımlar:
 - [ ] **Müşteri Telefon Numarası:** Müşteriden nihai kurumsal telefon ve WhatsApp hattı geldiğinde sadece `src/config/site.ts` dosyasındaki `phoneDisplay`, `phoneHref` ve `whatsappNumber` alanları güncellenecektir.
 - [ ] **Müşteri Logosu:** Müşteri mevcut logoda ufak bir revize yapabileceğini belirtmiştir; yeni dosya gelirse `public/images/` altına konulup `src/config/site.ts` içindeki dosya adresi güncellenecektir.
 - [ ] **Ajans Bağlantısı:** `eroglusolutions.com` bağlantısı ve alt bilgi imzası teyit edilecektir.
-- [ ] **Cloudflare Pages Canlı Yayını:** Müşteri alan adı (`aybarakademi.com`) onaylandığında `docs/CANLIYA_ALMA_REHBERI.md` adımları takip edilerek Cloudflare Pages'a bağlanacaktır.
+- [ ] **Cloudflare Pages Canlı Yayını:** Müşteri alan adı (`aybaristakademi.com`) onaylandığında `docs/CANLIYA_ALMA_REHBERI.md` adımları takip edilerek Cloudflare Pages'a bağlanacaktır.

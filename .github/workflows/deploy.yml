@@ -35,7 +35,7 @@ jobs:
       - name: Run Production Build Test
         run: npm run build:production
         env:
-          NEXT_PUBLIC_SITE_URL: "https://aybarakademi.com"
+          NEXT_PUBLIC_SITE_URL: "https://aybaristakademi.com"
 
   deploy-cloudflare:
     name: Deploy to Cloudflare Pages (Production)
@@ -61,7 +61,7 @@ jobs:
       - name: Build Static Export
         run: npm run build:production
         env:
-          NEXT_PUBLIC_SITE_URL: "https://aybarakademi.com"
+          NEXT_PUBLIC_SITE_URL: "https://aybaristakademi.com"
 
       # Job-level env is visible to this `if`. A step-level env is not,
       # so the old check could never see the token and never deployed.

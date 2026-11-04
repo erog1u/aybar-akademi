@@ -244,7 +244,7 @@ function StudioDesktopWindow({
         <div className="flex-1 max-w-lg mx-auto flex items-center gap-2 h-7 px-3 bg-cobalt-900/90 rounded-md border border-white/10 text-xs font-mono text-cobalt-200">
           <Lock className="h-3 w-3 text-emerald-400 shrink-0" />
           <span className="text-white/60">https://</span>
-          <span className="text-white font-medium">aybarakademi.com</span>
+          <span className="text-white font-medium">aybaristakademi.com</span>
           <span className="text-crimson-400 font-bold">
             {route === "/" ? "" : route}
           </span>

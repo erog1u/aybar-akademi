@@ -340,11 +340,11 @@ async function generateOgImage() {
     <div class="brand-row">
       <div class="brand-lockup">
         <div class="emblem-wrapper">
-          <img src="${emblemBase64}" alt="Aybar Akademi Arması">
+          <img src="${emblemBase64}" alt="AYBARİst AKADEMİ Arması">
         </div>
         <div class="brand-text">
           <div class="brand-name">
-            <span class="light">AYBAR </span><span class="accent">AKADEMİ</span>
+            <span class="light">AYBARİst </span><span class="accent">AKADEMİ</span>
           </div>
           <div class="brand-sub">
             <span>Eğitim</span>
@@ -358,7 +358,7 @@ async function generateOgImage() {
 
       <div class="top-badge">
         <span class="radar-dot"></span>
-        <span>Türkiye Yüzyılı Maarif Modeli %100 Uyum</span>
+        <span>Maarif Modeline Uyumlu</span>
       </div>
     </div>
 
@@ -366,11 +366,11 @@ async function generateOgImage() {
     <div class="main-grid">
       <div class="main-left">
         <div class="headline">
-          Her Öğrenciye<br>
-          <span class="headline-dim">Aynı Eğitim Değil,</span><br>
+          Eğitimde Güvenin,<br>
+          <span class="headline-dim">Başarıda</span><br>
           <div class="headline-crimson-box">
             <span class="pulse-white-dot"></span>
-            <span>Doğru Eğitim.</span>
+            <span>Uzmanlığın Adresi</span>
           </div>
         </div>
 
@@ -381,11 +381,11 @@ async function generateOgImage() {
         <div class="pills-row">
           <div class="pill">
             <span class="pill-dot green"></span>
-            <span>İstanbul: 39 İlçede Evinizde Yüz Yüze</span>
+            <span>İstanbul’un Tüm İlçelerinde Yüz Yüze</span>
           </div>
           <div class="pill">
             <span class="pill-dot"></span>
-            <span>Tüm Türkiye: 81 İlde Canlı Online</span>
+            <span>Tüm Türkiye’de Online</span>
           </div>
         </div>
       </div>
@@ -393,10 +393,10 @@ async function generateOgImage() {
       <div class="main-right">
         <div class="photo-card">
           <div class="photo-floating-badge">VIP Birebir Özel Ders</div>
-          <img src="${heroBase64}" alt="Aybar Akademi Birebir Eğitim">
+          <img src="${heroBase64}" alt="AYBARİst AKADEMİ Birebir Eğitim">
           <div class="photo-caption">
             <span>33 Yıllık Köklü Tecrübe</span>
-            <span class="cta">30 Dk Ücretsiz Tanışma →</span>
+            <span class="cta">Birebir Özel Ders</span>
           </div>
         </div>
       </div>
@@ -405,10 +405,10 @@ async function generateOgImage() {
     <!-- Bottom Bar -->
     <div class="bottom-bar">
       <div>
-        © 2026 AYBAR AKADEMİ · Bahadır AYBAR (Kurucu)
+        © 2026 AYBARİst AKADEMİ · Bahadır AYBAR (Kurucu)
       </div>
       <div class="bottom-url">
-        aybarakademi.com
+        aybaristakademi.com
       </div>
     </div>
   </div>

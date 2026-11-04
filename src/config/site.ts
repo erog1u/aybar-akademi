@@ -15,7 +15,7 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (IS_PREVIEW_MODE
     ? "https://erog1u.github.io/aybar-akademi"
-    : "https://aybarakademi.com");
+    : "https://aybaristakademi.com");
 
 export function assetPath(p: string): string {
   if (!p.startsWith("/")) return p;
@@ -50,7 +50,7 @@ export const siteConfig = {
       "Merhaba, AYBARİst AKADEMİ birebir özel ders programları hakkında bilgi almak istiyorum.",
     address:
       "Carousel AVM - Workinton, Zeytinlik Mah. Fişekhane Cad. No:5 İçkapı No:17 Bakırköy/İstanbul",
-    email: process.env.NEXT_PUBLIC_EMAIL || "iletisim@aybarakademi.com",
+    email: process.env.NEXT_PUBLIC_EMAIL || "iletisim@aybaristakademi.com",
     locations: {
       faceToFaceTitle: "İstanbul’un Tüm İlçelerinde",
       faceToFaceDetail:
