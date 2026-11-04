@@ -12,7 +12,8 @@
 
 /* Koyu zeminde marka adı çevresindeki yazıyla aynı görünür; renkler yalnız açık zemindeki metinlerde. */
 .brand-on-dark .brand-name {
-  font-weight: inherit;
+  color: #fff;
+  font-weight: 800;
 }
 
 .brand-on-dark .brand-name > span {
