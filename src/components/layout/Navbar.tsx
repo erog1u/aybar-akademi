@@ -254,7 +254,7 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:hidden min-h-[44px] px-2.5 sm:px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm touch-manipulation whitespace-nowrap shrink-0"
+              className="max-[359px]:hidden lg:hidden min-h-[44px] px-2.5 sm:px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm touch-manipulation whitespace-nowrap shrink-0"
               aria-label="Bilgi Al"
             >
               <span>Bilgi Al</span>
