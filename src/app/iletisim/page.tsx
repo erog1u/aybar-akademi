@@ -61,16 +61,18 @@ export default function IletisimPage() {
                 <span className="text-base font-extrabold text-ink">{siteConfig.contact.phoneDisplay}</span>
               </span>
             </a>
-            <a
-              href={`mailto:${siteConfig.contact.email}`}
-              className="flex min-h-14 items-center gap-3 rounded-2xl border border-cobalt-900/10 bg-white p-4"
-            >
-              <Mail className="h-5 w-5 shrink-0 text-crimson-700" />
-              <span className="min-w-0">
-                <span className="block text-xs font-bold text-ink-muted">E-posta</span>
-                <span className="break-all text-base font-bold text-ink">{siteConfig.contact.email}</span>
-              </span>
-            </a>
+            {siteConfig.contact.email && (
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="flex min-h-14 items-center gap-3 rounded-2xl border border-cobalt-900/10 bg-white p-4"
+              >
+                <Mail className="h-5 w-5 shrink-0 text-crimson-700" />
+                <span className="min-w-0">
+                  <span className="block text-xs font-bold text-ink-muted">E-posta</span>
+                  <span className="break-all text-base font-bold text-ink">{siteConfig.contact.email}</span>
+                </span>
+              </a>
+            )}
             <div className="rounded-2xl border border-cobalt-900/10 bg-white p-4">
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-crimson-700" />

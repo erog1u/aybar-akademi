@@ -88,13 +88,15 @@ export default function Footer() {
                 <span>{siteConfig.contact.phoneDisplay}</span>
               </a>
 
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="min-h-[40px] flex items-center gap-2.5 text-sm text-cobalt-200 hover:text-white transition-colors break-all"
-              >
-                <Mail className="h-4 w-4 text-crimson-500 shrink-0" />
-                <span>{siteConfig.contact.email}</span>
-              </a>
+              {siteConfig.contact.email && (
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="min-h-[40px] flex items-center gap-2.5 text-sm text-cobalt-200 hover:text-white transition-colors break-all"
+                >
+                  <Mail className="h-4 w-4 text-crimson-500 shrink-0" />
+                  <span>{siteConfig.contact.email}</span>
+                </a>
+              )}
             </div>
 
             <div className="pt-3 border-t border-white/10 space-y-2.5 text-sm text-cobalt-200">

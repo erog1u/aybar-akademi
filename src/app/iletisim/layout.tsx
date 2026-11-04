@@ -4,14 +4,14 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "İletişim",
   description:
-    "Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
+    "AYBARİst AKADEMİ iletişim: telefon ve WhatsApp 0543 976 67 34, Bakırköy/İstanbul. Yüz yüze ve online birebir özel ders için bilgi alın.",
   alternates: {
     canonical: "/iletisim/",
   },
   openGraph: {
     title: "İletişim | AYBARİst AKADEMİ",
     description:
-      "Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
+      "AYBARİst AKADEMİ iletişim: telefon ve WhatsApp 0543 976 67 34, Bakırköy/İstanbul. Yüz yüze ve online birebir özel ders için bilgi alın.",
     url: `${SITE_URL}/iletisim/`,
   },
 };

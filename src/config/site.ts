@@ -50,7 +50,8 @@ export const siteConfig = {
       "Merhaba, AYBARİst AKADEMİ birebir özel ders programları hakkında bilgi almak istiyorum.",
     address:
       "Carousel AVM - Workinton, Zeytinlik Mah. Fişekhane Cad. No:5 İçkapı No:17 Bakırköy/İstanbul",
-    email: process.env.NEXT_PUBLIC_EMAIL || "iletisim@aybaristakademi.com",
+    // Boşken e-posta satırı görünmez; yönlendirme kurulunca iletisim@aybaristakademi.com yazın.
+    email: process.env.NEXT_PUBLIC_EMAIL || "",
     locations: {
       faceToFaceTitle: "İstanbul’un Tüm İlçelerinde",
       faceToFaceDetail:

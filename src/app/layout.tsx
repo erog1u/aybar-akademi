@@ -8,18 +8,18 @@ import { siteConfig, IS_PREVIEW_MODE, SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
+    default: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
+    "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
+    title: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
     description:
-      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
+      "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
+    title: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
     description:
-      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
+      "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: IS_PREVIEW_MODE
