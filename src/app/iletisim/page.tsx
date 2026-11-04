@@ -11,7 +11,7 @@ import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 export default function IletisimPage() {
   return (
     <div className="bg-paper text-ink">
-      <Breadcrumbs items={[{ label: "İletişim" }]} />
+      <Breadcrumbs items={[{ label: "İletişim", href: "/iletisim" }]} />
 
       <PageHero
         eyebrow="İletişim"

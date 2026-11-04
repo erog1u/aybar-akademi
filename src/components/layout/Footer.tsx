@@ -111,7 +111,7 @@ export default function Footer() {
 
         {/* Bottom Bar + Eroğlu Solutions Signature — WhatsApp butonunun altında kalmaması için güvenli pb-20 ve lg:mr-52 */}
         <div className="py-8 pb-24 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
-          <div className="text-cobalt-200">
+          <div className="text-cobalt-200" suppressHydrationWarning>
             © {new Date().getFullYear()} {siteConfig.name} ·{" "}
             {siteConfig.founder.name} ({siteConfig.founder.role})
           </div>

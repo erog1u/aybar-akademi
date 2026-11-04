@@ -1,5 +1,5 @@
 import React from "react";
-import { siteConfig, getWhatsAppUrl, SITE_URL } from "@/config/site";
+import { siteConfig, SITE_URL } from "@/config/site";
 
 export default function JsonLd() {
   const baseUrl = SITE_URL;
@@ -44,7 +44,6 @@ export default function JsonLd() {
       addressRegion: "İstanbul",
       addressCountry: "TR",
     },
-    sameAs: [getWhatsAppUrl()],
   };
 
 
@@ -54,7 +53,6 @@ export default function JsonLd() {
     itemListElement: [
       {
         "@type": "Course",
-        position: 1,
         name: "Sınav Hazırlık Özel Ders Programları (YKS, LGS, KPSS, ALES)",
         description:
           "Kişiye özel stratejilerle eksikleri avantaja dönüştüren birebir sınav hazırlık ve koçluk programı.",
@@ -65,7 +63,6 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        position: 2,
         name: "Okula Takviye Programları (İlkokul, Ortaokul, Lise)",
         description:
           "Yeni nesil Maarif Modeline tam uyumlu, okul derslerinde tam öğrenmeyi sağlayan birebir destek.",
@@ -76,7 +73,6 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        position: 3,
         name: "Üniversite Düzeyi & Akademik Dersler (Bahadır Aybar)",
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde kurucu Bahadır Aybar liderliğinde ileri düzey akademik mentorluk.",
@@ -87,7 +83,6 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        position: 4,
         name: "Dünya Dilleri & Uluslararası Sertifikasyon",
         description:
           "Dünya ile Konuşun, Sınırları Kaldırın! Yabancı dil eğitiminde sadece konuşmayı değil, kariyerinizi şekillendirecek küresel sınavları hedefliyoruz.",
@@ -98,7 +93,6 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        position: 5,
         name: "Türkiye Özelindeki Ulusal Yabancı Dil Sınavları (YDT, YDS)",
         description: "Türkiye özelindeki ulusal yabancı dil sınavları: YDT ve YDS.",
         provider: {
@@ -108,7 +102,6 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        position: 6,
         name: "Yaşam, Beceri ve Sanat Odaklı Eğitimler",
         description:
           "Yüzme spor dersleri, direksiyon eğitimi ve dans/müzik sanat akademisi birebir programları.",
@@ -117,7 +110,7 @@ export default function JsonLd() {
           name: siteConfig.name,
         },
       },
-    ],
+    ].map((item, i) => ({ "@type": "ListItem", position: i + 1, item })),
   };
 
   return (

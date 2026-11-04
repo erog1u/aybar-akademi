@@ -345,7 +345,7 @@ export const educationModelContent = {
       shortTitle: "VIP Süreç Yönetimi",
       title: "VIP Süreç Yönetimi: Kişiye Özel Eğitim Felsefesi",
       intro:
-        "Standart ve kalabalık sınıfların sunduğu tek tip eğitim anlayışını geride bırakıyoruz. Aybar Akademi'de eğitim; tamamen öğrencinin bireysel hızına, öğrenme stiline ve hedeflerine göre şekillenir:",
+        "Standart ve kalabalık sınıfların sunduğu tek tip eğitim anlayışını geride bırakıyoruz. AYBARİst AKADEMİ'de eğitim; tamamen öğrencinin bireysel hızına, öğrenme stiline ve hedeflerine göre şekillenir:",
       points: [
         {
           label: "Birebir Özel Dersler ve Esnek Format",
@@ -389,7 +389,7 @@ export const educationModelContent = {
     {
       code: "03",
       shortTitle: "Modelin Temel Taşları",
-      title: "Aybar Akademi Eğitim Modelinin Temel Taşları",
+      title: "AYBARİst AKADEMİ Eğitim Modelinin Temel Taşları",
       intro: "",
       points: [
         {
@@ -415,7 +415,7 @@ export const educationModelContent = {
       shortTitle: "Aile, Veli ve Okul Köprüsü",
       title: "Aile, Veli ve Okul Arasında Güçlü Bir Köprü",
       intro:
-        "Başarı yalnızca öğrenciyle sınırlı değildir. Aybar Akademi'de her öğretmen; aile, veli ve okul üçgeninde sağlıklı bir köprü görevi üstlenir.",
+        "Başarı yalnızca öğrenciyle sınırlı değildir. AYBARİst AKADEMİ'de her öğretmen; aile, veli ve okul üçgeninde sağlıklı bir köprü görevi üstlenir.",
       points: [
         {
           label: "",
@@ -433,7 +433,7 @@ export const educationModelContent = {
 export const whyDifferentContent = {
   eyebrow: "AYBARİst AKADEMİ NEDEN FARKLI?",
   headline: "AYBARİst AKADEMİ'de Fark Yaratan Standart İlkeler",
-  lead: "Aybar Akademi; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir. Eğitim camiasında fark yaratan bu yaklaşım, “Tam Öğrenme” modelini merkezine alarak öğrencileri sıfır hata ile zirveye taşır.",
+  lead: "AYBARİst AKADEMİ; özel derste sıradan bilgi aktarımını değil, bilimsel temelli bir süreç yönetimini, kişiye özel mühendislik yaklaşımını ve bütüncül rehberliği standart hale getirir. Eğitim camiasında fark yaratan bu yaklaşım, “Tam Öğrenme” modelini merkezine alarak öğrencileri sıfır hata ile zirveye taşır.",
   principlesHeading: "AYBARİst AKADEMİ'de Fark Yaratan Standart İlkeler",
   principles: [
     {
@@ -507,7 +507,7 @@ export const whyDifferentContent = {
         {
           title: "Sadece Öğretmen Değil, Aynı Zamanda Mentor",
           detail:
-            "Aybar Akademi öğretmenleri yalnızca ders anlatıp gitmez. Sınav stresi yönetimi, zaman planlaması ve motivasyon konusunda mentörlük yapar. Ders içerisinde ya da ders dışı bir zamanda, birkaç dakikasını öğrencisinin modunu yükseltmeye, haftasının nasıl geçtiğini dinlemeye ayırır. Sınav kaygısı yönetimi, zaman yönetimi ve verimli ders çalışma teknikleri konusunda da rehberlik yapar.",
+            "AYBARİst AKADEMİ öğretmenleri yalnızca ders anlatıp gitmez. Sınav stresi yönetimi, zaman planlaması ve motivasyon konusunda mentörlük yapar. Ders içerisinde ya da ders dışı bir zamanda, birkaç dakikasını öğrencisinin modunu yükseltmeye, haftasının nasıl geçtiğini dinlemeye ayırır. Sınav kaygısı yönetimi, zaman yönetimi ve verimli ders çalışma teknikleri konusunda da rehberlik yapar.",
         },
         {
           title: "Kesintisiz Ulaşılabilirlik (Soru Hattı)",

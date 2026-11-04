@@ -332,6 +332,10 @@
     animation: none !important;
   }
 
+  .animate-light-sweep {
+    display: none;
+  }
+
   .interactive-lift,
   .glow-card,
   header {

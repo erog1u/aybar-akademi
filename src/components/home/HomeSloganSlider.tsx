@@ -70,12 +70,11 @@ export default function HomeSloganSlider() {
   }, []);
 
   useEffect(() => {
-    if (reduceMotion) return;
     const timer = window.setInterval(() => {
       setIndex((current) => (current + 1) % SLIDES.length);
     }, 5000);
     return () => window.clearInterval(timer);
-  }, [reduceMotion]);
+  }, []);
 
   return (
     <div className="relative z-10 overflow-hidden rounded-2xl bg-cobalt-950 shadow-studio">

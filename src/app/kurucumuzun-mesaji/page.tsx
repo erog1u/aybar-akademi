@@ -14,7 +14,7 @@ const PARAGRAPHS = [
 export default function KurucuPage() {
   return (
     <div className="bg-paper text-ink">
-      <Breadcrumbs items={[{ label: "Kurucumuzun Mesajı" }]} />
+      <Breadcrumbs items={[{ label: "Kurucumuzun Mesajı", href: "/kurucumuzun-mesaji" }]} />
       <PageHero
         eyebrow="Kurucumuzun Mesajı"
         title={

@@ -326,7 +326,7 @@ export default function Navbar() {
               setMobileOpen(false);
             }}
             className="min-w-0 focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded-lg"
-            aria-label="Aybar Akademi Ana Sayfa"
+            aria-label="AYBARİst AKADEMİ Ana Sayfa"
           >
             <AybarBrandLockup variant="light" compactOnMobile={true} />
           </Link>
