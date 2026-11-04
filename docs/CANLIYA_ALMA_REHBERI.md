@@ -10,9 +10,9 @@ Müşteriye gönderilen önizleme sürümünde (`NEXT_PUBLIC_PREVIEW_MODE=true`)
 1. **Kaynak Kod Gizliliği:** Sunucuda TypeScript / React kaynak kodları bulunmaz; yalnızca derlenmiş çıktılar yayınlanır. Tam kaynak kodlar gizli (`Private`) GitHub deposunda tutulur.
 2. **Alan Adı Kilidi (`Domain Lock`):** Önizleme dosyaları birisi tarafından indirilip başka bir alan adına (`aybaristakademi.com` vb.) yüklense dahi sistem alan adını kontrol eder ve **"Yetkisiz Alan Adı — Eroğlu Solutions Lisans Koruması"** ekranıyla siteyi kilitler.
 3. **Kopyalama, Sağ Tık, Görsel Sürükleme ve PDF Koruması:** Sağ tık menüsü, görsel sürükleme, metin kopyalama, `Ctrl/Cmd+S`, `Ctrl/Cmd+U` ve yazdırma (`Ctrl/Cmd+P` -> PDF kaydetme) devre dışıdır.
-4. **Hafif Kurumsal Filigran & Google İndeks Engeli (`noindex`):** Sayfa üzerinde performansı etkilemeyen şeffaf `EROĞLU SOLUTIONS · ÖNİZLEME` filigranı yer alır ve arama motorlarının önizleme linkini indekslemesi engellenir.
+4. **Google İndeks Engeli (`noindex`):** Arama motorlarının önizleme linkini indekslemesi engellenir.
 
-> **Not:** Müşteri onaylayıp ödeme tamamlandığında canlıya alırken `NEXT_PUBLIC_PREVIEW_MODE` değişkeni verilmez; böylece tüm önizleme kilitleri ve filigran otomatik olarak kalkar, Google indekslemesi açılır.
+> **Not:** Müşteri onaylayıp ödeme tamamlandığında canlıya alırken `NEXT_PUBLIC_PREVIEW_MODE` değişkeni verilmez; böylece tüm önizleme kilitleri otomatik olarak kalkar, Google indekslemesi açılır.
 
 ---
 

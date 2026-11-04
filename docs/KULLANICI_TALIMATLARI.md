@@ -37,6 +37,6 @@ Bu dosya, proje boyunca verilen TÜM talimatların kalıcı özetidir. Her deği
 - Görseller sıkıştırılmış (≤120KB), `loading="lazy"`, `decoding="async"`.
 
 ## 5. Teslim
-- Önizleme linki: https://erog1u.github.io/aybar-akademi/ (korumalı: alan adı kilidi, sağ tık/kopya engeli, filigran, noindex).
+- Önizleme linki: https://erog1u.github.io/aybar-akademi/ (korumalı: alan adı kilidi, sağ tık/kopya engeli, noindex).
 - Sitenin en altında "Tasarım & Yazılım: Eroğlu Solutions" imzası → https://eroglusolutions.com
 - Canlıya alma: gizli GitHub deposu + Cloudflare Pages (`docs/CANLIYA_ALMA_REHBERI.md`).

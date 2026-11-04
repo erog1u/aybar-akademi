@@ -9,11 +9,6 @@ const ALLOWED_PREVIEW_HOSTS = [
   "erog1u.github.io",
 ];
 
-// Hafif tek-katmanlı SVG filigran (0 GPU maliyeti, tam ekran kopya caydırıcılığı)
-const WATERMARK_SVG = encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="340" height="220" viewBox="0 0 340 220"><text x="20" y="120" fill="#08245E" fill-opacity="0.038" font-family="sans-serif" font-weight="800" font-size="13" letter-spacing="2">EROĞLU SOLUTIONS · ÖNİZLEME</text></svg>`
-);
-
 export default function PreviewProtection({
   children,
 }: {
@@ -91,19 +86,5 @@ export default function PreviewProtection({
     );
   }
 
-  return (
-    <>
-      {children}
-      {IS_PREVIEW_MODE && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-[75] hidden md:block"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,${WATERMARK_SVG}")`,
-            backgroundRepeat: "repeat",
-          }}
-        />
-      )}
-    </>
-  );
+  return <>{children}</>;
 }
