@@ -47,7 +47,7 @@ class CDPSession {
 }
 
 async function generateOgImage() {
-  const emblemPath = path.join(REPO_ROOT, "public/images/logo-emblem.png");
+  const emblemPath = path.join(REPO_ROOT, "public/images/logo-seal.png");
   const heroPath = path.join(REPO_ROOT, "public/images/hero-one-on-one.jpg");
 
   const emblemBase64 = `data:image/png;base64,${fs.readFileSync(emblemPath).toString("base64")}`;
