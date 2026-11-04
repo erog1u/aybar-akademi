@@ -5,77 +5,68 @@ import { assetPath } from "@/config/site";
 
 const OPTIONS = [
   {
-    id: "orijinal",
-    title: "Mevcut Durum: Orijinal Sitedeki Fotoğraf",
-    tag: "Referans Görsel",
-    src: "/images/founder-bahadir.webp",
-    badge: "📌 Orijinal Fotoğraf",
+    id: "cam-1",
+    title: "Tasarım 1: Akustik Ahşap Çıtalar & Sıcak Jaluzili Pencere",
+    tag: "Ahşap Çıtalar & Jaluzi Gün Işığı",
+    src: "/images/founder-cam-agaci-1-akustik-jaluzi.webp",
+    badge: "⭐ 1. Tercih (En Çok Beğenilen)",
     description:
-      "Sitede şu anda yayında olan fotoğraf: Sol arka rafta ZZ salon bitkisi, siyah/beyaz 4 adet kitap ve yeşil yosun topu. AYBARİst AKADEMİ duvar logosu ve ahşap çıtalar orijinal hali.",
+      "Arka duvarda sıcak ceviz akustik ahşap çıtalar ve dikey amber LED ışıklar, sağ tarafta ahşap jaluzili modern pencereden içeri süzülen doğal gün ışığı. Arkada solda konsolda canlı iğne yapraklı yeşil dağ çamı bonsai ağacı ve şık ciltli kitaplar. Masanın tamamı kadrajda, masada AYBARİst isimliği sol önde, defter ve kalem sağda konumlandırılmıştır.",
   },
   {
-    id: "secenek-1",
-    title: "Seçenek 1: Lüks Beyaz Orkide & Klasik Ciltli Külliyat",
-    tag: "Doğal Beyaz Phalaenopsis",
-    src: "/images/founder-secenek-1-orkide.webp",
-    badge: "🌸 Beyaz Orkide",
+    id: "cam-2",
+    title: "Tasarım 2: Bej Traverten Taş Duvar & Tül Perdeli Pencere",
+    tag: "Doğal Taş & Yumuşak Tül Perde",
+    src: "/images/founder-cam-agaci-2-traverten-tul.webp",
+    badge: "🌿 Doğal Taş Zarafeti",
     description:
-      "Arka plan oda, akustik ceviz çıtalar, dikey LED aydınlatma, 3D AYBARİst AKADEMİ logosu, Bahadır Bey ve masa materyalleri %100 aynı kalmıştır. Sol taraftaki bitki yerine doğal açmış beyaz orkide ve pirinç detaylı lüks klasik ciltli kitaplar yerleştirilmiştir.",
+      "Arka duvarda bej traverten/doğal taş mimari panel ve gizli LED aydınlatma, sağda zarif tül perdeli yüksek cam cephe. Koyu kahverengi maun masa, taş saksıda canlı yeşil çam ağacı, sol rafta kitaplar, siyah takım elbise ve temiz 3D logo.",
   },
   {
-    id: "secenek-2",
-    title: "Seçenek 2: Barış Çiçeği (Spathiphyllum) & Çağdaş Ciltler",
-    tag: "Lüks Antrasit Saksı & Beyaz Çiçekler",
-    src: "/images/founder-secenek-2-baris-cicegi.webp",
-    badge: "🌿 Barış Çiçeği (En Doğal)",
+    id: "cam-3",
+    title: "Tasarım 3: Lüks Masif Ceviz Duvar Panelleri & Cam Cephe",
+    tag: "Tam Ceviz Panel & Maslak/Levent Stili",
+    src: "/images/founder-cam-agaci-3-ceviz-panel.webp",
+    badge: "🏛️ Prestijli Masif Ceviz",
     description:
-      "Arka plan oda, logo ve kişi birebir korunmuştur. Rafta antrasit mat seramik saksıda taze beyaz çiçekli Barış Çiçeği, pirinç kitap tutacaklı seçkin akademik ciltler ('Business Ethics', 'Educational Leadership') yer alır. Son derece gerçekçi, dengeli ve kurumsal.",
+      "Tüm arka duvarda zengin koyu ceviz mimari lambri paneller ve altın sarısı dikey LED kanalları, sağda tavandan tabana geniş mimari cam cephe. Masif seramik saksıda kıvrımlı gövdeli canlı çam ağacı, zengin kitap dizilimi ve koyu kahverengi makam masası.",
   },
   {
-    id: "secenek-3",
-    title: "Seçenek 3: Şeffaf Cam Vazoda Taze Beyaz Güller & Okaliptüs",
-    tag: "Su Yansımalı Kristal Cam Vazo",
-    src: "/images/founder-secenek-3-cam-vazo-gul.webp",
-    badge: "🌹 Cam Vazo & Beyaz Gül",
+    id: "cam-4",
+    title: "Tasarım 4: Çağdaş Gri Doku & Dikey Ceviz Çıta Aksanları",
+    tag: "Modern Venedik Sıva & Çıta",
+    src: "/images/founder-cam-agaci-4-minimal-gri-slat.webp",
+    badge: "✨ Çağdaş Minimalist CEO Ofisi",
     description:
-      "Arka plan ve tüm materyaller birebir korunmuştur. Sol konsol rafına su dolu şeffaf silindirik cam vazoda taze açmış beyaz güller ve taze okaliptüs dalları eklenmiştir. Işık kırılmaları ve cam yansımaları stüdyo fotoğrafı doğallığındadır.",
-  },
-  {
-    id: "secenek-4",
-    title: "Seçenek 4: Minyatür Japon Bonsai Ağacı & Zengin Kütüphane",
-    tag: "Sırlı Seramik Tabak & Canlı Bonsai",
-    src: "/images/founder-secenek-4-bonsai.webp",
-    badge: "🪴 Canlı Bonsai Sanatı",
-    description:
-      "Arka plan ve tüm unsurlar birebir korunmuştur. Arka rafta yeşil kadife yosun zeminli, yaşayan heykelsi Japon Bonsai ağacı ve sağ rafta altın varak sırtlı prestijli kütüphane kitapları yer almaktadır. Zamansız, asil ve sofistike.",
+      "Modern sıcak gri mimari dokulu duvar, iki yanda ceviz akustik çıta sütunları, sağda geniş ofis penceresi. Sol konsolda seramik saksıda sağlıklı dağ çamı ve klasik ciltler, geniş ceviz masa ve siyah takım elbiseli Bahadır Bey portresi.",
   },
 ];
 
 export default function KurucuSeceneklerPage() {
-  const [activeTab, setActiveTab] = useState(2); // Seçenek 2 veya 3 varsayılan aktif
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="bg-paper text-ink min-h-screen py-10 sm:py-14">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-8">
         <div>
           <span className="text-xs font-bold tracking-wider uppercase text-crimson-600 bg-crimson-50 px-3 py-1 rounded-full border border-crimson-200">
-            %100 Gerçekçi & Orijinal Oda Birebir Korunmuş Tasarımlar
+            Müşteri Talepleriyle Yeniden Üretildi
           </span>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-cobalt-950 mt-3 tracking-tight">
-            Kurucumuz Bahadır Aybar — Raf Çiçek & Kitap Seçenekleri
+            Kurucumuz Bahadır Aybar — Çam Ağaçlı & Koyu Masalı 4 Yeni Tasarım
           </h1>
           <p className="mt-2 text-base text-ink-muted max-w-3xl leading-relaxed">
-            Arka plandaki <strong>ahşap akustik çıtalar, dikey LED aydınlatma, 3D ışıklı AYBARİst AKADEMİ logosu</strong>, Bahadır Bey&apos;in yüzü, saçları, lacivert ceketi ve masadaki tüm materyaller (deri sümen, defter, kalem, masa isimliği) <strong>%100 orijinal haliyle korunmuştur</strong>. Sadece arka raftaki çiçek/bitki ve kitaplar gerçekçi fotoğraf dokusuyla 4 farklı şık seçenek olarak yenilenmiştir.
+            Bahadır Bey&apos;in ve müşterinin tüm istekleri eksiksiz uygulandı: <strong>Siyah ceket</strong>, masanın tamamının kadrajda göründüğü <strong>koyu kahverengi geniş makam masası</strong>, çiçek yerine <strong>canlı minyatür çam ağacı</strong>, <strong>arkada solda kitaplar</strong>, masadaki AYBARİst isimlik ve defterinin dengeli yeni konumu, <strong>&quot;Bilginin Kaynağı&quot; sloganı kaldırılarak</strong> arkada 4 farklı şık mimari tasarım.
           </p>
         </div>
 
         {/* Seçim Butonları */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {OPTIONS.map((opt, idx) => (
             <button
               key={opt.id}
               onClick={() => setActiveTab(idx)}
-              className={`p-3 sm:p-4 rounded-2xl border text-left transition-all ${
+              className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all ${
                 activeTab === idx
                   ? "bg-cobalt-950 text-white border-cobalt-950 shadow-xl scale-[1.02]"
                   : "bg-white text-ink border-cobalt-900/10 hover:border-crimson-600 hover:shadow-md"
@@ -121,9 +112,9 @@ export default function KurucuSeceneklerPage() {
         {/* Tüm Seçenekler Yan Yana Kartlar */}
         <div>
           <h2 className="text-xl font-extrabold text-cobalt-950 mb-4">
-            Tüm Tasarımları Birlikte Karşılaştırın:
+            Tüm Tasarımları Birlikte İnceleyin:
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {OPTIONS.map((opt, idx) => (
               <div
                 key={opt.id}
