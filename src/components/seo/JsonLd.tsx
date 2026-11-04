@@ -9,8 +9,8 @@ export default function JsonLd() {
     "@type": "EducationalOrganization",
     "@id": `${baseUrl}/#organization`,
     name: siteConfig.name,
-    legalName: "AYBARİst AKADEMİ",
-    url: baseUrl,
+    alternateName: ["Aybarist Akademi", "AYBARİST AKADEMİ", "Aybarist"],
+    url: `${baseUrl}/`,
     logo: `${baseUrl}/images/logo-seal.png`,
     description:
       "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadrosuyla, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumu.",
@@ -46,6 +46,18 @@ export default function JsonLd() {
     },
   };
 
+
+  // Google'ın site adı için okuduğu kayıt.
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
+    name: siteConfig.name,
+    alternateName: ["Aybarist Akademi", "AYBARİST AKADEMİ"],
+    url: `${baseUrl}/`,
+    inLanguage: "tr-TR",
+    publisher: { "@id": `${baseUrl}/#organization` },
+  };
 
   const coursesSchema = {
     "@context": "https://schema.org",
@@ -115,6 +127,12 @@ export default function JsonLd() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -17,18 +17,18 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
+    default: `${siteConfig.name} | İstanbul ve Online Birebir Özel Ders`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
+    "Aybarist Akademi: İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
+    title: `${siteConfig.name} | İstanbul ve Online Birebir Özel Ders`,
     description:
-      "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
+      "Aybarist Akademi: İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil.",
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `İstanbul ve Online Birebir Özel Ders | ${siteConfig.name}`,
+    title: `${siteConfig.name} | İstanbul ve Online Birebir Özel Ders`,
     description:
-      "İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil. 33 yıllık tecrübe.",
+      "Aybarist Akademi: İstanbul’un tüm ilçelerinde evinizde yüz yüze, tüm Türkiye’de online birebir özel ders. YKS, LGS, KPSS, ALES, okula takviye ve yabancı dil.",
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: IS_PREVIEW_MODE
