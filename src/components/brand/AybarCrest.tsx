@@ -99,7 +99,7 @@ export function AybarBrandLockup({
           className="h-9 w-9 sm:h-12 sm:w-12"
         />
       </div>
-      <div className="flex flex-col min-w-0 justify-center">
+      <div className="flex flex-col items-center text-center min-w-0 justify-center">
         {/* Ana Kurumsal Başlık (AYBARİst AKADEMİ) — Türkçedeki noktalı büyük İ harfinin üst noktası asla kırpılmaz */}
         <div className="font-brand font-black text-[0.92rem] sm:text-[1.15rem] tracking-[0.01em] leading-tight pt-0.5 pb-0.5 flex items-center gap-1.5 antialiased select-none whitespace-nowrap">
           <span className={variant === "dark" ? "brand-on-dark" : ""}>
