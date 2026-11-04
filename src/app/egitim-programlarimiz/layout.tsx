@@ -4,7 +4,7 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "Eğitim Programlarımız",
   description:
-    "Değişen Dünyaya AYBARİst'in Gücüyle Hazırlan. AYBARİst AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın.",
+    "Değişen Dünyaya AYBARİst'in Gücüyle Hazırlanın. AYBARİst AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın.",
   alternates: {
     canonical: "/egitim-programlarimiz/",
   },

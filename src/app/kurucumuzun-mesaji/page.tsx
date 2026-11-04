@@ -1,7 +1,7 @@
 import React from "react";
 import { assetPath } from "@/config/site";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero from "@/components/layout/PageHero";
+import PageHero, { SloganMark } from "@/components/layout/PageHero";
 
 const PARAGRAPHS = [
   "Eğitim, bireyin içindeki potansiyeli keşfetme, onu en doğru şekilde işleme ve geleceğe güvenle taşıma yolculuğudur. Bu yolculuğun her aşamasında, her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna inanıyoruz. İşte tam da bu yüzden, kitlesel ve tek düze eğitim kalıplarını bir kenara bırakarak, birebir eğitime dayalı, kişiye özel ve \"VIP\" standartlarında bir öğrenme modeli inşa ettik.",
@@ -19,7 +19,7 @@ export default function KurucuPage() {
         eyebrow="Kurucumuzun Mesajı"
         title={
           <>
-            Online canlı dersler ile yüz yüze özel ders modellerini bir arada sunuyoruz.
+            Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini <SloganMark>Bir Arada Sunuyoruz</SloganMark>
           </>
         }
         media={

@@ -55,7 +55,7 @@ export const aboutContent = {
     },
     {
       index: "03",
-      title: "Alanında Uzman & Profesyonel Kadro",
+      title: "Alanında Uzman ve Profesyonel Kadro",
       description:
         "Derslerimizi, sadece branşına hâkim değil, aynı zamanda öğrenciyle doğru iletişim kurabilen, motivasyonu yüksek ve tecrübeli uzman öğretmenlerimizle yürütüyoruz.",
     },
@@ -79,7 +79,7 @@ export const aboutContent = {
 
 export const programsIntro = {
   eyebrow: "AYBARİst AKADEMİ’DE ÖZEL DERS",
-  headline: "Sizin için hazırladığımız, başarı odaklı eğitim programlarımız",
+  headline: "Sizin İçin Hazırladığımız Başarı Odaklı Eğitim Programlarımız",
   lead: "AYBARİst AKADEMİ'de geleceğinizi şansa bırakmayın; eğitimi uzmanından, bizzat size özel tasarlanmış bir programla alın. Alanında profesyonel, vizyoner kadromuzla ilkokuldan üniversiteye, ulusal sınavlardan uluslararası kariyer basamaklarına kadar her yaş grubuna ve her seviyeye uygun, tamamen birebir özel derslerimizle başarıyı bir hedef olmaktan çıkarıp sizi zirveye taşıyan bir standart haline getiriyoruz.",
   closing:
     "Hedefiniz ne olursa olsun, birebir öğrenme modeli ve uzman kadromuzla başarıya giden en kısa ve etkili yolu birlikte inşa ediyoruz.",
@@ -207,8 +207,8 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "universite-akademik",
     code: "03",
-    shortTitle: "Üniversite & Akademik",
-    title: "Üniversite Düzeyi & Akademik Dersler",
+    shortTitle: "Üniversite ve Akademik",
+    title: "Üniversite Düzeyi ve Akademik Dersler",
     items: [
       {
         title:
@@ -224,7 +224,7 @@ export const programCategories: ProgramCategory[] = [
     id: "dunya-dilleri",
     code: "04",
     shortTitle: "Dünya Dilleri",
-    title: "Dünya Dilleri & Uluslararası Sertifikasyon",
+    title: "Dünya Dilleri ve Uluslararası Sertifikasyon",
     tagline: "Dünya ile Konuşun, Sınırları Kaldırın!",
     summary:
       "Yabancı dil eğitiminde sadece konuşmayı değil, kariyerinizi şekillendirecek küresel sınavları hedefliyoruz.",
@@ -282,7 +282,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "ulusal-dil-sinavlari",
     code: "05",
-    shortTitle: "YDT & YDS",
+    shortTitle: "YDT ve YDS",
     title: "Türkiye Özelindeki Ulusal Yabancı Dil Sınavları",
     items: [
       {
@@ -310,7 +310,7 @@ export const programCategories: ProgramCategory[] = [
   {
     id: "yasam-beceri-sanat",
     code: "06",
-    shortTitle: "Yaşam, Beceri & Sanat",
+    shortTitle: "Yaşam, Beceri ve Sanat",
     title: "Yaşam, Beceri ve Sanat Odaklı Eğitimler",
     tagline: "Zihinsel Gelişimi Bedensel ve Sanatsal Özgürlükle Taçlandırın.",
     summary:

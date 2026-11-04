@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { getWhatsAppUrl, siteConfig } from "@/config/site";
-import { SectionHeading, SloganMark } from "@/components/layout/PageHero";
+import { SectionHeading } from "@/components/layout/PageHero";
 import {
   sanitizeText,
   validateName,
@@ -60,11 +60,11 @@ export default function QuickQuoteForm() {
     const message = [
       "Merhaba, hızlı teklif almak istiyorum.",
       "",
-      `Öğrenci Adı-Soyadı: ${studentCheck.cleanValue}`,
-      `Veli Adı-Soyadı: ${parentCheck.cleanValue}`,
+      `Öğrenci Adı Soyadı: ${studentCheck.cleanValue}`,
+      `Veli Adı Soyadı: ${parentCheck.cleanValue}`,
       `Öğrenci Sınıf Düzeyi ya da Yaşı: ${levelCheck}`,
       `İlçe/Semt: ${districtCheck}`,
-      `Yüz yüze mi Online mı?: ${format}`,
+      `Yüz yüze mi online mı?: ${format}`,
       `Talep Edilen Ders(ler): ${lessonsCheck}`,
       `İletişim Numarası: ${phoneCheck.display}`,
     ].join("\n");
@@ -82,10 +82,10 @@ export default function QuickQuoteForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
-      <Field label="Öğrenci Adı-Soyadı" error={errors.student}>
+      <Field label="Öğrenci Adı Soyadı" error={errors.student}>
         <input className={fieldClass} value={student} onChange={(e) => setStudent(e.target.value)} autoComplete="name" required />
       </Field>
-      <Field label="Veli Adı-Soyadı" error={errors.parent}>
+      <Field label="Veli Adı Soyadı" error={errors.parent}>
         <input className={fieldClass} value={parent} onChange={(e) => setParent(e.target.value)} autoComplete="name" required />
       </Field>
       <Field label="Öğrenci Sınıf Düzeyi ya da Yaşı" error={errors.level}>
@@ -94,7 +94,7 @@ export default function QuickQuoteForm() {
       <Field label="İlçe/Semt" error={errors.district}>
         <input className={fieldClass} value={district} onChange={(e) => setDistrict(e.target.value)} required />
       </Field>
-      <Field label="Yüz yüze mi Online mı?" error={errors.format} group>
+      <Field label="Yüz yüze mi online mı?" error={errors.format} group>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {FORMATS.map((item) => (
             <label
@@ -156,13 +156,13 @@ export function QuoteRequestSection({ id = "teklif" }: { id?: string }) {
       <div className="mx-auto grid max-w-[1380px] grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
           <SectionHeading>
-            Hemen <SloganMark>Hızlı Teklif</SloganMark> Alın!
+            Hemen Hızlı Teklif Alın!
           </SectionHeading>
           <p className="mt-3 pr-16 text-base leading-relaxed text-ink-muted sm:pr-0">
             Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
           </p>
           <p className="mt-4 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
-            Yüz Yüze & Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
+            Yüz Yüze ve Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
           </p>
           <p className="mt-1 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
             Detaylı Bilgi ve Randevu İçin: {siteConfig.contact.phoneDisplay}

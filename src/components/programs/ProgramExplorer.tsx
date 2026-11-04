@@ -105,9 +105,9 @@ export default function ProgramExplorer() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
           <div>
             <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.4] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
-              <span className="mt-[0.55em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
+              <span className="mt-[0.45em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
               <span>
-                Sizin için hazırladığımız, başarı odaklı eğitim programlarımız
+                Sizin İçin Hazırladığımız Başarı Odaklı Eğitim Programlarımız
               </span>
             </h2>
           </div>

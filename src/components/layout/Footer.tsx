@@ -123,10 +123,10 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.16] border border-white/20 text-cobalt-100 hover:text-white transition-all shadow-sm hover:shadow-glow"
-              title="Eroğlu Solutions Web Tasarım & Yazılım"
+              title="Eroğlu Solutions Web Tasarım ve Yazılım"
             >
               <span className="h-2 w-2 rounded-full bg-crimson-500 shrink-0 animate-pulse" />
-              <span className="text-cobalt-200">Tasarım & Yazılım:</span>
+              <span className="text-cobalt-200">Tasarım ve Yazılım:</span>
               <span className="font-brand font-extrabold tracking-wide text-white">
                 {siteConfig.agency.name}
               </span>

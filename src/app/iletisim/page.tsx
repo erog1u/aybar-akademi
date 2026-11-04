@@ -5,7 +5,7 @@ import { Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
 import { PhotoFrame } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import PageHero, { SectionHeading } from "@/components/layout/PageHero";
+import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 
 export default function IletisimPage() {
@@ -17,7 +17,7 @@ export default function IletisimPage() {
         eyebrow="İletişim"
         title={
           <>
-            Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır
+            Her Öğrencimizin <SloganMark>Kendi Zirvesine</SloganMark> Ulaşmasını Sağlamak En Büyük Gurur Kaynağımızdır
           </>
         }
         media={
@@ -35,7 +35,7 @@ export default function IletisimPage() {
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
           <SectionHeading>
-            Eğitim yolculuğunda fark yaratmak ve potansiyeli zirveye taşımak için hemen arayın
+            Eğitim Yolculuğunda Fark Yaratmak ve Potansiyeli Zirveye Taşımak İçin Hemen Arayın
           </SectionHeading>
 
           <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">

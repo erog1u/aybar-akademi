@@ -67,7 +67,7 @@ export default function NedenFarkliyizPage() {
 
       <NextChapterBanner
         title="İletişim"
-        description="Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır"
+        description="Her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır."
         href="/iletisim"
         buttonLabel="İletişim"
       />

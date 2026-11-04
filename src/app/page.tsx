@@ -25,7 +25,7 @@ export default function HomePage() {
             Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
           </>
         }
-        subtitle="33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim"
+        subtitle="33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim"
         wideMedia
         actions={
           <>
@@ -76,7 +76,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-8">
               <SectionHeading>
-                Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği
+                Kesintisiz Eğitim: Yüz Yüze ve Online Seçeneği
               </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">

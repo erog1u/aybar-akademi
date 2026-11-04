@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
+    "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
     description:
-      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
+      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
     url: SITE_URL,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Eğitimde Güvenin, Başarıda Uzmanlığın Adresi`,
     description:
-      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim.",
+      "Eğitimde Güvenin, Başarıda Uzmanlığın Adresi. 33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim.",
     images: [`${SITE_URL}/images/og-image.jpg`],
   },
   robots: IS_PREVIEW_MODE

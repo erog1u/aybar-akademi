@@ -8,7 +8,7 @@ import React from "react";
 /** Red chip around one existing phrase. Same treatment as the pre-#4 slogan box. */
 export function SloganMark({ children }: { children: React.ReactNode }) {
   return (
-    <span className="relative mx-0.5 my-1 inline-block max-w-full align-middle rounded-2xl border border-crimson-400/50 bg-crimson-600 px-3 py-1 text-white shadow-crimson animate-crimson-box sm:px-4">
+    <span className="relative mx-0.5 inline-block max-w-full align-baseline rounded-2xl border border-crimson-400/50 bg-crimson-600 px-3 py-1 text-white shadow-crimson animate-crimson-box sm:px-4">
       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
         <span className="absolute inset-0 animate-light-sweep bg-gradient-to-r from-transparent via-white/35 to-transparent" />
       </span>

@@ -73,7 +73,7 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        name: "Üniversite Düzeyi & Akademik Dersler (Bahadır Aybar)",
+        name: "Üniversite Düzeyi ve Akademik Dersler (Bahadır Aybar)",
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde kurucu Bahadır Aybar liderliğinde ileri düzey akademik mentorluk.",
         provider: {
@@ -83,7 +83,7 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        name: "Dünya Dilleri & Uluslararası Sertifikasyon",
+        name: "Dünya Dilleri ve Uluslararası Sertifikasyon",
         description:
           "Dünya ile Konuşun, Sınırları Kaldırın! Yabancı dil eğitiminde sadece konuşmayı değil, kariyerinizi şekillendirecek küresel sınavları hedefliyoruz.",
         provider: {

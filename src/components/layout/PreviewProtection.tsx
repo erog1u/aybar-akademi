@@ -11,7 +11,7 @@ const ALLOWED_PREVIEW_HOSTS = [
 
 // Hafif tek-katmanlı SVG filigran (0 GPU maliyeti, tam ekran kopya caydırıcılığı)
 const WATERMARK_SVG = encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="340" height="220" viewBox="0 0 340 220"><text x="20" y="120" transform="rotate(-24 170 110)" fill="#08245E" fill-opacity="0.038" font-family="sans-serif" font-weight="800" font-size="13" letter-spacing="2">EROĞLU SOLUTIONS · ÖNİZLEME</text></svg>`
+  `<svg xmlns="http://www.w3.org/2000/svg" width="340" height="220" viewBox="0 0 340 220"><text x="20" y="120" fill="#08245E" fill-opacity="0.038" font-family="sans-serif" font-weight="800" font-size="13" letter-spacing="2">EROĞLU SOLUTIONS · ÖNİZLEME</text></svg>`
 );
 
 export default function PreviewProtection({
@@ -78,7 +78,7 @@ export default function PreviewProtection({
       <div className="min-h-screen bg-cobalt-950 text-white flex items-center justify-center p-6 text-center">
         <div className="max-w-md space-y-3">
           <div className="text-xs font-extrabold tracking-widest uppercase text-crimson-400">
-            Lisans & Önizleme Koruması
+            Lisans ve Önizleme Koruması
           </div>
           <h1 className="text-2xl font-extrabold">Yetkisiz Alan Adı</h1>
           <p className="text-sm text-cobalt-200 leading-relaxed">
