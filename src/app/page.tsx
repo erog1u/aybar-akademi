@@ -20,7 +20,6 @@ export default function HomePage() {
   return (
     <div className="bg-paper text-ink">
       <PageHero
-        eyebrow="AYBARİst AKADEMİ"
         title={
           <>
             Eğitimde Güvenin,<br />Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
