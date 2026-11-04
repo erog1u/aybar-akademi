@@ -10,15 +10,13 @@
   font-weight: 900;
 }
 
-/* Koyu zeminde mavi kısım beyaz olur; İst kırmızı kalır, ince beyaz kontur zeminden ayırır. */
-.brand-on-dark .brand-name > span:nth-child(odd) {
-  color: #fff;
+/* Koyu zeminde marka adı çevresindeki yazıyla aynı görünür; renkler yalnız açık zemindeki metinlerde. */
+.brand-on-dark .brand-name {
+  font-weight: inherit;
 }
 
-.brand-on-dark .brand-name > span:nth-child(2) {
-  --o: max(0.6px, 0.045em);
-  text-shadow: var(--o) 0 #fff, calc(var(--o) * -1) 0 #fff, 0 var(--o) #fff, 0 calc(var(--o) * -1) #fff,
-    var(--o) var(--o) #fff, calc(var(--o) * -1) var(--o) #fff, var(--o) calc(var(--o) * -1) #fff, calc(var(--o) * -1) calc(var(--o) * -1) #fff;
+.brand-on-dark .brand-name > span {
+  color: inherit;
 }
 
 @layer base {
