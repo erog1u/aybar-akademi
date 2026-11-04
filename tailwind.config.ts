@@ -55,13 +55,13 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          '"Plus Jakarta Sans"',
+          'var(--font-jakarta)',
           "-apple-system",
           "BlinkMacSystemFont",
           "sans-serif",
         ],
         brand: [
-          '"Plus Jakarta Sans"',
+          'var(--font-jakarta)',
           "-apple-system",
           "BlinkMacSystemFont",
           "sans-serif",

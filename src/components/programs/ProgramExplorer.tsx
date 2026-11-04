@@ -169,7 +169,7 @@ export default function ProgramExplorer() {
                     <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </div>
                   <span className={`text-xs font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 transition-colors ${
-                    isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-50 group-hover:text-crimson-700"
+                    isActive ? "bg-white text-cobalt-950" : "bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-50 group-hover:text-crimson-700"
                   }`}>
                     {cat.items.length} Program
                   </span>

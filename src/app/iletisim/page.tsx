@@ -9,6 +9,7 @@ import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHe
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 
 export default function IletisimPage() {
+  const [showMap, setShowMap] = React.useState(false);
   return (
     <div className="bg-paper text-ink">
       <Breadcrumbs items={[{ label: "İletişim", href: "/iletisim" }]} />
@@ -92,13 +93,27 @@ export default function IletisimPage() {
             </div>
           </div>
 
-          <iframe
-            title="AYBARİst AKADEMİ konum"
-            src={`https://maps.google.com/maps?q=${encodeURIComponent(siteConfig.contact.address)}&z=16&output=embed`}
-            className="mt-6 h-64 w-full rounded-2xl border border-cobalt-900/10"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          {/* Google Haritalar kendi çerezlerini kullanabilir; ziyaretçi istemeden yüklenmez. */}
+          {showMap ? (
+            <iframe
+              title="AYBARİst AKADEMİ konum"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(siteConfig.contact.address)}&z=16&output=embed`}
+              className="mt-6 h-64 w-full rounded-2xl border border-cobalt-900/10"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          ) : (
+            <div className="mt-6 flex h-64 w-full flex-col items-center justify-center gap-3 rounded-2xl border border-cobalt-900/10 bg-white p-5 text-center">
+              <MapPin className="h-7 w-7 text-crimson-700" />
+              <button
+                type="button"
+                onClick={() => setShowMap(true)}
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-cobalt-900 px-5 text-sm font-bold text-white"
+              >
+                Haritayı göster
+              </button>
+              <p className="text-xs text-ink-muted">Harita Google Haritalar üzerinden yüklenir.</p>
+            </div>
+          )}
 
           <div className="mt-8 space-y-4 text-base leading-relaxed text-ink-muted">
             <p>

@@ -1,9 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SiteShell from "@/components/layout/SiteShell";
 import PreviewProtection from "@/components/layout/PreviewProtection";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteConfig, IS_PREVIEW_MODE, SITE_URL } from "@/config/site";
+
+// Font siteyle birlikte sunulur; ziyaretçi Google'a istek göndermez.
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "latin-ext"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-jakarta",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -79,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    <html lang="tr" className={jakarta.variable}>
       <head>
         <JsonLd />
         <meta property="og:image" content={`${SITE_URL}/images/og-image.jpg`} />
@@ -89,16 +98,6 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="AYBARİst AKADEMİ" />
         <meta name="twitter:image" content={`${SITE_URL}/images/og-image.jpg`} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..700&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body
         className={`font-sans bg-paper text-ink antialiased selection:bg-crimson-600 selection:text-white ${

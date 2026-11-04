@@ -1,0 +1,113 @@
+import React from "react";
+import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "KVKK Aydınlatma Metni ve Çerezler",
+  description:
+    "AYBARİst AKADEMİ kişisel verilerin işlenmesi hakkında aydınlatma metni ve çerez bilgilendirmesi.",
+  alternates: { canonical: "/kvkk/" },
+};
+
+const RIGHTS = [
+  "Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse bilgi talep etme",
+  "İşlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme",
+  "Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme",
+  "Eksik veya yanlış işlenmişse düzeltilmesini isteme",
+  "KVKK md. 7 kapsamında silinmesini veya yok edilmesini isteme",
+  "Düzeltme, silme ve yok etme işlemlerinin aktarılan üçüncü kişilere bildirilmesini isteme",
+  "Yalnız otomatik sistemlerle analiz edilmesi sonucunda aleyhinize çıkan bir sonuca itiraz etme",
+  "Kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme",
+];
+
+function Block({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mt-8">
+      <h2 className="text-xl font-extrabold text-ink">{title}</h2>
+      <div className="mt-3 space-y-3 text-base leading-relaxed text-ink-muted">{children}</div>
+    </section>
+  );
+}
+
+export default function KvkkPage() {
+  return (
+    <div className="bg-paper text-ink">
+      <Breadcrumbs items={[{ label: "KVKK ve Çerezler", href: "/kvkk" }]} />
+      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+        <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+          KVKK Aydınlatma Metni ve Çerezler
+        </h1>
+        <p className="mt-3 text-sm text-ink-muted">Son güncelleme: 5 Kasım 2026</p>
+
+        <Block title="Veri sorumlusu">
+          <p>
+            6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu{" "}
+            {siteConfig.name}&apos;dir (Kurucu: {siteConfig.founder.name}).
+          </p>
+          <p>Adres: {siteConfig.contact.address}</p>
+          <p>Telefon: {siteConfig.contact.phoneDisplay}</p>
+        </Block>
+
+        <Block title="Hangi bilgileri alıyoruz?">
+          <p>
+            Hızlı Teklif formunda öğrenci ve veli adı soyadı, öğrencinin sınıf düzeyi ya da yaşı, ilçe veya semt,
+            ders tercihi ve iletişim numarası istenir.
+          </p>
+          <p>
+            Form bilgileri bu sitede kaydedilmez. Gönder düğmesine bastığınızda WhatsApp&apos;ta mesaj olarak açılır,
+            mesajı siz gönderirseniz bize ulaşır. WhatsApp ya da telefonla paylaştığınız diğer bilgiler de bize bu
+            yolla ulaşır.
+          </p>
+          <p>Öğrenci 18 yaşından küçükse formu veli doldurmalıdır.</p>
+        </Block>
+
+        <Block title="Neden ve hangi hukuki sebeple işliyoruz?">
+          <p>
+            Bilgileriniz talebinizi yanıtlamak, eğitim programları hakkında bilgi ve teklif vermek ve sizinle iletişim
+            kurmak için işlenir. Hukuki sebepler KVKK md. 5/2 kapsamında bir sözleşmenin kurulması veya ifasıyla
+            doğrudan ilgili olması, hukuki yükümlülükler ve meşru menfaattir. Veriler site formu, WhatsApp ve telefon
+            yoluyla toplanır.
+          </p>
+        </Block>
+
+        <Block title="Kimlere aktarılabilir?">
+          <p>
+            WhatsApp mesajları WhatsApp hizmeti üzerinden iletilir. Bu hizmetin altyapısı yurt dışında olabilir.
+            WhatsApp kullanmak istemezseniz bize telefonla ulaşabilirsiniz.
+          </p>
+          <p>
+            Site Cloudflare altyapısında barındırılır. Bu altyapı, bağlantı ve güvenlik için IP adresi gibi teknik
+            bilgileri işleyebilir. Sitenin teknik işleri Eroğlu Solutions tarafından yapılır.
+          </p>
+          <p>Kanunen zorunlu olduğunda bilgiler yetkili kurumlarla paylaşılabilir.</p>
+        </Block>
+
+        <Block title="Ne kadar saklıyoruz?">
+          <p>Kişisel veriler işlenme amacının gerektirdiği ve mevzuatın öngördüğü süre kadar saklanır.</p>
+        </Block>
+
+        <Block title="Haklarınız (KVKK md. 11)">
+          <ul className="list-disc space-y-2 pl-5">
+            {RIGHTS.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>
+            Başvurunuzu yukarıdaki adrese yazılı olarak iletebilirsiniz. Başvurular KVKK md. 13 ve Veri Sorumlusuna
+            Başvuru Usul ve Esasları Hakkında Tebliğ&apos;e göre değerlendirilir.
+          </p>
+        </Block>
+
+        <Block title="Çerezler">
+          <p>Bu site reklam veya analiz çerezi kullanmaz.</p>
+          <p>
+            İletişim sayfasındaki harita yalnız &quot;Haritayı göster&quot; düğmesine bastığınızda yüklenir. Harita
+            Google tarafından sunulur ve Google kendi çerezlerini kullanabilir. WhatsApp ve Google Haritalar
+            bağlantıları kendi gizlilik koşullarına tabidir.
+          </p>
+        </Block>
+      </div>
+    </div>
+  );
+}

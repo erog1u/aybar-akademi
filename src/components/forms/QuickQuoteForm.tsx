@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Link from "next/link";
 import { getWhatsAppUrl, siteConfig } from "@/config/site";
 import { SectionHeading } from "@/components/layout/PageHero";
 import {
@@ -137,6 +138,13 @@ export default function QuickQuoteForm() {
       >
         Hemen Hızlı Teklif Alın!
       </button>
+      <p className="text-xs leading-relaxed text-ink-muted">
+        Bilgileriniz sitede saklanmaz; WhatsApp&apos;ta mesaj olarak açılır ve siz gönderirseniz bize ulaşır. Ayrıntı:{" "}
+        <Link href="/kvkk/" className="font-bold text-crimson-700 underline">
+          KVKK Aydınlatma Metni
+        </Link>
+        . Öğrenci 18 yaşından küçükse formu veli doldurmalıdır.
+      </p>
       {sentUrl ? (
         <p role="status" className="text-sm font-bold text-ink">
           Mesajınız WhatsApp&apos;ta hazırlandı. Açılmadıysa{" "}

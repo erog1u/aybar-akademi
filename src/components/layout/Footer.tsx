@@ -116,7 +116,10 @@ export default function Footer() {
         <div className="py-8 pb-24 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
           <div className="text-cobalt-200" suppressHydrationWarning>
             © {new Date().getFullYear()} <span className="brand-on-dark"><BrandText>{siteConfig.name}</BrandText></span> ·{" "}
-            {siteConfig.founder.name} ({siteConfig.founder.role})
+            {siteConfig.founder.name} ({siteConfig.founder.role}) ·{" "}
+            <Link href="/kvkk/" className="underline hover:text-white">
+              KVKK ve Çerezler
+            </Link>
           </div>
 
           {/* Eroğlu Solutions İmzası — Masaüstünde WhatsApp butonunun tamamen solunda ve üstünde kalan korumalı alan */}
