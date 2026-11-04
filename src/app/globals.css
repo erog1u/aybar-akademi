@@ -10,12 +10,15 @@
   font-weight: 900;
 }
 
-.brand-on-dark .brand-name {
-  background: #fff;
-  padding: 0 0.28em;
-  border-radius: 0.28em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+/* Koyu zeminde mavi kısım beyaz olur; İst kırmızı kalır, ince beyaz kontur zeminden ayırır. */
+.brand-on-dark .brand-name > span:nth-child(odd) {
+  color: #fff;
+}
+
+.brand-on-dark .brand-name > span:nth-child(2) {
+  --o: max(0.6px, 0.045em);
+  text-shadow: var(--o) 0 #fff, calc(var(--o) * -1) 0 #fff, 0 var(--o) #fff, 0 calc(var(--o) * -1) #fff,
+    var(--o) var(--o) #fff, calc(var(--o) * -1) var(--o) #fff, var(--o) calc(var(--o) * -1) #fff, calc(var(--o) * -1) calc(var(--o) * -1) #fff;
 }
 
 @layer base {

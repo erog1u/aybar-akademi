@@ -31,7 +31,7 @@ function walk(node: React.ReactNode): React.ReactNode {
   return node;
 }
 
-/** Metindeki AYBARİst AKADEMİ adını marka renkleriyle yazar. Koyu zeminde üst öğeye brand-on-dark verilir, ad beyaz zeminde kalır. */
+/** Metindeki AYBARİst AKADEMİ adını marka renkleriyle yazar. Koyu zeminde üst öğeye brand-on-dark verilir. */
 export default function BrandText({ children }: { children: React.ReactNode }) {
   return <>{walk(children)}</>;
 }
