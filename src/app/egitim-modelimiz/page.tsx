@@ -16,7 +16,7 @@ export default function EgitimModelimizPage() {
         eyebrow="Eğitim Modelimiz"
         title={
           <>
-            Her Öğrenciye <SloganMark>Özel Yol Haritası</SloganMark>
+            <SloganMark>Her Öğrenciye Özel Yol Haritası</SloganMark>
           </>
         }
         subtitle={educationModelContent.lead}

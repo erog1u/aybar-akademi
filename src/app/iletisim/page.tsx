@@ -17,7 +17,7 @@ export default function IletisimPage() {
         eyebrow="İletişim"
         title={
           <>
-            Her Öğrencimizin <SloganMark>Kendi Zirvesine</SloganMark> Ulaşmasını Sağlamak En Büyük Gurur Kaynağımızdır
+            <SloganMark>Her Öğrencimizin Kendi Zirvesine Ulaşmasını Sağlamak En Büyük Gurur Kaynağımızdır</SloganMark>
           </>
         }
         media={

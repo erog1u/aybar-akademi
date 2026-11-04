@@ -19,7 +19,7 @@ export default function KurucuPage() {
         eyebrow="Kurucumuzun Mesajı"
         title={
           <>
-            Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini <SloganMark>Bir Arada Sunuyoruz</SloganMark>
+            <SloganMark>Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini Bir Arada Sunuyoruz</SloganMark>
           </>
         }
         media={

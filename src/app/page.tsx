@@ -22,7 +22,7 @@ export default function HomePage() {
         eyebrow="AYBARİst AKADEMİ"
         title={
           <>
-            Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
+            <SloganMark>Eğitimde Güvenin,<br />Başarıda Uzmanlığın Adresi</SloganMark>
           </>
         }
         subtitle="33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim"
