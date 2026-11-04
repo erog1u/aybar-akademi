@@ -66,7 +66,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8">
               <SectionHeading>
-                Geniş <SloganMark>Eğitim Yelpazemiz</SloganMark>
+                Geniş Eğitim Yelpazemiz
               </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
@@ -76,7 +76,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-8">
               <SectionHeading>
-                Kesintisiz Eğitim: <SloganMark>Yüz Yüze & Online</SloganMark> Seçeneği
+                Kesintisiz Eğitim: Yüz Yüze & Online Seçeneği
               </SectionHeading>
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">

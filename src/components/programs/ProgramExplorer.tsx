@@ -16,7 +16,6 @@ import {
   X,
 } from "lucide-react";
 import { programCategories, programsIntro } from "@/data/content";
-import { SloganMark } from "@/components/layout/PageHero";
 import { getWhatsAppUrl } from "@/config/site";
 import { scrollToSection } from "@/lib/scroll";
 import { NextChapterBanner } from "@/components/motion/Primitives";
@@ -108,7 +107,7 @@ export default function ProgramExplorer() {
             <h2 className="flex max-w-4xl items-start gap-3 text-balance text-2xl font-extrabold leading-[1.4] tracking-tight text-cobalt-950 sm:text-3xl lg:text-4xl">
               <span className="mt-[0.55em] h-2.5 w-2.5 shrink-0 rounded-full bg-crimson-600" aria-hidden="true" />
               <span>
-                Sizin için hazırladığımız, <SloganMark>başarı odaklı</SloganMark> eğitim programlarımız
+                Sizin için hazırladığımız, başarı odaklı eğitim programlarımız
               </span>
             </h2>
           </div>

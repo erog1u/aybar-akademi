@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { assetPath } from "@/config/site";
-import { SloganMark } from "@/components/layout/PageHero";
 
 const SLIDES = [
   {
@@ -11,7 +10,7 @@ const SLIDES = [
     alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
     slogan: (
       <>
-        Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
+        Eğitimde Güvenin, Başarıda Uzmanlığın Adresi
       </>
     ),
   },
@@ -21,7 +20,7 @@ const SLIDES = [
     alt: "Birebir ders sırasında defter üzerinde çalışan eller",
     slogan: (
       <>
-        33 Yıllık Tecrübe | <SloganMark>Birebir & Özel Çözümler</SloganMark> | Yüz Yüze ve Online Eğitim
+        33 Yıllık Tecrübe | Birebir & Özel Çözümler | Yüz Yüze ve Online Eğitim
       </>
     ),
   },
@@ -31,7 +30,7 @@ const SLIDES = [
     alt: "Evde yüz yüze birebir ders",
     slogan: (
       <>
-        Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
+        Eğitimde Sınır Tanımıyoruz
       </>
     ),
   },
@@ -41,7 +40,7 @@ const SLIDES = [
     alt: "Birebir ders çalışan öğrenci",
     slogan: (
       <>
-        Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlan
+        Değişen Dünyaya AYBARİst&apos;in Gücüyle Hazırlan
       </>
     ),
   },
@@ -51,7 +50,7 @@ const SLIDES = [
     alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
     slogan: (
       <>
-        Online canlı dersler ile yüzyüze özel ders modellerini <SloganMark>birarada sunuyoruz.</SloganMark>
+        Online canlı dersler ile yüz yüze özel ders modellerini bir arada sunuyoruz.
       </>
     ),
   },

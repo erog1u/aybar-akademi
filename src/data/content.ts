@@ -24,10 +24,10 @@ export const founderMessage = {
     "Eğitim, bireyin içindeki potansiyeli keşfetme, onu en doğru şekilde işleme ve geleceğe güvenle taşıma yolculuğudur. Bu yolculuğun her aşamasında, her bireyin öğrenme hızının, ilgi alanlarının ve hedeflerinin benzersiz olduğuna inanıyoruz. İşte tam da bu yüzden, kitlesel ve tek düze eğitim kalıplarını bir kenara bırakarak, birebir eğitime dayalı, kişiye özel ve “VIP” standartlarında bir öğrenme modeli inşa ettik.",
     "Kurumumuz, ilkokul çağındaki bir çocuğun okul destek derslerinden, LGS, YKS, KPSS ve ALES gibi hayatın dönüm noktası sayılan akademik sınavlara kadar çok geniş bir yelpazede eğitim ve koçluk hizmeti sunmaktadır. Sadece akademik başarıyı değil; çocuklardan yetişkinlere kadar her yaş grubunun kişisel gelişimini de önemsiyoruz. Bu doğrultuda, dünya vatandaşı bireyler yetiştiren yabancı dil eğitimlerimizden, ruhu ve bedeni besleyen spor ve sanat programlarımıza kadar hayatın her alanına dokunan zengin bir içerik sağlıyoruz.",
     "Günümüz dünyasının getirdiği esneklik ve hız ihtiyacının farkındayız. Bu nedenle, öğrencilerimizin konforunu ön planda tutarak, teknolojik olanaklarla donatılmış online canlı dersler ile samimi ve odaklanmayı artıran yüz yüze özel ders modellerini bir arada sunuyoruz. Zaman ve mekân sınırlarını ortadan kaldırarak, alanında uzman, dinamik ve tecrübeli öğretmen kadromuzu doğrudan sizin hedeflerinize yönlendiriyoruz.",
-    "Bizim için eğitim; sadece az sayıda öğrenciye klasik anlamda ders vermek değil, her bir öğrencimizin mentörlüğünü üstlenmek, onun kaygılarını yönetmek, eksiklerini nokta atışı tespit etmek ve başarıya giden yolda en güçlü yol arkadaşı olmaktır. Geliştirdiğimiz güçlü takip sistemleri ve kişiselleştirilmiş programlar sayesinde, her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
+    "Bizim için eğitim; sadece az sayıda öğrenciye klasik anlamda ders vermek değil, her bir öğrencimizin mentorluğunu üstlenmek, onun kaygılarını yönetmek, eksiklerini nokta atışı tespit etmek ve başarıya giden yolda en güçlü yol arkadaşı olmaktır. Geliştirdiğimiz güçlü takip sistemleri ve kişiselleştirilmiş programlar sayesinde, her öğrencimizin kendi zirvesine ulaşmasını sağlamak en büyük gurur kaynağımızdır.",
     "Geleceği tesadüflere değil, doğru planlanmış bir eğitime emanet etmek isteyen herkesi, bu ayrıcalıklı ve başarı odaklı eğitim dünyasına davet ediyorum.",
   ],
-  closing: "Sevgi, saygı ve başarı dileklerimle...",
+  closing: "Sevgi, saygı ve başarı dileklerimle.",
   author: "Bahadır AYBAR",
   role: "AYBARİst AKADEMİ Kurucusu",
 };
@@ -507,7 +507,7 @@ export const whyDifferentContent = {
         {
           title: "Sadece Öğretmen Değil, Aynı Zamanda Mentor",
           detail:
-            "AYBARİst AKADEMİ öğretmenleri yalnızca ders anlatıp gitmez. Sınav stresi yönetimi, zaman planlaması ve motivasyon konusunda mentörlük yapar. Ders içerisinde ya da ders dışı bir zamanda, birkaç dakikasını öğrencisinin modunu yükseltmeye, haftasının nasıl geçtiğini dinlemeye ayırır. Sınav kaygısı yönetimi, zaman yönetimi ve verimli ders çalışma teknikleri konusunda da rehberlik yapar.",
+            "AYBARİst AKADEMİ öğretmenleri yalnızca ders anlatıp gitmez. Sınav stresi yönetimi, zaman planlaması ve motivasyon konusunda mentorluk yapar. Ders içerisinde ya da ders dışı bir zamanda, birkaç dakikasını öğrencisinin modunu yükseltmeye, haftasının nasıl geçtiğini dinlemeye ayırır. Sınav kaygısı yönetimi, zaman yönetimi ve verimli ders çalışma teknikleri konusunda da rehberlik yapar.",
         },
         {
           title: "Kesintisiz Ulaşılabilirlik (Soru Hattı)",
