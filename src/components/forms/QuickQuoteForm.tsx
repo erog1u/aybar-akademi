@@ -158,17 +158,17 @@ export function QuoteRequestSection({ id = "teklif" }: { id?: string }) {
           <SectionHeading>
             Hemen Hızlı Teklif Alın!
           </SectionHeading>
-          <p className="mt-3 pr-16 text-base leading-relaxed text-ink-muted sm:pr-0">
+          <p className="mt-3 text-base leading-relaxed text-ink-muted">
             Gelecek hayallerini gerçeğe dönüştürmek için ilk adımı bugün atın. Aşağıdaki formu doldurarak bize iletin; size en uygun planlamayı hazırlayıp en kısa sürede dönüş yapalım.
           </p>
-          <p className="mt-4 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
-            Yüz Yüze ve Online Ders İletişim Hattı: {siteConfig.contact.phoneDisplay}
+          <p className="mt-4 text-sm font-bold leading-relaxed text-cobalt-800">
+            Yüz Yüze ve Online Ders İletişim Hattı: <a href={siteConfig.contact.phoneHref} className="inline-block whitespace-nowrap py-1 underline underline-offset-2">{siteConfig.contact.phoneDisplay}</a>
           </p>
-          <p className="mt-1 pr-16 text-sm font-bold leading-relaxed text-cobalt-800 sm:pr-0">
-            Detaylı Bilgi ve Randevu İçin: {siteConfig.contact.phoneDisplay}
+          <p className="mt-1 text-sm font-bold leading-relaxed text-cobalt-800">
+            Detaylı Bilgi ve Randevu İçin: <a href={siteConfig.contact.phoneHref} className="inline-block whitespace-nowrap py-1 underline underline-offset-2">{siteConfig.contact.phoneDisplay}</a>
           </p>
         </div>
-        <div className="rounded-3xl border border-cobalt-900/10 bg-paper p-4 pr-20 sm:p-7 sm:pr-7 lg:col-span-7">
+        <div className="rounded-3xl border border-cobalt-900/10 bg-paper p-4 sm:p-7 lg:col-span-7">
           <QuickQuoteForm />
         </div>
       </div>

@@ -97,7 +97,7 @@ export default function FaqSection({
                     className="w-full text-left p-3.5 sm:p-4 flex items-center justify-between gap-3 cursor-pointer focus-visible:ring-2 focus-visible:ring-crimson-600 focus-visible:outline-none rounded-xl"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className={`text-[11px] font-black px-2 py-0.5 rounded-md shrink-0 transition-colors ${
+                      <span className={`text-xs font-black px-2 py-0.5 rounded-md shrink-0 transition-colors ${
                         isOpen
                           ? "text-crimson-700 bg-crimson-50 border border-crimson-200/60"
                           : "text-cobalt-700 bg-cobalt-50"
@@ -128,7 +128,7 @@ export default function FaqSection({
 
           {/* Sağ Kolon: Hızlı Bilgi & WhatsApp Danışma Kartı (Kompakt) */}
           <div className="lg:col-span-4 bg-white rounded-2xl border border-cobalt-900/12 p-5 sm:p-6 shadow-sm sticky top-24">
-            <span className="text-[11px] font-extrabold uppercase tracking-wider text-crimson-600">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-crimson-600">
               Sorunuz mu var?
             </span>
             <h3 className="text-base sm:text-lg font-bold text-ink mt-0.5">
@@ -147,7 +147,7 @@ export default function FaqSection({
               >
                 <span>WhatsApp ile Danışın</span>
               </a>
-              <div className="text-center text-[11px] text-ink-subtle">
+              <div className="text-center text-xs text-ink-subtle">
                 Bilgi Al
               </div>
             </div>

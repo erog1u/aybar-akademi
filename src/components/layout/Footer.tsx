@@ -45,7 +45,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center py-1 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
+                    className="inline-flex items-center py-2 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
                   {/* Düz a: Link hashchange tetiklemez, aynı sayfada kategori değişmezdi */}
                   <a
                     href={assetPath(`/egitim-programlarimiz/#${cat.id}`)}
-                    className="inline-flex items-center py-1 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
+                    className="inline-flex items-center py-2 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
                   >
                     {cat.title}
                   </a>

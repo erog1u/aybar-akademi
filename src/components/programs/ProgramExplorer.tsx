@@ -167,7 +167,7 @@ export default function ProgramExplorer() {
                   }`}>
                     <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </div>
-                  <span className={`text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 transition-colors ${
+                  <span className={`text-xs font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 transition-colors ${
                     isActive ? "bg-white/25 text-white" : "bg-cobalt-50 text-cobalt-700 group-hover:bg-crimson-50 group-hover:text-crimson-700"
                   }`}>
                     {cat.items.length} Program
@@ -222,7 +222,7 @@ export default function ProgramExplorer() {
                   className="p-5 sm:p-6 rounded-2xl bg-white border border-cobalt-900/10 shadow-sm hover:border-cobalt-700/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-cobalt-50 text-cobalt-700 text-[11px] font-extrabold mb-2">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-cobalt-50 text-cobalt-700 text-xs font-extrabold mb-2">
                       {item.categoryTitle}
                     </span>
                     <h4 className="text-lg sm:text-xl font-bold text-ink">
@@ -362,7 +362,7 @@ export default function ProgramExplorer() {
                           <span key={sIdx}>
                             {sIdx > 0 && ", "}
                             {isCoaching ? (
-                              <span className="inline-block px-1.5 py-0.5 rounded bg-crimson-50 text-crimson-700 font-extrabold text-[11px] sm:text-xs border border-crimson-200/50">
+                              <span className="inline-block px-1.5 py-0.5 rounded bg-crimson-50 text-crimson-700 font-extrabold text-xs sm:text-xs border border-crimson-200/50">
                                 {sub}
                               </span>
                             ) : (

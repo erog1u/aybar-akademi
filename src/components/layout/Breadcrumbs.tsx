@@ -55,7 +55,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <li className="inline-flex items-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-1 text-ink hover:text-cobalt-700 transition-colors font-semibold focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded"
+              className="-my-2 inline-flex items-center gap-1 py-2 text-ink hover:text-cobalt-700 transition-colors font-semibold focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none rounded"
             >
               <Home className="h-3.5 w-3.5 text-cobalt-700" />
               <span>Ana Sayfa</span>

@@ -207,7 +207,7 @@ export default function Navbar() {
               const compactLabels: Record<string, string> = {
                 "/egitim-programlarimiz": "Programlar",
                 "/egitim-modelimiz": "Modelimiz",
-                "/neden-farkliyiz": "Farkımız",
+                "/neden-farkliyiz": "Neden Farklıyız?",
                 "/kurucumuzun-mesaji": "Kurucumuz",
               };
               const shortLabel = compactLabels[item.href];
@@ -254,7 +254,7 @@ export default function Navbar() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:hidden min-h-[38px] px-2.5 sm:px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm touch-manipulation whitespace-nowrap shrink-0"
+              className="lg:hidden min-h-[44px] px-2.5 sm:px-3 rounded-lg bg-crimson-600 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm touch-manipulation whitespace-nowrap shrink-0"
               aria-label="Bilgi Al"
             >
               <span>Bilgi Al</span>
@@ -267,7 +267,7 @@ export default function Navbar() {
               aria-label="Menüyü Aç"
               aria-expanded={mobileOpen}
               aria-controls="mobile-drawer"
-              className="lg:hidden min-h-[38px] px-2.5 sm:px-3 rounded-lg bg-cobalt-950 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1.5 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none shadow-sm touch-manipulation whitespace-nowrap shrink-0"
+              className="lg:hidden min-h-[44px] px-2.5 sm:px-3 rounded-lg bg-cobalt-950 active:scale-95 text-white text-xs font-bold inline-flex items-center justify-center gap-1.5 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-cobalt-600 focus-visible:outline-none shadow-sm touch-manipulation whitespace-nowrap shrink-0"
             >
               <Menu className="h-4 w-4 shrink-0" />
               <span>Menü</span>
@@ -299,8 +299,8 @@ export default function Navbar() {
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
         aria-label="Mobil Menü Çekmecesi"
-        className={`fixed inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[380px] sm:max-w-sm z-[90] bg-white text-ink sm:border-l sm:border-cobalt-900/10 shadow-2xl flex flex-col h-full h-dvh transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform transform-gpu ${
-          mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
+        className={`fixed inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[380px] sm:max-w-sm z-[90] bg-white text-ink sm:border-l sm:border-cobalt-900/10 flex flex-col h-full h-dvh transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform transform-gpu ${
+          mobileOpen ? "translate-x-0 shadow-2xl" : "translate-x-full pointer-events-none"
         }`}
         style={{
           WebkitOverflowScrolling: "touch",
