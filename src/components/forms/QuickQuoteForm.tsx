@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { getWhatsAppUrl, siteConfig } from "@/config/site";
 import { SectionHeading, SloganMark } from "@/components/layout/PageHero";
 import {
@@ -31,6 +31,8 @@ export default function QuickQuoteForm() {
   const [lessons, setLessons] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState(EMPTY_ERRORS);
+  const [sentUrl, setSentUrl] = useState("");
+  const lastOpenedAt = useRef(0);
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -67,7 +69,12 @@ export default function QuickQuoteForm() {
       `İletişim Numarası: ${phoneCheck.display}`,
     ].join("\n");
 
-    window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    const url = getWhatsAppUrl(message);
+    setSentUrl(url);
+    // Çift tıklama iki sekme açmasın; bağlantı pencere engellendiğinde de çalışır.
+    if (Date.now() - lastOpenedAt.current < 3000) return;
+    lastOpenedAt.current = Date.now();
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const fieldClass =
@@ -87,12 +94,12 @@ export default function QuickQuoteForm() {
       <Field label="İlçe/Semt" error={errors.district}>
         <input className={fieldClass} value={district} onChange={(e) => setDistrict(e.target.value)} required />
       </Field>
-      <Field label="Yüz yüze mi Online mı?" error={errors.format}>
+      <Field label="Yüz yüze mi Online mı?" error={errors.format} group>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {FORMATS.map((item) => (
             <label
               key={item}
-              className={`flex min-h-12 cursor-pointer items-center justify-center rounded-xl border px-3 text-sm font-bold ${
+              className={`flex min-h-12 cursor-pointer items-center justify-center rounded-xl border px-3 text-sm font-bold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-cobalt-700 ${
                 format === item
                   ? "border-crimson-600 bg-crimson-50 text-crimson-700"
                   : "border-cobalt-900/15 bg-white text-ink"
@@ -130,6 +137,15 @@ export default function QuickQuoteForm() {
       >
         Hemen Hızlı Teklif Alın!
       </button>
+      {sentUrl ? (
+        <p role="status" className="text-sm font-bold text-ink">
+          Mesajınız WhatsApp&apos;ta hazırlandı. Açılmadıysa{" "}
+          <a href={sentUrl} target="_blank" rel="noopener noreferrer" className="text-crimson-700 underline">
+            buraya dokunun
+          </a>
+          .
+        </p>
+      ) : null}
     </form>
   );
 }
@@ -163,17 +179,24 @@ export function QuoteRequestSection({ id = "teklif" }: { id?: string }) {
 function Field({
   label,
   error,
+  group = false,
   children,
 }: {
   label: string;
   error?: string;
+  /** Radyo grubu: dış label, içteki ilk radyoyu seçtiği için kullanılmaz. */
+  group?: boolean;
   children: React.ReactNode;
 }) {
+  const Wrapper = group ? "div" : "label";
   return (
-    <label className="block text-sm font-bold text-ink">
+    <Wrapper
+      className="block text-sm font-bold text-ink"
+      {...(group ? { role: "radiogroup", "aria-label": label } : {})}
+    >
       {label}
       {children}
       {error ? <span className="mt-1 block text-xs font-semibold text-crimson-700">{error}</span> : null}
-    </label>
+    </Wrapper>
   );
 }

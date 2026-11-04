@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Phone, Mail, MapPin, Globe2 } from "lucide-react";
-import { siteConfig, getWhatsAppUrl } from "@/config/site";
+import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
 import { programCategories } from "@/data/content";
 import { AybarBrandLockup } from "@/components/brand/AybarCrest";
 
@@ -62,12 +62,13 @@ export default function Footer() {
             <ul className="space-y-2">
               {programCategories.map((cat) => (
                 <li key={cat.id}>
-                  <Link
-                    href={`/egitim-programlarimiz#${cat.id}`}
+                  {/* Düz a: Link hashchange tetiklemez, aynı sayfada kategori değişmezdi */}
+                  <a
+                    href={assetPath(`/egitim-programlarimiz/#${cat.id}`)}
                     className="inline-flex items-center py-1 text-[14.5px] text-cobalt-200 hover:text-white transition-colors"
                   >
                     {cat.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

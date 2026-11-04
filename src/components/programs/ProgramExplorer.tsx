@@ -18,6 +18,7 @@ import {
 import { programCategories, programsIntro } from "@/data/content";
 import { SloganMark } from "@/components/layout/PageHero";
 import { getWhatsAppUrl } from "@/config/site";
+import { scrollToSection } from "@/lib/scroll";
 import { NextChapterBanner } from "@/components/motion/Primitives";
 
 const CATEGORY_ICONS: Record<
@@ -31,6 +32,9 @@ const CATEGORY_ICONS: Record<
   "ulusal-dil-sinavlari": FileCheck2,
   "yasam-beceri-sanat": Palette,
 };
+
+// Türkçe İ/ı: "ingilizce" İngilizce'yi, "MATEMATİK" Matematik'i bulsun
+const normalizeSearch = (s: string) => s.toLocaleLowerCase("tr").replace(/ı/g, "i");
 
 export default function ProgramExplorer() {
   const [activeCatId, setActiveCatId] = useState<string>(
@@ -81,15 +85,15 @@ export default function ProgramExplorer() {
   const ActiveIcon = CATEGORY_ICONS[activeCategory.id] || BookOpen;
 
   // Canlı Arama Filtresi (Cancan & Kullanılabilirlik)
-  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const normalizedQuery = normalizeSearch(searchQuery.trim());
   const searchResults = normalizedQuery
     ? programCategories.flatMap((cat) =>
         cat.items
           .filter(
             (item) =>
-              item.title.toLowerCase().includes(normalizedQuery) ||
-              item.description?.toLowerCase().includes(normalizedQuery) ||
-              item.subjects.some((s) => s.toLowerCase().includes(normalizedQuery))
+              normalizeSearch(item.title).includes(normalizedQuery) ||
+              (item.description && normalizeSearch(item.description).includes(normalizedQuery)) ||
+              item.subjects.some((s) => normalizeSearch(s).includes(normalizedQuery))
           )
           .map((item) => ({ ...item, categoryTitle: cat.shortTitle }))
       )
@@ -393,7 +397,10 @@ export default function ProgramExplorer() {
           {prevCat ? (
             <button
               type="button"
-              onClick={() => handleSelectCategory(prevCat.id)}
+              onClick={() => {
+                handleSelectCategory(prevCat.id);
+                scrollToSection("secili-kategori");
+              }}
               className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold border border-cobalt-900/15 bg-white text-cobalt-900 hover:bg-cobalt-50 transition-colors cursor-pointer"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -404,7 +411,10 @@ export default function ProgramExplorer() {
           {nextCat ? (
             <button
               type="button"
-              onClick={() => handleSelectCategory(nextCat.id)}
+              onClick={() => {
+                handleSelectCategory(nextCat.id);
+                scrollToSection("secili-kategori");
+              }}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-cobalt-900 hover:bg-cobalt-800 text-white px-5 py-2.5 min-h-[44px] text-xs sm:text-sm font-bold transition-colors cursor-pointer"
             >
               <span>Sonraki: {nextCat.shortTitle}</span>

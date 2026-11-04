@@ -10,19 +10,9 @@
 export function sanitizeText(input: unknown, maxLength = 1000): string {
   if (typeof input !== "string") return "";
 
-  let cleaned = input
-    // Null byte ve tehlikeli unicode kontrol karakterlerini temizle
-    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, "")
-    // Script bloklarını temizle
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
-    // Inline event handler'ları temizle (onload, onerror, onclick, onmouseover vb.)
-    .replace(/on\w+\s*=\s*(?:["'][^"']*["']|[^\s>]+)/gi, "")
-    // javascript:, vbscript:, data: protokollerini temizle
-    .replace(/(?:javascript|vbscript|data):/gi, "")
-    // HTML taglerini tamamen kaldır
-    .replace(/<[^>]*>/g, "")
-    // Tehlikeli HTML entity veya açık kapanış tag işaretlerini filtrele
-    .replace(/[<>]/g, "");
+  // HTML temizliği yok: çıktı yalnız React (kaçışlı) ve encodeURIComponent'e gider,
+  // regex temizliği "Fonksiyon = türev" gibi meşru metni bozuyordu.
+  let cleaned = input.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, "");
 
   // Fazla boşlukları ve ardışık satır sonlarını normalize et
   cleaned = cleaned
@@ -31,8 +21,10 @@ export function sanitizeText(input: unknown, maxLength = 1000): string {
     .trim();
 
   // Maksimum uzunluk sınırla
-  if (cleaned.length > maxLength) {
-    cleaned = cleaned.slice(0, maxLength);
+  // Array.from: emoji ortadan bölünürse encodeURIComponent URIError atar
+  const chars = Array.from(cleaned);
+  if (chars.length > maxLength) {
+    cleaned = chars.slice(0, maxLength).join("");
   }
 
   return cleaned;
@@ -41,8 +33,8 @@ export function sanitizeText(input: unknown, maxLength = 1000): string {
 // 2. İsim Sanitizasyonu & Doğrulama
 export function sanitizeName(input: unknown): string {
   const text = sanitizeText(input, 80);
-  // Yalnızca Türkçe ve Latin alfabesindeki harfler, boşluk, nokta, tek tırnak ve tire
-  return text.replace(/[^a-zA-ZçğıöşüÇĞİÖŞÜ\s.'-]/g, "").slice(0, 80);
+  // Harfler (Nâzım, Âdem dahil), boşluk, nokta, tırnak ve tire
+  return text.replace(/[^\p{L}\p{M}\s.'’-]/gu, "");
 }
 
 export function validateName(
@@ -82,35 +74,14 @@ export function validateName(
     };
   }
 
-  // Zararlı veya şüpheli SQL / XSS örüntüleri kontrolü
-  const suspicious =
-    /(?:<|>|script|alert|prompt|eval|document\.|window\.|union\s+select)/i;
-  if (suspicious.test(name)) {
-    return {
-      isValid: false,
-      cleanValue: "",
-      error: "Geçersiz veya zararlı karakterler tespit edildi.",
-    };
-  }
-
   return { isValid: true, cleanValue: clean };
 }
 
 // 3. Türkiye Telefon Numarası Formatlama & Doğrulama (+90 / 05xx)
 export function cleanPhoneDigits(raw: string): string {
   if (!raw) return "";
-  let digits = raw.replace(/\D/g, "");
-
-  // 90 ile başlıyorsa ve 12 haneli ise (905XXXXXXXXX) -> 5XXXXXXXXX yap
-  if (digits.startsWith("90") && digits.length >= 12) {
-    digits = digits.slice(2);
-  }
-  // 0 ile başlıyorsa ve 11 haneli ise (05XXXXXXXXX) -> 5XXXXXXXXX yap
-  else if (digits.startsWith("0") && digits.length >= 11) {
-    digits = digits.slice(1);
-  }
-
-  return digits.slice(0, 10);
+  // +90, 0090, 90 ve baştaki 0 önekleri atılır; fazla hane doğrulamada reddedilir
+  return raw.replace(/\D/g, "").replace(/^(?:00)?(?:90)?0?/, "");
 }
 
 export function formatTurkishPhoneNumber(raw: string): string {
@@ -166,6 +137,15 @@ export function validateTurkishPhoneNumber(
     return {
       isValid: false,
       error: `Telefon numarası eksik (${10 - digits.length} hane daha gerekli).`,
+      normalized: "",
+      display: formatTurkishPhoneNumber(digits),
+    };
+  }
+
+  if (digits.length > 10) {
+    return {
+      isValid: false,
+      error: "Telefon numarasında fazla hane var (Örn: 0532 123 45 67).",
       normalized: "",
       display: formatTurkishPhoneNumber(digits),
     };

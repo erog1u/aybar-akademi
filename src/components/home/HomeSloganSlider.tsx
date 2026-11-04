@@ -11,7 +11,7 @@ const SLIDES = [
     alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
     slogan: (
       <>
-        Eğitimde Güvenin, <SloganMark>Uzmanlığın Adresi</SloganMark>
+        Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
       </>
     ),
   },

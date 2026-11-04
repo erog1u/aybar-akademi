@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { getWhatsAppUrl } from "@/config/site";
-import { checkRateLimit, recordRateLimitAttempt } from "@/lib/security";
 
 interface WhatsAppFloatingButtonProps {
   customMessage?: string;
@@ -16,19 +15,6 @@ export default function WhatsAppFloatingButton({
   className = "",
 }: WhatsAppFloatingButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Aşırı tıklama (click-spam / DDoS simülasyonu) engelleme
-    const rate = checkRateLimit("floating_whatsapp_click", 5, 30);
-    if (!rate.allowed) {
-      e.preventDefault();
-      alert(
-        `Lütfen kısa bir süre bekleyiniz (${rate.retryAfterSeconds} saniye).`
-      );
-      return;
-    }
-    recordRateLimitAttempt("floating_whatsapp_click");
-  };
 
   const safeUrl = getWhatsAppUrl(customMessage);
 
@@ -57,7 +43,6 @@ export default function WhatsAppFloatingButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp İletişim Hattı - Bilgi Al"
-        onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="pointer-events-auto group relative h-14 w-14 min-h-14 min-w-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] active:scale-95 text-white shadow-xl flex items-center justify-center transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none touch-manipulation cursor-pointer"

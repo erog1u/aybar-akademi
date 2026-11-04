@@ -104,6 +104,7 @@ export default function Navbar() {
     document.body.style.right = "0";
     document.body.style.width = "100%";
     document.body.style.overflow = "hidden";
+    document.querySelector<HTMLElement>('[aria-label="Menüyü Kapat"]')?.focus({ preventScroll: true });
 
     // 3. Escape tuşu ile menüyü kapat
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -145,10 +146,13 @@ export default function Navbar() {
         isNavigatingRef.current || window.location.pathname !== prevPathRef.current;
 
       if (isRouteChanged) {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "instant" });
         isNavigatingRef.current = false;
       } else {
-        window.scrollTo(0, scrollYRef.current);
+        // instant: CSS smooth tepeden kaydırıp üst çubuğu gizliyordu
+        lastScrollY.current = scrollYRef.current;
+        window.scrollTo({ top: scrollYRef.current, behavior: "instant" });
+        document.querySelector<HTMLElement>('[aria-controls="mobile-drawer"]')?.focus({ preventScroll: true });
       }
 
       window.removeEventListener("keydown", handleKeyDown);
@@ -293,6 +297,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
         aria-label="Mobil Menü Çekmecesi"
         className={`fixed inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[380px] sm:max-w-sm z-[90] bg-white text-ink sm:border-l sm:border-cobalt-900/10 shadow-2xl flex flex-col h-full h-dvh transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform transform-gpu ${
           mobileOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
