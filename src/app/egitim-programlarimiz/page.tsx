@@ -23,8 +23,8 @@ export default function EgitimProgramlarimizPage() {
         subtitle={programsIntro.lead}
         media={
           <PhotoFrame
-            src={assetPath("/images/programs-global-study.jpg")}
-            alt="Birebir ders çalışan öğrenci"
+            src={assetPath("/images/programlar-tahta.jpg")}
+            alt="Kara tahtaya tebeşirle yazılmış slogan: Değişen Dünyaya AYBARİst'in Gücüyle Hazırlanın"
             aspectClass="aspect-[16/10]"
             priority
           />

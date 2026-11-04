@@ -22,7 +22,7 @@ export default function IletisimPage() {
         }
         media={
           <PhotoFrame
-            src={assetPath("/images/vip-mentorship.jpg")}
+            src={assetPath("/images/veli-ogretmen-gorusmesi.jpg")}
             alt="Öğretmen ile veli görüşmesi"
             aspectClass="aspect-[16/10]"
             priority
