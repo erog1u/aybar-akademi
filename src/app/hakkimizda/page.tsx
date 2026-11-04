@@ -16,7 +16,7 @@ export default function HakkimizdaPage() {
         eyebrow="Hakkımızda"
         title={
           <>
-            <SloganMark>Eğitimde Sınır Tanımıyoruz</SloganMark>
+            Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
           </>
         }
         media={

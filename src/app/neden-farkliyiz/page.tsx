@@ -16,7 +16,7 @@ export default function NedenFarkliyizPage() {
         eyebrow="Neden Farklıyız?"
         title={
           <>
-            <SloganMark>AYBARİst AKADEMİ&apos;de Fark Yaratan Standart İlkeler</SloganMark>
+            AYBARİst AKADEMİ&apos;de <SloganMark>Fark Yaratan</SloganMark> Standart İlkeler
           </>
         }
         subtitle={whyDifferentContent.lead}

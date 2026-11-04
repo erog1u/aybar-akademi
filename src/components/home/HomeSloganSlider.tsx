@@ -11,7 +11,7 @@ const SLIDES = [
     alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
     slogan: (
       <>
-        <SloganMark>Eğitimde Güvenin, Başarıda Uzmanlığın Adresi</SloganMark>
+        Eğitimde Güvenin, Başarıda <SloganMark>Uzmanlığın Adresi</SloganMark>
       </>
     ),
   },
@@ -21,7 +21,7 @@ const SLIDES = [
     alt: "Birebir ders sırasında defter üzerinde çalışan eller",
     slogan: (
       <>
-        <SloganMark>33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim</SloganMark>
+        <span className="whitespace-nowrap"><SloganMark>33 Yıllık Tecrübe</SloganMark>,</span> Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim
       </>
     ),
   },
@@ -31,7 +31,7 @@ const SLIDES = [
     alt: "Evde yüz yüze birebir ders",
     slogan: (
       <>
-        <SloganMark>Eğitimde Sınır Tanımıyoruz</SloganMark>
+        Eğitimde <SloganMark>Sınır Tanımıyoruz</SloganMark>
       </>
     ),
   },
@@ -41,7 +41,7 @@ const SLIDES = [
     alt: "Birebir ders çalışan öğrenci",
     slogan: (
       <>
-        <SloganMark>Değişen Dünyaya AYBARİst&apos;in Gücüyle Hazırlanın</SloganMark>
+        Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlanın
       </>
     ),
   },
@@ -51,7 +51,7 @@ const SLIDES = [
     alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
     slogan: (
       <>
-        <SloganMark>Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini Bir Arada Sunuyoruz</SloganMark>
+        Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini <SloganMark>Bir Arada</SloganMark> Sunuyoruz
       </>
     ),
   },
