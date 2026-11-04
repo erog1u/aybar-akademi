@@ -5,68 +5,77 @@ import { assetPath } from "@/config/site";
 
 const OPTIONS = [
   {
-    id: "v2-1",
-    title: "Seçenek 1: Lüks Klasik Üniversite Kütüphanesi",
-    tag: "Oxford / Maarif Külliyatı",
-    src: "/images/founder-v2-1-grand-library.webp",
-    badge: "🏛️ Klasik Akademik Prestij",
+    id: "orijinal",
+    title: "Mevcut Durum: Orijinal Sitedeki Fotoğraf",
+    tag: "Referans Görsel",
+    src: "/images/founder-bahadir.webp",
+    badge: "📌 Orijinal Fotoğraf",
     description:
-      "Tavana kadar yükselen koyu maun ağacı kitaplıklar, binlerce gerçek deri ciltli altın varaklı ansiklopedi ve akademik külliyat, sıcak pirinç aplik lambalar ve kurucuyu öne çıkaran doğal 85mm f/1.4 lens bokeh'i. %100 gerçekçi, köklü ve otoriter akademi atmosferi.",
+      "Sitede şu anda yayında olan fotoğraf: Sol arka rafta ZZ salon bitkisi, siyah/beyaz 4 adet kitap ve yeşil yosun topu. AYBARİst AKADEMİ duvar logosu ve ahşap çıtalar orijinal hali.",
   },
   {
-    id: "v2-2",
-    title: "Seçenek 2: Panoramik Şehir Manzaralı Modern Köşe Ofis",
-    tag: "Maslak/Levent Kule Ofisi",
-    src: "/images/founder-v2-2-panoramic-corner.webp",
-    badge: "🌆 Ferah Gün Işığı & Şehir",
+    id: "secenek-1",
+    title: "Seçenek 1: Lüks Beyaz Orkide & Klasik Ciltli Külliyat",
+    tag: "Doğal Beyaz Phalaenopsis",
+    src: "/images/founder-secenek-1-orkide.webp",
+    badge: "🌸 Beyaz Orkide",
     description:
-      "Tavandan tabana geniş mimari cam cepheden süzülen doğal gün ışığı, flu İstanbul şehir silüeti, modern ceviz kitaplık ve gerçek yaprak dokusuna sahip sağlıklı Fiddle-Leaf Fig salon bitkisi. Son derece aydınlık, çağdaş ve lüks CEO ofisi.",
+      "Arka plan oda, akustik ceviz çıtalar, dikey LED aydınlatma, 3D AYBARİst AKADEMİ logosu, Bahadır Bey ve masa materyalleri %100 aynı kalmıştır. Sol taraftaki bitki yerine doğal açmış beyaz orkide ve pirinç detaylı lüks klasik ciltli kitaplar yerleştirilmiştir.",
   },
   {
-    id: "v2-3",
-    title: "Seçenek 3: Sıcak Ahşap & Çiçekli Seçkin Maarif Odası",
-    tag: "Yeşil Bankacı Lambası & Güller",
-    src: "/images/founder-v2-3-classic-scholar-study.webp",
-    badge: "🕯️ Sıcak Entelektüel Duruş",
+    id: "secenek-2",
+    title: "Seçenek 2: Barış Çiçeği (Spathiphyllum) & Çağdaş Ciltler",
+    tag: "Lüks Antrasit Saksı & Beyaz Çiçekler",
+    src: "/images/founder-secenek-2-baris-cicegi.webp",
+    badge: "🌿 Barış Çiçeği (En Doğal)",
     description:
-      "Zengin ceviz ahşap lambri ve gömme kitaplıklar, rafların altından süzülen sıcak amber LED aydınlatmalar, klasik yeşil camlı pirinç bankacı lambası (banker's lamp) ve cam vazoda taze açmış beyaz güller ile okaliptüs yaprakları.",
+      "Arka plan oda, logo ve kişi birebir korunmuştur. Rafta antrasit mat seramik saksıda taze beyaz çiçekli Barış Çiçeği, pirinç kitap tutacaklı seçkin akademik ciltler ('Business Ethics', 'Educational Leadership') yer alır. Son derece gerçekçi, dengeli ve kurumsal.",
   },
   {
-    id: "v2-4",
-    title: "Seçenek 4: Modern Mimari Doğal Taş & Meşe Lüks Ofis",
-    tag: "Traverten & Kalla Zambakları",
-    src: "/images/founder-v2-4-bespoke-executive.webp",
-    badge: "✨ Mimari Tasarım Zarafeti",
+    id: "secenek-3",
+    title: "Seçenek 3: Şeffaf Cam Vazoda Taze Beyaz Güller & Okaliptüs",
+    tag: "Su Yansımalı Kristal Cam Vazo",
+    src: "/images/founder-secenek-3-cam-vazo-gul.webp",
+    badge: "🌹 Cam Vazo & Beyaz Gül",
     description:
-      "Açık bej traverten/doğal taş arka plan duvarı, meşe ağacı gömme yüzer raflar, raflarda seçkin kitaplar, mimari heykel detayları ve zarif cam vazoda taze beyaz kalla zambakları. Architectural Digest standardında, rafine ve elit.",
+      "Arka plan ve tüm materyaller birebir korunmuştur. Sol konsol rafına su dolu şeffaf silindirik cam vazoda taze açmış beyaz güller ve taze okaliptüs dalları eklenmiştir. Işık kırılmaları ve cam yansımaları stüdyo fotoğrafı doğallığındadır.",
+  },
+  {
+    id: "secenek-4",
+    title: "Seçenek 4: Minyatür Japon Bonsai Ağacı & Zengin Kütüphane",
+    tag: "Sırlı Seramik Tabak & Canlı Bonsai",
+    src: "/images/founder-secenek-4-bonsai.webp",
+    badge: "🪴 Canlı Bonsai Sanatı",
+    description:
+      "Arka plan ve tüm unsurlar birebir korunmuştur. Arka rafta yeşil kadife yosun zeminli, yaşayan heykelsi Japon Bonsai ağacı ve sağ rafta altın varak sırtlı prestijli kütüphane kitapları yer almaktadır. Zamansız, asil ve sofistike.",
   },
 ];
 
 export default function KurucuSeceneklerPage() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(2); // Seçenek 2 veya 3 varsayılan aktif
 
   return (
     <div className="bg-paper text-ink min-h-screen py-10 sm:py-14">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-8">
         <div>
           <span className="text-xs font-bold tracking-wider uppercase text-crimson-600 bg-crimson-50 px-3 py-1 rounded-full border border-crimson-200">
-            Ultra-Gerçekçi Arka Plan Tasarımları (V2)
+            %100 Gerçekçi & Orijinal Oda Birebir Korunmuş Tasarımlar
           </span>
           <h1 className="text-2xl sm:text-4xl font-extrabold text-cobalt-950 mt-3 tracking-tight">
-            Kurucumuz Bahadır Aybar — 4 Farklı Mimari Ortam
+            Kurucumuz Bahadır Aybar — Raf Çiçek & Kitap Seçenekleri
           </h1>
           <p className="mt-2 text-base text-ink-muted max-w-3xl leading-relaxed">
-            Bahadır Bey&apos;in yüzü, samimi tebessümü, saçları, lacivert ceketi, beyaz gömleği, ceviz makam masası, deri sümeni ve masadaki <strong>AYBARİst defteri, kalemi ve isimliği</strong> %100 orijinal netliğinde korunmuştur. Arka plan yapay 3D algısından tamamen arındırılarak gerçekçi optik alan derinliğiyle 4 farklı prestijli atmosferde yeniden oluşturuldu.
+            Arka plandaki <strong>ahşap akustik çıtalar, dikey LED aydınlatma, 3D ışıklı AYBARİst AKADEMİ logosu</strong>, Bahadır Bey&apos;in yüzü, saçları, lacivert ceketi ve masadaki tüm materyaller (deri sümen, defter, kalem, masa isimliği) <strong>%100 orijinal haliyle korunmuştur</strong>. Sadece arka raftaki çiçek/bitki ve kitaplar gerçekçi fotoğraf dokusuyla 4 farklı şık seçenek olarak yenilenmiştir.
           </p>
         </div>
 
-        {/* 4 Ana Buton */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        {/* Seçim Butonları */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
           {OPTIONS.map((opt, idx) => (
             <button
               key={opt.id}
               onClick={() => setActiveTab(idx)}
-              className={`p-4 rounded-2xl border text-left transition-all ${
+              className={`p-3 sm:p-4 rounded-2xl border text-left transition-all ${
                 activeTab === idx
                   ? "bg-cobalt-950 text-white border-cobalt-950 shadow-xl scale-[1.02]"
                   : "bg-white text-ink border-cobalt-900/10 hover:border-crimson-600 hover:shadow-md"
@@ -75,10 +84,10 @@ export default function KurucuSeceneklerPage() {
               <span className={`text-xs font-bold block ${activeTab === idx ? "text-crimson-400" : "text-crimson-600"}`}>
                 {opt.badge}
               </span>
-              <span className="font-extrabold text-sm sm:text-base block mt-1 leading-snug">
+              <span className="font-extrabold text-xs sm:text-sm block mt-1 leading-snug">
                 {opt.title.split(":")[0]}
               </span>
-              <span className={`text-xs block mt-1 line-clamp-1 ${activeTab === idx ? "text-cobalt-200" : "text-ink-muted"}`}>
+              <span className={`text-[11px] block mt-1 line-clamp-1 ${activeTab === idx ? "text-cobalt-200" : "text-ink-muted"}`}>
                 {opt.tag}
               </span>
             </button>
@@ -109,12 +118,12 @@ export default function KurucuSeceneklerPage() {
           </div>
         </div>
 
-        {/* 4 Seçenek Yan Yana Kartlar */}
+        {/* Tüm Seçenekler Yan Yana Kartlar */}
         <div>
           <h2 className="text-xl font-extrabold text-cobalt-950 mb-4">
             Tüm Tasarımları Birlikte Karşılaştırın:
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {OPTIONS.map((opt, idx) => (
               <div
                 key={opt.id}
@@ -131,18 +140,18 @@ export default function KurucuSeceneklerPage() {
                     alt={opt.title}
                     className="w-full h-full object-cover"
                   />
-                  <span className="absolute top-2.5 left-2.5 bg-cobalt-950/85 text-white text-[11px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
+                  <span className="absolute top-2.5 left-2.5 bg-cobalt-950/85 text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-xs">
                     {opt.badge.split(" ")[0]} {opt.title.split(":")[0]}
                   </span>
                 </div>
-                <div className="p-4 space-y-1">
-                  <span className="text-xs font-bold text-crimson-600 block">
+                <div className="p-3.5 space-y-1">
+                  <span className="text-[11px] font-bold text-crimson-600 block">
                     {opt.tag}
                   </span>
-                  <h4 className="font-extrabold text-sm text-cobalt-950 line-clamp-1">
+                  <h4 className="font-extrabold text-xs text-cobalt-950 line-clamp-1">
                     {opt.title}
                   </h4>
-                  <p className="text-xs text-ink-muted line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] text-ink-muted line-clamp-2 leading-relaxed">
                     {opt.description}
                   </p>
                 </div>
