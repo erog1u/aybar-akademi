@@ -72,11 +72,12 @@ export function AybarRibbon({ className = "" }: { className?: string }) {
         x="320"
         y="47"
         textAnchor="middle"
-        textLength="520"
+        textLength="524"
         lengthAdjust="spacingAndGlyphs"
         fill="#fff"
-        fontFamily="Georgia, 'Times New Roman', serif"
-        fontSize="35"
+        className="font-brand"
+        fontWeight="700"
+        fontSize="33"
       >
         {RIBBON_TEXT}
       </text>
@@ -120,7 +121,7 @@ export function AybarBrandLockup({
           <span className="h-1 w-1 rounded-full bg-crimson-600 shrink-0" />
           <span>Danışmanlık</span>
         </div>
-        <AybarRibbon className="mt-0.5 w-[9.75rem] sm:mt-1 sm:w-[13.5rem]" />
+        <AybarRibbon className="mt-0.5 w-[9.75rem] sm:mt-1 sm:w-[13.5rem] lg:w-[11.5rem] xl:w-[13.5rem]" />
       </div>
     </div>
   );
