@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import BrandText from "@/components/brand/BrandText";
 
 export const LUXURY_EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -233,15 +234,15 @@ export function NextChapterBanner({
   buttonLabel?: string;
 }) {
   return (
-    <section className="bg-cobalt-950 text-white py-14 sm:py-16 border-t border-white/10">
+    <section className="brand-on-dark bg-cobalt-950 text-white py-14 sm:py-16 border-t border-white/10">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-2xl font-extrabold leading-[1.2] tracking-tight text-white sm:text-3xl">
-              {title}
+              <BrandText>{title}</BrandText>
             </h3>
             <p className="mt-2 text-sm sm:text-base text-cobalt-200 leading-relaxed">
-              {description}
+              <BrandText>{description}</BrandText>
             </p>
           </div>
 

@@ -19,6 +19,7 @@ import { programCategories, programsIntro } from "@/data/content";
 import { getWhatsAppUrl } from "@/config/site";
 import { scrollToSection } from "@/lib/scroll";
 import { NextChapterBanner } from "@/components/motion/Primitives";
+import BrandText from "@/components/brand/BrandText";
 
 const CATEGORY_ICONS: Record<
   string,
@@ -226,11 +227,11 @@ export default function ProgramExplorer() {
                       {item.categoryTitle}
                     </span>
                     <h4 className="text-lg sm:text-xl font-bold text-ink">
-                      {item.title}
+                      <BrandText>{item.title}</BrandText>
                     </h4>
                     {item.description && (
                       <p className="text-sm text-ink-muted mt-2 leading-relaxed">
-                        {item.description}
+                        <BrandText>{item.description}</BrandText>
                       </p>
                     )}
                   </div>
@@ -293,18 +294,18 @@ export default function ProgramExplorer() {
                 >
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-400 to-crimson-600" />
                   <h4 className="text-xl sm:text-2xl font-extrabold text-white">
-                    {item.title}
+                    <BrandText>{item.title}</BrandText>
                   </h4>
 
                   {item.leaderNote && (
                     <p className="mt-1.5 text-sm sm:text-base font-bold text-cobalt-200">
-                      {item.leaderNote}
+                      <BrandText>{item.leaderNote}</BrandText>
                     </p>
                   )}
 
                   {item.description && (
                     <p className="mt-2 text-sm sm:text-base text-cobalt-100/90 leading-relaxed max-w-3xl">
-                      {item.description}
+                      <BrandText>{item.description}</BrandText>
                     </p>
                   )}
 
@@ -338,18 +339,18 @@ export default function ProgramExplorer() {
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson-600 via-cobalt-600 to-crimson-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div>
                   <h4 className="text-lg sm:text-xl font-bold text-ink group-hover:text-cobalt-950 transition-colors">
-                    {item.title}
+                    <BrandText>{item.title}</BrandText>
                   </h4>
 
                   {item.leaderNote && (
                     <p className="text-xs sm:text-sm font-bold text-cobalt-700 mt-1">
-                      {item.leaderNote}
+                      <BrandText>{item.leaderNote}</BrandText>
                     </p>
                   )}
 
                   {item.description && (
                     <p className="text-sm text-ink-muted mt-2 leading-relaxed">
-                      {item.description}
+                      <BrandText>{item.description}</BrandText>
                     </p>
                   )}
 

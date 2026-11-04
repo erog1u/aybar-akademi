@@ -7,6 +7,7 @@ import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHe
 import HomeSloganSlider from "@/components/home/HomeSloganSlider";
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 import { assetPath } from "@/config/site";
+import BrandText from "@/components/brand/BrandText";
 
 const YELPAZE = [
   "Sınav Hazırlık: LGS ve YKS (TYT-AYT) odaklı nokta atışı koçluk ve birebir özel ders programları",
@@ -59,7 +60,7 @@ export default function HomePage() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-base leading-relaxed text-ink-muted">
-              Her öğrencinin öğrenme hızı, potansiyeli ve hedefleri parmak izi gibi tektir. AYBARİst AKADEMİ olarak; 33 yıllık köklü birikimimiz ve alanında uzman ve yeni nesil Maarif Modeline hâkim öğretmen kadromuzla, ezberci yaklaşımlardan uzak, tamamen öğrenciye özel eğitim modelleri sunuyoruz.
+              Her öğrencinin öğrenme hızı, potansiyeli ve hedefleri parmak izi gibi tektir. <BrandText>AYBARİst AKADEMİ</BrandText> olarak; 33 yıllık köklü birikimimiz ve alanında uzman ve yeni nesil Maarif Modeline hâkim öğretmen kadromuzla, ezberci yaklaşımlardan uzak, tamamen öğrenciye özel eğitim modelleri sunuyoruz.
             </p>
             <p className="mt-3 text-base leading-relaxed text-ink-muted">
               Amacımız yalnızca sınavlara hazırlamak değil; öğrencinin öğrenme tutkusunu canlandırmak ve onu hedeflerine en sağlam adımlarla ulaştırmaktır.

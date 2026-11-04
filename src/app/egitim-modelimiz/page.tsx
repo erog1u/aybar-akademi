@@ -6,6 +6,7 @@ import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
+import BrandText from "@/components/brand/BrandText";
 
 export default function EgitimModelimizPage() {
   return (
@@ -47,7 +48,7 @@ export default function EgitimModelimizPage() {
               <SectionHeading>{sec.title}</SectionHeading>
               {sec.intro ? (
                 <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-muted sm:text-lg">
-                  {sec.intro}
+                  <BrandText>{sec.intro}</BrandText>
                 </p>
               ) : null}
               <div className="mt-6 space-y-5">
@@ -56,7 +57,7 @@ export default function EgitimModelimizPage() {
                     {pt.label ? (
                       <h3 className="text-lg font-bold leading-snug text-ink sm:text-xl">{pt.label}</h3>
                     ) : null}
-                    <p className="mt-1 text-[15px] leading-relaxed text-ink-muted sm:text-base">{pt.text}</p>
+                    <p className="mt-1 text-[15px] leading-relaxed text-ink-muted sm:text-base"><BrandText>{pt.text}</BrandText></p>
                   </div>
                 ))}
               </div>

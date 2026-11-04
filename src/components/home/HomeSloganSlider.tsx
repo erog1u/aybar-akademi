@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { assetPath } from "@/config/site";
+import BrandText from "@/components/brand/BrandText";
 
 const SLIDES = [
   {
@@ -40,7 +41,7 @@ const SLIDES = [
     alt: "Birebir ders çalışan öğrenci",
     slogan: (
       <>
-        Değişen Dünyaya AYBARİst&apos;in Gücüyle Hazırlanın
+        <span className="brand-on-dark"><BrandText>{"Değişen Dünyaya AYBARİst'in Gücüyle Hazırlanın"}</BrandText></span>
       </>
     ),
   },

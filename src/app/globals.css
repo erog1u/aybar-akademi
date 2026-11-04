@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.brand-on-dark {
+  --brand-main: #ffffff;
+  --brand-accent: #ff9aa5;
+}
+
 @layer base {
   :root {
     --cobalt-primary: #0044b5;

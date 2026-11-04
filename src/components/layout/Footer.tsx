@@ -4,6 +4,7 @@ import { ArrowUpRight, Phone, Mail, MapPin, Globe2 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
 import { programCategories } from "@/data/content";
 import { AybarBrandLockup } from "@/components/brand/AybarCrest";
+import BrandText from "@/components/brand/BrandText";
 
 export default function Footer() {
   return (
@@ -112,7 +113,7 @@ export default function Footer() {
         {/* Bottom Bar + Eroğlu Solutions Signature — WhatsApp butonunun altında kalmaması için güvenli pb-20 ve lg:mr-52 */}
         <div className="py-8 pb-24 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-5 text-xs sm:text-[13px] text-cobalt-300 text-center lg:text-left">
           <div className="text-cobalt-200" suppressHydrationWarning>
-            © {new Date().getFullYear()} {siteConfig.name} ·{" "}
+            © {new Date().getFullYear()} <span className="brand-on-dark"><BrandText>{siteConfig.name}</BrandText></span> ·{" "}
             {siteConfig.founder.name} ({siteConfig.founder.role})
           </div>
 

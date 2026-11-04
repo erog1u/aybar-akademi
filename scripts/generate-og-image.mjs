@@ -344,7 +344,7 @@ async function generateOgImage() {
         </div>
         <div class="brand-text">
           <div class="brand-name">
-            <span class="light">AYBARİst </span><span class="accent">AKADEMİ</span>
+            <span class="light">AYBAR</span><span style="color:#ff9aa5;text-transform:none">İst</span><span class="light"> AKADEMİ</span>
           </div>
           <div class="brand-sub">
             <span>Eğitim</span>

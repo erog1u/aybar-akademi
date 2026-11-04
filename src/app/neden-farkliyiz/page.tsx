@@ -6,6 +6,7 @@ import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
+import BrandText from "@/components/brand/BrandText";
 
 export default function NedenFarkliyizPage() {
   return (
@@ -49,7 +50,7 @@ export default function NedenFarkliyizPage() {
                 {principle.items.map((item) => (
                   <div key={item.title}>
                     <h3 className="text-lg font-bold leading-snug text-cobalt-950 sm:text-xl">{item.title}</h3>
-                    <p className="mt-1 text-[15px] leading-relaxed text-ink-muted sm:text-base">{item.detail}</p>
+                    <p className="mt-1 text-[15px] leading-relaxed text-ink-muted sm:text-base"><BrandText>{item.detail}</BrandText></p>
                   </div>
                 ))}
               </div>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/config/site";
+import BrandText from "@/components/brand/BrandText";
 
 export interface FaqItem {
   question: string;
@@ -118,7 +119,7 @@ export default function FaqSection({
                   </button>
                   {isOpen && (
                     <div className="px-4 sm:px-5 pb-4 pt-1 text-xs sm:text-sm text-ink-muted leading-relaxed border-t border-cobalt-900/5 bg-paper/40">
-                      <p>{item.answer}</p>
+                      <p><BrandText>{item.answer}</BrandText></p>
                     </div>
                   )}
                 </div>

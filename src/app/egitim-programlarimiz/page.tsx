@@ -17,7 +17,7 @@ export default function EgitimProgramlarimizPage() {
         eyebrow="Eğitim Programlarımız"
         title={
           <>
-            Değişen Dünyaya <SloganMark>AYBARİst&apos;in Gücüyle</SloganMark> Hazırlanın
+            Değişen Dünyaya AYBARİst&apos;in <SloganMark>Gücüyle</SloganMark> Hazırlanın
           </>
         }
         subtitle={programsIntro.lead}

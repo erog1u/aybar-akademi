@@ -6,6 +6,7 @@ import { assetPath } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import PageHero, { SectionHeading, SloganMark } from "@/components/layout/PageHero";
+import BrandText from "@/components/brand/BrandText";
 
 export default function HakkimizdaPage() {
   return (
@@ -28,7 +29,7 @@ export default function HakkimizdaPage() {
           />
         }
       >
-        <p>{aboutContent.introParagraphs[0]}</p>
+        <p><BrandText>{aboutContent.introParagraphs[0]}</BrandText></p>
         <p>{aboutContent.introParagraphs[1]}</p>
       </PageHero>
 
@@ -45,7 +46,7 @@ export default function HakkimizdaPage() {
                   {sol.title}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-muted sm:text-base">
-                  {sol.description}
+                  <BrandText>{sol.description}</BrandText>
                 </p>
               </article>
             ))}
@@ -72,7 +73,7 @@ export default function HakkimizdaPage() {
             ))}
           </div>
           <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-ink sm:text-lg">
-            {aboutContent.closingParagraph}
+            <BrandText>{aboutContent.closingParagraph}</BrandText>
           </p>
         </div>
       </section>
