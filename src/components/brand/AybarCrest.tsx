@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useId } from "react";
 import { siteConfig } from "@/config/site";
 import BrandText from "@/components/brand/BrandText";
+
+const RIBBON_TEXT = "Bilginin Kaynağı, Başarının Mimarı";
 
 /**
  * Gerçek Aybar Akademi dairesel armasını (siteConfig.logos.emblem)
@@ -37,6 +39,51 @@ export function AybarCrestEmblem({
   );
 }
 
+/** Kurum sloganı kurdelesi: yazı SVG içinde olduğu için her genişlikte kurdeleye sığar. */
+export function AybarRibbon({ className = "" }: { className?: string }) {
+  const id = useId();
+  return (
+    <svg
+      viewBox="0 0 640 92"
+      role="img"
+      aria-label={RIBBON_TEXT}
+      className={`block h-auto ${className}`}
+    >
+      <defs>
+        <linearGradient id={`${id}b`} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#2a63b8" />
+          <stop offset=".5" stopColor="#174a97" />
+          <stop offset="1" stopColor="#0f3a7d" />
+        </linearGradient>
+        <linearGradient id={`${id}t`} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#1d5099" />
+          <stop offset="1" stopColor="#0d3270" />
+        </linearGradient>
+      </defs>
+      {[0, 1].map((side) => (
+        <g key={side} transform={side ? "matrix(-1 0 0 1 640 0)" : undefined}>
+          <path d="M58 34H3l17 25L3 86h55Z" fill={`url(#${id}t)`} />
+          <path d="M34 66h24v20Z" fill="#082558" />
+        </g>
+      ))}
+      <rect x="34" y="6" width="572" height="60" rx="2" fill={`url(#${id}b)`} />
+      <path d="M34 11h572M34 61h572" stroke="#8fb4ea" strokeOpacity=".55" strokeWidth="1.5" />
+      <text
+        x="320"
+        y="47"
+        textAnchor="middle"
+        textLength="520"
+        lengthAdjust="spacingAndGlyphs"
+        fill="#fff"
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontSize="35"
+      >
+        {RIBBON_TEXT}
+      </text>
+    </svg>
+  );
+}
+
 export function AybarBrandLockup({
   variant = "light",
   compactOnMobile = false,
@@ -62,7 +109,7 @@ export function AybarBrandLockup({
         {/* Kurumsal Alt Başlık */}
         <div
           className={`text-[8.5px] sm:text-[10px] font-bold tracking-[0.06em] uppercase items-center gap-1 sm:gap-1.5 whitespace-nowrap select-none ${
-            compactOnMobile ? "hidden xl:flex" : "flex"
+            compactOnMobile ? "hidden" : "flex"
           } ${
             variant === "dark" ? "text-cobalt-200/90" : "text-cobalt-900/65"
           }`}
@@ -73,6 +120,7 @@ export function AybarBrandLockup({
           <span className="h-1 w-1 rounded-full bg-crimson-600 shrink-0" />
           <span>Danışmanlık</span>
         </div>
+        <AybarRibbon className="mt-0.5 w-[9.75rem] sm:mt-1 sm:w-[13.5rem]" />
       </div>
     </div>
   );
