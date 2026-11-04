@@ -8,10 +8,10 @@ function paint(text: string): React.ReactNode {
   for (const match of text.matchAll(BRAND)) {
     parts.push(text.slice(last, match.index));
     parts.push(
-      <span key={match.index} className="normal-case">
-        <span className="text-[color:var(--brand-main,#0044b5)]">AYBAR</span>
-        <span className="text-[color:var(--brand-accent,#dc1b2e)]">İst</span>
-        <span className="text-[color:var(--brand-main,#0044b5)]">{match[1]}</span>
+      <span key={match.index} className="brand-name normal-case">
+        <span className="text-[#0044b5]">AYBAR</span>
+        <span className="text-[#dc1b2e]">İst</span>
+        <span className="text-[#0044b5]">{match[1]}</span>
       </span>
     );
     last = match.index + match[0].length;
@@ -31,7 +31,7 @@ function walk(node: React.ReactNode): React.ReactNode {
   return node;
 }
 
-/** Metindeki AYBARİst AKADEMİ adını marka renkleriyle yazar. Koyu zeminde üst öğeye brand-on-dark verilir. */
+/** Metindeki AYBARİst AKADEMİ adını marka renkleriyle yazar. Koyu zeminde üst öğeye brand-on-dark verilir, ad beyaz zeminde kalır. */
 export default function BrandText({ children }: { children: React.ReactNode }) {
   return <>{walk(children)}</>;
 }

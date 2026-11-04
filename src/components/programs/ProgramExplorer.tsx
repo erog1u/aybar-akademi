@@ -298,7 +298,7 @@ export default function ProgramExplorer() {
                   </h4>
 
                   {item.leaderNote && (
-                    <p className="mt-1.5 text-sm sm:text-base font-bold text-cobalt-200">
+                    <p className="brand-on-dark mt-1.5 text-sm sm:text-base font-bold text-cobalt-200">
                       <BrandText>{item.leaderNote}</BrandText>
                     </p>
                   )}

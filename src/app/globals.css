@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.brand-on-dark {
-  --brand-main: #ffffff;
-  --brand-accent: #ff9aa5;
+.brand-on-dark .brand-name {
+  background: #fff;
+  padding: 0 0.28em;
+  border-radius: 0.28em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 @layer base {
