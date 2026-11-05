@@ -215,7 +215,7 @@ export const programCategories: ProgramCategory[] = [
           "AYBARİst AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
         featured: true,
         description:
-          "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurumumuzun kurucusu tarafından yüksek akademik standartlarda verilmektedir.",
+          "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurucumuz Bahadır AYBAR tarafından yüksek akademik standartlarda verilmektedir.",
         subjects: ["Felsefe", "Sosyoloji", "Psikoloji"],
       },
     ],
