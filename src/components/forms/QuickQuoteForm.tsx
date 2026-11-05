@@ -139,7 +139,7 @@ export default function QuickQuoteForm() {
         Hemen Hızlı Teklif Alın!
       </button>
       <p className="text-xs leading-relaxed text-ink-muted">
-        Bilgileriniz sitede saklanmaz; WhatsApp&apos;ta mesaj olarak açılır ve siz gönderirseniz bize ulaşır. Ayrıntı:{" "}
+        Bilgileriniz sitede saklanmaz. Düğmeye bastığınızda bilgiler WhatsApp bağlantısına yazılır ve mesajı göndermeniz beklenmeden WhatsApp&apos;a (Meta) iletilebilir. Mesajı gönderirseniz bize ulaşır. Ayrıntı:{" "}
         <Link href="/kvkk/" className="font-bold text-crimson-700 underline">
           KVKK Aydınlatma Metni
         </Link>

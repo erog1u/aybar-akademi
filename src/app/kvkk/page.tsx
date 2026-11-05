@@ -56,9 +56,10 @@ export default function KvkkPage() {
             ders tercihi ve iletişim numarası istenir.
           </p>
           <p>
-            Form bilgileri bu sitede kaydedilmez. Gönder düğmesine bastığınızda WhatsApp&apos;ta mesaj olarak açılır,
-            mesajı siz gönderirseniz bize ulaşır. WhatsApp ya da telefonla paylaştığınız diğer bilgiler de bize bu
-            yolla ulaşır.
+            Form bilgileri bu sitede kaydedilmez. Gönder düğmesine bastığınızda bilgiler WhatsApp bağlantısına yazılır
+            ve WhatsApp&apos;ta mesaj olarak açılır. Bu sırada bilgiler, mesajı göndermeniz beklenmeden WhatsApp&apos;a
+            (Meta) iletilebilir. Mesajı siz gönderirseniz bize ulaşır. WhatsApp, telefon ya da e-posta ile
+            paylaştığınız diğer bilgiler de bize bu yollarla ulaşır.
           </p>
           <p>Öğrenci 18 yaşından küçükse formu veli doldurmalıdır.</p>
         </Block>
@@ -67,19 +68,23 @@ export default function KvkkPage() {
           <p>
             Bilgileriniz talebinizi yanıtlamak, eğitim programları hakkında bilgi ve teklif vermek ve sizinle iletişim
             kurmak için işlenir. Hukuki sebepler KVKK md. 5/2 kapsamında bir sözleşmenin kurulması veya ifasıyla
-            doğrudan ilgili olması, hukuki yükümlülükler ve meşru menfaattir. Veriler site formu, WhatsApp ve telefon
-            yoluyla toplanır.
+            doğrudan ilgili olması, hukuki yükümlülükler ve meşru menfaattir. Veriler site formu, WhatsApp, telefon ve
+            e-posta yoluyla toplanır.
           </p>
         </Block>
 
         <Block title="Kimlere aktarılabilir?">
           <p>
-            WhatsApp mesajları WhatsApp hizmeti üzerinden iletilir. Bu hizmetin altyapısı yurt dışında olabilir.
-            WhatsApp kullanmak istemezseniz bize telefonla ulaşabilirsiniz.
+            Form bilgileri ve WhatsApp mesajları WhatsApp (Meta) hizmeti üzerinden iletilir. Bu hizmetin altyapısı yurt
+            dışında olabilir. WhatsApp kullanmak istemezseniz bize telefonla ulaşabilirsiniz.
           </p>
           <p>
             Site Cloudflare altyapısında barındırılır. Bu altyapı, bağlantı ve güvenlik için IP adresi gibi teknik
-            bilgileri işleyebilir. Sitenin teknik işleri Eroğlu Solutions tarafından yapılır.
+            bilgileri işleyebilir ve yurt dışında olabilir. Sitenin teknik işleri Eroğlu Solutions tarafından yapılır.
+          </p>
+          <p>
+            E-postalar Google Workspace üzerinden iletilir. Haritayı açarsanız adres sorgusu ve IP adresiniz Google&apos;a
+            ulaşır. Google&apos;ın altyapısı yurt dışında olabilir.
           </p>
           <p>Kanunen zorunlu olduğunda bilgiler yetkili kurumlarla paylaşılabilir.</p>
         </Block>
@@ -102,6 +107,7 @@ export default function KvkkPage() {
 
         <Block title="Çerezler">
           <p>Bu site reklam veya analiz çerezi kullanmaz.</p>
+          <p>Cloudflare, ziyaretçiye güvenlik sorgusu gösterirse bunun için kısa süreli bir çerez kullanabilir.</p>
           <p>
             İletişim sayfasındaki harita yalnız &quot;Haritayı göster&quot; düğmesine bastığınızda yüklenir. Harita
             Google tarafından sunulur ve Google kendi çerezlerini kullanabilir. WhatsApp ve Google Haritalar
