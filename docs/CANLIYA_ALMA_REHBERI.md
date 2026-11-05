@@ -23,7 +23,7 @@ Kendi sitenizde (`eroglusolutions.com`) kullandığınız **Gizli (Private) GitH
 ### Neden Cloudflare Pages?
 - **Türkiye İçi Ultra Düşük Gecikme (`<10ms`):** İstanbul CDN sunucuları üzerinden anında açılır, trafik limiti yoktur, çökme riski sıfırdır.
 - **%100 Gizli Kaynak Kod:** GitHub deposu **Private (Gizli)** olduğu için dışarıdan hiç kimse kodları veya dosyaları göremez / indiremez.
-- **Ücretsiz Otomatik SSL & Kurumsal E-Posta Yönlendirme:** `https://` sertifikası otomatik tanımlanır, `iletisim@aybaristakademi.com` e-postaları ücretsiz olarak müşterinin Gmail adresine yönlendirilebilir.
+- **Ücretsiz Otomatik SSL & Kurumsal E-Posta Yönlendirme:** `https://` sertifikası otomatik tanımlanır, `baybar@aybaristakademi.com` e-postaları ücretsiz olarak müşterinin Gmail adresine yönlendirilebilir.
 
 ### 3 Dakikada Canlıya Alma Adımları
 1. **Cloudflare Paneli** (`dash.cloudflare.com`) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.

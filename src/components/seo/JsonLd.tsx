@@ -34,6 +34,7 @@ export default function JsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteConfig.contact.phoneHref.replace("tel:", ""),
+      email: siteConfig.contact.email,
       contactType: "customer service",
       availableLanguage: ["tr"],
     },

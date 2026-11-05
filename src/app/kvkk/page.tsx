@@ -47,6 +47,7 @@ export default function KvkkPage() {
           </p>
           <p>Adres: {siteConfig.contact.address}</p>
           <p>Telefon: {siteConfig.contact.phoneDisplay}</p>
+          <p>E-posta: {siteConfig.contact.email}</p>
         </Block>
 
         <Block title="Hangi bilgileri alıyoruz?">
