@@ -132,9 +132,9 @@ export const programCategories: ProgramCategory[] = [
         title: "KPSS Eğitim Bilimleri (Öğretmen Adayları İçin)",
         featured: true,
         leaderNote:
-          "AYBARİst AKADEMİ Kurucusu Bahadır Aybar Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
+          "AYBARİst AKADEMİ Kurucusu Bahadır AYBAR Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
         description:
-          "Tüm Eğitim Bilimleri dersleri bizzat kurumumuzun kurucusu Bahadır Aybar tarafından yüksek akademik standartlarda verilmektedir.",
+          "Tüm Eğitim Bilimleri dersleri bizzat kurucumuz Bahadır AYBAR tarafından yüksek akademik standartlarda verilmektedir.",
         subjects: [
           "Eğitim Psikolojisi",
           "Eğitimde Öğretim Yöntem ve Teknikleri",
@@ -212,7 +212,7 @@ export const programCategories: ProgramCategory[] = [
     items: [
       {
         title:
-          "AYBARİst AKADEMİ Kurucusu Bahadır Aybar'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
+          "AYBARİst AKADEMİ Kurucusu Bahadır AYBAR'ın Liderliğinde İleri Düzey Akademik Mentorluk ve Birebir Özel Dersler",
         featured: true,
         description:
           "Felsefe, Sosyoloji ve Psikoloji bölümlerinde öğrenim gören üniversite öğrencilerine yönelik tüm akademik dersler bizzat kurucumuz Bahadır AYBAR tarafından yüksek akademik standartlarda verilmektedir.",
@@ -353,7 +353,7 @@ export const educationModelContent = {
         },
         {
           label: "Deneyimli ve Profesyonel Kadro",
-          text: "Alanında kanıtlanmış tecrübeye sahip, Yeni nesil Maarif Modeline hâkim öğretmen kadromuz, sadece ders anlatmakla kalmaz; öğrenciye alanına ilişkin liderlik eder.",
+          text: "Alanında kanıtlanmış tecrübeye sahip, yeni nesil Maarif Modeline hâkim öğretmen kadromuz, sadece ders anlatmakla kalmaz; öğrenciye alanına ilişkin liderlik eder.",
         },
         {
           label: "Güçlü Ödev ve Süreç Takibi",
@@ -491,7 +491,7 @@ export const whyDifferentContent = {
         {
           title: "Profesyonel Ders Sonu Raporu",
           detail:
-            "Her dersin bitiminde veliye WhatsApp üzerinden “Bugün ne işledik, öğrencinin durumu ne, ödev nedir?” gibi başlıklar içeren net bir bilgilendirme bir şablon aracılığıyla iletilir.",
+            "Her dersin bitiminde veliye WhatsApp üzerinden “Bugün ne işledik, öğrencinin durumu ne, ödev nedir?” gibi başlıklar içeren net bir bilgilendirme, şablon aracılığıyla iletilir.",
         },
         {
           title: "Aylık Performans Değerlendirmesi",

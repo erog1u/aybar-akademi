@@ -37,9 +37,9 @@ export const FAQ_DATA: FaqItem[] = [
     category: "Maarif Modeli",
   },
   {
-    question: "Kurucumuz Bahadır Aybar hangi dersleri bizzat yürütmektedir?",
+    question: "Kurucumuz Bahadır AYBAR hangi dersleri bizzat yürütmektedir?",
     answer:
-      "AYBARİst AKADEMİ Kurucusu Bahadır Aybar; KPSS Eğitim Bilimleri (Öğretmen Adayları) ile Üniversite düzeyinde Felsefe, Sosyoloji ve Psikoloji bölümlerinin tüm akademik derslerini ve mentorluk programlarını bizzat yüksek akademik standartlarda yürütmektedir.",
+      "AYBARİst AKADEMİ Kurucusu Bahadır AYBAR; KPSS Eğitim Bilimleri (Öğretmen Adayları) ile Üniversite düzeyinde Felsefe, Sosyoloji ve Psikoloji bölümlerinin tüm akademik derslerini ve mentorluk programlarını bizzat yüksek akademik standartlarda yürütmektedir.",
     category: "Kurucu Mentorluğu",
   },
 ];

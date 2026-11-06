@@ -89,7 +89,7 @@ export default function HomePage() {
             </div>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
               <li>
-                <strong className="font-bold text-ink">İstanbul Geneli Yüz Yüze Eğitim:</strong> Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle bire bir yüz yüze ders imkanı.
+                <strong className="font-bold text-ink">İstanbul Geneli Yüz Yüze Eğitim:</strong> Şehrin dilediğiniz noktasında, uzman öğretmenlerimizle birebir yüz yüze ders imkânı.
               </li>
               <li>
                 <strong className="font-bold text-ink">Türkiye Geneli Online Eğitim:</strong> Nerede olursanız olun, dijital platformlar üzerinden sınırsız ve kaliteli canlı dersler.

@@ -25,7 +25,7 @@ export default function KurucuPage() {
         media={
           <img
             src={assetPath("/images/founder-bahadir.webp")}
-            alt="AYBARİst AKADEMİ kurucusu Bahadır Aybar"
+            alt="AYBARİst AKADEMİ kurucusu Bahadır AYBAR"
             width={1152}
             height={864}
             decoding="async"

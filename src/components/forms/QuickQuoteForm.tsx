@@ -84,7 +84,7 @@ export default function QuickQuoteForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
       <Field label="Öğrenci Adı Soyadı" error={errors.student}>
-        <input className={fieldClass} value={student} onChange={(e) => setStudent(e.target.value)} autoComplete="name" required />
+        <input className={fieldClass} value={student} onChange={(e) => setStudent(e.target.value)} autoComplete="off" required />
       </Field>
       <Field label="Veli Adı Soyadı" error={errors.parent}>
         <input className={fieldClass} value={parent} onChange={(e) => setParent(e.target.value)} autoComplete="name" required />

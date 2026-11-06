@@ -125,6 +125,7 @@ export default function ProgramExplorer() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Ders, sınav veya program ara..."
+              aria-label="Ders, sınav veya program ara"
               className="w-full h-12 min-h-[48px] pl-10 pr-10 rounded-xl bg-white border border-cobalt-900/15 focus:outline-none focus:border-cobalt-700 text-base sm:text-sm text-ink placeholder:text-ink-subtle shadow-sm transition-all touch-manipulation"
             />
             {searchQuery && (
@@ -240,7 +241,7 @@ export default function ProgramExplorer() {
                       href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group"
+                      className="inline-flex min-h-11 items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group"
                     >
                       <span>WhatsApp ile Bilgi Al</span>
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -381,7 +382,7 @@ export default function ProgramExplorer() {
                     href={getWhatsAppUrl(`Merhaba, AYBARİst AKADEMİ "${item.title}" programı hakkında bilgi almak istiyorum.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group/link"
+                    className="inline-flex min-h-11 items-center justify-between w-full text-xs sm:text-sm font-bold text-cobalt-700 hover:text-crimson-600 transition-colors group/link"
                   >
                     <span>Bilgi Al</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />

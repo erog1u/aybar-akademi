@@ -4,7 +4,7 @@ import { SITE_URL } from "@/config/site";
 export const metadata: Metadata = {
   title: "Hakkımızda",
   description:
-    "AYBARİst AKADEMİ; 33 yıllık köklü eğitim deneyimi, yeni nesil Maarif Modeline hâkim uzman öğretmen kadrosu, İstanbul’un tüm ilçelerinde evinizde yüz yüze ve tüm Türkiye’de canlı online birebir özel ders kurumudur.",
+    "33 yıllık köklü eğitim deneyimi ve yeni nesil Maarif Modeline hâkim uzman kadro. İstanbul’un tüm ilçelerinde yüz yüze, tüm Türkiye’de canlı online.",
   alternates: {
     canonical: "/hakkimizda/",
   },

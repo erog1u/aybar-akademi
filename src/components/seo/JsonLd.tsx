@@ -86,9 +86,9 @@ export default function JsonLd() {
       },
       {
         "@type": "Course",
-        name: "Üniversite Düzeyi ve Akademik Dersler (Bahadır Aybar)",
+        name: "Üniversite Düzeyi ve Akademik Dersler (Bahadır AYBAR)",
         description:
-          "Felsefe, Sosyoloji ve Psikoloji bölümlerinde kurucu Bahadır Aybar liderliğinde ileri düzey akademik mentorluk.",
+          "Felsefe, Sosyoloji ve Psikoloji bölümlerinde kurucu Bahadır AYBAR liderliğinde ileri düzey akademik mentorluk.",
         provider: {
           "@type": "EducationalOrganization",
           name: siteConfig.name,
