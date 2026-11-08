@@ -26,6 +26,6 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
     }
     return json({ error: "Desteklenmeyen istek." }, 405);
   } catch (e) {
-    return json({ error: e instanceof Error ? e.message : "Beklenmeyen hata." }, 502);
+    return json({ error: e instanceof Error ? e.message : "Beklenmeyen hata." }, 500);
   }
 };

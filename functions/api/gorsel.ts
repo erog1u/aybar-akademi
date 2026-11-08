@@ -18,6 +18,6 @@ export const onRequestPost: PagesFunction<AuthEnv & GitEnv> = async ({ request, 
     if (!result.ok) return json({ error: "Görsel kaydedilemedi, tekrar deneyin." }, 409);
     return json({ src: `/images/yuklenen/${name}` });
   } catch (e) {
-    return json({ error: e instanceof Error ? e.message : "Beklenmeyen hata." }, 502);
+    return json({ error: e instanceof Error ? e.message : "Beklenmeyen hata." }, 500);
   }
 };
