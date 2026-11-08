@@ -71,8 +71,10 @@ export default function KvkkPage() {
             telefon istenmez.
           </p>
           <p>
-            Yorumlar incelendikten sonra, onayınıza dayanarak (KVKK md. 5/1) sitede herkese açık yayınlanır. Kişisel
-            bilgi, hakaret veya reklam içeren yorumlar yayınlanmaz. Yorum kayıtları Cloudflare altyapısında saklanır.
+            Yorumlar, onayınıza dayanarak (KVKK md. 5/1) gönderildiği anda sitede herkese açık yayınlanır. Telefon,
+            e-posta, bağlantı veya uygunsuz ifade içeren yorumlar otomatik olarak yayına alınmaz. Kurum bir yorumu
+            yalnızca belirli sebeplerle gizleyebilir; gizlenen yorumun yerinde gizlenme sebebi görünür. Yorum kayıtları
+            Cloudflare altyapısında saklanır.
             Aynı bağlantıdan kısa sürede çok sayıda yorum gönderilmesini önlemek için IP adresinizden üretilen tek yönlü
             bir kod en çok 30 gün tutulur.
           </p>

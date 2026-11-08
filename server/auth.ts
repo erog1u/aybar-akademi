@@ -10,6 +10,8 @@ const enc = new TextEncoder();
 const SESSION_DAYS = 30;
 const MAX_FAILS = 5;
 const LOCK_MINUTES = 15;
+// Şifre kısa olduğu için farklı IP'lerden toplu denemeye karşı genel kilit (tüm girişler 1 saat durur).
+const MAX_FAILS_ALL = 30;
 
 export const json = (data: unknown, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -43,6 +45,10 @@ export async function login(req: Request, env: AuthEnv): Promise<Response> {
   const fails = await env.DB.prepare(
     `SELECT COUNT(*) AS n FROM login_attempts WHERE ip_hash = ? AND at > datetime('now', '-${LOCK_MINUTES} minutes')`,
   ).bind(who).first<number>("n");
+  const allFails = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM login_attempts WHERE at > datetime('now', '-60 minutes')",
+  ).first<number>("n");
+  if ((allFails ?? 0) >= MAX_FAILS_ALL) return json({ error: "Giriş geçici olarak kapalı. 1 saat sonra tekrar deneyin." }, 429);
   if ((fails ?? 0) >= MAX_FAILS) return json({ error: `Çok fazla hatalı deneme. ${LOCK_MINUTES} dakika sonra tekrar deneyin.` }, 429);
 
   const body = (await req.json().catch(() => ({}))) as { username?: unknown; password?: unknown };
