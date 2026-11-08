@@ -6,7 +6,10 @@ import { Star } from "lucide-react";
 import { SectionHeading } from "@/components/layout/PageHero";
 import { BASE_PATH } from "@/config/site";
 
-type Review = { id: number; name: string; role: "veli" | "ogrenci"; rating: number; text: string };
+type Review =
+  | { id: number; hidden?: false; name: string; role: "veli" | "ogrenci"; rating: number; text: string; reply: string | null }
+  | { id: number; hidden: true; reason: string; rating: number };
+type Stats = { count: number; average: number | null };
 
 const API = `${BASE_PATH}/api/yorumlar`;
 const ROLE_LABEL = { veli: "Veli", ogrenci: "Öğrenci" } as const;
@@ -28,6 +31,14 @@ function Stars({ value, size = 16 }: { value: number; size?: number }) {
 }
 
 function ReviewCard({ review }: { review: Review }) {
+  if (review.hidden) {
+    return (
+      <figure className="w-[280px] shrink-0 rounded-2xl border border-dashed border-cobalt-900/20 bg-paper p-5 sm:w-[340px]">
+        <Stars value={review.rating} />
+        <p className="mt-3 text-[15px] italic leading-relaxed text-ink-muted">Bu yorum {review.reason} gizlendi.</p>
+      </figure>
+    );
+  }
   return (
     <figure className="w-[280px] shrink-0 rounded-2xl border border-cobalt-900/10 bg-white p-5 sm:w-[340px]">
       <Stars value={review.rating} />
@@ -35,19 +46,31 @@ function ReviewCard({ review }: { review: Review }) {
       <figcaption className="mt-4 text-sm font-bold text-cobalt-800">
         {review.name} <span className="font-semibold text-ink-muted">· {ROLE_LABEL[review.role]}</span>
       </figcaption>
+      {review.reply ? (
+        <p className="mt-3 border-l-2 border-crimson-600 pl-3 text-sm leading-relaxed text-ink-muted">
+          <span className="font-bold text-ink">Kurum yanıtı:</span> {review.reply}
+        </p>
+      ) : null}
     </figure>
   );
 }
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [stats, setStats] = useState<Stats | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  useEffect(() => {
+  const load = () =>
     fetch(API)
       .then((r) => (r.ok ? r.json() : { reviews: [] }))
-      .then((d) => setReviews(Array.isArray(d.reviews) ? d.reviews : []))
+      .then((d) => {
+        setReviews(Array.isArray(d.reviews) ? d.reviews : []);
+        setStats(d.stats?.count ? d.stats : null);
+      })
       .catch(() => setReviews([]));
+
+  useEffect(() => {
+    load();
   }, []);
 
   const open = () => dialogRef.current?.showModal();
@@ -59,6 +82,13 @@ export default function ReviewsSection() {
       <div className="mx-auto flex max-w-[1380px] flex-col gap-4 px-4 sm:flex-row sm:items-end sm:justify-between sm:px-6 lg:px-10">
         <div id="yorumlar-baslik">
           <SectionHeading>Veli ve Öğrenci Yorumları</SectionHeading>
+          {stats && stats.average !== null ? (
+            <p className="mt-2 flex items-center gap-2 text-sm font-bold text-ink">
+              <Stars value={Math.round(stats.average)} />
+              {stats.average.toLocaleString("tr-TR")} / 5 · {stats.count} yorum
+            </p>
+          ) : null}
+          <p className="mt-1 text-xs text-ink-muted">Yorumlar onay beklemeden yayınlanır. Gizlenen yorumların yerinde gizlenme sebebi görünür.</p>
         </div>
         <button
           type="button"
@@ -95,7 +125,12 @@ export default function ReviewsSection() {
         aria-labelledby="yorum-form-baslik"
         className="w-[min(92vw,520px)] rounded-3xl p-0 backdrop:bg-cobalt-950/60"
       >
-        <ReviewForm onClose={() => dialogRef.current?.close()} />
+        <ReviewForm
+          onClose={() => {
+            dialogRef.current?.close();
+            load();
+          }}
+        />
       </dialog>
     </section>
   );
@@ -110,6 +145,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
   const [website, setWebsite] = useState("");
   const [error, setError] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
+  const [held, setHeld] = useState(false);
 
   const fieldClass =
     "mt-1 w-full rounded-xl border border-cobalt-900/15 bg-white px-3 text-base text-ink outline-none focus:border-cobalt-700 focus:ring-2 focus:ring-cobalt-700/20";
@@ -135,6 +171,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
         setState("idle");
         return;
       }
+      setHeld(data.status === "held");
       setState("done");
     } catch {
       setError("Bağlantı kurulamadı. Lütfen daha sonra tekrar deneyin.");
@@ -146,7 +183,11 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
     return (
       <div className="p-6 sm:p-8">
         <h2 id="yorum-form-baslik" className="text-xl font-extrabold text-ink">Teşekkür ederiz</h2>
-        <p className="mt-3 text-base text-ink-muted">Yorumunuz alındı. İncelendikten sonra sitede yayınlanır.</p>
+        <p className="mt-3 text-base text-ink-muted">
+          {held
+            ? "Yorumunuz telefon, e-posta, bağlantı ya da uygunsuz bir ifade içerdiği için kontrol amacıyla bekletiliyor."
+            : "Yorumunuz yayınlandı. Teşekkür ederiz."}
+        </p>
         <button type="button" onClick={onClose} className="mt-6 min-h-12 w-full rounded-xl bg-cobalt-700 font-extrabold text-white">
           Kapat
         </button>
@@ -221,7 +262,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 h-5 w-5 shrink-0 accent-cobalt-700" />
         <span>
           Adımın baş harfli hâli ve yorumumun sitede yayınlanmasını kabul ediyorum.{" "}
-          <Link href="/kvkk/" className="font-bold text-crimson-700 underline">KVKK Aydınlatma Metni</Link>. Yorumlar incelendikten sonra yayınlanır. Kişisel bilgi, hakaret ve reklam içeren yorumlar yayınlanmaz. 18 yaşından küçükseniz yorumu veliniz göndermelidir.
+          <Link href="/kvkk/" className="font-bold text-crimson-700 underline">KVKK Aydınlatma Metni</Link>. Yorumlar onay beklemeden yayınlanır. Telefon, e-posta, bağlantı veya uygunsuz ifade içeren yorumlar kontrol için bekletilir; kişisel veri, hakaret veya reklam içeren yorumlar sebebi belirtilerek gizlenebilir. 18 yaşından küçükseniz yorumu veliniz göndermelidir.
         </span>
       </label>
 

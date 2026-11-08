@@ -1,5 +1,6 @@
 "use client";
 
+import { siteImages } from "@/data/content";
 import React from "react";
 import { Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
@@ -23,8 +24,8 @@ export default function IletisimPage() {
         }
         media={
           <PhotoFrame
-            src={assetPath("/images/veli-ogretmen-gorusmesi.jpg")}
-            alt="Öğretmen ile veli görüşmesi"
+            src={assetPath(siteImages.contact.src)}
+            alt={siteImages.contact.alt}
             aspectClass="aspect-[16/10]"
             priority
           />

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { whyDifferentContent } from "@/data/content";
+import { siteImages, whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
@@ -33,8 +33,8 @@ export default function NedenFarkliyizPage() {
         }
         media={
           <PhotoFrame
-            src={assetPath("/images/istanbul-home-tutoring.jpg")}
-            alt="Evde yüz yüze birebir ders"
+            src={assetPath(siteImages.whyDifferent.src)}
+            alt={siteImages.whyDifferent.alt}
             aspectClass="aspect-[16/10] sm:aspect-[4/3]"
             priority
           />

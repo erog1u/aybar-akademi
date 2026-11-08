@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { aboutContent, programsIntro } from "@/data/content";
+import { aboutContent, programsIntro, siteImages } from "@/data/content";
 import { assetPath } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
@@ -22,15 +22,16 @@ export default function HakkimizdaPage() {
         }
         media={
           <PhotoFrame
-            src={assetPath("/images/maarif-academic-mentorship.jpg")}
-            alt="Erkek öğretmenin kız öğrenciye ders anlattığı birebir çalışma"
+            src={assetPath(siteImages.about.src)}
+            alt={siteImages.about.alt}
             aspectClass="aspect-[16/10] sm:aspect-[4/3]"
             priority
           />
         }
       >
-        <p><BrandText>{aboutContent.introParagraphs[0]}</BrandText></p>
-        <p>{aboutContent.introParagraphs[1]}</p>
+        {aboutContent.introParagraphs.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)}><BrandText>{paragraph}</BrandText></p>
+        ))}
       </PageHero>
 
       <section className="border-b border-cobalt-900/10 bg-paper py-12 sm:py-16">

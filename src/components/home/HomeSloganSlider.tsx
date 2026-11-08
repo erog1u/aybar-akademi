@@ -3,59 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { assetPath } from "@/config/site";
 import BrandText from "@/components/brand/BrandText";
+import { homeContent } from "@/data/content";
 
-const SLIDES = [
-  {
-    id: "guven",
-    src: "/images/hero-one-on-one.jpg",
-    alt: "Kadın öğretmen ve kız öğrenci birebir ders çalışırken",
-    slogan: (
-      <>
-        Eğitimde Güvenin, Başarıda Uzmanlığın Adresi
-      </>
-    ),
-  },
-  {
-    id: "tecrube",
-    src: "/images/exam-strategy-notebook.jpg",
-    alt: "Birebir ders sırasında defter üzerinde çalışan eller",
-    slogan: (
-      <>
-        33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim
-      </>
-    ),
-  },
-  {
-    id: "sinir",
-    src: "/images/istanbul-home-tutoring.jpg",
-    alt: "Evde yüz yüze birebir ders",
-    slogan: (
-      <>
-        Eğitimde Sınır Tanımıyoruz
-      </>
-    ),
-  },
-  {
-    id: "dunya",
-    src: "/images/programs-global-study.jpg",
-    alt: "Birebir ders çalışan öğrenci",
-    slogan: (
-      <>
-        <span className="brand-on-dark"><BrandText>{"Değişen Dünyaya AYBARİst'in Gücüyle Hazırlanın"}</BrandText></span>
-      </>
-    ),
-  },
-  {
-    id: "online",
-    src: "/images/online-interactive-lesson.jpg",
-    alt: "Kadın öğretmenin kız öğrenciyle canlı online dersi",
-    slogan: (
-      <>
-        Online Canlı Dersler ile Yüz Yüze Özel Ders Modellerini Bir Arada Sunuyoruz
-      </>
-    ),
-  },
-];
+const SLIDES = homeContent.slides;
 
 export default function HomeSloganSlider() {
   const [index, setIndex] = useState(0);
@@ -87,7 +37,7 @@ export default function HomeSloganSlider() {
       >
         {SLIDES.map((slide, slideIndex) => (
           <div
-            key={slide.id}
+            key={slideIndex}
             className="flex shrink-0 flex-col"
             style={{ width: `${100 / SLIDES.length}%` }}
             aria-hidden={slideIndex !== index}
@@ -104,16 +54,16 @@ export default function HomeSloganSlider() {
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute left-3 top-3 flex gap-1.5" aria-hidden="true">
-                {SLIDES.map((dotSlide, dot) => (
+                {SLIDES.map((_, dot) => (
                   <span
-                    key={dotSlide.id}
+                    key={dot}
                     className={`h-1.5 rounded-full ${dot === index ? "w-5 bg-white" : "w-1.5 bg-white/50"}`}
                   />
                 ))}
               </div>
             </div>
             <p className="px-4 py-3 pr-16 text-balance text-sm font-extrabold leading-snug tracking-tight text-white sm:pr-4 sm:text-base">
-              {slide.slogan}
+              <span className="brand-on-dark"><BrandText>{slide.slogan}</BrandText></span>
             </p>
           </div>
         ))}

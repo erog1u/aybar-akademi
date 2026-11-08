@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { educationModelContent, whyDifferentContent } from "@/data/content";
+import { educationModelContent, siteImages, whyDifferentContent } from "@/data/content";
 import { assetPath, getWhatsAppUrl } from "@/config/site";
 import { PhotoFrame, NextChapterBanner } from "@/components/motion/Primitives";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
@@ -33,8 +33,8 @@ export default function EgitimModelimizPage() {
         }
         media={
           <PhotoFrame
-            src={assetPath("/images/model-coaching-bridge.jpg")}
-            alt="Eğitim modelimiz birebir ders görseli"
+            src={assetPath(siteImages.model.src)}
+            alt={siteImages.model.alt}
             aspectClass="aspect-[16/10] sm:aspect-[4/3]"
             priority
           />

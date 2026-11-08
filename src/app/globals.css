@@ -363,7 +363,7 @@
 
 
 
-/* Yorum bandı: kartlar yavaşça sağa kayar, üstüne gelince durur. */
+/* Yorum bandı: kartlar sürekli ve yavaşça sağa kayar. */
 @keyframes reviews-drift {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
@@ -371,11 +371,6 @@
 
 .reviews-track {
   animation: reviews-drift var(--reviews-duration, 60s) linear infinite;
-}
-
-.reviews-viewport:hover .reviews-track,
-.reviews-viewport:focus-within .reviews-track {
-  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

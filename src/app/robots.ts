@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/onizleme", "/onizleme/", "/yorum-yonetim", "/yorum-yonetim/"],
+      disallow: ["/onizleme", "/onizleme/", "/yonetim", "/yonetim/"],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };

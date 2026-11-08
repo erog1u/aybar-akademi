@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { programsIntro } from "@/data/content";
+import { programsIntro, siteImages } from "@/data/content";
 import { assetPath } from "@/config/site";
 import { PhotoFrame } from "@/components/motion/Primitives";
 import ProgramExplorer from "@/components/programs/ProgramExplorer";
@@ -23,8 +23,8 @@ export default function EgitimProgramlarimizPage() {
         subtitle={programsIntro.lead}
         media={
           <PhotoFrame
-            src={assetPath("/images/programs-global-study.jpg")}
-            alt="Birebir ders çalışan öğrenci"
+            src={assetPath(siteImages.programs.src)}
+            alt={siteImages.programs.alt}
             aspectClass="aspect-[16/10]"
             priority
           />
