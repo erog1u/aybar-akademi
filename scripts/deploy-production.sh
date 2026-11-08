@@ -10,4 +10,4 @@ NEXT_PUBLIC_SITE_URL=https://aybaristakademi.com npm run -s build:production
 
 zsh scripts/prune-out.sh
 
-npx -y wrangler@3 pages deploy out --project-name=aybar-akademi --branch=main --commit-dirty=true
+npx -y wrangler@4 pages deploy out --project-name=aybar-akademi --branch=main --commit-dirty=true
