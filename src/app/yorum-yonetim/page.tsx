@@ -20,18 +20,18 @@ export default function ReviewAdminPage() {
     if (!res || !res.ok) {
       setError(res?.status === 401 ? "Anahtar hatalı." : "Liste alınamadı.");
       setRows(null);
-      try { sessionStorage.removeItem(STORE); } catch {}
+      try { localStorage.removeItem(STORE); } catch {}
       return;
     }
     const data = await res.json();
     setRows(data.reviews);
     setKey(k);
-    try { sessionStorage.setItem(STORE, k); } catch {}
+    try { localStorage.setItem(STORE, k); } catch {}
   }, []);
 
   useEffect(() => {
     let saved = "";
-    try { saved = sessionStorage.getItem(STORE) || ""; } catch {}
+    try { saved = localStorage.getItem(STORE) || ""; } catch {}
     if (saved) load(saved);
   }, [load]);
 
@@ -90,6 +90,19 @@ export default function ReviewAdminPage() {
           ))}
         </ul>
       )}
+      {rows ? (
+        <button
+          onClick={() => {
+            try { localStorage.removeItem(STORE); } catch {}
+            setRows(null);
+            setKey("");
+            setInput("");
+          }}
+          className="mt-6 text-sm font-bold text-ink-muted underline"
+        >
+          Çıkış yap
+        </button>
+      ) : null}
       {error ? <p role="alert" className="mt-4 font-semibold text-crimson-700">{error}</p> : null}
       <p className="mt-8 text-xs text-ink-muted">
         Olumsuz yorumlar yalnız olumsuz oldukları için silinmemelidir. Kişisel bilgi, hakaret, reklam veya başka bir kişiyi hedef alan yorumları silin.
