@@ -29,3 +29,7 @@ yarn-error.log*
 tsconfig.tsbuildinfo
 *.tsbuildinfo
 next-env.d.ts
+
+# cloudflare yerel
+.dev.vars
+.wrangler/

@@ -38,7 +38,7 @@ export default function KvkkPage() {
         <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
           KVKK Aydınlatma Metni ve Çerezler
         </h1>
-        <p className="mt-3 text-sm text-ink-muted">Son güncelleme: 5 Kasım 2026</p>
+        <p className="mt-3 text-sm text-ink-muted">Son güncelleme: 8 Kasım 2026</p>
 
         <Block title="Veri sorumlusu">
           <p>
@@ -62,6 +62,24 @@ export default function KvkkPage() {
             paylaştığınız diğer bilgiler de bize bu yollarla ulaşır.
           </p>
           <p>Öğrenci 18 yaşından küçükse formu veli doldurmalıdır.</p>
+        </Block>
+
+        <Block title="Yorumlar">
+          <p>
+            Ana sayfadaki yorum formunda adınız soyadınız, veli ya da öğrenci olduğunuz, puanınız ve yorumunuz istenir.
+            Adınız kaydedilmeden önce ad ve soyadın baş harfi biçimine çevrilir (ör. &quot;Ayşe K.&quot;). E-posta veya
+            telefon istenmez.
+          </p>
+          <p>
+            Yorumlar incelendikten sonra, onayınıza dayanarak (KVKK md. 5/1) sitede herkese açık yayınlanır. Kişisel
+            bilgi, hakaret veya reklam içeren yorumlar yayınlanmaz. Yorum kayıtları Cloudflare altyapısında saklanır.
+            Aynı bağlantıdan kısa sürede çok sayıda yorum gönderilmesini önlemek için IP adresinizden üretilen tek yönlü
+            bir kod en çok 30 gün tutulur.
+          </p>
+          <p>
+            Yorumunuzun kaldırılmasını istediğinizde {siteConfig.contact.email} adresine veya {siteConfig.contact.phoneDisplay}{" "}
+            numarasına yazabilirsiniz. 18 yaşından küçükseniz yorumu veliniz göndermelidir.
+          </p>
         </Block>
 
         <Block title="Neden ve hangi hukuki sebeple işliyoruz?">

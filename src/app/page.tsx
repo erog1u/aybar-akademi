@@ -8,6 +8,7 @@ import HomeSloganSlider from "@/components/home/HomeSloganSlider";
 import { QuoteRequestSection } from "@/components/forms/QuickQuoteForm";
 import { assetPath } from "@/config/site";
 import BrandText from "@/components/brand/BrandText";
+import ReviewsSection from "@/components/home/ReviewsSection";
 
 const YELPAZE = [
   <>
@@ -53,6 +54,8 @@ export default function HomePage() {
         }
         media={<HomeSloganSlider />}
       />
+
+      <ReviewsSection />
 
       <QuoteRequestSection />
 
