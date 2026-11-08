@@ -2,6 +2,7 @@
 import { authorized, json, type AuthEnv } from "../../server/auth";
 import { CONTENT_PATH, lastDeploy, readFile, writeFile, type GitEnv } from "../../server/github";
 import { sameShape } from "../../server/shape";
+import { log } from "../../server/log";
 
 type Env = AuthEnv & GitEnv;
 
@@ -13,7 +14,7 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
       return json({ content: JSON.parse(file.text), sha: file.sha, deploy });
     }
     if (request.method === "PUT") {
-      const body = (await request.json().catch(() => null)) as { content?: unknown; sha?: unknown } | null;
+      const body = (await request.json().catch(() => null)) as { content?: unknown; sha?: unknown; summary?: unknown } | null;
       if (!body || typeof body.sha !== "string") return json({ error: "Geçersiz istek." }, 400);
       const current = JSON.parse((await readFile(env, CONTENT_PATH)).text);
       const err = sameShape(body.content, current);
@@ -22,6 +23,7 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
       if (text.length > 600_000) return json({ error: "İçerik çok büyük." }, 400);
       const result = await writeFile(env, CONTENT_PATH, new TextEncoder().encode(text), "Yönetim paneli: site içeriği güncellendi", body.sha);
       if (!result.ok) return json({ error: "İçerik başka bir yerden değişmiş. Sayfayı yenileyip tekrar deneyin." }, 409);
+      await log(env, request, "Site içeriği kaydedildi", typeof body.summary === "string" ? body.summary : "");
       return json({ ok: true });
     }
     return json({ error: "Desteklenmeyen istek." }, 405);

@@ -26,12 +26,16 @@ const toBase64 = (bytes: Uint8Array) => {
   return btoa(s);
 };
 
-export async function readFile(env: GitEnv, path: string): Promise<{ text: string; sha: string }> {
-  const res = await gh(env, `/contents/${path}?ref=main`);
+const decode = (b64: string) => {
+  const bin = atob(b64.replace(/\n/g, ""));
+  return new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0)));
+};
+
+export async function readFile(env: GitEnv, path: string, ref = "main"): Promise<{ text: string; sha: string }> {
+  const res = await gh(env, `/contents/${path}?ref=${encodeURIComponent(ref)}`);
   if (!res.ok) throw new Error(`GitHub okuma hatası ${res.status}`);
   const data = (await res.json()) as { content: string; sha: string };
-  const bin = atob(data.content.replace(/\n/g, ""));
-  return { text: new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0))), sha: data.sha };
+  return { text: decode(data.content), sha: data.sha };
 }
 
 // sha verilirse dosya o sürümden beri değişmemiş olmalı (GitHub 409 döner).
@@ -50,4 +54,11 @@ export async function lastDeploy(env: GitEnv) {
   if (!res.ok) return null;
   const run = ((await res.json()) as { workflow_runs: { status: string; conclusion: string | null; created_at: string }[] }).workflow_runs[0];
   return run ? { status: run.status, conclusion: run.conclusion, createdAt: run.created_at } : null;
+}
+
+export async function history(env: GitEnv, path: string, count = 15) {
+  const res = await gh(env, `/commits?path=${encodeURIComponent(path)}&sha=main&per_page=${count}`);
+  if (!res.ok) throw new Error(`GitHub geçmiş hatası ${res.status}`);
+  const rows = (await res.json()) as { sha: string; commit: { message: string; committer: { date: string } } }[];
+  return rows.map((r) => ({ sha: r.sha, date: r.commit.committer.date, message: r.commit.message.split("\n")[0] }));
 }

@@ -6,6 +6,8 @@ export interface AuthEnv {
   SESSION_SECRET?: string;
 }
 
+import { log } from "./log";
+
 const enc = new TextEncoder();
 const SESSION_DAYS = 30;
 const MAX_FAILS = 5;
@@ -60,8 +62,10 @@ export async function login(req: Request, env: AuthEnv): Promise<Response> {
       env.DB.prepare("DELETE FROM login_attempts WHERE at < datetime('now', '-1 day')"),
       env.DB.prepare("INSERT INTO login_attempts (ip_hash, at) VALUES (?, datetime('now'))").bind(who),
     ]);
+    await log(env, req, "Hatalı giriş denemesi");
     return json({ error: "Kullanıcı adı veya şifre hatalı." }, 401);
   }
+  await log(env, req, "Giriş yapıldı");
   const exp = Date.now() + SESSION_DAYS * 86400_000;
   return json({ token: `${exp}.${await hmac(env.SESSION_SECRET, `admin|${exp}`)}` });
 }

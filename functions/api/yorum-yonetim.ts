@@ -1,6 +1,7 @@
 // Yönetim: yorumları listeler; yayınla, sebepli gizle, herkese açık yanıt yaz. Silme yok.
 import { authorized, json, type AuthEnv } from "../../server/auth";
 import { HIDE_REASONS } from "../../server/reviews";
+import { log } from "../../server/log";
 
 export const onRequest: PagesFunction<AuthEnv> = async ({ request, env }) => {
   if (!(await authorized(request, env))) return json({ error: "Oturum süresi doldu. Tekrar giriş yapın." }, 401);
@@ -9,6 +10,7 @@ export const onRequest: PagesFunction<AuthEnv> = async ({ request, env }) => {
     const { results } = await env.DB.prepare(
       "SELECT id, name, role, rating, text, status, hide_reason, reply, created_at FROM reviews ORDER BY status = 'held' DESC, created_at DESC LIMIT 300",
     ).all();
+    await env.DB.prepare("INSERT INTO panel_meta (key, value) VALUES ('reviews_seen', datetime('now')) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run();
     return json({ reviews: results, reasons: HIDE_REASONS });
   }
 
@@ -26,6 +28,8 @@ export const onRequest: PagesFunction<AuthEnv> = async ({ request, env }) => {
     } else {
       return json({ error: "Geçersiz işlem." }, 400);
     }
+    const what = body.action === "publish" ? "Yorum yayınlandı" : body.action === "hide" ? `Yorum gizlendi (${HIDE_REASONS[String(body.reason)]})` : "Yoruma yanıt yazıldı";
+    await log(env, request, what, `Yorum #${id}`);
     return json({ ok: true });
   }
 

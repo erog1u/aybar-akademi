@@ -1,4 +1,9 @@
 {
+  "announcement": {
+    "enabled": false,
+    "text": "",
+    "link": ""
+  },
   "home": {
     "heroSubtitle": "33 Yıllık Tecrübe, Birebir ve Özel Çözümler, Yüz Yüze ve Online Eğitim",
     "introParagraphs": [

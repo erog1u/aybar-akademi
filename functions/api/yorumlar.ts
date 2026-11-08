@@ -1,6 +1,7 @@
 // GET: yayındaki ve gizlenen (sebebiyle) yorumlar + ortalama. POST: yeni yorum, filtreden geçerse hemen yayında.
 import { ipHash, json, type AuthEnv } from "../../server/auth";
 import { autoHoldReason, HIDE_REASONS } from "../../server/reviews";
+import { notify, type NotifyEnv } from "../../server/notify";
 
 const clean = (v: unknown, max: number) =>
   typeof v === "string" ? v.replace(/[<>]/g, "").replace(/\s+/g, " ").trim().slice(0, max) : "";
@@ -28,7 +29,7 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ env }) => {
   return json({ reviews, stats });
 };
 
-export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) => {
+export const onRequestPost: PagesFunction<AuthEnv & NotifyEnv> = async ({ request, env, waitUntil }) => {
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -61,5 +62,6 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       "INSERT INTO reviews (name, role, rating, text, status, hide_reason, created_at, ip_hash) VALUES (?, ?, ?, ?, ?, ?, datetime('now'), ?)",
     ).bind(displayName(name), role, rating, text, status, held, hash),
   ]);
+  notify(env, waitUntil, held ? "Yeni yorum (filtrede bekliyor)" : "Yeni yorum yayınlandı", `${displayName(name)} · ${role === "veli" ? "Veli" : "Öğrenci"} · ${rating}/5\n\n${text}\n\nYönetim paneli: https://aybaristakademi.com/yonetim/`);
   return json({ ok: true, status }, 201);
 };

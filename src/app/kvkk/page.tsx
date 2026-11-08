@@ -56,9 +56,10 @@ export default function KvkkPage() {
             ders tercihi ve iletişim numarası istenir.
           </p>
           <p>
-            Form bilgileri bu sitede kaydedilmez. Gönder düğmesine bastığınızda bilgiler WhatsApp bağlantısına yazılır
-            ve WhatsApp&apos;ta mesaj olarak açılır. Bu sırada bilgiler, mesajı göndermeniz beklenmeden WhatsApp&apos;a
-            (Meta) iletilebilir. Mesajı siz gönderirseniz bize ulaşır. WhatsApp, telefon ya da e-posta ile
+            Gönder düğmesine bastığınızda form bilgileri, size dönüş yapabilmemiz için Cloudflare altyapısında
+            kaydedilir ve yalnız kurumun yönetim panelinde görünür. Aynı anda bilgiler WhatsApp bağlantısına yazılır ve
+            WhatsApp&apos;ta mesaj olarak açılır. Bu sırada bilgiler, mesajı göndermeniz beklenmeden WhatsApp&apos;a
+            (Meta) iletilebilir. WhatsApp, telefon ya da e-posta ile
             paylaştığınız diğer bilgiler de bize bu yollarla ulaşır.
           </p>
           <p>Öğrenci 18 yaşından küçükse formu veli doldurmalıdır.</p>
@@ -111,6 +112,10 @@ export default function KvkkPage() {
 
         <Block title="Ne kadar saklıyoruz?">
           <p>Kişisel veriler işlenme amacının gerektirdiği ve mevzuatın öngördüğü süre kadar saklanır.</p>
+          <p>
+            Sitede kaydedilen teklif formları en çok 1 yıl sonra silinir. Kötüye kullanımı önlemek için IP adresinden
+            üretilen tek yönlü kod form kaydında en çok 2 gün tutulur.
+          </p>
         </Block>
 
         <Block title="Haklarınız (KVKK md. 11)">
@@ -127,6 +132,10 @@ export default function KvkkPage() {
 
         <Block title="Çerezler">
           <p>Bu site reklam veya analiz çerezi kullanmaz.</p>
+          <p>
+            Hangi sayfanın kaç kez açıldığı, çerez kullanılmadan ve kişisel veri tutulmadan, yalnız günlük toplam sayı
+            olarak kaydedilir.
+          </p>
           <p>Cloudflare, ziyaretçiye güvenlik sorgusu gösterirse bunun için kısa süreli bir çerez kullanabilir.</p>
           <p>
             İletişim sayfasındaki harita yalnız &quot;Haritayı göster&quot; düğmesine bastığınızda yüklenir. Harita

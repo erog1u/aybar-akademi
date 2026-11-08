@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import Link from "next/link";
-import { getWhatsAppUrl, siteConfig } from "@/config/site";
+import { BASE_PATH, getWhatsAppUrl, siteConfig } from "@/config/site";
 import { SectionHeading } from "@/components/layout/PageHero";
 import {
   sanitizeText,
@@ -75,6 +75,16 @@ export default function QuickQuoteForm() {
     // Çift tıklama iki sekme açmasın; bağlantı pencere engellendiğinde de çalışır.
     if (Date.now() - lastOpenedAt.current < 3000) return;
     lastOpenedAt.current = Date.now();
+    // Talep yönetim paneline de kaydedilir; kayıt başarısız olsa da WhatsApp mesajı açılır.
+    fetch(`${BASE_PATH}/api/talep`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        student: studentCheck.cleanValue, parent: parentCheck.cleanValue, level: levelCheck, district: districtCheck,
+        format, lessons: lessonsCheck, phone: phoneCheck.display,
+      }),
+    }).catch(() => {});
     window.open(url, "_blank", "noopener,noreferrer");
   };
 

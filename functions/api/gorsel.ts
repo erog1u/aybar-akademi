@@ -1,6 +1,7 @@
 // Görsel yükleme: panel görseli tarayıcıda küçültüp JPEG/WEBP/PNG olarak gönderir; public/images/yuklenen/ altına commit edilir.
 import { authorized, json, type AuthEnv } from "../../server/auth";
 import { writeFile, type GitEnv } from "../../server/github";
+import { log } from "../../server/log";
 
 const TYPES: Record<string, string> = { "image/jpeg": "jpg", "image/webp": "webp", "image/png": "png" };
 const MAX_BYTES = 3 * 1024 * 1024;
@@ -16,6 +17,7 @@ export const onRequestPost: PagesFunction<AuthEnv & GitEnv> = async ({ request, 
   try {
     const result = await writeFile(env, `public/images/yuklenen/${name}`, bytes, `Yönetim paneli: görsel yüklendi (${name})`);
     if (!result.ok) return json({ error: "Görsel kaydedilemedi, tekrar deneyin." }, 409);
+    await log(env, request, "Görsel yüklendi", name);
     return json({ src: `/images/yuklenen/${name}` });
   } catch (e) {
     return json({ error: e instanceof Error ? e.message : "Beklenmeyen hata." }, 500);
