@@ -10,6 +10,7 @@ import { assetPath } from "@/config/site";
 import RichText from "@/components/brand/RichText";
 import { homeContent, siteImages } from "@/data/content";
 import ReviewsSection from "@/components/home/ReviewsSection";
+import CommemorationDialog from "@/components/home/CommemorationDialog";
 
 export default function HomePage() {
   return (
@@ -41,6 +42,7 @@ export default function HomePage() {
         media={<HomeSloganSlider />}
       />
 
+      <CommemorationDialog />
       <ReviewsSection />
 
       <QuoteRequestSection />
