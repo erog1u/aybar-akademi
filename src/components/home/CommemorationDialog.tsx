@@ -45,7 +45,6 @@ export default function CommemorationDialog() {
         <p id="ataturk-anma-baslik" className="text-base font-extrabold text-ink">
           Ulu Önder Mustafa Kemal Atatürk&apos;ü saygı ve özlemle anıyoruz.
         </p>
-        <p className="mt-1 text-sm text-ink-muted">10 Kasım 1938 · AYBARİst AKADEMİ</p>
         <button
           type="button"
           onClick={close}
