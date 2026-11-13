@@ -579,7 +579,7 @@ function Summary({ call, go }: { call: Call; go: (t: Tab) => void }) {
   );
 }
 
-type Req = { id: number; created_at: string; student: string; parent: string; level: string; district: string; format: string; lessons: string; phone: string; status: string; note: string | null };
+type Req = { id: number; created_at: string; student: string; parent: string; level: string; district: string; format: string; lessons: string; phone: string; status: string; note: string | null; sms_consent: number };
 
 function Requests({ call }: { call: Call }) {
   const [rows, setRows] = useState<Req[]>([]);
@@ -605,6 +605,7 @@ function Requests({ call }: { call: Call }) {
             <p className="mt-1 font-extrabold">{r.parent} <span className="font-normal">(öğrenci: {r.student})</span></p>
             <p className="mt-1 text-sm">{r.level} · {r.district} · {r.format}</p>
             <p className="text-sm">Dersler: {r.lessons}</p>
+            <p className="text-sm">SMS onayı: {r.sms_consent ? "Var" : "Yok (tanıtım SMS'i gönderilmez)"}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               <a href={`tel:${r.phone.replace(/[^\d+]/g, "")}`} className="flex min-h-11 items-center rounded-xl bg-cobalt-700 px-4 text-sm font-bold text-white">Ara: {r.phone}</a>
               <select

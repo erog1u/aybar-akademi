@@ -118,7 +118,15 @@ export default function Footer() {
             © {new Date().getFullYear()} <span className="brand-on-dark"><BrandText>{siteConfig.name}</BrandText></span> ·{" "}
             {siteConfig.founder.name} ({siteConfig.founder.role}) ·{" "}
             <Link href="/kvkk/" className="underline hover:text-white">
-              KVKK ve Çerezler
+              KVKK
+            </Link>{" "}
+            ·{" "}
+            <Link href="/cerez-politikasi/" className="underline hover:text-white">
+              Çerez Politikası
+            </Link>{" "}
+            ·{" "}
+            <Link href="/ticari-elektronik-ileti-onayi/" className="underline hover:text-white">
+              Ticari İleti Onayı
             </Link>
           </div>
 

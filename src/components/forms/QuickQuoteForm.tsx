@@ -31,6 +31,7 @@ export default function QuickQuoteForm() {
   const [format, setFormat] = useState("");
   const [lessons, setLessons] = useState("");
   const [phone, setPhone] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
   const [errors, setErrors] = useState(EMPTY_ERRORS);
   const [sentUrl, setSentUrl] = useState("");
   const lastOpenedAt = useRef(0);
@@ -82,7 +83,7 @@ export default function QuickQuoteForm() {
       keepalive: true,
       body: JSON.stringify({
         student: studentCheck.cleanValue, parent: parentCheck.cleanValue, level: levelCheck, district: districtCheck,
-        format, lessons: lessonsCheck, phone: phoneCheck.display,
+        format, lessons: lessonsCheck, phone: phoneCheck.display, smsConsent,
       }),
     }).catch(() => {});
     window.open(url, "_blank", "noopener,noreferrer");
@@ -142,6 +143,21 @@ export default function QuickQuoteForm() {
           required
         />
       </Field>
+      {/* İsteğe bağlı; işaretsiz gelir. Onay metni avukat metnidir (/ticari-elektronik-ileti-onayi/). */}
+      <label className="flex gap-3 text-xs leading-relaxed text-ink-muted">
+        <input
+          type="checkbox"
+          checked={smsConsent}
+          onChange={(e) => setSmsConsent(e.target.checked)}
+          className="mt-0.5 h-5 w-5 shrink-0 accent-cobalt-700"
+        />
+        <span>
+          <Link href="/ticari-elektronik-ileti-onayi/" className="font-bold text-crimson-700 underline">
+            Ticari Elektronik İleti Onay Metni
+          </Link>
+          &apos;ni okudum; tarafıma SMS yoluyla ticari elektronik ileti gönderilmesine onay veriyorum. (İsteğe bağlı)
+        </span>
+      </label>
       <button
         type="submit"
         className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-crimson-600 px-5 text-base font-extrabold text-white hover:bg-crimson-700"
@@ -149,7 +165,7 @@ export default function QuickQuoteForm() {
         Hemen Hızlı Teklif Alın!
       </button>
       <p className="text-xs leading-relaxed text-ink-muted">
-        Bilgileriniz sitede saklanmaz. Düğmeye bastığınızda bilgiler WhatsApp bağlantısına yazılır ve mesajı göndermeniz beklenmeden WhatsApp&apos;a (Meta) iletilebilir. Mesajı gönderirseniz bize ulaşır. Ayrıntı:{" "}
+        Düğmeye bastığınızda form bilgileriniz, sizinle iletişime geçilebilmesi için kaydedilir ve WhatsApp bağlantısına aktarılır. Ayrıntı:{" "}
         <Link href="/kvkk/" className="font-bold text-crimson-700 underline">
           KVKK Aydınlatma Metni
         </Link>

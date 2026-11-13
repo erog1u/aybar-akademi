@@ -8,7 +8,7 @@ export const onRequest: PagesFunction<AuthEnv> = async ({ request, env }) => {
   if (!(await authorized(request, env))) return json({ error: "Oturum süresi doldu. Tekrar giriş yapın." }, 401);
   if (request.method === "GET") {
     const { results } = await env.DB.prepare(
-      "SELECT id, created_at, student, parent, level, district, format, lessons, phone, status, note FROM requests ORDER BY status = 'yeni' DESC, created_at DESC LIMIT 300",
+      "SELECT id, created_at, student, parent, level, district, format, lessons, phone, status, note, sms_consent FROM requests ORDER BY status = 'yeni' DESC, created_at DESC LIMIT 300",
     ).all();
     return json({ requests: results, statuses: STATUSES });
   }
