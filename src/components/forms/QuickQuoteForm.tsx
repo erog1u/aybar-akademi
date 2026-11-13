@@ -40,7 +40,7 @@ export default function QuickQuoteForm() {
     event.preventDefault();
     const next: Partial<Record<FieldKey, string>> = {};
     const studentCheck = validateName(student, true);
-    const parentCheck = validateName(parent, true);
+    const parentCheck = validateName(parent, false); // yetişkin öğrenci veli adı yazmaz (KVKK metni 2-A)
     const levelCheck = sanitizeText(level, 80);
     const districtCheck = sanitizeText(district, 80);
     const lessonsCheck = sanitizeText(lessons, 200);
@@ -63,7 +63,7 @@ export default function QuickQuoteForm() {
       "Merhaba, hızlı teklif almak istiyorum.",
       "",
       `Öğrenci Adı Soyadı: ${studentCheck.cleanValue}`,
-      `Veli Adı Soyadı: ${parentCheck.cleanValue}`,
+      ...(parentCheck.cleanValue ? [`Veli Adı Soyadı: ${parentCheck.cleanValue}`] : []),
       `Öğrenci Sınıf Düzeyi ya da Yaşı: ${levelCheck}`,
       `İlçe/Semt: ${districtCheck}`,
       `Yüz yüze mi online mı?: ${format}`,
@@ -97,8 +97,8 @@ export default function QuickQuoteForm() {
       <Field label="Öğrenci Adı Soyadı" error={errors.student}>
         <input className={fieldClass} value={student} onChange={(e) => setStudent(e.target.value)} autoComplete="off" required />
       </Field>
-      <Field label="Veli Adı Soyadı" error={errors.parent}>
-        <input className={fieldClass} value={parent} onChange={(e) => setParent(e.target.value)} autoComplete="name" required />
+      <Field label="Veli Adı Soyadı (öğrenci 18 yaşından küçükse)" error={errors.parent}>
+        <input className={fieldClass} value={parent} onChange={(e) => setParent(e.target.value)} autoComplete="name" />
       </Field>
       <Field label="Öğrenci Sınıf Düzeyi ya da Yaşı" error={errors.level}>
         <input className={fieldClass} value={level} onChange={(e) => setLevel(e.target.value)} required />

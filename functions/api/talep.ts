@@ -15,7 +15,7 @@ export const onRequestPost: PagesFunction<AuthEnv & NotifyEnv> = async ({ reques
     phone: clean(body.phone, 20).replace(/[^\d+ ]/g, ""),
   };
   const sms = body.smsConsent === true ? 1 : 0; // yalnız kutu işaretlendiyse onay sayılır
-  if (f.student.length < 2 || f.parent.length < 2 || f.phone.replace(/\D/g, "").length < 10) return json({ error: "Eksik bilgi." }, 400);
+  if (f.student.length < 2 || f.phone.replace(/\D/g, "").length < 10) return json({ error: "Eksik bilgi." }, 400);
   if (f.format !== "Yüz yüze" && f.format !== "Online") return json({ error: "Eksik bilgi." }, 400);
 
   const day = new Date().toISOString().slice(0, 10);
@@ -31,8 +31,8 @@ export const onRequestPost: PagesFunction<AuthEnv & NotifyEnv> = async ({ reques
       "INSERT INTO requests (created_at, student, parent, level, district, format, lessons, phone, ip_hash, sms_consent) VALUES (datetime('now'), ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     ).bind(f.student, f.parent, f.level, f.district, f.format, f.lessons, f.phone, hash, sms),
   ]);
-  notify(env, waitUntil, `Yeni teklif talebi: ${f.parent}`, [
-    `Öğrenci: ${f.student}`, `Veli: ${f.parent}`, `Sınıf/yaş: ${f.level}`, `İlçe/semt: ${f.district}`,
+  notify(env, waitUntil, `Yeni teklif talebi: ${f.parent || f.student}`, [
+    `Öğrenci: ${f.student}`, `Veli: ${f.parent || "-"}`, `Sınıf/yaş: ${f.level}`, `İlçe/semt: ${f.district}`,
     `Ders şekli: ${f.format}`, `Dersler: ${f.lessons}`, `Telefon: ${f.phone}`, `SMS onayı: ${sms ? "Var" : "Yok"}`, "", "Yönetim paneli: https://aybaristakademi.com/yonetim/",
   ].join("\n"));
   return json({ ok: true }, 201);

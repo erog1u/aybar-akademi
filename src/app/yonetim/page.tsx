@@ -602,7 +602,7 @@ function Requests({ call }: { call: Call }) {
         {rows.map((r) => (
           <li key={r.id} className={`rounded-2xl border p-4 ${r.status === "yeni" ? "border-crimson-600 bg-crimson-50" : "border-cobalt-900/10 bg-white"}`}>
             <p className="text-sm text-ink-muted">{when(r.created_at)} · {statuses[r.status] || r.status}</p>
-            <p className="mt-1 font-extrabold">{r.parent} <span className="font-normal">(öğrenci: {r.student})</span></p>
+            <p className="mt-1 font-extrabold">{r.parent ? <>{r.parent} <span className="font-normal">(öğrenci: {r.student})</span></> : r.student}</p>
             <p className="mt-1 text-sm">{r.level} · {r.district} · {r.format}</p>
             <p className="text-sm">Dersler: {r.lessons}</p>
             <p className="text-sm">SMS onayı: {r.sms_consent ? "Var" : "Yok (tanıtım SMS'i gönderilmez)"}</p>
