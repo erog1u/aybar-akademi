@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { getWhatsAppUrl } from "@/config/site";
+import { Phone } from "lucide-react";
+import { getWhatsAppUrl, siteConfig } from "@/config/site";
 
 interface WhatsAppFloatingButtonProps {
   customMessage?: string;
@@ -37,6 +38,15 @@ export default function WhatsAppFloatingButton({
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span>{tooltipText}</span>
       </div>
+
+      {/* Mobilde tek dokunuşla arama (reklam trafiği için); masaüstünde menüdeki numara yeterli. */}
+      <a
+        href={siteConfig.contact.phoneHref}
+        aria-label={`Telefonla ara: ${siteConfig.contact.phoneDisplay}`}
+        className="pointer-events-auto lg:hidden h-14 w-14 min-h-14 min-w-14 rounded-full bg-cobalt-700 hover:bg-cobalt-900 active:scale-95 text-white shadow-xl flex items-center justify-center transition-colors focus-visible:ring-2 focus-visible:ring-cobalt-700 focus-visible:outline-none touch-manipulation"
+      >
+        <Phone className="h-6 w-6" aria-hidden="true" />
+      </a>
 
       <a
         href={safeUrl}
