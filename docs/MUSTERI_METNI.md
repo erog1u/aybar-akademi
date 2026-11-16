@@ -221,3 +221,7 @@ Kurucumuzun Mesajı sayfası sloganı: Online canlı dersler ile yüzyüze özel
 Yol tarifi eklenecek.
 Telefon: +90 543 976 67 34 / 0543 976 67 34 
 
+
+
+---
+EK (16.11.2026): Reklam ajansının (Brandlydijital & Digitalworks) isteği ve Bahadır Bey'in bilgisi dahilinde, Programlar sayfasında Sınav Hazırlık, Dünya Dilleri ve Ulusal Yabancı Dil Sınavları bölümlerindeki program başlıklarının sonuna "Kursu" eklendi (reklam anahtar kelimeleriyle uyum). Geri alınmaz; değişiklik müşteri onayıyla yapılır.

@@ -147,7 +147,7 @@
       "summary": "Sınav maratonunda kitlesel eğitimlerin kalabalığında kaybolmayın. Kişiye özel stratejilerle, eksiklerinizi avantaja dönüştürüyoruz.",
       "items": [
         {
-          "title": "YKS (TYT - AYT)",
+          "title": "YKS (TYT - AYT) Kursu",
           "subjects": [
             "Matematik",
             "Geometri",
@@ -165,7 +165,7 @@
           ]
         },
         {
-          "title": "LGS",
+          "title": "LGS Kursu",
           "subjects": [
             "Matematik",
             "Fen Bilgisi",
@@ -176,7 +176,7 @@
           ]
         },
         {
-          "title": "KPSS (Genel Yetenek - Genel Kültür)",
+          "title": "KPSS (Genel Yetenek - Genel Kültür) Kursu",
           "subjects": [
             "Türkçe",
             "Matematik",
@@ -186,7 +186,7 @@
           ]
         },
         {
-          "title": "KPSS Eğitim Bilimleri (Öğretmen Adayları İçin)",
+          "title": "KPSS Eğitim Bilimleri Kursu (Öğretmen Adayları İçin)",
           "featured": true,
           "leaderNote": "AYBARİst AKADEMİ Kurucusu Bahadır AYBAR Liderliğinde Tüm Eğitim Bilimleri Birebir Özel Dersleri.",
           "description": "Tüm Eğitim Bilimleri dersleri bizzat kurucumuz Bahadır AYBAR tarafından yüksek akademik standartlarda verilmektedir.",
@@ -200,7 +200,7 @@
           ]
         },
         {
-          "title": "ALES",
+          "title": "ALES Kursu",
           "subjects": [
             "Türkçe",
             "Sözel Mantık",
@@ -285,7 +285,7 @@
       "summary": "Yabancı dil eğitiminde sadece konuşmayı değil, kariyerinizi şekillendirecek küresel sınavları hedefliyoruz.",
       "items": [
         {
-          "title": "İngilizce",
+          "title": "İngilizce Kursu",
           "subjects": [
             "IELTS",
             "TOEFL iBT",
@@ -293,7 +293,7 @@
           ]
         },
         {
-          "title": "Almanca",
+          "title": "Almanca Kursu",
           "subjects": [
             "Goethe-Zertifikat",
             "TestDaF",
@@ -301,7 +301,7 @@
           ]
         },
         {
-          "title": "Fransızca",
+          "title": "Fransızca Kursu",
           "subjects": [
             "DELF",
             "DALF",
@@ -309,13 +309,13 @@
           ]
         },
         {
-          "title": "Rusça",
+          "title": "Rusça Kursu",
           "subjects": [
             "TORFL / TRKI"
           ]
         },
         {
-          "title": "İtalyanca",
+          "title": "İtalyanca Kursu",
           "subjects": [
             "CELI",
             "CILS",
@@ -323,40 +323,40 @@
           ]
         },
         {
-          "title": "İspanyolca",
+          "title": "İspanyolca Kursu",
           "subjects": [
             "DELE",
             "SIELE"
           ]
         },
         {
-          "title": "Arapça",
+          "title": "Arapça Kursu",
           "subjects": [
             "ALPT (Arabic Language Proficiency Test)"
           ]
         },
         {
-          "title": "Felemenkçe",
+          "title": "Felemenkçe Kursu",
           "subjects": [
             "CNaVT",
             "Staatsexamen NT2"
           ]
         },
         {
-          "title": "Çince",
+          "title": "Çince Kursu",
           "subjects": [
             "HSK",
             "HSKK (Speaking Test)"
           ]
         },
         {
-          "title": "Japonca",
+          "title": "Japonca Kursu",
           "subjects": [
             "JLPT"
           ]
         },
         {
-          "title": "Portekizce",
+          "title": "Portekizce Kursu",
           "subjects": [
             "CAPLE",
             "Celpe-Bras"
@@ -371,7 +371,7 @@
       "title": "Türkiye Özelindeki Ulusal Yabancı Dil Sınavları",
       "items": [
         {
-          "title": "YDT",
+          "title": "YDT Kursu",
           "subjects": [
             "İngilizce",
             "Almanca",
@@ -381,7 +381,7 @@
           ]
         },
         {
-          "title": "YDS",
+          "title": "YDS Kursu",
           "subjects": [
             "İngilizce",
             "Almanca",
