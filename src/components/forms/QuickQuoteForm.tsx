@@ -1,5 +1,6 @@
 "use client";
 
+import { pushEvent } from "@/components/layout/CookieConsent";
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { BASE_PATH, getWhatsAppUrl, siteConfig } from "@/config/site";
@@ -76,6 +77,7 @@ export default function QuickQuoteForm() {
     // Çift tıklama iki sekme açmasın; bağlantı pencere engellendiğinde de çalışır.
     if (Date.now() - lastOpenedAt.current < 3000) return;
     lastOpenedAt.current = Date.now();
+    pushEvent("form_basarili"); // reklam ölçümü; yalnız çerez onayı varsa, form verisi gönderilmez
     // Talep yönetim paneline de kaydedilir; kayıt başarısız olsa da WhatsApp mesajı açılır.
     fetch(`${BASE_PATH}/api/talep`, {
       method: "POST",

@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
+import CookieConsent from "@/components/layout/CookieConsent";
 import { BASE_PATH } from "@/config/site";
 
 export default function SiteShell({
@@ -38,6 +39,7 @@ export default function SiteShell({
         <Footer />
       </div>
       {pathname?.startsWith("/yonetim") ? null : <FloatingWhatsApp />}
+      {pathname?.startsWith("/yonetim") ? null : <CookieConsent />}
     </>
   );
 }
