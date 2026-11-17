@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { openCookiePreferences } from "@/components/layout/CookieConsent";
+import { GTM_ID, openCookiePreferences } from "@/components/layout/CookieConsent";
 import { ArrowUpRight, Phone, Mail, MapPin, Globe2 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl, assetPath } from "@/config/site";
 import { programCategories } from "@/data/content";
@@ -129,7 +129,7 @@ export default function Footer() {
             <Link href="/ticari-elektronik-ileti-onayi/" className="underline hover:text-white">
               Ticari İleti Onayı
             </Link>
-            {process.env.NEXT_PUBLIC_GTM_ID ? (
+            {GTM_ID ? (
               <>
                 {" "}·{" "}
                 <button type="button" onClick={openCookiePreferences} className="underline hover:text-white">

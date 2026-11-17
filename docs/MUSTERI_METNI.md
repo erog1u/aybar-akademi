@@ -225,3 +225,7 @@ Telefon: +90 543 976 67 34 / 0543 976 67 34
 
 ---
 EK (16.11.2026): Reklam ajansının (Brandlydijital & Digitalworks) isteği ve Bahadır Bey'in bilgisi dahilinde, Programlar sayfasında Sınav Hazırlık, Dünya Dilleri ve Ulusal Yabancı Dil Sınavları bölümlerindeki program başlıklarının sonuna "Kursu" eklendi (reklam anahtar kelimeleriyle uyum). Geri alınmaz; değişiklik müşteri onayıyla yapılır.
+
+## EK (17.11.2026): Reklam ölçümü ve yasal metinler
+Reklam ajansının (Brandlydijital & Digitalworks.tr) isteğiyle Google Tag Manager (GTM-W7DQ2MDB) eklendi. Etiketler yalnız ziyaretçi çerez penceresinde "Kabul et" derse yüklenir; "Reddet" ve alt bilgideki "Çerez Tercihleri" bağlantısı var. Teklif formu gönderiminde, onay varsa `form_basarili` olayı gönderilir (form verisi gönderilmez).
+Bu nedenle Çerez Politikası ve KVKK Aydınlatma Metni'ne Google Ads / Google Analytics ve açık rıza bölümleri eklendi (son güncelleme 17 Kasım 2026). Değişiklik Bahadır Bey'in bilgisiyle yapıldı; avukatın son kontrolüne gönderilmesi önerildi.

@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { IS_PREVIEW_MODE } from "@/config/site";
 
 // GTM yalnız bu değişken verilmiş derlemede ve ziyaretçi "Kabul et" dedikten sonra yüklenir.
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+// Reklam ajansının kapsayıcısı (17.11.2026). Kimlik değişirse burası değişir; önizleme derlemesinde kapalı.
+export const GTM_ID = IS_PREVIEW_MODE ? "" : process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-W7DQ2MDB";
 const KEY = "cerez-onay"; // "kabul" | "red"
 const OPEN_EVENT = "cerez-tercih-ac";
 

@@ -126,6 +126,10 @@ export const kvkkDoc: LegalDoc = {
       "text": "Yorumların kötüye kullanılmasını önlemek amacıyla IP adresinden oluşturulan tek yönlü kod gibi teknik güvenlik verileri de sınırlı süreyle işlenebilir."
     },
     {
+      "t": "p",
+      "text": "Çerez onay penceresinde açık rıza vermeniz hâlinde, çerezler aracılığıyla cihaz, tarayıcı ve site kullanımına ilişkin teknik veriler ile reklam etkileşimi bilgileri toplanır. Ayrıntılı bilgi Çerez Politikası'nda yer almaktadır."
+    },
+    {
       "t": "h2",
       "text": "3. Kişisel Verilerin İşlenme Amaçları ve Hukuki Sebepleri"
     },
@@ -142,6 +146,7 @@ export const kvkkDoc: LegalDoc = {
         "Eğitim hizmetlerine ilişkin sözleşmelerin kurulması ve ifası,",
         "Kayıt, ödeme ve faturalandırma işlemlerinin yürütülmesi,",
         "Müşteri ve talep süreçlerinin yönetilmesi,",
+        "Açık rıza verilmesi hâlinde internet sitesi reklamlarının etkinliğinin ölçülmesi ve site kullanımının analiz edilmesi,",
         "İnternet sitesinin güvenliğinin sağlanması,",
         "Yorum ve değerlendirmelerin yönetilmesi,",
         "Hukuki yükümlülüklerin yerine getirilmesi,",
@@ -158,6 +163,7 @@ export const kvkkDoc: LegalDoc = {
         "KVKK m. 5/2-c: Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması.",
         "KVKK m. 5/2-ç: Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması.",
         "KVKK m. 5/2-f: İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması.",
+        "KVKK m. 5/1: Açık rıza (yalnızca reklam ve analiz çerezleri için; rıza dilediğiniz zaman sitenin alt kısmındaki \"Çerez Tercihleri\" bağlantısından geri alınabilir).",
         "KVKK m. 5/1: İlgili kişinin belirli bir konuya ilişkin bilgilendirmeye dayanan ve özgür iradesiyle açıklanan açık rızasının bulunması."
       ]
     },
@@ -179,6 +185,7 @@ export const kvkkDoc: LegalDoc = {
         "Teknik altyapı ve barındırma hizmeti sağlayıcıları: İnternet sitesinin barındırılması, güvenliğinin sağlanması ve form bilgilerinin işlenmesi amacıyla Cloudflare.",
         "İletişim hizmeti sağlayıcıları: WhatsApp üzerinden iletişimin gerçekleştirilmesi amacıyla Meta Platforms.",
         "E-posta hizmeti sağlayıcıları: Kurumsal e-posta iletişiminin yürütülmesi amacıyla Google Workspace.",
+        "Reklam ve analiz hizmeti sağlayıcıları: Açık rıza verilmesi hâlinde reklam ölçümü ve site kullanım analizi amacıyla Google (Google Tag Manager, Google Ads, Google Analytics).",
         "Teknik hizmet sağlayıcıları: İnternet sitesinin geliştirilmesi ve teknik bakımının yapılması amacıyla Eroğlu Solutions.",
         "Yetkili kamu kurum ve kuruluşları: Mevzuattan kaynaklanan yükümlülüklerin yerine getirilmesi veya hukuki taleplerin karşılanması amacıyla ilgili kurum ve kuruluşlar."
       ]
@@ -279,7 +286,7 @@ export const kvkkDoc: LegalDoc = {
       "text": "Bu kapsamda teklif ve kayıt süreçlerine ilişkin işlemlerin veli veya kanuni temsilci aracılığıyla yürütülmesi esastır. Çocuklara ait kişisel veriler yalnızca ilgili hizmetin sunulması ve belirtilen işleme amaçlarının gerçekleştirilmesi için gerekli olduğu ölçüde işlenir."
     }
   ],
-  "updated": "Son Güncelleme: 10 Kasım 2026"
+  "updated": "Son Güncelleme: 17 Kasım 2026"
 };
 
 export const cerezDoc: LegalDoc = {
@@ -323,7 +330,7 @@ export const cerezDoc: LegalDoc = {
     },
     {
       "t": "p",
-      "text": "İnternet sitemizde reklam, pazarlama veya kullanıcı davranışlarını analiz etmeye yönelik çerezler kullanılmamaktadır."
+      "text": "İnternet sitemizde reklam ve analiz çerezleri yalnızca ziyaretçinin çerez onay penceresinde \"Kabul et\" seçeneğiyle açık rıza vermesi hâlinde kullanılır. Onay verilmezse bu çerezler kullanılmaz."
     },
     {
       "t": "p",
@@ -363,11 +370,22 @@ export const cerezDoc: LegalDoc = {
     },
     {
       "t": "h3",
-      "text": "C. Reklam ve Analiz Çerezleri"
+      "text": "C. Reklam ve Analiz Çerezleri (açık rızaya bağlı)"
     },
     {
       "t": "p",
-      "text": "İnternet sitemizde mevcut teknik yapı itibarıyla reklam, pazarlama veya kullanıcı davranışlarını izlemeye yönelik analiz çerezleri kullanılmamaktadır."
+      "text": "Ziyaretçinin açık rıza vermesi hâlinde, Google Tag Manager aracılığıyla aşağıdaki Google hizmetleri yüklenir:"
+    },
+    {
+      "t": "ul",
+      "items": [
+        "Google Ads: reklamların etkinliğinin ölçülmesi (telefon, WhatsApp ve teklif formu üzerinden iletişime geçilip geçilmediği) ve gerektiğinde yeniden pazarlama,",
+        "Google Analytics 4: site kullanımının istatistiksel olarak analiz edilmesi."
+      ]
+    },
+    {
+      "t": "p",
+      "text": "Bu kapsamda Google tarafından _ga, _ga_* ve _gcl_au gibi çerezler kullanılabilir. Çerezlerin saklama süreleri Google tarafından belirlenir. Teklif formuna yazılan bilgiler site tarafından bu hizmetlere iletilmez; yalnızca formun gönderildiği bilgisi ölçülür."
     },
     {
       "t": "p",
@@ -388,12 +406,13 @@ export const cerezDoc: LegalDoc = {
         "Tarayıcı ve cihaz bilgileri,",
         "Bağlantı ve güvenlik kayıtları,",
         "Ziyaret edilen sayfalara ilişkin teknik bilgiler,",
-        "Kullanılan harita hizmetine ilişkin bağlantı bilgileri."
+        "Kullanılan harita hizmetine ilişkin bağlantı bilgileri,",
+        "Açık rıza verilmesi hâlinde, reklam etkileşimi ve site kullanımına ilişkin bilgiler."
       ]
     },
     {
       "t": "p",
-      "text": "Bu veriler, ilgili hizmetin çalıştırılması, internet sitesi güvenliğinin sağlanması ve talep edilen hizmetin sunulması amaçlarıyla sınırlı olarak işlenir."
+      "text": "Bu veriler, ilgili hizmetin çalıştırılması, internet sitesi güvenliğinin sağlanması, talep edilen hizmetin sunulması ve açık rıza verilmesi hâlinde reklam ölçümü ile site kullanım analizi amaçlarıyla sınırlı olarak işlenir."
     },
     {
       "t": "h2",
@@ -406,6 +425,10 @@ export const cerezDoc: LegalDoc = {
     {
       "t": "p",
       "text": "Kesinlikle gerekli olmayan işlevsel, analiz, performans veya reklam çerezlerinin kullanılması planlanması hâlinde, ilgili çerezlerin kullanımından önce gerekli bilgilendirme yapılır ve hukuken gerekli olduğu durumlarda kullanıcıların açık rızası alınır."
+    },
+    {
+      "t": "p",
+      "text": "Bu kapsamda, Bölüm 3-C'de belirtilen reklam ve analiz çerezleri KVKK'nın 5'inci maddesinin birinci fıkrası uyarınca açık rızanıza dayanılarak kullanılır. Açık rızanızı dilediğiniz zaman geri alabilirsiniz."
     },
     {
       "t": "h2",
@@ -423,7 +446,8 @@ export const cerezDoc: LegalDoc = {
       "t": "ul",
       "items": [
         "Cloudflare, internet sitesinin barındırılması ve güvenlik hizmetleri,",
-        "Google, kullanıcı tarafından talep edilmesi hâlinde harita hizmeti"
+        "Google, kullanıcı tarafından talep edilmesi hâlinde harita hizmeti,",
+        "Google, açık rıza verilmesi hâlinde reklam ölçümü ve site kullanım analizi (Google Tag Manager, Google Ads, Google Analytics)"
       ]
     },
     {
@@ -453,6 +477,10 @@ export const cerezDoc: LegalDoc = {
     {
       "t": "p",
       "text": "Çerez ayarları, kullandığınız tarayıcıya göre değişiklik gösterebilir."
+    },
+    {
+      "t": "p",
+      "text": "Reklam ve analiz çerezlerine ilişkin tercihinizi, internet sitesinin alt kısmındaki \"Çerez Tercihleri\" bağlantısından dilediğiniz zaman değiştirebilirsiniz. Onayınızı geri almanız hâlinde bu çerezler kullanılmaz ve sitemiz tarafından tarayıcınıza yazılmış olanlar silinir."
     },
     {
       "t": "h2",
@@ -491,7 +519,7 @@ export const cerezDoc: LegalDoc = {
       "text": "E-posta: baybar@aybaristakademi.com"
     }
   ],
-  "updated": "Son Güncelleme: 10 Kasım 2026"
+  "updated": "Son Güncelleme: 17 Kasım 2026"
 };
 
 export const iletiDoc: LegalDoc = {
