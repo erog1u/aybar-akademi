@@ -480,7 +480,7 @@ export const cerezDoc: LegalDoc = {
     },
     {
       "t": "p",
-      "text": "Reklam ve analiz çerezlerine ilişkin tercihinizi, internet sitesinin alt kısmındaki \"Çerez Tercihleri\" bağlantısından dilediğiniz zaman değiştirebilirsiniz. Onayınızı geri almanız hâlinde bu çerezler kullanılmaz ve sitemiz tarafından tarayıcınıza yazılmış olanlar silinir."
+      "text": "Çerez onay penceresinde \"Yalnız zorunlu\", \"Tümünü kabul et\" veya \"Tercihleri ayarla\" seçenekleriyle analiz ve reklam çerezlerini birlikte ya da ayrı ayrı kabul edebilir veya reddedebilirsiniz. Tercihinizi, internet sitesinin alt kısmındaki \"Çerez Tercihleri\" bağlantısından dilediğiniz zaman değiştirebilirsiniz. Onayınızı geri almanız hâlinde bu çerezler kullanılmaz ve sitemiz tarafından tarayıcınıza yazılmış olanlar silinir."
     },
     {
       "t": "h2",
