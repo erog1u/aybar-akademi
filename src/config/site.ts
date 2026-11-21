@@ -37,7 +37,8 @@ export const siteConfig = {
   },
   logos: {
     emblem: assetPath("/images/logo-seal.png"),
-    full: assetPath("/images/logo-full.png"),
+    // Eski "AYBAR AKADEMİ" logosu kullanılmaz; güncel logo yalnız logo-seal.png.
+    full: assetPath("/images/logo-seal.png"),
     original: assetPath("/images/logo-original.jpg"),
   },
   contact: {

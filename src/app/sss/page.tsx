@@ -59,12 +59,12 @@ export default function SssPage() {
       <header className="border-b border-cobalt-900/10 bg-white">
         <div className="mx-auto flex max-w-4xl flex-col items-center px-4 pb-10 pt-8 text-center sm:px-6 sm:pb-14 sm:pt-12">
           <img
-            src={siteConfig.logos.full}
+            src={siteConfig.logos.emblem}
             alt="AYBARİst AKADEMİ logosu"
-            width={640}
-            height={614}
+            width={768}
+            height={768}
             fetchPriority="high"
-            className="h-auto w-40 sm:w-52"
+            className="h-auto w-36 sm:w-44"
           />
           <p className="mt-6 max-w-3xl text-balance text-xl font-bold leading-snug text-cobalt-950 sm:text-2xl lg:text-[28px]">
             <BrandText>{sssSlogan.before}</BrandText>
