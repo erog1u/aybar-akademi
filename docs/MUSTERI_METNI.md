@@ -229,3 +229,9 @@ EK (16.11.2026): Reklam ajansının (Brandlydijital & Digitalworks) isteği ve B
 ## EK (17.11.2026): Reklam ölçümü ve yasal metinler
 Reklam ajansının (Brandlydijital & Digitalworks.tr) isteğiyle Google Tag Manager (GTM-W7DQ2MDB) eklendi. Etiketler yalnız ziyaretçi çerez penceresinde "Kabul et" derse yüklenir; "Reddet" ve alt bilgideki "Çerez Tercihleri" bağlantısı var. Teklif formu gönderiminde, onay varsa `form_basarili` olayı gönderilir (form verisi gönderilmez).
 Bu nedenle Çerez Politikası ve KVKK Aydınlatma Metni'ne Google Ads / Google Analytics ve açık rıza bölümleri eklendi (son güncelleme 17 Kasım 2026). Değişiklik Bahadır Bey'in bilgisiyle yapıldı; avukatın son kontrolüne gönderilmesi önerildi.
+
+## EK (21.11.2026): SSS sayfası ve iki yeni görsel
+Bahadır Bey'in WhatsApp ile gönderdiği metin. Sayfa: /sss. Metin `src/data/sss.ts` içinde birebir duruyor; yalnız boşluk/noktalama ve marka yazımı (AYBARİst AKADEMİ) düzeltildi, "linkinde/linkinden" geçen yerler bağlantı yapıldı.
+- Sayfanın en üstünde kurum logosu, altında slogan: "AYBARİst AKADEMİ'de geleneksel kalıplarla değil, başarısız olma olasılığını sıfırlayan yöntemlerle zirveye birlikte çıkalım" (AYBAR mavi, İst kırmızı; "başarısız olma olasılığını sıfırlayan" kalın ve kırmızı).
+- Müşterinin gönderdiği iki görsel (defterli öğrenciler) SSS sayfasında ve ana sayfa kayan görsellerinde kullanıldı: `/images/sss-universite-ogrencileri.jpg`, `/images/sss-ortaokul-ogrencileri.jpg`.
+- Ana sayfa slayt sloganları: 6. slayt SSS sloganı, 7. slayt İletişim sloganı (müşterinin kendi metinleri).

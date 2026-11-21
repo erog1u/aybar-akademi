@@ -67,6 +67,7 @@ export const siteConfig = {
     { label: "Eğitim Programlarımız", href: "/egitim-programlarimiz" },
     { label: "Eğitim Modelimiz", href: "/egitim-modelimiz" },
     { label: "Neden Farklıyız?", href: "/neden-farkliyiz" },
+    { label: "SSS", href: "/sss" },
     { label: "İletişim", href: "/iletisim" },
   ],
 } as const;
