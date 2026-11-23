@@ -7,6 +7,8 @@ import { assetPath } from "@/config/site";
 // Önizleme: adres sonuna ?10kasim ya da ?ogretmenler eklenir.
 type Day = {
   date: string; // AA-GG
+  /** Yalnız o yıl için ek günler (YYYY-AA-GG). */
+  extra?: string[];
   preview: string;
   img: string;
   alt: string;
@@ -31,6 +33,7 @@ const DAYS: Day[] = [
   },
   {
     date: "11-24",
+    extra: ["2026-11-23"], // Taha 23.11.2026: hemen yayında olsun
     preview: "ogretmenler",
     img: "/images/ogretmenler-gunu.jpg",
     alt: "Mustafa Kemal Atatürk sınıfta kara tahtanın önünde öğrencilerle. Üzerinde: Bir öğretmen, binlerce hayata dokunur; Öğretmenler Günümüz kutlu olsun.",
@@ -43,7 +46,7 @@ const DAYS: Day[] = [
 ];
 
 const today = () =>
-  new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul", month: "2-digit", day: "2-digit" }).format(new Date());
+  new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 
 export default function CommemorationDialog() {
   const ref = useRef<HTMLDialogElement>(null);
@@ -52,7 +55,7 @@ export default function CommemorationDialog() {
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
     const preview = DAYS.find((d) => q.has(d.preview));
-    const d = preview ?? DAYS.find((x) => x.date === today());
+    const d = preview ?? DAYS.find((x) => today().endsWith(x.date) || !!x.extra?.includes(today()));
     if (!d) return;
     const key = `aybar-ozel-gun-${d.date}`;
     try {
